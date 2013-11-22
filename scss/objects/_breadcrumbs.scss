@@ -1,0 +1,9 @@
+.breadcrumbs {
+    > li {
+        @extend %inline-block;
+        &+li:before {
+            content: "/\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+            padding: 0 5px;
+        }
+    }
+}

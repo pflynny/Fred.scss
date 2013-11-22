@@ -1,0 +1,114 @@
+/** 2. Header styles
+ * ----------------------------------------------------------------------------
+ * NOTE: These can change per project depending on what font etc you use :) 
+ *
+ */
+
+.h0 {
+    @extend .font-size-xxxxl;
+}
+
+h1, 
+.h1 {
+
+    @extend .font-size-xxxl;                   
+    line-height: $line-height-xxxl;
+    margin-top: px-to-em($bs--m, $font-size-xxxl);              
+}
+
+h2, 
+.h2 {
+    @extend .mb--0;
+    @extend .font-size-xxl;                    
+    line-height: $line-height-xxl;
+    margin-top: px-to-em($bs--m, $font-size-xxl);                  
+}
+
+h3, 
+.h3 {
+    @extend .mb--0;
+    @extend .font-size-xl;
+    line-height: $line-height-xl;
+    margin-top: px-to-em($bs--m, $font-size-xl);
+}
+
+h4, 
+.h4 {
+    @extend .mb--0;
+    @extend .font-size-m;
+    line-height: $line-height-m;
+    margin-top: px-to-em($bs--m, $font-size-m);
+}
+
+h5, 
+.h5 {
+    @extend .mb--0;
+    @extend .font-size-s;
+    line-height: $line-height-s;
+    margin-top: px-to-em($bs--xs, $font-size-s);
+}
+
+h6, 
+.h6 {
+    @extend .mb--0;
+    @extend .font-size-xs;
+    line-height: $line-height-xs;
+    margin-top: px-to-em($bs--xs, $font-size-xs);
+}
+
+/**
+ *  
+ * ----------------------------------------------------------------------------
+ */
+
+p, 
+.text, 
+li,code {
+    @extend .mb--0;
+    @extend .font-size-xs;
+    line-height: $line-height-xs; 
+    margin-top: px-to-em($bs--xs, $font-size-xs);              
+}
+
+strong, 
+b {
+    .ie8 & {
+        @extend .font-primary--bold;
+    }
+}
+
+em, 
+i {
+    .ie8 & {
+        @extend .font-primary--italic;
+    }
+}
+
+
+/**
+ * 4. Typographic relationships (nawww, aren't they so good together?)
+ * ----------------------------------------------------------------------------
+ */
+
+h4 + h6,
+h4 + p,
+h5 + p {
+    margin-top: px-to-em($bs--xxs, $font-size-xs);               
+}
+
+p + p, 
+.list--styled li + li, 
+.list--styled-decimal li + li, 
+.list--styled-alpha li + li {
+    margin-top: px-to-em($bs--xxs, $font-size-xs);                           
+}
+
+
+
+
+
+
+
+
+
+

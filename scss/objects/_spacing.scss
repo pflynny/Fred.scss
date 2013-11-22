@@ -1,0 +1,66 @@
+$sizePrefixes: "--0", "--xxxs", "--xxs", "--xs", "--s", "--m", "--l", "--xl", "--xxl", "--xxxl";
+$sizes: $bs--0, $bs--xxxs, $bs--xxs, $bs--xs, $bs--s, $bs--m, $bs--l, $bs--xl, $bs--xxl, $bs--xxxl;
+$blockSizes: $block--xxxs, $block--xxs, $block--xs, $block--s, $block--m, $block--l, $block--xl, $block--xxl, $block--xxxl;
+
+
+// Spacing helpers
+// ----------------------------------------------------------------------------
+@mixin sizer($class, $prefixes, $property, $array) {
+    $index:1;
+    @each $prefix in $prefixes {
+        .#{$class + $prefix} { #{$property}: nth($array, $index)  }
+        $index: $index + 1;
+    }
+}
+
+@mixin spacing($margin: true, $padding: true) {
+    @if $margin {
+        @include sizer("m", $sizePrefixes,  "margin-top", $sizes);
+        @include sizer("mb", $sizePrefixes,  "margin-bottom", $sizes);
+        @include sizer("mr", $sizePrefixes,  "margin-right", $sizes);
+        @include sizer("ml", $sizePrefixes,  "margin-left", $sizes);
+    }
+
+    @if $padding {
+        @include sizer("p", $sizePrefixes,  "padding-top", $sizes);
+        @include sizer("pb", $sizePrefixes,  "padding-bottom", $sizes);
+        @include sizer("pr", $sizePrefixes,  "padding-right", $sizes);
+        @include sizer("pl", $sizePrefixes,  "padding-left", $sizes);
+    }
+}
+
+@mixin block(){
+//    @include sizer("block", $sizePrefixes,  "padding", $blockSizes);
+}
+
+@include spacing($margin: true, $padding: false);
+
+//@include sizer("block", $sizePrefixes,  "padding", $blockSizes);
+//@include block();
+
+/**
+ * Responsive spacing elements
+ * ----------------------------------------------------------------------------
+ */
+
+@include media('skinny') {
+    @include sizer("m-skinny", $sizePrefixes,  "margin-top", $sizes);
+}
+
+@include media('mobile') {
+    @include sizer("m-small", $sizePrefixes,  "margin-top", $sizes);
+}
+
+
+/**
+ * Responsive blocks
+ * ----------------------------------------------------------------------------
+ */
+
+@include media('skinny') {
+    @include sizer("block-skinny", $sizePrefixes,  "padding", $sizes);
+}
+
+@include media('mobile') {
+    @include sizer("block-small", $sizePrefixes,  "padding", $sizes);
+}
