@@ -1,13 +1,14 @@
 // Fred core
 @import
     'helpers/mixins',
+    'helpers/breakpoints',
     'variables',
     'objects/core';
 
 // Fred objects
 @import
     'objects/grid',
-    'objects/spacing',
+    'objects/blocks',
     'objects/typography',
     'objects/lists',
     'objects/icon-text',
@@ -19,4 +20,5 @@
     'objects/breadcrumbs',
     'objects/buttons',
     'objects/headings',
-    'objects/forms';
+    'objects/forms',
+    'objects/spacing';

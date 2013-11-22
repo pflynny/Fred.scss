@@ -1,17 +1,10 @@
 /**
  * 3. Generic blocks
  * ----------------------------------------------------------------------------
-
  */
 
-// making sure the first element has no margin on it
-%block {
-    & > :first-child {
-         margin-top:0;
-    }
-    @extend .clearfix;
-    margin-top:1em;
-}
+$blockSizes: $block--xxxs, $block--xxs, $block--xs, $block--s, $block--m, $block--l, $block--xl, $block--xxl, $block--xxxl, $block--xxxl;
+
 
 .block--stacked {
    //only use this id we don't want a top margin on it
@@ -28,6 +21,29 @@
     .block--xxl, 
     .block--xxxl {
         @extend %block;
+        > :first-child {
+            margin-top:0;
+        }
     }
 
 
+// making sure the first element has no margin on it
+%block {
+    @extend .clearfix;
+    margin-top:1em;
+}
+
+@include sizer("block", $sizePrefixes,  "padding", $blockSizes);
+
+/**
+ * Responsive blocks
+ * ----------------------------------------------------------------------------
+ */
+
+@include media('medium') {
+    @include sizer("block-skinny", $sizePrefixes,  "padding", $sizes);
+}
+
+@include media('small') {
+    @include sizer("block-small", $sizePrefixes,  "padding", $sizes);
+}

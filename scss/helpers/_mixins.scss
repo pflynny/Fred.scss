@@ -16,46 +16,6 @@
 }
 
 
-// Test one move this when you add images
-.img-rounded {
-    @include vendor(border-radius, 50% 50% 50% 50%);
-}
-
-
-// Breakpoints
-// Define these in variables file?
-
-@mixin media($breakpoint) {
-    @if $breakpoint == "mobile" {
-        @media only screen and (max-width: $mobile) {
-            @content;
-        }
-    } @else if $breakpoint == "skinny-down" {
-        @media only screen and (max-width: $skinny){
-           @content;
-        } 
-    
-    } @else if $breakpoint == "skinny" {
-        @media only screen and (min-width: $skinny-min) and (max-width: $skinny){
-           @content;
-        } 
-    } @else if $breakpoint == "skinny-up" {
-        @media only screen and (min-width: $skinny) {
-           @content;
-        } 
-    
-     } @else if $breakpoint == "desktop-up" {
-        @media only screen and (min-width: $desktop){
-           @content;
-        }  
-    } @else if $breakpoint == "wide" {
-        @media only screen and (min-width: $wide) {
-           @content;
-        }  
-    }
-}
-
-
 // Opacity
 // ----------------------------------------------------------------------------
 
@@ -142,4 +102,14 @@
 
 @function pxem($size, $context: 16) {
     @return #{($size / $context)}em;
+}
+
+// Spacing helpers
+// ----------------------------------------------------------------------------
+@mixin sizer($class, $prefixes, $property, $array) {
+    $index:1;
+    @each $prefix in $prefixes {
+        .#{$class + $prefix} { #{$property}: nth($array, $index)  }
+        $index: $index + 1;
+    }
 }

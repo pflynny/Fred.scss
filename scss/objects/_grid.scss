@@ -10,22 +10,23 @@
 .grid {
     text-align: justify;                /* [1] */
     font-size: 0;                       /* [2] */
-    text-justify: distribute-all-lines; /* [3] */
-    //not sure if we need the last line as it stuffs up text align:center!!!! 
+    // text-justify: distribute-all-lines; /* [3] */
+
+    // Not sure if we need the last line as it stuffs up text align:center
     .ie8 & {
-        //this fixes and issue mentioned above
+        // This fixes and issue mentioned above
         text-justify:normal;
     }
-    
 }
 
-    .grid > *{
+    .grid > * {
         @extend .grid__item;
     }
 
+    // Font-size medium reset the block to the context of body (ie, 16px)
     .grid__item {
         @extend .inline-block;
-        font-size:14px;
+        font-size: medium;
         text-align: left;
         vertical-align: top;
     }
@@ -38,7 +39,6 @@
         width:100%;
     }
 
-
     /**
      * Vertical align these grid items in the middle!
      */
@@ -46,143 +46,64 @@
         vertical-align: middle;
     }
 
-
-
-
-.g--1-1{
+// Sometimes you don't want an inline block grid, you want a float grid.
+// Fred doesn't mind :)
+.grid-float {
+    @extend %clearfix;
     width: 100%;
 }
-.g--1-2 {
-    width: 50%;
-}
-.g--1-3 {
-    width: 33%;
-}
-.g--1-4 {
-    width: 25%;
-}
-.g--3-4 {
-    width: 75%;
-}
 
-//percentages
-.g--60{
-    width: 60%;
-}
-.g--40{
-    width: 40%;
-}
-.g--80{
-    width: 80%;
-}
-.g--20{
-    width: 20%;
+    .grid-float > * {
+        float: left;
+    }
+
+@mixin grid-columns($name: $grid-column-name, $stops: 10, $fractional: false) {
+
+    @for $i from 1 to $stops {
+        $colName: $i;
+        $width: $i / $stops * 100;
+        @if $fractional {
+            $colName: floor($width);
+        }
+        .#{$name}-#{$colName} {
+            width: #{$width + "%"};
+        }
+    }
 }
 
 
-/**
- * Grid - this is used with the inline grid in interim.scss .grid and .grid__item etc
- * I changed the names so they relate to the breakpoints above
- * ----------------------------------------------------------------------------
- */
-//.grid {}
-//.grid__item {}
+// Non-responsive browsers
+@include grid-columns($stops: 10, $fractional: true);
+@include grid-columns($stops: 4, $fractional: true);
+@include grid-columns($stops: 3, $fractional: true);
 
-//desktop grid //default
+.#{$grid-column-name} {
+    width: 100%;
+}
 
-
-//Grid for 'wide' breakpoint
-@include media('wide') {
-
-    //fractions
-    .g-w--1-1{
+// Mobile first!
+@include media("") {
+    @include grid-columns($name: $grid-column-name-small, $stops: 4, $fractional: true);
+    @include grid-columns($name: $grid-column-name-small, $stops: 3, $fractional: true);
+    .#{$grid-column-name-small} {
         width: 100%;
     }
-    .g-w--1-2 {
-        width: 50%;
-    }
-    .g-w--1-4 {
-        width: 25%;
-    }
-    .g-w--1-3 {
-        width: 33%;
-    }
+}
 
-    //percentages
-    .g-w--60 {
-        width: 60%;
-    }
-    .g-w--40 {
-        width: 40%;
-    }
-    .g-w--80 {
-        width: 80%;
-    }
-    .g-w--20 {
-        width: 20%;
+@include media("medium") {
+    @include grid-columns($name: $grid-column-name-medium, $stops: 5, $fractional: true);
+    @include grid-columns($name: $grid-column-name-medium, $stops: 4, $fractional: true);
+    @include grid-columns($name: $grid-column-name-medium, $stops: 3, $fractional: true);
+    .#{$grid-column-name-medium} {
+        width: 100%;
     }
 }
 
-//Grid for 'skinny' breakpoint
-@include media('skinny-only') {
-
-    //fractions
-    .g-s--1-1{
+@include media('large') {
+    @include grid-columns($name: $grid-column-name-large, $stops: 7, $fractional: true);
+    @include grid-columns($name: $grid-column-name-large, $stops: 4, $fractional: true);
+    @include grid-columns($name: $grid-column-name-large, $stops: 3, $fractional: true);
+    .#{$grid-column-name-large} {
         width: 100%;
-    }
-    .g-s--1-2 {
-        width: 50%;
-    }
-    .g-s--1-4 {
-        width: 25%;
-    }
-    .g-s--1-3 {
-        width: 33%;
-    }
-
-    //percentages
-    .g-s--60 {
-        width: 60%;
-    }
-    .g-s--40 {
-        width: 40%;
-    }
-    .g-s--80 {
-        width: 80%;
-    }
-    .g-s--20 {
-        width: 20%;
-    }
-}
-
-//Grid for 'skinny' breakpoint
-@include media('mobile-only') {
-
-    //fractions
-    .g-m--1-1{
-        width: 100%;
-    }
-    .g-m--1-2 {
-        width: 50%;
-    }
-    .g-m--1-4 {
-        width: 25%;
-    }
-    .g-m--1-3 {
-        width: 33%;
-    }
-
-    //percentages
-    .g-m--60 {
-        width: 60%;
-    }
-    .g-m--40 {
-        width: 40%;
-    }
-    .g-m--80 {
-        width: 80%;
-    }
-    .g-m--20 {
-        width: 20%;
     }
 }

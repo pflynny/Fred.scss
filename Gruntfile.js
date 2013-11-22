@@ -8,7 +8,6 @@ module.exports = function(grunt) {
                     "scss/helpers/*.scss",
                     "scss/objects/_core.scss",
                     "scss/objects/_grid.scss",
-                    "scss/objects/_spacing.scss",
                     "scss/objects/_typography.scss",
                     "scss/objects/_arrows.scss",
                     "scss/objects/_badge.scss",
@@ -18,10 +17,12 @@ module.exports = function(grunt) {
                     "scss/objects/_forms.scss",
                     "scss/objects/_headings.scss",
                     "scss/objects/_icon-text.scss",
+
                     "scss/objects/_images.scss",
                     "scss/objects/_lists.scss",
                     "scss/objects/_media.scss",
-                    "scss/objects/_radii.scss"
+                    "scss/objects/_radii.scss",
+                    "scss/objects/_spacing.scss"
                 ],
                 dest: "dist/fred.scss"
             }

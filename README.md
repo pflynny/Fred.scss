@@ -6,3 +6,8 @@ You can build a custom package by running `grunt <module-name> <other-module-nam
 
 Grunt will make a `dist/fred.scss`, and compiled `dist/fred.css` for your project.
 
+
+
+## Installation
+
+Run `npm install` to set up all Fred's dependencies

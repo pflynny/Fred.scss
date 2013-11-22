@@ -71,22 +71,25 @@
 }
 
 %clearfix{
-	&:before,
-	&:after {
-	    content: " "; /* 1 */
-	    display: table; /* 2 */
-	}
-
-	&:after {
-	    clear: both;
-	}
-	
 	/**
 	 * For IE 6/7 only
 	 * Include this rule to trigger hasLayout and contain floats.
 	 */
 	*zoom: 1;
 }
+
+%clearfix:before {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+%clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+
+
 
 .clearfix           { @extend %clearfix; }
 .overflow-hidden    { overflow: hidden; }
@@ -132,9 +135,8 @@
 .hide { @extend %hide; }
 .show { @extend %show; }
 
-
-%visible    {display: block !important;}
-%hidden     {display: none !important;}
+%visible    {visibility: visible !important;}
+%hidden     {visibility: hidden !important;}
 
 /**
  * 1. Visible classes
@@ -142,27 +144,27 @@
  */
 .visible-mobile {
     @extend %hide;
-    @include media('mobile-only') {
+    @include media('small') {
         display: block !important;
     }
 }
 
 .visible-skinny {
     @extend %hide;
-    @include media('skinny-only') {
+    @include media('medium') {
         display: block !important;
     }
 }
 
 .visible-desktop {
-    @include media('skinny-down') {
+    @include media('medium-down') {
         display: none;
     }
 }
 
 .visible-wide {
     @extend %hide;
-    @include media('wide') {
+    @include media('xlarge') {
         //@extend %visible;
         display: block !important;
     }
@@ -174,14 +176,14 @@
  */
 .hidden-mobile {
     @extend %show;
-    @include media('mobile-only') {
+    @include media('small') {
         display: none !important;
     }
 }
 
 .hidden-skinny {
     @extend %show;
-    @include media('skinny-only') {
+    @include media('medium') {
         display: none !important;
     }
 }
@@ -192,7 +194,7 @@
 
 .hidden-wide {
     @extend %show;
-    @include media('wide') {
+    @include media('xlarge') {
         display: none !important;
     }
 }
