@@ -13,7 +13,7 @@
     "Springload"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/springload",
+  "homepage": "https://github.com/springload/fred.git",
   "ignore": [
     "**/.*",
     "node_modules",
