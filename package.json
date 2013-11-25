@@ -1,6 +1,6 @@
 {
   "name": "fred",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-sass": "~0.8.0",
