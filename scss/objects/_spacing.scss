@@ -22,10 +22,14 @@
  * ----------------------------------------------------------------------------
  */
 
-@include media('skinny') {
-    @include sizer("m-skinny", $sizePrefixes,  "margin-top", $sizes);
+@include media('xlarge') {
+    @include sizer("m-xlarge", $sizePrefixes,  "margin-top", $sizes);
 }
 
-@include media('mobile') {
+@include media('medium') {
+    @include sizer("m-medium", $sizePrefixes,  "margin-top", $sizes);
+}
+
+@include media('small') {
     @include sizer("m-small", $sizePrefixes,  "margin-top", $sizes);
 }
