@@ -41,7 +41,7 @@ $blockSizes: $block--xxxs, $block--xxs, $block--xs, $block--s, $block--m, $block
  */
 
 @include media('medium') {
-    @include sizer("block-skinny", $sizePrefixes,  "padding", $sizes);
+    @include sizer("block-medium", $sizePrefixes,  "padding", $sizes);
 }
 
 @include media('small') {
