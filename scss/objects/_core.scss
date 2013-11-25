@@ -86,6 +86,7 @@
 %clearfix:after {
     content: " "; /* 1 */
     display: table; /* 2 */
+    clear: both;
 }
 
 
