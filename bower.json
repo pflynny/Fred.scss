@@ -2,7 +2,7 @@
   "name": "Fred",
   "version": "0.0.8",
   "description": "A friend front-end framework",
-  "main": "dist/fred.scss",
+  "main": "dist/lib/fred.scss",
   "keywords": [
     "Sass",
     "css",
