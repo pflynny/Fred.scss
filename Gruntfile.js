@@ -1,32 +1,34 @@
 module.exports = function(grunt) {
 
-    var fred_core = ["scss/helpers/*.scss", "scss/objects/_core.scss"];
-    var objects = ["scss/objects/*.scss", "!scss/objects/_core.scss"];
+    var objects = ["scss/objects/*.scss"];
 
     grunt.initConfig({
 
-        fred_objects: ["scss/objects/_*.scss"],
-        fred_variables: "_fred-variables.scss",
+        fred_core: ["scss/_fred-defaults.scss", "scss/helpers/*.scss", "scss/_fred-core.scss"],
+        fred_objects: ["scss/objects/*.scss"],
+        fred_theme: "_fred-defaults.scss",
+        src_theme: "scss/_fred-defaults.scss",
+        fred_dist: "dist/fred.scss",
 
         concat: {
             core: {
-                src: ["scss/helpers/*.scss", "scss/objects/_core.scss"],
+                src: "<%= grunt.config('fred_core') %>",
                 dest: "build/fred.core.scss"
             },
             vars: {
-                src: ["scss/_variables.scss"],
-                dest: "build/_fred-variables.scss"
+                src: "<%= grunt.config('src_theme') %>",
+                dest: "dist/<%= grunt.config('fred_theme') %>"
             },
             objects: {
-                src: objects,
+                src: "<%= grunt.config('fred_objects') %>",
                 dest: "build/fred.objects.scss"
             },
             dist: {
                 src: ["build/fred.core.scss", "build/fred.objects.scss"],
-                dest: "dist/fred.scss"
+                dest: "<%= grunt.config('fred_dist') %>"
             },
             build: {
-                src: ["build/_fred-variables.scss", "dist/fred.scss"],
+                src: ["dist/fred.scss"],
                 dest: "build/fred.build.scss"
             }
         },
@@ -35,22 +37,17 @@ module.exports = function(grunt) {
         },
         copy: {
             build: {
-                src: "build/_fred-variables.scss",
-                dest: "dist/_fred-variables.scss"
+                src: "build/<%= grunt.config('fred_variables') %>",
+                dest: "dist/<%= grunt.config('fred_variables') %>"
             },
             install: {
-                // files: [{
-                    // expand: true,
-                    // cwd: "dist/",
-                    src: "dist/fred.scss",
-                    dest: "<%= copy.install.thing %>/lib/_fred.scss"
-                // }]    
+                src: "<%= grunt.config('fred_dist') %>",
+                dest: "<%= copy.install.fred %>/lib/_fred.scss"
             },
             vars: {
-                src: "dist/_fred-variables.scss",
-                dest: "<%= copy.install.thing %>/_fred-variables.scss"
+                src: "dist/<%= grunt.config('fred_variables') %>",
+                dest: "<%= copy.install.fred %>/_fred-theme.scss"
             }
-
         },
         sass: {
             dist: {
@@ -73,7 +70,7 @@ module.exports = function(grunt) {
         watch: {
             sass: {
                 files: ['scss/**/*.scss'],
-                tasks: ['sass', 'concat:sass'],
+                tasks: ['build'],
                 options: {
                     spawn: false
                 }
@@ -116,20 +113,23 @@ module.exports = function(grunt) {
                             default: true // default value if nothing is entered
                         },
                         {
-                            config: 'copy.install.thing', // arbitray name or config for any other grunt task
+                            config: 'copy.install.fred', // arbitray name or config for any other grunt task
                             type: 'text', // list, checkbox, confirm, input, password
                             message: 'Where would you like Fred deployed to?',
                             default: "www/assets/sass", // default value if nothing is entered
                             when: function(answers) {
                                 return answers['install_now'] === true;
-                            },
+                            }
                         },
                         {
                             config: 'copy.install.vars', // arbitray name or config for any other grunt task
                             type: 'confirm', // list, checkbox, confirm, input, password
                             message: 'Copy the variables file too (will replace your current variables)?',
-                            default: false // default value if nothing is entered
-                        },
+                            default: false, // default value if nothing is entered
+                            when: function(answers) {
+                                return answers['install_now'] === true;
+                            }
+                        }
 
                     ]
                 }
@@ -144,9 +144,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-prompt');
 
-
     grunt.registerTask("installer", function() {
-        var dest = grunt.config('copy.install.thing');
+        var dest = grunt.config('copy.install.fred');
         var vars = grunt.config('copy.install.vars');
 
             if (dest) {
@@ -157,23 +156,23 @@ module.exports = function(grunt) {
             } else {
                 return true;
             }
-
     });
 
-    // grunt.registerTask('default', ['sass', 'concat:core', "concat:objects", "concat:dist", "clean:dist"]);
-
     grunt.registerTask('default', [
-        "prompt:build",
+        'prompt:build',
+        'build',
+        'prompt:install',
+        'installer'
+    ]);
+
+    grunt.registerTask('build', [
         'concat:vars',
         'concat:core',
-        "concat:objects",
-        "concat:dist",
-        "concat:build",
-        "copy:build",
-        "sass:build",
-        "clean:build",
-        "prompt:install",
-        "installer"
-        ]);
-
+        'concat:objects',
+        'concat:dist',
+        'concat:build',
+        'copy:build',
+        'sass:build',
+        'clean:build'
+    ]);
 };

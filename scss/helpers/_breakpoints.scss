@@ -1,5 +1,44 @@
 // Breakpoints
 
+$breakpoints:
+    (
+        small "only screen and max-width: #{$breakpoint-small}"
+    ),
+    (
+        medium "only screen and min-width: #{$breakpoint-medium}"
+    ),
+    (
+        medium-down "only screen and max-width: #{$breakpoint-medium}"
+    ),
+    (
+        medium-only "only screen and max-width: #{$breakpoint-medium}"
+    ),
+    (
+        large "only screen and max-width:"
+    ),
+    (
+        xlarge "only screen and max-width:"
+    ),
+    (
+        screen "only screen and max-width:"
+    ),
+    (
+        landscape "only screen and max-width:"
+    ),
+    (
+        portrait "only screen and max-width:"
+    )
+;
+
+
+@each $query in $breakpoints {
+    .#{nth($query, 1)} {
+        content: nth($query, 2);
+    }
+}
+
+
+
 @mixin media($breakpoint) {
     @if $breakpoint == "small" {
         @media only screen and (max-width: $breakpoint-small) {
