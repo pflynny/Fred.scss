@@ -1,29 +1,33 @@
-// ----------------------------------------------------------------------------
-// FRED front-end framework
-// ----------------------------------------------------------------------------
-// Structure:
-//
-// Typography - Font familys
-// Typography - Line height
-// Typography - Font sizes
-// Layout - Spacing
+// ============================================================================
+// FRED
+// ============================================================================
+// 
+// Friendly front-end framework.
+// 
+// Made by Springload
+// 
+// With guest appearances from Inuit.css, Twitter Bootstrap and Foundation
 
+
+// ----------------------------------------------------------------------------
 // Typography
 // ----------------------------------------------------------------------------
 
 $sans-serif-stack:              'Open Sans', sans-serif;
 $serif-stack:                   "georgia", serif;
 
-$font-primary:                   $sans-serif-stack; //primary        
+$font-primary:                   $sans-serif-stack;
+
+// These variables are used to describe the font-family you want to serve
+// to IE8 and other detestable browers that don't entirely support
+// fonts with more than four variations. 
+      
 $font-primary-italic:            $sans-serif-stack;
 $font-primary-bold:              $sans-serif-stack;
 $font-primary-bold-italic:       $sans-serif-stack;
 
-//$font-secondary:; 
-//$font-secondary-italic:;
-//$font-secondary-bold::
-//$font-secondary-bold-italic;;     
-//$font-tertiary:; ...
+// Specify some font sizes to get your project rolling. These are predominantly
+// used by _typography.scss and _forms.scss
 
 $font-size-xxxxl:               72;     //h0
 $font-size-xxxl:                36;     //h1
@@ -36,27 +40,32 @@ $font-size-xs:                  14;     //p
 $font-size-xxs:                 12;     //.small
 $font-size-xxxs:                11;     //.tiny
 
-// Typography - Line height
 $base-line-height:              1.428571429; // 20/14
 
+$line-height-xxxxl:               1;                //h0
+$line-height-xxxl:                1;                //h1
+$line-height-xxl:                 1.2;              //h2
+$line-height-xl:                  1.2;              //h3
+$line-height-l:                   1.33333333;       //h4
+$line-height-m:                   1.2;              //h5
+$line-height-s:                   1.2;              //h6 & .intro
+$line-height-xs:                  1.5;              //p
+$line-height-xxs:                 1.4;              //.small
+$line-height-xxxs:                1.4;              //.tiny
 
-$line-height-xxxxl:               1;     //h0
-$line-height-xxxl:                1;     //h1
-$line-height-xxl:                 1.2;     //h2
-$line-height-xl:                  1.2;     //h3
-$line-height-l:                   1.33333333;     //h4
-$line-height-m:                   1.2;    //h5
-$line-height-s:                   1.2;     //h6 & .intro
-$line-height-xs:                  1.5;     //p
-$line-height-xxs:                 1.4;     //.small
-$line-height-xxxs:                1.4;     //.tiny
 
-
-// Layout - Spacing: she's a fickle mistress.
+// ----------------------------------------------------------------------------
+// Spacing
 // ----------------------------------------------------------------------------
 
-$base-spacing-unit:             1.5em; // 24px
+// Everything inherits from the base spacing unit. Pick this number wisely. 
+// It should probably relate somehow to your line-height;
 
+$base-spacing:                  24;
+$base-spacing-unit:             1.5em;
+
+
+// Compute a range of expansions to the base spacing, to use in our mixins:
 
 $bs--0:                         0;
 $bs--xxxs:                      $base-spacing-unit / 4;     // 6px
@@ -69,21 +78,11 @@ $bs--xl:                        $base-spacing-unit * 2;     // 48px
 $bs--xxl:                       $base-spacing-unit * 3;     // 72px
 $bs--xxxl:                      $base-spacing-unit * 4;     // 96px
 
-$base-spacing: 24;
 $base-spacing--xs:  $base-spacing / 2;
 
-// Layout - blocks
-// -----------------------------------------------------------------------------
-
-$block--xxxs:                   $bs--xxxs  $bs--xxxs;        // 6px 6px
-$block--xxs:                    $bs--xxxs $bs--xxs;         // 6px 8px
-$block--xs:                     $bs--xxs $bs--xs;           // 8px 12px
-$block--s:                      $bs--xs $bs--s;             // 12px 16px
-$block--m:                      $bs--m $bs--m;              // 24px 24px
-$block--l:                      $bs--l $bs--l;              // 36px 36px
-$block--xl:                     $bs--l $bs--xl;             // 36px 48px
-$block--xxl:                    $bs--xl $bs--xxl;           // 48px 72px
-$block--xxxl:                   $bs--xxl $bs--xxxl;         // 72px 96px
+// Build some SaSS lists of our spacing classes, and map them to 
+// a consistent set of class modifiers so that anything we size
+// has a consistent naming convention:
 
 $sizePrefixes:
     "-0",
@@ -109,6 +108,21 @@ $sizes:
     $bs--xxl,
     $bs--xxxl;
 
+
+// -----------------------------------------------------------------------------
+// Blocks
+// -----------------------------------------------------------------------------
+
+$block--xxxs:                   $bs--xxxs  $bs--xxxs;        // 6px 6px
+$block--xxs:                    $bs--xxxs $bs--xxs;         // 6px 8px
+$block--xs:                     $bs--xxs $bs--xs;           // 8px 12px
+$block--s:                      $bs--xs $bs--s;             // 12px 16px
+$block--m:                      $bs--m $bs--m;              // 24px 24px
+$block--l:                      $bs--l $bs--l;              // 36px 36px
+$block--xl:                     $bs--l $bs--xl;             // 36px 48px
+$block--xxl:                    $bs--xl $bs--xxl;           // 48px 72px
+$block--xxxl:                   $bs--xxl $bs--xxxl;         // 72px 96px
+
 $blockSizes:
     $block--xxxs,
     $block--xxs,
@@ -126,7 +140,20 @@ $blockSizes:
 // Media queries
 // -----------------------------------------------------------------------------
 
-// Media query prefixes
+// General approach to media queries:
+// - Assume `no media` as the first query.
+// - The `small` breakpoint just gets @media only screen { @content }
+// - `small-only` applies a max-width to prevent an upward cascade. 
+//
+// Sizing guide:
+// 
+// xsmall       | small mobiles, fridges, watches etc
+// small        | mobiles, some internet-of-things displays
+// medium       | tablet devices, netbooks, mobiles in landscape
+// large        | screens > 960px
+// xlarge       | wide screen devices > 1200px
+// xxlarge      | in our experience, things need adjusting > 1440px
+// xxxlarge     | Full HD 
 
 $breakpoint-none:"";
 $breakpoint-xxlarge-name: "xxlarge";
@@ -136,12 +163,21 @@ $breakpoint-medium-name: "medium";
 $breakpoint-small-name: "small";
 $breakpoint-classname-prefix: "--q-";
 
-$breakpoint-xsmall:     25em;
-$breakpoint-small:      30em; // Portrait regular mobiles//480px
-$breakpoint-medium:     48em; // Skinny 768px
-$breakpoint-large:      60em; // Desktop 960px
-$breakpoint-xlarge:     75em; // Wide 1200px
-$breakpoint-xxlarge:    87.5em; // Wide 1200px
+// Set media queries in ems. If you're wondering, we add 0.01em 
+// to the next breakpoint up, so that the breakpoints don't
+// overlap. For instance:
+// 
+// @media only screen and (max-width: 48em);
+// Next query: 
+// @media only screen and (min-width: 48.01em);
+
+$breakpoint-xsmall:     25em;   // The mighty LG Android!
+$breakpoint-small:      30em;   // Portrait regular mobiles//480px
+$breakpoint-medium:     48em;   // Skinny 768px
+$breakpoint-large:      60em;   // Desktop 960px
+$breakpoint-xlarge:     75em;   // Wide 1200px
+$breakpoint-xxlarge:    90em;   // Wide 1440px
+$breakpoint-xxxlarge:   120em;  // Full HD
 
 
 // -----------------------------------------------------------------------------
@@ -153,15 +189,34 @@ $grid-column-name:          "col";
 $grid-divisions:            3, 4, 5, 10;
 $grid-float-padding:        1em; // false to disable.
 
+// -----------------------------------------------------------------------------
+// Fred module config
+// -----------------------------------------------------------------------------
 
+// These instruct Fred on how to generate just the bits you want.
 
-//$grid-column-name-small:    "column-#{$breakpoint-classname-prefix + $breakpoint-small-name}";
-//$grid-column-name-medium:   "column-#{$breakpoint-classname-prefix + $breakpoint-medium-name}";
-//$grid-column-name-large:    "column-#{$breakpoint-classname-prefix + $breakpoint-large-name}";
-//$grid-column-name-xlarge:   "column-#{$breakpoint-classname-prefix + $breakpoint-xlarge-name}";
-//$grid-column-name-xxlarge:  "column-#{$breakpoint-classname-prefix + $breakpoint-xxlarge-name}";
+// Make a range of blocks for the given breakpoints
+$fred-block-breakpoints: default, small, medium, large;
 
+// Generate margin classes for the given breakpoints
+// 
+// mt   | margin-top
+// mb   | margin-bottom
+// mr   | margin-right
+// ml   | margin-left
 
+$fred-margin-breakpoints: default, small, medium, large;
+$fred-margin-types: "mt", "mb";
+
+// Generate padding classes for the given breakpoints
+// 
+// pt   | padding-top
+// pb   | padding-bottom
+// pr   | padding-right
+// pl   | padding-left
+
+$fred-padding-breakpoints: default, small, medium, large;
+$fred-padding-types: "pt";
 
 // -----------------------------------------------------------------------------
 // Colours
@@ -183,19 +238,3 @@ $text-warning:                  #c09853;
 $text-danger:                   #b94a48;
 $text-muted:                    #999;
 
-
-
-// -----------------------------------------------------------------------------
-// Fred config
-// -----------------------------------------------------------------------------
-
-// These instruct Fred on how to compile just the bits you want.
-
-
-$fred-block-breakpoints: default, small, medium, large;
-
-$fred-margin-breakpoints: default, small, medium, large;
-$fred-margin-types: "mt", "mb";
-
-$fred-padding-breakpoints: default, small, medium, large;
-$fred-padding-types: "pt";
