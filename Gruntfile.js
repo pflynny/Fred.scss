@@ -1,33 +1,29 @@
 module.exports = function(grunt) {
 
+    var fred_core = ["scss/_variables.scss", "scss/helpers/*.scss", "scss/objects/_core.scss"];
+    var objects = ["scss/objects/*.scss", "!scss/objects/_core.scss"];
+
     grunt.initConfig({
 
         fred_objects: ["scss/objects/_*.scss"],
+        custom: false,
 
         concat: {
-            fred: {
-                src: [
-                    "scss/_variables.scss",
-                    "scss/helpers/*.scss",
-                    "scss/objects/_core.scss",
-                    "scss/objects/_grid.scss",
-                    "scss/objects/_typography.scss",
-                    "scss/objects/_arrows.scss",
-                    "scss/objects/_badge.scss",
-                    "scss/objects/_blocks.scss",
-                    "scss/objects/_breadcrumbs.scss",
-                    "scss/objects/_buttons.scss",
-                    "scss/objects/_forms.scss",
-                    "scss/objects/_headings.scss",
-                    "scss/objects/_icon-text.scss",
-                    "scss/objects/_images.scss",
-                    "scss/objects/_lists.scss",
-                    "scss/objects/_media.scss",
-                    "scss/objects/_radii.scss",
-                    "scss/objects/_spacing.scss"
-                ],
+            core: {
+                src: ["scss/_variables.scss", "scss/helpers/*.scss", "scss/objects/_core.scss"],
+                dest: "build/fred.core.scss"
+            },
+            objects: {
+                src: objects,
+                dest: "build/fred.objects.scss"
+            },
+            dist: {
+                src: ["build/fred.core.scss", "build/fred.objects.scss"],
                 dest: "dist/fred.scss"
             }
+        },
+        clean: {
+            dist: ["build"]
         },
         sass: {
             dist: {
@@ -61,19 +57,25 @@ module.exports = function(grunt) {
                 options: {
                     questions: [
                         {
-                            config: 'concat.fred.src', // arbitray name or config for any other grunt task
+                            config: 'custom', // arbitray name or config for any other grunt task
+                            type: 'confirm', // list, checkbox, confirm, input, password
+                            message: 'Do you want to customise Fred\'s modules?',
+                            default: false // default value if nothing is entered
+                        },
+                        {
+                            config: 'concat.objects.src', // arbitray name or config for any other grunt task
                             type: 'checkbox', // list, checkbox, confirm, input, password
                             message: 'Which modules would you like to include?',
                             default: 'value', // default value if nothing is entered
+                            when: function(answers) {
+                                return answers['custom'] === true;
+                            },
                             choices: function(answers) {
-                                var answers = grunt.file.expand(["scss/objects/_*.scss"]);
-                                console.log(answers);
+                                var answers = grunt.file.expand(objects);
+                                // answers.unshift({name: "Gimme everythang!", value: objects})
                                 return answers;
                             }
-//                            validate: function(value), // return true if valid, error message if invalid
-//                            filter:  function(value), // modify the answer
-//                            when: function(answers) // only ask this question when this function returns true
-                        }
+                       }
                     ]
                 }
             },
@@ -82,10 +84,12 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-prompt');
-    grunt.registerTask('default', ['sass', 'concat:fred']);
 
-    grunt.registerTask('build', ["prompt:build", "concat:fred", "sass:build"]);
+    // grunt.registerTask('default', ['sass', 'concat:core', "concat:objects", "concat:dist", "clean:dist"]);
+
+    grunt.registerTask('default', ["prompt:build", 'concat:core', "concat:objects", "concat:dist", "clean:dist", "sass:build"]);
 
 };
