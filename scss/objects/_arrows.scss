@@ -57,7 +57,7 @@
     .arrow--center .arrow {
         left:0;
         right:0;
-        @extend %center-element 
+        @extend %center-element;
     }
 
     .arrow--left .arrow {
