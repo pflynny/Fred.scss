@@ -2136,16 +2136,16 @@ hr {
 .lowercase {
   text-transform: lowercase; }
 
-.text-align--left {
+.text-left {
   text-align: left; }
 
-.text-align--right {
+.text-right {
   text-align: right; }
 
-.text-align--center {
+.text-center {
   text-align: center; }
 
-.text--nowrap {
+.text-nowrap {
   white-space: nowrap; }
 
 .text--overflow {
