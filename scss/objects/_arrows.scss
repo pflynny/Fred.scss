@@ -15,17 +15,17 @@
 
 .arrow {/*i,span*/
     @extend %inline-block;
-    position: absolute;
-    width: 0;
-    height: 0;
     border-color: transparent;
     border-style: solid;
     border-width: .4em;
+    height: 0;
+    position: absolute;
+    width: 0;
 }
 
     .arrow-top {
-        border-top-width: 0;
         border-bottom-color: inherit;
+        border-top-width: 0;
         top: -.4em;
     }
 
@@ -42,8 +42,8 @@
     }
 
     .arrow-right {
-        border-right-width: 0;
         border-left-color: inherit;
+        border-right-width: 0;
         right: -.4em;
     }
 

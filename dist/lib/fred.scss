@@ -268,80 +268,16 @@ $text-muted:                    #999;
 
 // Breakpoints
 
-$breakpoints:
-    (
-        small "only screen and max-width: #{$breakpoint-small}"
-    ),
-    (
-        medium "only screen and min-width: #{$breakpoint-medium}"
-    ),
-    (
-        medium-down "only screen and max-width: #{$breakpoint-medium}"
-    ),
-    (
-        medium-only "only screen and max-width: #{$breakpoint-medium}"
-    ),
-    (
-        large "only screen and max-width:"
-    ),
-    (
-        xlarge "only screen and max-width:"
-    ),
-    (
-        screen "only screen and max-width:"
-    ),
-    (
-        landscape "only screen and max-width:"
-    ),
-    (
-        portrait "only screen and max-width:"
-    )
-;
-
-// Debug:
-//@each $query in $breakpoints {
-//    .#{nth($query, 1)} {
-//        content: nth($query, 2);
-//    }
-//}
-
 @mixin media($breakpoint) {
-    @if $breakpoint == "small" {
-        @media only screen and (max-width: $breakpoint-small) {
-            @content;
-        }
-    } @else if $breakpoint == "medium-down" {
-        @media only screen and (max-width: $breakpoint-medium){
-            @content;
-        }
-
-    } @else if $breakpoint == "medium-only" {
-        @media only screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 0.01em){
-            @content;
-        }
-    } @else if $breakpoint == "medium" {
-        @media only screen and (min-width: $breakpoint-medium) {
-            @content;
-        }
-
-    } @else if $breakpoint == "large" {
-        @media only screen and (min-width: $breakpoint-large){
-            @content;
-        }
-    } @else if $breakpoint == "xlarge" {
-        @media only screen and (min-width: $breakpoint-xlarge) {
-            @content;
-        }
-    }
-    // Deal with the default case (no media query)
-    @else if $breakpoint == "default" {
+    @if $breakpoint == "default" {
         @content;
-    }
-    // If no breakpoint is passed, scope the content to browsers that support
-    // media queries only.
-    @else {
-        @media only screen {
-            @content;
+    } @else {
+        @each $query in $breakpoints {
+            @if $breakpoint == nth($query, 1) {
+                @media #{nth($query, 2)} {
+                    @content;
+                }
+            }
         }
     }
 }
@@ -865,9 +801,9 @@ table {
 }
 
 %clearfix:after {
+    clear: both;
     content: " "; /* 1 */
     display: table; /* 2 */
-    clear: both;
 }
 
 
@@ -906,11 +842,11 @@ table {
  * ----------------------------------------------------------------------------
  */
 .visually-hidden {
-    position: absolute;
-    overflow: hidden;
     clip: rect(0 0 0 0);
     height: 1px; width: 1px;
     margin: -1px; padding: 0; border: 0;
+    overflow: hidden;
+    position: absolute;
 }
 
 %hide { display: none !important; }
@@ -922,66 +858,6 @@ table {
 %visible    {visibility: visible !important;}
 %hidden     {visibility: hidden !important;}
 
-/**
- * 1. Visible classes
- * -----------------------------------------------------------------------------
- */
-.visible-mobile {
-    @extend %hide;
-    @include media('small') {
-        display: block !important;
-    }
-}
-
-.visible-skinny {
-    @extend %hide;
-    @include media('medium') {
-        display: block !important;
-    }
-}
-
-.visible-desktop {
-    @include media('medium-down') {
-        display: none;
-    }
-}
-
-.visible-wide {
-    @extend %hide;
-    @include media('xlarge') {
-        //@extend %visible;
-        display: block !important;
-    }
-}
-
-/**
- * 1. hidden classes
- * -----------------------------------------------------------------------------
- */
-.hidden-mobile {
-    @extend %show;
-    @include media('small') {
-        display: none !important;
-    }
-}
-
-.hidden-skinny {
-    @extend %show;
-    @include media('medium') {
-        display: none !important;
-    }
-}
-
-.hidden-desktop {
-    //??
-}
-
-.hidden-wide {
-    @extend %show;
-    @include media('xlarge') {
-        display: none !important;
-    }
-}
 
 
 /**
@@ -1025,17 +901,17 @@ table {
 
 .arrow {/*i,span*/
     @extend %inline-block;
-    position: absolute;
-    width: 0;
-    height: 0;
     border-color: transparent;
     border-style: solid;
     border-width: .4em;
+    height: 0;
+    position: absolute;
+    width: 0;
 }
 
     .arrow-top {
-        border-top-width: 0;
         border-bottom-color: inherit;
+        border-top-width: 0;
         top: -.4em;
     }
 
@@ -1052,8 +928,8 @@ table {
     }
 
     .arrow-right {
-        border-right-width: 0;
         border-left-color: inherit;
+        border-right-width: 0;
         right: -.4em;
     }
 
@@ -1093,17 +969,18 @@ table {
  */
 .badge {
     @extend %inline-block;
+
+    line-height: $base-line-height;
+    margin-left:0.3em;
     min-width: .625em;
     padding: .1875em .4375em;
-    line-height: $base-line-height;
+    // Quick fix for labels/badges in buttons
+
+    position: relative;
+    text-align: center;
+    top: -1px;
     vertical-align: baseline;
     white-space: nowrap;
-    text-align: center;
-    margin-left:0.3em;
-
-    // Quick fix for labels/badges in buttons
-    position: relative;
-    top: -1px;
 
     // Empty badges collapse automatically (not available in IE8)
     &:empty {
@@ -1180,20 +1057,20 @@ table {
 .btn{
     @extend .inline-block;                          /* [1] */
     //@extend .user-select-none;
-    vertical-align: middle;                         /* [2] */
-    white-space: nowrap;                            /* [3] */
-    font-family: inherit;                           /* [4] */
-    cursor: pointer;                                /* [5] */
-    margin: inherit 0 0 0;                          /* [6] */
-    padding-top: 0;                                 /* [6] */
-    padding-bottom: 0;                              /* [6] */
-    line-height: 2.5;                               /* [7] */
-    padding-right: $base-spacing-unit;              /* [7] */
-    padding-left: $base-spacing-unit;               /* [7] */
-    border-width: 1px;
+    @include vendor(border-radius, $base-spacing-unit/4);
     border-color: transparent;
     border-style: solid;
-    @include vendor(border-radius, $base-spacing-unit/4);
+    border-width: 1px;
+    cursor: pointer;                                /* [5] */
+    font-family: inherit;                           /* [4] */
+    line-height: 2.5;                               /* [7] */
+    margin: inherit 0 0 0;                          /* [6] */
+    padding-bottom: 0;                              /* [6] */
+    padding-left: $base-spacing-unit;               /* [7] */
+    padding-right: $base-spacing-unit;              /* [7] */
+    padding-top: 0;                                 /* [6] */
+    vertical-align: middle;                         /* [2] */
+    white-space: nowrap;                            /* [3] */
 
     &,
     &:hover{
@@ -1510,20 +1387,20 @@ table {
  */
 
 .caret {
+    border-bottom: 0 dotted;
+    border-left: .25em solid transparent;
+    border-right: .25em solid transparent;
+    border-top: .25em solid #000;
     display: inline-block;
-    width: 0;
     height: 0;
     margin-left: .125em;
     vertical-align: middle;
-    border-top: .25em solid #000;
-    border-right: .25em solid transparent;
-    border-bottom: 0 dotted;
-    border-left: .25em solid transparent;
+    width: 0;
 }
 
 .caret--rev {
-    border-top: 0 dotted;
     border-bottom: .25em solid #000;
+    border-top: 0 dotted;
 }
 /**
  * CSS close icon
@@ -1702,8 +1579,8 @@ textarea {
  *
  */
 .grid {
-    text-align: justify;                /* [1] */
     font-size: 0;                       /* [2] */
+    text-align: justify;                /* [1] */
     // text-justify: distribute-all-lines; /* [3] */
 
     // Not sure if we need the last line as it stuffs up text align:center
@@ -1869,8 +1746,8 @@ textarea {
 
 .list-unstyled {
     list-style: none;
-    padding-left: 0;
     margin: 0 0 0 0;
+    padding-left: 0;
 }
 
     .list-unstyled > li {
@@ -1890,9 +1767,9 @@ textarea {
 
 //default list style in this case its circles
 %list-styled {
-    padding-left: $bs-m;
-    margin-top: $bs-xs; //same as the margin top on p tags
     list-style: circle;
+    margin-top: $bs-xs; //same as the margin top on p tags
+    padding-left: $bs-m;
 }
 
 .list-styled {
@@ -1947,11 +1824,10 @@ dl {
     .dl-horizontal {
         > dt {
             @extend %text-overflow;
-            float: left;
-            width: 35%;
             clear: left;
+            float: left;
             text-align: right;
-
+            width: 35%;
         }
         > dd {
             @extend %clearfix; // Clear the floated `dt` if an empty `dd` is present
@@ -2028,8 +1904,8 @@ dl {
 html,
 body {
     @extend %fix-webkit-font-rendering;
-    line-height: $base-line-height;
     font-size: 100%;
+    line-height: $base-line-height;
 }
 
 
@@ -2236,3 +2112,19 @@ hr {
     width: 100%;
 }
 
+
+/**
+ * Visibility
+ * -----------------------------------------------------------------------------
+ */
+@each $query in $breakpoints {
+    $queryName: nth($query, 1);
+    @include media($queryName) {
+        .visible-#{$queryName} {
+            display: block !important;
+        }
+        .hidden-#{$queryName} {
+                display: none !important;
+        }
+    }
+}

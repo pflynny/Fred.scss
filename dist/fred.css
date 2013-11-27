@@ -253,11 +253,11 @@ table {
   /* 2 */ }
 
 .clearfix:after, .dl-horizontal > dd:after {
+  clear: both;
   content: " ";
   /* 1 */
   display: table;
-  /* 2 */
-  clear: both; }
+  /* 2 */ }
 
 
 .overflow-hidden, .media__body, .media--rev > .media__body {
@@ -284,61 +284,24 @@ table {
  * ----------------------------------------------------------------------------
  */
 .visually-hidden {
-  position: absolute;
-  overflow: hidden;
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
   margin: -1px;
   padding: 0;
-  border: 0; }
+  border: 0;
+  overflow: hidden;
+  position: absolute; }
 
-.hide, .visible-mobile, .visible-skinny, .visible-wide {
+.hide {
   display: none !important; }
 
-.show, .hidden-mobile, .hidden-skinny, .hidden-wide {
+.show {
   display: block !important; }
 
 
 
 
-
-/**
- * 1. Visible classes
- * -----------------------------------------------------------------------------
- */
-@media only screen and (max-width: 30em) {
-  .visible-mobile {
-    display: block !important; } }
-
-@media only screen and (min-width: 48em) {
-  .visible-skinny {
-    display: block !important; } }
-
-@media only screen and (max-width: 48em) {
-  .visible-desktop {
-    display: none; } }
-
-@media only screen and (min-width: 75em) {
-  .visible-wide {
-    display: block !important; } }
-
-/**
- * 1. hidden classes
- * -----------------------------------------------------------------------------
- */
-@media only screen and (max-width: 30em) {
-  .hidden-mobile {
-    display: none !important; } }
-
-@media only screen and (min-width: 48em) {
-  .hidden-skinny {
-    display: none !important; } }
-
-
-@media only screen and (min-width: 75em) {
-  .hidden-wide {
-    display: none !important; } }
 
 /**
  * Append and Prepend
@@ -374,16 +337,16 @@ table {
  */
 .arrow {
   /*i,span*/
-  position: absolute;
-  width: 0;
-  height: 0;
   border-color: transparent;
   border-style: solid;
-  border-width: 0.4em; }
+  border-width: 0.4em;
+  height: 0;
+  position: absolute;
+  width: 0; }
 
 .arrow-top {
-  border-top-width: 0;
   border-bottom-color: inherit;
+  border-top-width: 0;
   top: -0.4em; }
 
 .arrow-bottom {
@@ -397,8 +360,8 @@ table {
   left: -0.4em; }
 
 .arrow-right {
-  border-right-width: 0;
   border-left-color: inherit;
+  border-right-width: 0;
   right: -0.4em; }
 
 .arrow--left, .arrow--right, .arrow--side, .arrow--center {
@@ -428,15 +391,15 @@ table {
  *
  */
 .badge {
+  line-height: 1.42857;
+  margin-left: 0.3em;
   min-width: 0.625em;
   padding: 0.1875em 0.4375em;
-  line-height: 1.42857;
-  vertical-align: baseline;
-  white-space: nowrap;
-  text-align: center;
-  margin-left: 0.3em;
   position: relative;
-  top: -1px; }
+  text-align: center;
+  top: -1px;
+  vertical-align: baseline;
+  white-space: nowrap; }
   .badge:empty {
     display: none; }
 
@@ -483,7 +446,7 @@ table {
 .block-xxxl {
   padding: 4.5em 6em; }
 
-@media only screen and (max-width: 30em) {
+@media only screen {
   .block-0--q-small {
     padding: 0.375em 0.375em; }
   .block-xxxs--q-small {
@@ -576,34 +539,34 @@ table {
  */
 .btn {
   /* [1] */
-  vertical-align: middle;
-  /* [2] */
-  white-space: nowrap;
-  /* [3] */
-  font-family: inherit;
-  /* [4] */
-  cursor: pointer;
-  /* [5] */
-  margin: inherit 0 0 0;
-  /* [6] */
-  padding-top: 0;
-  /* [6] */
-  padding-bottom: 0;
-  /* [6] */
-  line-height: 2.5;
-  /* [7] */
-  padding-right: 1.5em;
-  /* [7] */
-  padding-left: 1.5em;
-  /* [7] */
-  border-width: 1px;
-  border-color: transparent;
-  border-style: solid;
   -webkit-border-radius: 0.375em;
   -moz-border-radius: 0.375em;
   -ms-border-radius: 0.375em;
   -o-border-radius: 0.375em;
-  border-radius: 0.375em; }
+  border-radius: 0.375em;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  /* [5] */
+  font-family: inherit;
+  /* [4] */
+  line-height: 2.5;
+  /* [7] */
+  margin: inherit 0 0 0;
+  /* [6] */
+  padding-bottom: 0;
+  /* [6] */
+  padding-left: 1.5em;
+  /* [7] */
+  padding-right: 1.5em;
+  /* [7] */
+  padding-top: 0;
+  /* [6] */
+  vertical-align: middle;
+  /* [2] */
+  white-space: nowrap;
+  /* [3] */ }
   .btn, .btn:hover {
     text-decoration: none;
     /* [9] */ }
@@ -897,19 +860,19 @@ table {
  * ----------------------------------------------------------------------------
  */
 .caret {
+  border-bottom: 0 dotted;
+  border-left: 0.25em solid transparent;
+  border-right: 0.25em solid transparent;
+  border-top: 0.25em solid black;
   display: inline-block;
-  width: 0;
   height: 0;
   margin-left: 0.125em;
   vertical-align: middle;
-  border-top: 0.25em solid black;
-  border-right: 0.25em solid transparent;
-  border-bottom: 0 dotted;
-  border-left: 0.25em solid transparent; }
+  width: 0; }
 
 .caret--rev {
-  border-top: 0 dotted;
-  border-bottom: 0.25em solid black; }
+  border-bottom: 0.25em solid black;
+  border-top: 0 dotted; }
 
 /**
  * CSS close icon
@@ -1060,10 +1023,10 @@ textarea {
  *
  */
 .grid {
-  text-align: justify;
-  /* [1] */
   font-size: 0;
-  /* [2] */ }
+  /* [2] */
+  text-align: justify;
+  /* [1] */ }
   .ie8 .grid {
     text-justify: normal; }
 
@@ -1156,7 +1119,7 @@ textarea {
 .col-9-10 {
   width: 90%; }
 
-@media only screen and (max-width: 30em) {
+@media only screen {
   .col-1-3--q-small {
     width: 33.33333%; }
   .col-2-3--q-small {
@@ -1326,8 +1289,8 @@ textarea {
  */
 .list-unstyled, .list--inline {
   list-style: none;
-  padding-left: 0;
-  margin: 0 0 0 0; }
+  margin: 0 0 0 0;
+  padding-left: 0; }
 
 .list-unstyled > li {
   list-style: none;
@@ -1338,9 +1301,9 @@ textarea {
   margin: 0; }
 
 .list-styled, .list-styled--decimal, .list-styled--alpha {
-  padding-left: 1.5em;
+  list-style: circle;
   margin-top: 0.75em;
-  list-style: circle; }
+  padding-left: 1.5em; }
 
 
 .list-styled--decimal {
@@ -1374,10 +1337,10 @@ dd {
  */
 @media only screen and (max-width: 48em) {
   .dl-horizontal > dt {
-    float: left;
-    width: 35%;
     clear: left;
-    text-align: right; }
+    float: left;
+    text-align: right;
+    width: 35%; }
   .dl-horizontal > dd {
     margin-left: 40%; } }
 
@@ -1495,7 +1458,7 @@ dd {
 .mb-xxxl {
   margin-bottom: 6em; }
 
-@media only screen and (max-width: 30em) {
+@media only screen {
   .mt-0--q-small {
     margin-top: 0; }
   .mt-xxxs--q-small {
@@ -1651,7 +1614,7 @@ dd {
 .pt-xxxl {
   padding-top: 6em; }
 
-@media only screen and (max-width: 30em) {
+@media only screen {
   .pt-0--q-small {
     padding-top: 0; }
   .pt-xxxs--q-small {
@@ -1721,8 +1684,8 @@ dd {
  * Antialias everything by default, and set the line-height.
  */
 html, body {
-  line-height: 1.42857;
-  font-size: 100%; }
+  font-size: 100%;
+  line-height: 1.42857; }
 
 /**
  * onMediaQuery sets the font-family on HTML, so declare your font-family
@@ -1892,3 +1855,73 @@ hr {
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%; }
+
+/**
+ * Visibility
+ * -----------------------------------------------------------------------------
+ */
+@media only screen {
+  .visible-small {
+    display: block !important; }
+  .hidden-small {
+    display: none !important; } }
+
+@media only screen and (max-width: 30em) {
+  .visible-small-only {
+    display: block !important; }
+  .hidden-small-only {
+    display: none !important; } }
+
+@media only screen and (min-width: 48em) {
+  .visible-medium {
+    display: block !important; }
+  .hidden-medium {
+    display: none !important; } }
+
+@media only screen and (max-width: 48em) {
+  .visible-medium-down {
+    display: block !important; }
+  .hidden-medium-down {
+    display: none !important; } }
+
+@media only screen and (min-width: 48em) and (max-width: 59.99em) {
+  .visible-medium-only {
+    display: block !important; }
+  .hidden-medium-only {
+    display: none !important; } }
+
+@media only screen and (min-width: 60em) {
+  .visible-large {
+    display: block !important; }
+  .hidden-large {
+    display: none !important; } }
+
+@media only screen and (min-width: 60em) and (max-width: 74.99em) {
+  .visible-large-only {
+    display: block !important; }
+  .hidden-large-only {
+    display: none !important; } }
+
+@media only screen and (min-width: 75em) {
+  .visible-xlarge {
+    display: block !important; }
+  .hidden-xlarge {
+    display: none !important; } }
+
+@media only screen {
+  .visible-screen {
+    display: block !important; }
+  .hidden-screen {
+    display: none !important; } }
+
+@media only screen and (orientation: landscape) {
+  .visible-landscape {
+    display: block !important; }
+  .hidden-landscape {
+    display: none !important; } }
+
+@media only screen and (orientation: portrait) {
+  .visible-portrait {
+    display: block !important; }
+  .hidden-portrait {
+    display: none !important; } }
