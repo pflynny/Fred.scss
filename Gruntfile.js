@@ -113,8 +113,8 @@ module.exports = function(grunt) {
                         {
                             config: 'copy.install.fred', // arbitray name or config for any other grunt task
                             type: 'text', // list, checkbox, confirm, input, password
-                            message: 'Where would you like Fred deployed to?',
-                            default: "www/assets/sass", // default value if nothing is entered
+                            message: 'Where would you like Fred deployed to (relative to this fred directory)?',
+                            default: "../../www/assets/sass", // default value if nothing is entered
                             when: function(answers) {
                                 return answers['install_now'] === true;
                             }
