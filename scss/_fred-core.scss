@@ -351,12 +351,29 @@ table {
     display: table; /* 2 */
 }
 
-
-
-
 .clearfix           { @extend %clearfix; }
 .overflow-hidden    { overflow: hidden; }
 
+
+
+/**
+ * Screen reader content
+ * ----------------------------------------------------------------------------
+
+ <a class="sr-only" href="#content">Skip to main content</a>
+
+ */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
 
 /**
  * Fix webkit bug

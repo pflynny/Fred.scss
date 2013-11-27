@@ -232,27 +232,27 @@ table {
  * zoom fix for IE6/7 so they correctly display inline-block elements
  * (forces hasLayout)
  */
-.inline-block, .arrow, .badge, .breadcrumbs > li, .icon-text, .icon-text--rev {
+.inline-block, .arrow, .badge, .breadcrumbs > li, .icon-text, .icon-text--rev, .nav > li {
   display: inline-block;
   *display: inline;
   *zoom: 1; }
 
 
 
-.clearfix, .dl-horizontal > dd {
+.clearfix, .btn-toolbar, .btn-group-vertical > .btn-group, .dl-horizontal > dd {
   /**
 	 * For IE 6/7 only
 	 * Include this rule to trigger hasLayout and contain floats.
 	 */
   *zoom: 1; }
 
-.clearfix:before, .dl-horizontal > dd:before {
+.clearfix:before, .btn-toolbar:before, .btn-group-vertical > .btn-group:before, .dl-horizontal > dd:before {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */ }
 
-.clearfix:after, .dl-horizontal > dd:after {
+.clearfix:after, .btn-toolbar:after, .btn-group-vertical > .btn-group:after, .dl-horizontal > dd:after {
   clear: both;
   content: " ";
   /* 1 */
@@ -262,6 +262,23 @@ table {
 
 .overflow-hidden, .media__body, .media--rev > .media__body {
   overflow: hidden; }
+
+/**
+ * Screen reader content
+ * ----------------------------------------------------------------------------
+
+ <a class="sr-only" href="#content">Skip to main content</a>
+
+ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
 
 /**
  * Fix webkit bug
@@ -404,6 +421,14 @@ table {
     display: none; }
 
 /**
+ * Block grid
+ * ----------------------------------------------------------------------------
+ * A grid of items that reflow as the browser size changes.
+ */
+
+
+
+/**
  * Generic blocks
  * ----------------------------------------------------------------------------
  */
@@ -520,6 +545,76 @@ table {
 .breadcrumbs > li + li:before {
   content: "/\00a0";
   padding: 0 0.375em; }
+
+/**
+ * Contain buttons in a horizontal group.
+ * ----------------------------------------------------------------------------
+ * Borrowed from Twitter Bootstrap and put on a border-radius diet.
+ */
+.btn-group, .btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; }
+  .btn-group > .btn, .btn-group-vertical > .btn {
+    position: relative;
+    float: left; }
+    .btn-group > .btn:hover, .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active, .btn-group-vertical > .btn:hover, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn.active {
+      z-index: 2; }
+    .btn-group > .btn:focus, .btn-group-vertical > .btn:focus {
+      outline: none; }
+
+.btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+  margin-left: -1px; }
+
+.btn-toolbar .btn-group {
+  float: left; }
+.btn-toolbar > .btn + .btn, .btn-toolbar > .btn + .btn-group, .btn-toolbar > .btn-group + .btn, .btn-toolbar > .btn-group + .btn-group {
+  margin-left: 0.3125em; }
+
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0; }
+
+.btn-group > .btn:first-child {
+  margin-left: 0; }
+
+
+.btn-group > .btn-group {
+  float: left; }
+
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0; }
+
+
+
+.btn-group-xs > .btn {
+  font-size: 0.75em; }
+
+.btn-group-sm > .btn {
+  font-size: 1.125em; }
+
+.btn-group-lg > .btn {
+  font-size: 1.25em; }
+
+.btn-group-vertical > .btn, .btn-group-vertical > .btn-group {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%; }
+.btn-group-vertical > .btn-group > .btn {
+  float: none; }
+.btn-group-vertical > .btn + .btn, .btn-group-vertical > .btn + .btn-group, .btn-group-vertical > .btn-group + .btn, .btn-group-vertical > .btn-group + .btn-group {
+  margin-top: -1px;
+  margin-left: 0; }
+
+.btn-group-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate; }
+  .btn-group-justified .btn {
+    float: none;
+    display: table-cell;
+    width: 1%; }
 
 /**
  * Buttons
@@ -1047,6 +1142,9 @@ textarea {
 .grid--middle > .grid__item, .grid--middle > .grid > *, .grid > .grid--middle > * {
   vertical-align: middle; }
 
+.grid--bottom > .grid__item, .grid--bottom > .grid > *, .grid > .grid--bottom > * {
+  vertical-align: bottom; }
+
 .grid-float {
   width: 100%; }
 
@@ -1287,7 +1385,7 @@ textarea {
  * Lists
  * ----------------------------------------------------------------------------
  */
-.list-unstyled, .list--inline {
+.list-unstyled, .list--inline, .block-list {
   list-style: none;
   margin: 0 0 0 0;
   padding-left: 0; }
@@ -1300,21 +1398,42 @@ textarea {
 .list--inline > li {
   margin: 0; }
 
-.list-styled, .list-styled--decimal, .list-styled--alpha {
-  list-style: circle;
+.list-styled, .list-styled--decimal, .list-decimal, .list-styled--alpha, .list-alpha, .list-dashed {
   margin-top: 0.75em;
   padding-left: 1.5em; }
 
+.list-styled {
+  list-style: circle; }
 
-.list-styled--decimal {
+.list-styled--decimal, .list-decimal {
   list-style: decimal-leading-zero;
   padding-left: 2.25em; }
 
-.list-styled--alpha {
+.list-styled--alpha, .list-alpha {
   list-style: lower-alpha; }
 
+.list-dashed {
+  margin-left: 1em;
+  margin-top: 0; }
+  .list-dashed > li {
+    text-indent: -0.5em; }
+    .list-dashed > li > * {
+      text-indent: 0; }
+    .list-dashed > li:before {
+      content: "\2013";
+      position: relative;
+      left: -0.5em; }
+
 /**
- * 13. Description lists
+ * Block list
+ * ----------------------------------------------------------------------------
+ * Throws a list into a vertical stack. Handy for things like navigation.
+ */
+.block-list > li {
+  display: block; }
+
+/**
+ * Definition lists
  * ----------------------------------------------------------------------------
  * Defaults to being stacked without any of the below styles applied, until the
  *
@@ -1371,6 +1490,126 @@ dd {
   margin-left: 1.5em; }
 
 
+/**
+ * Nav
+ * ----------------------------------------------------------------------------
+ *
+ * Turns a list into a horizontal block of inline-blocks;
+ *
+ */
+.nav, .pagination {
+  list-style: none;
+  margin-bottom: 0; }
+
+
+/**
+ * Sub nav
+ * ----------------------------------------------------------------------------
+
+<dl class="sub-nav">
+    <dt>Filter:</dt>
+    <dd class="active"><a href="#">All</a></dd>
+    <dd><a href="#">Active</a></dd>
+    <dd><a href="#">Pending</a></dd>
+    <dd><a href="#">Suspended</a></dd>
+</dl>
+ */
+.sub-nav {
+  display: block;
+  width: auto;
+  overflow: hidden; }
+
+.sub-nav > dt, .sub-nav > dd {
+  float: left; }
+
+.sub-nav > dd {
+  margin-left: 0.75em; }
+
+
+/**
+ * Pagination
+ * ----------------------------------------------------------------------------
+
+ <ul class='pagination'>
+    <li class=pagination__first>First</li>
+    <li class='pagination__prev'><a href="#"></a></li>
+    <li class='pagination__current'><a href="#">1</a></li>
+    <li class='pagination__more'><a href="#"></a></li>
+    <li><a href="#">10</a></li>
+    <li class='pagination__next'><a href="#"></a></li>
+    <li class=pagination__last><a href=/page/last>Last</a></li>
+ </ul>
+ */
+.pagination {
+  /**
+     * Remove whitespace caused by `inline-block`.
+     */
+  letter-spacing: -0.31em;
+  word-spacing: -0.43em; }
+
+.pagination > li {
+  padding: 0.75em;
+  letter-spacing: normal;
+  word-spacing: normal; }
+
+.pagination > li > a {
+  padding: 0.75em;
+  margin: -0.75em; }
+
+.pagination__current {
+  font-weight: bold; }
+
+.pagination__first > a:before, .pagination__last > a:before, .pagination__more > a:before {
+  display: inline-block; }
+
+.pagination__last > a:before {
+  content: "\203A"; }
+
+.pagination__first > a:before {
+  content: "\2039"; }
+
+.pagination__more > a:before {
+  content: "\2026"; }
+
+/**
+ * Pills (eg, 'Some content [new!]'
+ * ----------------------------------------------------------------------------
+ * Create pill- and lozenge-like runs of text, e.g.:
+ *
+   <p>This <span class=pill>here</span> is a pill!</p>
+ *
+   <p>This <span class=loz>here</span> is also a lozenge!</p>
+ *
+ * Pills have fully rounded ends, lozenges have only their corners rounded.
+ *
+ * Demo: jsfiddle.net/inuitcss/N3pGm
+ *
+ */
+.pill, .lozenge {
+  display: inline-block;
+  /**
+     * These numbers set in ems mean that, at its narrowest, a lozenge will be
+     * the same width as the `line-height` set on the `html` element.
+     * This allows us to use the `.loz` in almost any `font-size` we wish.
+     */
+  min-width: 0.95238em;
+  padding-right: 0.2381em;
+  padding-left: 0.2381em;
+  /* =1.50em */
+  text-align: center;
+  background-color: #333333;
+  color: white;
+  /* Override this color in your theme stylesheet */
+  /**
+     * Normally we’d use border-radius:100%; but instead here we just use an
+     * overly large number; `border-radius:100%;` would create an oval on
+     * non-square elements whereas we just want to round the ends of an element.
+     */
+  border-radius: 100px; }
+
+.lozenge {
+  border-radius: 0.25em; }
+
 .radius--xs {
   -webkit-border-radius: 2px 2px 2px 2px;
   -moz-border-radius: 2px 2px 2px 2px;
@@ -1391,6 +1630,54 @@ dd {
   -ms-border-radius: 10px 10px 10px 10px;
   -o-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px; }
+
+/**
+ * Ratio boxes
+ * ----------------------------------------------------------------------------
+
+This box will be 16:9
+
+ <div class='ratio-16-9'>
+    <div class='ratio__content'></div>
+ </div>
+
+
+This box will be a square
+
+ <div class='ratio-square'>
+    <div class='ratio__content'></div>
+ </div>
+
+ */
+.ratio-square, .ratio-4-3, .ratio-16-9, .ratio-3-4, .ratio-2-1 {
+  overflow: hidden;
+  position: relative; }
+
+.ratio-square:before, .ratio-4-3:before, .ratio-16-9:before, .ratio-3-4:before, .ratio-2-1:before {
+  content: "";
+  display: block;
+  height: 0;
+  padding-top: 100%; }
+
+
+.ratio-2-1:before {
+  padding-top: 50%; }
+
+.ratio-4-3:before {
+  padding-top: 75%; }
+
+.ratio-3-4:before {
+  padding-top: 1.33333%; }
+
+.ratio-16-9:before {
+  padding-top: 56.25%; }
+
+.ratio__content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; }
 
 /**
  * Margin and padding helpers

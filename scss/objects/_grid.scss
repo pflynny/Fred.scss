@@ -46,6 +46,12 @@
         vertical-align: middle;
     }
 
+    .grid--bottom > .grid__item {
+        vertical-align: bottom;
+    }
+
+
+
 
 
 // Sometimes you don't want an inline block grid, you want a float grid.
