@@ -1,10 +1,6 @@
 node_modules
-<<<<<<< HEAD
-=======
 bower_components
 build
-dist/*
->>>>>>> 1e54c2591a8b05ccc96552229bf2264fd51e2375
 .idea
 .DS_Store
 .AppleDouble

@@ -13,7 +13,7 @@ To build a custom Fred package from the command line, run:
 
 ...and follow the directions of your cabin crew.
 
-Grunt will make a `dist/fred.scss`, and compile `dist/fred.css` for your project
+Grunt will make a `dist/lib/fred.scss`, and compile `dist/fred.css` for your project
 
 
 ## Working with your project
@@ -22,13 +22,12 @@ You want to tweak all Fred's variables and make everything pretty for your proje
 
 You also want to keep Fred under some kind of package management, like bower. 
 
-Copy `_fred-variables.scss` into your sass directory before you include `fred.scss`.
+The `_fred-theme.scss` is copied into your sass directory and included by `lib/fred.scss`.
 
 
 ```sass
 // style.scss
 
-@import "fred-variables";
 @import "path/to/fred";
 
 // Rest of your styles here!
@@ -36,4 +35,3 @@ Copy `_fred-variables.scss` into your sass directory before you include `fred.sc
 ```
 
 Now you can tweak away, while still being able to update Fred without nuking all your hard work.
-
