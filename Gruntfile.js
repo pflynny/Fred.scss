@@ -141,7 +141,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-prompt');
-    grunt.loadNpmTasks('grunt-csscomb');
 
     grunt.registerTask("installer", function() {
         var dest = grunt.config('copy.install.fred');
@@ -171,7 +170,6 @@ module.exports = function(grunt) {
         'concat:build',
         'copy:build',
         'sass:dist',
-        'csscomb:dist',
         'clean:build'
     ]);
 };

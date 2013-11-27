@@ -8,3 +8,7 @@
 .radius--m {
     @include vendor(border-radius, 10px 10px 10px 10px);
 }
+
+.circle {
+    @include vendor(border-radius, 35em);
+}

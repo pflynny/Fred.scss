@@ -9,6 +9,7 @@
     max-width: 100%;
 }
 
+// Use a massive em value, good for circles up to 960px wide
 .img--round {
-    @include vendor(border-radius, 50% 50% 50% 50%);
+    @include vendor(border-radius, 30em);
 }

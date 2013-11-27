@@ -1375,11 +1375,11 @@ textarea {
   max-width: 100%; }
 
 .img--round {
-  -webkit-border-radius: 50% 50% 50% 50%;
-  -moz-border-radius: 50% 50% 50% 50%;
-  -ms-border-radius: 50% 50% 50% 50%;
-  -o-border-radius: 50% 50% 50% 50%;
-  border-radius: 50% 50% 50% 50%; }
+  -webkit-border-radius: 30em;
+  -moz-border-radius: 30em;
+  -ms-border-radius: 30em;
+  -o-border-radius: 30em;
+  border-radius: 30em; }
 
 /**
  * Lists
@@ -1499,8 +1499,12 @@ dd {
  */
 .nav, .pagination {
   list-style: none;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0; }
 
+.nav > li {
+  margin-top: 0; }
 
 /**
  * Sub nav
@@ -1631,6 +1635,13 @@ dd {
   -o-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px; }
 
+.circle {
+  -webkit-border-radius: 35em;
+  -moz-border-radius: 35em;
+  -ms-border-radius: 35em;
+  -o-border-radius: 35em;
+  border-radius: 35em; }
+
 /**
  * Ratio boxes
  * ----------------------------------------------------------------------------
@@ -1685,7 +1696,7 @@ This box will be a square
  * These are provided after the core so they function as overrides
  * to default values. The first kind of specificity is source order!
  */
-.mt-0 {
+.mt-0, h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, p:first-child, .text:first-child, li:first-child, code:first-child {
   margin-top: 0; }
 
 .mt-xxxs {
@@ -1715,7 +1726,7 @@ This box will be a square
 .mt-xxxl {
   margin-top: 6em; }
 
-.mb-0 {
+.mb-0, h1, h2, h3, h4, h5, h6, p, .text, li, code {
   margin-bottom: 0; }
 
 .mb-xxxs {
