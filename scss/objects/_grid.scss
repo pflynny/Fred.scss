@@ -26,9 +26,10 @@
     // Font-size medium reset the block to the context of body (ie, 16px)
     .grid__item {
         @extend .inline-block;
+        @extend %align--top;
+        @extend .text-left;
         font-size: medium;
-        text-align: left;
-        vertical-align: top;
+
     }
 
     .grid:after,
@@ -43,11 +44,11 @@
      * Vertical align these grid items in the middle!
      */
     .grid--middle > .grid__item {
-        vertical-align: middle;
+        @extend %align--middle;
     }
 
     .grid--bottom > .grid__item {
-        vertical-align: bottom;
+        @extend %align--bottom;
     }
 
 
@@ -67,7 +68,7 @@
     }
 
     .grid-float > [class^=#{quote($grid-column-name)}] {
-        float: left;
+        @extend .left;
         @if $grid-float-padding {
             padding-left: $grid-float-padding;
         }

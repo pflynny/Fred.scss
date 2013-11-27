@@ -14,7 +14,7 @@
  * 8. Basic cosmetics for default buttons. Change or override at will.
  * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
  */
-.btn{
+.btn {
     @extend .inline-block;                          /* [1] */
     //@extend .user-select-none;
     @include vendor(border-radius, $base-spacing-unit/4);
@@ -33,12 +33,12 @@
     white-space: nowrap;                            /* [3] */
 
     &,
-    &:hover{
+    &:hover {
         text-decoration:none;   /* [9] */
     }
 
     &:active,
-    &:focus{
+    &:focus {
         outline:none;
     }
 }
@@ -74,7 +74,7 @@
     line-height: 2;   
 }
 
-.btn--small{
+.btn--small {
     padding-right: $base-spacing-unit / 2;          
     padding-left: $base-spacing-unit / 2;  
 }
@@ -95,7 +95,7 @@
 /**
  * Block buttons stretch to the full width of their parent (handy!)
  */
-.btn--block{
+.btn--block {
     display: block;
     text-align: center;
 }
@@ -104,7 +104,7 @@
  * Make a button behave like a block at mobile only (also handy)
  */
 @media only screen and (max-width:37.5em) {
-    .btn--block-mobile{
+    .btn--block-mobile {
         text-align: center;
         display: block;
     }
@@ -116,19 +116,19 @@
  * FireFox doesn't like line-heights on submit buttons. Stick a class on submit
  * buttons and make sure the padding's the same as your default button :)
  */
-.btn--submit{
+.btn--submit {
     line-height: 1;
     padding-top: $base-spacing-unit / 2;
     padding-bottom: $base-spacing-unit / 2;
 }
 
-.btn--submit-large{
+.btn--submit-large {
     line-height: 1;
     padding-top: $base-spacing-unit;
     padding-bottom: $base-spacing-unit;
 }
 
-.btn--submit-small{
+.btn--submit-small {
     line-height: 1;
     padding-top: $base-spacing-unit / 4;
     padding-bottom: $base-spacing-unit / 4;
@@ -185,7 +185,7 @@
     } 
 }
 
-.btn--icon-large{
+.btn--icon-large {
     padding-left: $base-spacing-unit;
     padding-right: $base-spacing-unit * 2;
     & > .i {
@@ -193,7 +193,7 @@
     } 
 }
 
-.btn--icon-large--rev{
+.btn--icon-large--rev {
     padding-left: $base-spacing-unit * 2;
     padding-right: $base-spacing-unit;
     & > .i {
@@ -201,7 +201,7 @@
     } 
 }
 
-.btn--icon-small{
+.btn--icon-small {
     padding-left: $base-spacing-unit / 3;
     padding-right: $base-spacing-unit / 2; 
     & > .i {
@@ -209,7 +209,7 @@
     }
 }
 
-.btn--icon-small--rev{
+.btn--icon-small--rev {
     padding-left: $base-spacing-unit / 2;
     padding-right: $base-spacing-unit / 4;
     & > .i {
@@ -229,7 +229,7 @@
  * ----------------------------------------------------------------------------
  */
 .btn--bounce,
-.btn--bob{
+.btn--bob {
     position: relative;
     @include vendor(transition, bottom 100ms ease-out);
 }
