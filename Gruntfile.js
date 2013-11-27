@@ -148,6 +148,8 @@ module.exports = function(grunt) {
 
             if (dest) {
                 grunt.task.run('copy:install');
+                if(!grunt.file.exists(dest + "/screen.scss"))
+                    grunt.file.write(dest + "/screen.scss", "@import 'lib/fred';");
                 if (theme) {
                     grunt.task.run('copy:theme');
                 }
