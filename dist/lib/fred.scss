@@ -67,16 +67,16 @@ $base-spacing-unit:             1.5em;
 
 // Compute a range of expansions to the base spacing, to use in our mixins:
 
-$bs--0:                         0;
-$bs--xxxs:                      $base-spacing-unit / 4;     // 6px
-$bs--xxs:                       $base-spacing-unit / 3;     // 8px
-$bs--xs:                        $base-spacing-unit / 2;     // 12px
-$bs--s:                         $base-spacing-unit / 1.5;   // 16px
-$bs--m:                         $base-spacing-unit;         // 24px
-$bs--l:                         $base-spacing-unit * 1.5;   // 36px
-$bs--xl:                        $base-spacing-unit * 2;     // 48px
-$bs--xxl:                       $base-spacing-unit * 3;     // 72px
-$bs--xxxl:                      $base-spacing-unit * 4;     // 96px
+$bs-0:                         0;
+$bs-xxxs:                      $base-spacing-unit / 4;     // 6px
+$bs-xxs:                       $base-spacing-unit / 3;     // 8px
+$bs-xs:                        $base-spacing-unit / 2;     // 12px
+$bs-s:                         $base-spacing-unit / 1.5;   // 16px
+$bs-m:                         $base-spacing-unit;         // 24px
+$bs-l:                         $base-spacing-unit * 1.5;   // 36px
+$bs-xl:                        $base-spacing-unit * 2;     // 48px
+$bs-xxl:                       $base-spacing-unit * 3;     // 72px
+$bs-xxxl:                      $base-spacing-unit * 4;     // 96px
 
 $base-spacing--xs:  $base-spacing / 2;
 
@@ -97,31 +97,22 @@ $sizePrefixes:
     "-xxxl";
 
 $sizes:
-    $bs--0,
-    $bs--xxxs,
-    $bs--xxs,
-    $bs--xs,
-    $bs--s,
-    $bs--m,
-    $bs--l,
-    $bs--xl,
-    $bs--xxl,
-    $bs--xxxl;
+    $bs-0, $bs-xxxs, $bs-xxs, $bs-xs, $bs-s, $bs-m, $bs-l, $bs-xl, $bs-xxl, $bs-xxxl;
 
 
 // -----------------------------------------------------------------------------
 // Blocks
 // -----------------------------------------------------------------------------
 
-$block--xxxs:                   $bs--xxxs  $bs--xxxs;        // 6px 6px
-$block--xxs:                    $bs--xxxs $bs--xxs;         // 6px 8px
-$block--xs:                     $bs--xxs $bs--xs;           // 8px 12px
-$block--s:                      $bs--xs $bs--s;             // 12px 16px
-$block--m:                      $bs--m $bs--m;              // 24px 24px
-$block--l:                      $bs--l $bs--l;              // 36px 36px
-$block--xl:                     $bs--l $bs--xl;             // 36px 48px
-$block--xxl:                    $bs--xl $bs--xxl;           // 48px 72px
-$block--xxxl:                   $bs--xxl $bs--xxxl;         // 72px 96px
+$block--xxxs:                   $bs-xxxs $bs-xxxs;        // 6px 6px
+$block--xxs:                    $bs-xxxs $bs-xxs;         // 6px 8px
+$block--xs:                     $bs-xxs $bs-xs;           // 8px 12px
+$block--s:                      $bs-xs $bs-s;             // 12px 16px
+$block--m:                      $bs-m $bs-m;              // 24px 24px
+$block--l:                      $bs-l $bs-l;              // 36px 36px
+$block--xl:                     $bs-l $bs-xl;             // 36px 48px
+$block--xxl:                    $bs-xl $bs-xxl;           // 48px 72px
+$block--xxxl:                   $bs-xxl $bs-xxxl;         // 72px 96px
 
 $blockSizes:
     $block--xxxs,
@@ -163,13 +154,12 @@ $breakpoint-medium-name: "medium";
 $breakpoint-small-name: "small";
 $breakpoint-classname-prefix: "--q-";
 
-// Set media queries in ems. If you're wondering, we add 0.01em 
-// to the next breakpoint up, so that the breakpoints don't
+// Set media queries in ems. If you're wondering, we remove 0.01em
+// from the next breakpoint up, so that the breakpoints don't
 // overlap. For instance:
-// 
-// @media only screen and (max-width: 48em);
-// Next query: 
-// @media only screen and (min-width: 48.01em);
+//
+// @media only screen and (max-width: 47.99em);
+// @media only screen and (min-width: 48em);
 
 $breakpoint-xsmall:     25em;   // The mighty LG Android!
 $breakpoint-small:      30em;   // Portrait regular mobiles//480px
@@ -178,6 +168,43 @@ $breakpoint-large:      60em;   // Desktop 960px
 $breakpoint-xlarge:     75em;   // Wide 1200px
 $breakpoint-xxlarge:    90em;   // Wide 1440px
 $breakpoint-xxxlarge:   120em;  // Full HD
+
+$breakpoints:
+        (
+            small "only screen"
+        ),
+        (
+            small-only "only screen and (max-width: #{$breakpoint-small})"
+        ),
+        (
+            medium "only screen and (min-width: #{$breakpoint-medium})"
+        ),
+        (
+            medium-down "only screen and (max-width: #{$breakpoint-medium})"
+        ),
+        (
+            medium-only "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-large - 0.01em})"
+        ),
+        (
+            large "only screen and (min-width: #{$breakpoint-large})"
+        ),
+        (
+            large-only "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-xlarge - 0.01em})"
+        ),
+        (
+            xlarge "only screen and (min-width: #{$breakpoint-xlarge})"
+        ),
+        (
+            screen "only screen"
+        ),
+        (
+            landscape "only screen and (orientation: landscape)"
+        ),
+        (
+            portrait "only screen and (orientation: portrait)"
+        )
+;
+
 
 
 // -----------------------------------------------------------------------------
@@ -271,14 +298,12 @@ $breakpoints:
     )
 ;
 
-
-@each $query in $breakpoints {
-    .#{nth($query, 1)} {
-        content: nth($query, 2);
-    }
-}
-
-
+// Debug:
+//@each $query in $breakpoints {
+//    .#{nth($query, 1)} {
+//        content: nth($query, 2);
+//    }
+//}
 
 @mixin media($breakpoint) {
     @if $breakpoint == "small" {
@@ -724,6 +749,80 @@ $breakpoints:
     }
 }
 /**
+ * Arrows
+ * ----------------------------------------------------------------------------
+ * $base-spacing-unit: 1.4em
+ *
+ *
+ * Apply the modifier classes to the parent. For instance, this will put an
+ * arrow in the top left corner of the containing div:
+ *
+ * <div class='arrow__left'>
+ *        <i class='arrow arrow_top'></i>
+ * </div>
+ *
+ */
+
+.arrow {/*i,span*/
+    @extend %inline-block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: .4em;
+}
+
+    .arrow-top {
+        border-top-width: 0;
+        border-bottom-color: inherit;
+        top: -.4em;
+    }
+
+    .arrow-bottom {
+        border-bottom-width: 0;
+        border-top-color: inherit;
+        bottom: -.4em;
+    }
+
+    .arrow-left {
+        border-left-width: 0;
+        border-right-color: inherit;
+        left: -.4em;
+    }
+
+    .arrow-right {
+        border-right-width: 0;
+        border-left-color: inherit;
+        right: -.4em;
+    }
+
+.arrow--left,
+.arrow--right,
+.arrow--side,
+.arrow--center {/*div,block*/
+    position:relative;
+}
+
+    .arrow--center .arrow {
+        left:0;
+        right:0;
+        @extend %center-element;
+    }
+
+    .arrow--left .arrow {
+        left: $base-spacing-unit;
+    }
+
+    .arrow--right .arrow {
+        right: $base-spacing-unit;
+    }
+
+    .arrow--side .arrow {
+        top: $base-spacing-unit;
+    }
+
+/**
  * Badges
  * ----------------------------------------------------------------------------
  *
@@ -740,7 +839,7 @@ $breakpoints:
     vertical-align: baseline;
     white-space: nowrap;
     text-align: center;
-    background-color: #eee;
+    margin-left:0.3em;
 
     // Quick fix for labels/badges in buttons
     position: relative;
@@ -784,7 +883,22 @@ $breakpoints:
 
 @each $breakpoint in $fred-block-breakpoints {
     @include media($breakpoint) {
-        @include fred-sizer("block", $sizePrefixes, false, "padding", $blockSizes);
+        @include fred-sizer("block", $sizePrefixes, $breakpoint, "padding", $blockSizes);
+    }
+}
+/**
+ * Breadcrumbs
+ * ----------------------------------------------------------------------------
+ */
+
+/* Unicode space added since inline-block means non-collapsing white-space */
+.breadcrumbs {
+    > li {
+        @extend %inline-block;
+        &+li:before {
+            content: "/\00a0";
+            padding: 0 $bs-xxxs;
+        }
     }
 }
 /**
@@ -1152,6 +1266,173 @@ $breakpoints:
     border-bottom: .25em solid #000;
 }
 /**
+ * CSS close icon
+ * ----------------------------------------------------------------------------
+ * <button type="button" class="close" aria-hidden="true">×</button>
+ */
+
+.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+
+    .close:after {
+        content: "\00d7";
+        display: inline-block;
+        font-size: 1.5em;
+        line-height: 1;
+        opacity: 0.2;
+    }
+
+    .close:hover:after {
+        opacity: 1;
+    }
+
+/**
+ * Form helpers
+ * ----------------------------------------------------------------------------
+ */
+
+fieldset,
+legend {
+
+}
+
+
+/**
+ * 6. Inline block grid
+ * -----------------------------------------------------------------------------
+ *
+ * [1] Sets the child elements to take up full justified width of the parent
+ * [2] Overcomes an issue where the :after element blows out the bottom.
+ * [3] A fix for Internet Explorer 8/9
+ *
+ */
+.grid {
+    text-align: justify;                /* [1] */
+    font-size: 0;                       /* [2] */
+    // text-justify: distribute-all-lines; /* [3] */
+
+    // Not sure if we need the last line as it stuffs up text align:center
+    .ie8 & {
+        // This fixes and issue mentioned above
+        text-justify:normal;
+    }
+}
+
+    .grid > * {
+        @extend .grid__item;
+    }
+
+    // Font-size medium reset the block to the context of body (ie, 16px)
+    .grid__item {
+        @extend .inline-block;
+        font-size: medium;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .grid:after,
+    .grid__break {
+        @extend .inline-block;
+        content: '';
+        height: 0;
+        width:100%;
+    }
+
+    /**
+     * Vertical align these grid items in the middle!
+     */
+    .grid--middle > .grid__item {
+        vertical-align: middle;
+    }
+
+
+
+// Sometimes you don't want an inline block grid, you want a float grid.
+// Fred doesn't mind :)
+.grid-float {
+    width: 100%;
+}
+
+    .grid-float:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .grid-float > [class^=#{quote($grid-column-name)}] {
+        float: left;
+        @if $grid-float-padding {
+            padding-left: $grid-float-padding;
+        }
+    }
+
+    .grid-float > [class^=#{quote($grid-column-name)}]:first-of-type {
+        padding-left: 0;
+    }
+
+
+// Print grid classnames
+
+.#{$grid-column-name} {
+    width: 100%;
+}
+
+
+// Print column widths via a handy mixin.
+
+@mixin grid-columns($name: $grid-column-name, $stops: 10, $fractional: false, $breakpointSuffix: false) {
+    @for $i from 1 to $stops {
+        $colName: $i;
+        $width: $i / $stops * 100;
+        @if $fractional {
+            $colName: #{$i + "-"  + $stops};
+        }
+        @if $breakpointSuffix {
+            $colName: #{$colName + $breakpointSuffix};
+        }
+        .#{$name}-#{$colName} {
+            width: #{$width + "%"};
+        }
+    }
+}
+
+@each $breakpoint in $fred-grid-breakpoints {
+    @if $breakpoint == "default" {
+        @each $division in $grid-divisions {
+            @include grid-columns($stops: $division, $fractional: true);
+        }
+    } @else {
+        @include media($breakpoint) {
+            $suffix: $breakpoint-classname-prefix + $breakpoint;
+            @each $division in $grid-divisions {
+                @include grid-columns($name: $grid-column-name, $stops: $division, $fractional: true, $breakpointSuffix: $suffix);
+            }
+            .#{$grid-column-name + $suffix} {
+                width: 100%;
+            }
+        }
+    }
+}
+.heading {
+    > :first-child {
+        margin-top:0;
+    }
+}
+
+    .heading--keyline {
+        padding-bottom: $bs-xxs;
+        border-bottom: solid 1px $hr-colour;
+    }
+
+    .heading__subheading {
+        font-weight: normal;
+    }
+/**
  * Icon block
  * ----------------------------------------------------------------------------
  */
@@ -1177,6 +1458,20 @@ $breakpoints:
     }
 }
 
+/**
+ * Responsive images
+ * ----------------------------------------------------------------------------
+ * <img src="..." class="img--responsive" alt="Responsive image">
+ */
+
+.img--responsive {
+    height: auto;
+    max-width: 100%;
+}
+
+.img--round {
+    @include vendor(border-radius, 50% 50% 50% 50%);
+}
 /**
  * Lists
  * ----------------------------------------------------------------------------
@@ -1205,8 +1500,8 @@ $breakpoints:
 
 //default list style in this case its circles
 %list-styled {
-    padding-left:$bs--m;
-    margin-top: $bs--xs; //same as the margin top on p tags
+    padding-left: $bs-m;
+    margin-top: $bs-xs; //same as the margin top on p tags
     list-style: circle;
 }
 
@@ -1218,7 +1513,7 @@ $breakpoints:
     .list-styled--decimal {
         @extend %list-styled;
         list-style: decimal-leading-zero;
-        padding-left:$bs--l;
+        padding-left: $bs-l;
     }
 
     //alpha list
@@ -1326,3 +1621,228 @@ dl {
 .radius--m {
     @include vendor(border-radius, 10px 10px 10px 10px);
 }
+/**
+ * Margin and padding helpers
+ * ----------------------------------------------------------------------------
+ * These are provided after the core so they function as overrides
+ * to default values. The first kind of specificity is source order!
+ */
+
+@include fred-breakpoint-sizer($fred-margin-breakpoints, $fred-margin-types);
+@include fred-breakpoint-sizer($fred-padding-breakpoints, $fred-padding-types);
+
+
+/**
+ * Antialias everything by default, and set the line-height.
+ */
+html,
+body {
+    @extend %fix-webkit-font-rendering;
+    line-height: $base-line-height;
+    font-size: 100%;
+}
+
+
+/**
+ * onMediaQuery sets the font-family on HTML, so declare your font-family
+ * on the body element instead.
+ */
+body {
+    @extend .font-primary;
+}
+
+
+/**
+ * Font declarations
+ * ----------------------------------------------------------------------------
+ */
+.font-primary {
+    @include font($font-primary, 400 , normal);
+}
+
+    .font-primary--italic {
+        @include font($font-primary, 400 , italic);
+        .ie8 & {
+            font-family:$font-primary-italic;
+        }
+    }
+
+    .font-primary--bold {
+        @include font($font-primary, 700 , normal);
+        .ie8 & {
+            font-family:$font-primary-bold;
+        }
+    }
+
+    .font-primary--bold-italic {
+        @include font($font-primary, 700 , italic);
+        .ie8 & {
+            font-family:$font-primary-bold-italic;
+        }
+    }
+
+.sans       { font-family:$sans-serif-stack; }
+.serif      { font-family:$serif-stack; }
+
+.font-size-xxxxl                { font-size: px-to-em($font-size-xxxxl);}
+.font-size-xxxl                 { font-size: px-to-em($font-size-xxxl);}
+.font-size-xxl                  { font-size: px-to-em($font-size-xxl);}
+.font-size-xl                   { font-size: px-to-em($font-size-xl);}
+.font-size-l                    { font-size: px-to-em($font-size-l);}
+.font-size-m                    { font-size: px-to-em($font-size-m);}
+.font-size-s                    { font-size: px-to-em($font-size-s);}
+.font-size-xs                   { font-size: px-to-em($font-size-xs);}
+.font-size-xxs                  { font-size: px-to-em($font-size-xxs);}
+.font-size-xxxs                 { font-size: px-to-em($font-size-xxxs);}
+
+
+/**
+ * Headings
+ * ----------------------------------------------------------------------------
+ */
+h1, h2, h3, h4, h5, h6, p, .text, li, code {
+    @extend .mb--0;
+    &:first-child {
+        @extend .m--0;
+    }
+}
+
+/** 2. Header styles
+ * ----------------------------------------------------------------------------
+ * NOTE: These can change per project depending on what font etc you use :)
+ *
+ */
+
+.h0 {
+    @extend .font-size-xxxxl;
+}
+
+h1, .h1 {
+
+    @extend .font-size-xxxl;
+    line-height: $line-height-xxxl;
+    margin-top: pxem($base-spacing, $font-size-xxxl);
+}
+
+h2, .h2 {
+    @extend .font-size-xxl;
+    line-height: $line-height-xxl;
+    margin-top: pxem($base-spacing, $font-size-xxl);
+}
+
+h3, .h3 {
+    @extend .font-size-xl;
+    line-height: $line-height-xl;
+    margin-top: pxem($base-spacing, $font-size-xl);
+}
+
+h4, .h4 {
+    @extend .font-size-m;
+    line-height: $line-height-m;
+    margin-top: px-to-em($base-spacing, $font-size-m);
+}
+
+h5, .h5 {
+    @extend .font-size-s;
+    line-height: $line-height-s;
+    margin-top: px-to-em($base-spacing--xs, $font-size-s);
+}
+
+h6, .h6 {
+    @extend .font-size-xs;
+    line-height: $line-height-xs;
+    margin-top: px-to-em($base-spacing--xs, $font-size-xs);
+}
+
+
+p, .text, li, code {
+    @extend .font-size-xs;
+    line-height: $line-height-xs;
+    margin-top: px-to-em($base-spacing--xs, $font-size-xs);
+}
+
+strong, b {
+    .ie8 & {
+        @extend .font-primary--bold;
+    }
+}
+
+em, i {
+    .ie8 & {
+        @extend .font-primary--italic;
+    }
+}
+
+
+/**
+ *  3. Paragraph styles
+ * ----------------------------------------------------------------------------
+ */
+
+.intro {
+    @extend .font-size-s;
+}
+
+.small {
+    @extend .font-size-xxs;
+}
+
+.tiny {
+    @extend .font-size-xxxs;
+}
+
+.caption {
+    @extend .font-size-xxs;
+}
+
+.pullquote {
+    @extend .font-size-m;
+}
+
+.text-muted {
+    color: $text-muted;
+}
+
+.text-warning {
+    color: $text-warning;
+}
+
+.text-success {
+    color: $text-success;
+}
+.text-danger {
+    color: $text-danger;
+}
+
+
+/**
+ * 5. hr
+ * ----------------------------------------------------------------------------
+ */
+
+hr {
+    border: none;
+    height: 1px;
+}
+
+
+/**
+ * Text helpers
+ * ----------------------------------------------------------------------------
+ */
+.uppercase              { text-transform:uppercase; }
+.lowercase              { text-transform:lowercase; }
+
+.text-align--left       { text-align: left; }
+.text-align--right      { text-align: right; }
+.text-align--center     { text-align: center; }
+.text--nowrap           { white-space: nowrap; }
+
+.text--overflow {
+    @extend .inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+

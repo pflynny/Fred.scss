@@ -30,14 +30,12 @@ $breakpoints:
     )
 ;
 
-
-@each $query in $breakpoints {
-    .#{nth($query, 1)} {
-        content: nth($query, 2);
-    }
-}
-
-
+// Debug:
+//@each $query in $breakpoints {
+//    .#{nth($query, 1)} {
+//        content: nth($query, 2);
+//    }
+//}
 
 @mixin media($breakpoint) {
     @if $breakpoint == "small" {

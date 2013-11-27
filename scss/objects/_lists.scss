@@ -26,8 +26,8 @@
 
 //default list style in this case its circles
 %list-styled {
-    padding-left:$bs--m;
-    margin-top: $bs--xs; //same as the margin top on p tags
+    padding-left: $bs-m;
+    margin-top: $bs-xs; //same as the margin top on p tags
     list-style: circle;
 }
 
@@ -39,7 +39,7 @@
     .list-styled--decimal {
         @extend %list-styled;
         list-style: decimal-leading-zero;
-        padding-left:$bs--l;
+        padding-left: $bs-l;
     }
 
     //alpha list

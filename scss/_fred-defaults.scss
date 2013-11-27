@@ -67,16 +67,16 @@ $base-spacing-unit:             1.5em;
 
 // Compute a range of expansions to the base spacing, to use in our mixins:
 
-$bs--0:                         0;
-$bs--xxxs:                      $base-spacing-unit / 4;     // 6px
-$bs--xxs:                       $base-spacing-unit / 3;     // 8px
-$bs--xs:                        $base-spacing-unit / 2;     // 12px
-$bs--s:                         $base-spacing-unit / 1.5;   // 16px
-$bs--m:                         $base-spacing-unit;         // 24px
-$bs--l:                         $base-spacing-unit * 1.5;   // 36px
-$bs--xl:                        $base-spacing-unit * 2;     // 48px
-$bs--xxl:                       $base-spacing-unit * 3;     // 72px
-$bs--xxxl:                      $base-spacing-unit * 4;     // 96px
+$bs-0:                         0;
+$bs-xxxs:                      $base-spacing-unit / 4;     // 6px
+$bs-xxs:                       $base-spacing-unit / 3;     // 8px
+$bs-xs:                        $base-spacing-unit / 2;     // 12px
+$bs-s:                         $base-spacing-unit / 1.5;   // 16px
+$bs-m:                         $base-spacing-unit;         // 24px
+$bs-l:                         $base-spacing-unit * 1.5;   // 36px
+$bs-xl:                        $base-spacing-unit * 2;     // 48px
+$bs-xxl:                       $base-spacing-unit * 3;     // 72px
+$bs-xxxl:                      $base-spacing-unit * 4;     // 96px
 
 $base-spacing--xs:  $base-spacing / 2;
 
@@ -97,31 +97,22 @@ $sizePrefixes:
     "-xxxl";
 
 $sizes:
-    $bs--0,
-    $bs--xxxs,
-    $bs--xxs,
-    $bs--xs,
-    $bs--s,
-    $bs--m,
-    $bs--l,
-    $bs--xl,
-    $bs--xxl,
-    $bs--xxxl;
+    $bs-0, $bs-xxxs, $bs-xxs, $bs-xs, $bs-s, $bs-m, $bs-l, $bs-xl, $bs-xxl, $bs-xxxl;
 
 
 // -----------------------------------------------------------------------------
 // Blocks
 // -----------------------------------------------------------------------------
 
-$block--xxxs:                   $bs--xxxs  $bs--xxxs;        // 6px 6px
-$block--xxs:                    $bs--xxxs $bs--xxs;         // 6px 8px
-$block--xs:                     $bs--xxs $bs--xs;           // 8px 12px
-$block--s:                      $bs--xs $bs--s;             // 12px 16px
-$block--m:                      $bs--m $bs--m;              // 24px 24px
-$block--l:                      $bs--l $bs--l;              // 36px 36px
-$block--xl:                     $bs--l $bs--xl;             // 36px 48px
-$block--xxl:                    $bs--xl $bs--xxl;           // 48px 72px
-$block--xxxl:                   $bs--xxl $bs--xxxl;         // 72px 96px
+$block--xxxs:                   $bs-xxxs $bs-xxxs;        // 6px 6px
+$block--xxs:                    $bs-xxxs $bs-xxs;         // 6px 8px
+$block--xs:                     $bs-xxs $bs-xs;           // 8px 12px
+$block--s:                      $bs-xs $bs-s;             // 12px 16px
+$block--m:                      $bs-m $bs-m;              // 24px 24px
+$block--l:                      $bs-l $bs-l;              // 36px 36px
+$block--xl:                     $bs-l $bs-xl;             // 36px 48px
+$block--xxl:                    $bs-xl $bs-xxl;           // 48px 72px
+$block--xxxl:                   $bs-xxl $bs-xxxl;         // 72px 96px
 
 $blockSizes:
     $block--xxxs,
@@ -163,13 +154,12 @@ $breakpoint-medium-name: "medium";
 $breakpoint-small-name: "small";
 $breakpoint-classname-prefix: "--q-";
 
-// Set media queries in ems. If you're wondering, we add 0.01em 
-// to the next breakpoint up, so that the breakpoints don't
+// Set media queries in ems. If you're wondering, we remove 0.01em
+// from the next breakpoint up, so that the breakpoints don't
 // overlap. For instance:
-// 
-// @media only screen and (max-width: 48em);
-// Next query: 
-// @media only screen and (min-width: 48.01em);
+//
+// @media only screen and (max-width: 47.99em);
+// @media only screen and (min-width: 48em);
 
 $breakpoint-xsmall:     25em;   // The mighty LG Android!
 $breakpoint-small:      30em;   // Portrait regular mobiles//480px
@@ -178,6 +168,43 @@ $breakpoint-large:      60em;   // Desktop 960px
 $breakpoint-xlarge:     75em;   // Wide 1200px
 $breakpoint-xxlarge:    90em;   // Wide 1440px
 $breakpoint-xxxlarge:   120em;  // Full HD
+
+$breakpoints:
+        (
+            small "only screen"
+        ),
+        (
+            small-only "only screen and (max-width: #{$breakpoint-small})"
+        ),
+        (
+            medium "only screen and (min-width: #{$breakpoint-medium})"
+        ),
+        (
+            medium-down "only screen and (max-width: #{$breakpoint-medium})"
+        ),
+        (
+            medium-only "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-large - 0.01em})"
+        ),
+        (
+            large "only screen and (min-width: #{$breakpoint-large})"
+        ),
+        (
+            large-only "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-xlarge - 0.01em})"
+        ),
+        (
+            xlarge "only screen and (min-width: #{$breakpoint-xlarge})"
+        ),
+        (
+            screen "only screen"
+        ),
+        (
+            landscape "only screen and (orientation: landscape)"
+        ),
+        (
+            portrait "only screen and (orientation: portrait)"
+        )
+;
+
 
 
 // -----------------------------------------------------------------------------
