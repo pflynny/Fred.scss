@@ -16,6 +16,7 @@
 
     .nav > li {
         @extend %inline-block;
+        margin-top: 0;
     }
 
 
