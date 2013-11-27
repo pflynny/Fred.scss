@@ -5,8 +5,8 @@
 
 .list-unstyled {
     list-style: none;
-    padding-left: 0;
     margin: 0 0 0 0;
+    padding-left: 0;
 }
 
     .list-unstyled > li {
@@ -26,9 +26,9 @@
 
 //default list style in this case its circles
 %list-styled {
-    padding-left: $bs-m;
-    margin-top: $bs-xs; //same as the margin top on p tags
     list-style: circle;
+    margin-top: $bs-xs; //same as the margin top on p tags
+    padding-left: $bs-m;
 }
 
 .list-styled {
@@ -83,11 +83,10 @@ dl {
     .dl-horizontal {
         > dt {
             @extend %text-overflow;
-            float: left;
-            width: 35%;
             clear: left;
+            float: left;
             text-align: right;
-
+            width: 35%;
         }
         > dd {
             @extend %clearfix; // Clear the floated `dt` if an empty `dd` is present

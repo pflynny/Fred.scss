@@ -4,8 +4,8 @@
 html,
 body {
     @extend %fix-webkit-font-rendering;
-    line-height: $base-line-height;
     font-size: 100%;
+    line-height: $base-line-height;
 }
 
 

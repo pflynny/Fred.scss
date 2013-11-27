@@ -346,9 +346,9 @@ table {
 }
 
 %clearfix:after {
+    clear: both;
     content: " "; /* 1 */
     display: table; /* 2 */
-    clear: both;
 }
 
 
@@ -387,11 +387,11 @@ table {
  * ----------------------------------------------------------------------------
  */
 .visually-hidden {
-    position: absolute;
-    overflow: hidden;
     clip: rect(0 0 0 0);
     height: 1px; width: 1px;
     margin: -1px; padding: 0; border: 0;
+    overflow: hidden;
+    position: absolute;
 }
 
 %hide { display: none !important; }
@@ -403,66 +403,6 @@ table {
 %visible    {visibility: visible !important;}
 %hidden     {visibility: hidden !important;}
 
-/**
- * 1. Visible classes
- * -----------------------------------------------------------------------------
- */
-.visible-mobile {
-    @extend %hide;
-    @include media('small') {
-        display: block !important;
-    }
-}
-
-.visible-skinny {
-    @extend %hide;
-    @include media('medium') {
-        display: block !important;
-    }
-}
-
-.visible-desktop {
-    @include media('medium-down') {
-        display: none;
-    }
-}
-
-.visible-wide {
-    @extend %hide;
-    @include media('xlarge') {
-        //@extend %visible;
-        display: block !important;
-    }
-}
-
-/**
- * 1. hidden classes
- * -----------------------------------------------------------------------------
- */
-.hidden-mobile {
-    @extend %show;
-    @include media('small') {
-        display: none !important;
-    }
-}
-
-.hidden-skinny {
-    @extend %show;
-    @include media('medium') {
-        display: none !important;
-    }
-}
-
-.hidden-desktop {
-    //??
-}
-
-.hidden-wide {
-    @extend %show;
-    @include media('xlarge') {
-        display: none !important;
-    }
-}
 
 
 /**
