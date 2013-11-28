@@ -578,7 +578,7 @@ a:hover {
 
 h1 {
     font-size: 2em;
-    margin: 0.67em 0;
+    margin:0;
 }
 
 /**
@@ -768,6 +768,28 @@ table {
 %center-element {
     margin-left:auto;
     margin-right:auto;
+}
+
+
+/**
+ * Vertical alignment utilities
+ * 
+ */
+
+%align--top {
+    vertical-align: top ;
+}
+
+%align--middle {
+    vertical-align: middle;
+}
+
+%align--baseline {
+    vertical-align: baseline;
+}
+
+%align--bottom {
+    vertical-align: bottom;
 }
 
 /**
@@ -1237,7 +1259,7 @@ table {
  * 8. Basic cosmetics for default buttons. Change or override at will.
  * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
  */
-.btn{
+.btn {
     @extend .inline-block;                          /* [1] */
     //@extend .user-select-none;
     @include vendor(border-radius, $base-spacing-unit/4);
@@ -1256,12 +1278,12 @@ table {
     white-space: nowrap;                            /* [3] */
 
     &,
-    &:hover{
+    &:hover {
         text-decoration:none;   /* [9] */
     }
 
     &:active,
-    &:focus{
+    &:focus {
         outline:none;
     }
 }
@@ -1297,7 +1319,7 @@ table {
     line-height: 2;   
 }
 
-.btn--small{
+.btn--small {
     padding-right: $base-spacing-unit / 2;          
     padding-left: $base-spacing-unit / 2;  
 }
@@ -1318,7 +1340,7 @@ table {
 /**
  * Block buttons stretch to the full width of their parent (handy!)
  */
-.btn--block{
+.btn--block {
     display: block;
     text-align: center;
 }
@@ -1327,7 +1349,7 @@ table {
  * Make a button behave like a block at mobile only (also handy)
  */
 @media only screen and (max-width:37.5em) {
-    .btn--block-mobile{
+    .btn--block-mobile {
         text-align: center;
         display: block;
     }
@@ -1339,19 +1361,19 @@ table {
  * FireFox doesn't like line-heights on submit buttons. Stick a class on submit
  * buttons and make sure the padding's the same as your default button :)
  */
-.btn--submit{
+.btn--submit {
     line-height: 1;
     padding-top: $base-spacing-unit / 2;
     padding-bottom: $base-spacing-unit / 2;
 }
 
-.btn--submit-large{
+.btn--submit-large {
     line-height: 1;
     padding-top: $base-spacing-unit;
     padding-bottom: $base-spacing-unit;
 }
 
-.btn--submit-small{
+.btn--submit-small {
     line-height: 1;
     padding-top: $base-spacing-unit / 4;
     padding-bottom: $base-spacing-unit / 4;
@@ -1408,7 +1430,7 @@ table {
     } 
 }
 
-.btn--icon-large{
+.btn--icon-large {
     padding-left: $base-spacing-unit;
     padding-right: $base-spacing-unit * 2;
     & > .i {
@@ -1416,7 +1438,7 @@ table {
     } 
 }
 
-.btn--icon-large--rev{
+.btn--icon-large--rev {
     padding-left: $base-spacing-unit * 2;
     padding-right: $base-spacing-unit;
     & > .i {
@@ -1424,7 +1446,7 @@ table {
     } 
 }
 
-.btn--icon-small{
+.btn--icon-small {
     padding-left: $base-spacing-unit / 3;
     padding-right: $base-spacing-unit / 2; 
     & > .i {
@@ -1432,7 +1454,7 @@ table {
     }
 }
 
-.btn--icon-small--rev{
+.btn--icon-small--rev {
     padding-left: $base-spacing-unit / 2;
     padding-right: $base-spacing-unit / 4;
     & > .i {
@@ -1452,7 +1474,7 @@ table {
  * ----------------------------------------------------------------------------
  */
 .btn--bounce,
-.btn--bob{
+.btn--bob {
     position: relative;
     @include vendor(transition, bottom 100ms ease-out);
 }
@@ -1780,9 +1802,10 @@ textarea {
     // Font-size medium reset the block to the context of body (ie, 16px)
     .grid__item {
         @extend .inline-block;
+        @extend %align--top;
+        @extend .text-left;
         font-size: medium;
-        text-align: left;
-        vertical-align: top;
+
     }
 
     .grid:after,
@@ -1797,11 +1820,11 @@ textarea {
      * Vertical align these grid items in the middle!
      */
     .grid--middle > .grid__item {
-        vertical-align: middle;
+        @extend %align--middle;
     }
 
     .grid--bottom > .grid__item {
-        vertical-align: bottom;
+        @extend %align--bottom;
     }
 
 
@@ -1821,7 +1844,7 @@ textarea {
     }
 
     .grid-float > [class^=#{quote($grid-column-name)}] {
-        float: left;
+        @extend .left;
         @if $grid-float-padding {
             padding-left: $grid-float-padding;
         }
@@ -2079,7 +2102,7 @@ dl {
 }
 
     .media__image{
-        float: left;
+        @extend .left;
         margin-right:$base-spacing-unit;
     }
 
@@ -2094,7 +2117,7 @@ dl {
 }
 
     .media--rev > .media__image{
-        float: right;
+        @extend .right;
         margin-left:$base-spacing-unit;
     }
 
@@ -2341,6 +2364,33 @@ This box will be a square
 @include fred-breakpoint-sizer($fred-padding-breakpoints, $fred-padding-types);
 
 
+/**
+ * State utilities
+ * ----------------------------------------------------------------------------
+ * Indicate that interaction will result in an (in)action.
+ */
+
+.is-disabled {
+    cursor: default;
+}
+
+.is-draggable {
+    cursor: move;
+}
+
+
+//links
+
+//do we want text decoration as default and then add it with a class or do we do the other way 
+//link blocks - commonly used in vertical navigation lists
+.link--block,
+.link--block:focus,
+.link--block:hover,
+.link--block:active {
+    display:block;
+    //removes any text decoration on all link states
+    text-decoration: none!important;
+}
 /**
  * Antialias everything by default, and set the line-height.
  */

@@ -79,7 +79,7 @@ a:active, a:hover {
  */
 h1 {
   font-size: 2em;
-  margin: 0.67em 0; }
+  margin: 0; }
 
 /**
  * Address styling not present in IE 8/9, Safari 5, and Chrome.
@@ -200,10 +200,10 @@ table {
 
 
 
-.left {
+.left, .grid-float > [class^=col], .media__image {
   float: left; }
 
-.right {
+.right, .media--rev > .media__image {
   float: right; }
 
 .absolute--bottom-left {
@@ -225,6 +225,20 @@ table {
 .arrow--center .arrow {
   margin-left: auto;
   margin-right: auto; }
+
+/**
+ * Vertical alignment utilities
+ * 
+ */
+.grid__item {
+  vertical-align: top; }
+
+.grid--middle > .grid__item {
+  vertical-align: middle; }
+
+
+.grid--bottom > .grid__item {
+  vertical-align: bottom; }
 
 /**
  * Inline block
@@ -1127,9 +1141,7 @@ textarea {
 
 
 .grid__item, .grid > * {
-  font-size: medium;
-  text-align: left;
-  vertical-align: top; }
+  font-size: medium; }
 
 .grid:after, .grid__break {
   content: '';
@@ -1139,11 +1151,7 @@ textarea {
 /**
      * Vertical align these grid items in the middle!
      */
-.grid--middle > .grid__item, .grid--middle > .grid > *, .grid > .grid--middle > * {
-  vertical-align: middle; }
 
-.grid--bottom > .grid__item, .grid--bottom > .grid > *, .grid > .grid--bottom > * {
-  vertical-align: bottom; }
 
 .grid-float {
   width: 100%; }
@@ -1154,7 +1162,6 @@ textarea {
   clear: both; }
 
 .grid-float > [class^=col] {
-  float: left;
   padding-left: 1em; }
 
 .grid-float > [class^=col]:first-of-type {
@@ -1477,7 +1484,6 @@ dd {
   margin-top: 1.5em; }
 
 .media__image {
-  float: left;
   margin-right: 1.5em; }
 
 
@@ -1486,7 +1492,6 @@ dd {
   margin-top: 1.5em; }
 
 .media--rev > .media__image {
-  float: right;
   margin-left: 1.5em; }
 
 
@@ -1979,6 +1984,21 @@ This box will be a square
     padding-top: 6em; } }
 
 /**
+ * State utilities
+ * ----------------------------------------------------------------------------
+ * Indicate that interaction will result in an (in)action.
+ */
+.is-disabled {
+  cursor: default; }
+
+.is-draggable {
+  cursor: move; }
+
+.link--block, .link--block:focus, .link--block:hover, .link--block:active {
+  display: block;
+  text-decoration: none !important; }
+
+/**
  * Antialias everything by default, and set the line-height.
  */
 html, body {
@@ -2136,7 +2156,7 @@ hr {
 .lowercase {
   text-transform: lowercase; }
 
-.text-left {
+.text-left, .grid__item {
   text-align: left; }
 
 .text-right {
