@@ -13,15 +13,15 @@
    margin-top:0!important;
 }
 
-    .block--xxxs, 
-    .block--xxs, 
-    .block--xs, 
-    .block--s,
-    .block--m,
-    .block--l, 
-    .block--xl, 
-    .block--xxl, 
-    .block--xxxl {
+    .block-xxxs, 
+    .block-xxs, 
+    .block-xs, 
+    .block-s,
+    .block-m,
+    .block-l, 
+    .block-xl, 
+    .block-xxl, 
+    .block-xxxl {
         @extend %block;
         > :first-child {
             margin-top:0;
