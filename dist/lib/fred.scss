@@ -1064,15 +1064,15 @@ table {
    margin-top:0!important;
 }
 
-    .block--xxxs, 
-    .block--xxs, 
-    .block--xs, 
-    .block--s,
-    .block--m,
-    .block--l, 
-    .block--xl, 
-    .block--xxl, 
-    .block--xxxl {
+    .block-xxxs, 
+    .block-xxs, 
+    .block-xs, 
+    .block-s,
+    .block-m,
+    .block-l, 
+    .block-xl, 
+    .block-xxl, 
+    .block-xxxl {
         @extend %block;
         > :first-child {
             margin-top:0;
@@ -2478,38 +2478,45 @@ h1, h2, h3, h4, h5, h6, p, .text, li, code {
 }
 
 h1, .h1 {
-
     @extend .font-size-xxxl;
+    @extend .mb-0;
     line-height: $line-height-xxxl;
     margin-top: pxem($base-spacing, $font-size-xxxl);
+
+
 }
 
 h2, .h2 {
     @extend .font-size-xxl;
+    @extend .mb-0;
     line-height: $line-height-xxl;
     margin-top: pxem($base-spacing, $font-size-xxl);
 }
 
 h3, .h3 {
     @extend .font-size-xl;
+    @extend .mb-0;
     line-height: $line-height-xl;
     margin-top: pxem($base-spacing, $font-size-xl);
 }
 
 h4, .h4 {
     @extend .font-size-m;
+    @extend .mb-0;
     line-height: $line-height-m;
     margin-top: px-to-em($base-spacing, $font-size-m);
 }
 
 h5, .h5 {
     @extend .font-size-s;
+    @extend .mb-0;
     line-height: $line-height-s;
     margin-top: px-to-em($base-spacing--xs, $font-size-s);
 }
 
 h6, .h6 {
     @extend .font-size-xs;
+    @extend .mb-0;
     line-height: $line-height-xs;
     margin-top: px-to-em($base-spacing--xs, $font-size-xs);
 }
@@ -2517,6 +2524,7 @@ h6, .h6 {
 
 p, .text, li, code {
     @extend .font-size-xs;
+    @extend .mb-0;
     line-height: $line-height-xs;
     margin-top: px-to-em($base-spacing--xs, $font-size-xs);
 }

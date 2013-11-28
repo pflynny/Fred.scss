@@ -446,13 +446,13 @@ table {
  * Generic blocks
  * ----------------------------------------------------------------------------
  */
-.block--xxxs, .block--xxs, .block--xs, .block--s, .block--m, .block--l, .block--xl, .block--xxl, .block--xxxl {
+.block-xxxs, .block-xxs, .block-xs, .block-s, .block-m, .block-l, .block-xl, .block-xxl, .block-xxxl {
   margin-top: 1em; }
 
 .block--stacked {
   margin-top: 0 !important; }
 
-.block--xxxs > :first-child, .block--xxs > :first-child, .block--xs > :first-child, .block--s > :first-child, .block--m > :first-child, .block--l > :first-child, .block--xl > :first-child, .block--xxl > :first-child, .block--xxxl > :first-child {
+.block-xxxs > :first-child, .block-xxs > :first-child, .block-xs > :first-child, .block-s > :first-child, .block-m > :first-child, .block-l > :first-child, .block-xl > :first-child, .block-xxl > :first-child, .block-xxxl > :first-child {
   margin-top: 0; }
 
 .block-0 {
@@ -1731,7 +1731,7 @@ This box will be a square
 .mt-xxxl {
   margin-top: 6em; }
 
-.mb-0, h1, h2, h3, h4, h5, h6, p, .text, li, code {
+.mb-0, h1, h2, h3, h4, h5, h6, p, .text, li, code, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .text, li, code {
   margin-bottom: 0; }
 
 .mb-xxxs {
