@@ -1053,6 +1053,11 @@ table {
  * Generic blocks
  * ----------------------------------------------------------------------------
  */
+// making sure the first element has no margin on it
+%block {
+    @extend .clearfix;
+    margin-top:1em;
+}
 
 .block--stacked {
    //only use this id we don't want a top margin on it
@@ -1074,11 +1079,7 @@ table {
         }
     }
 
-// making sure the first element has no margin on it
-%block {
-    @extend .clearfix;
-    margin-top:1em;
-}
+
 
 @each $breakpoint in $fred-block-breakpoints {
     @include media($breakpoint) {
@@ -2379,7 +2380,7 @@ This box will be a square
 }
 
 
-//links
+//links for now it can sit in here may create a link oject 
 
 //do we want text decoration as default and then add it with a class or do we do the other way 
 //link blocks - commonly used in vertical navigation lists

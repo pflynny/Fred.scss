@@ -446,14 +446,14 @@ table {
  * Generic blocks
  * ----------------------------------------------------------------------------
  */
+.block--xxxs, .block--xxs, .block--xs, .block--s, .block--m, .block--l, .block--xl, .block--xxl, .block--xxxl {
+  margin-top: 1em; }
+
 .block--stacked {
   margin-top: 0 !important; }
 
 .block--xxxs > :first-child, .block--xxs > :first-child, .block--xs > :first-child, .block--s > :first-child, .block--m > :first-child, .block--l > :first-child, .block--xl > :first-child, .block--xxl > :first-child, .block--xxxl > :first-child {
   margin-top: 0; }
-
-.block--xxxs, .block--xxs, .block--xs, .block--s, .block--m, .block--l, .block--xl, .block--xxl, .block--xxxl {
-  margin-top: 1em; }
 
 .block-0 {
   padding: 0.375em 0.375em; }
