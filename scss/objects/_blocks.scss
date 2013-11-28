@@ -2,6 +2,11 @@
  * Generic blocks
  * ----------------------------------------------------------------------------
  */
+// making sure the first element has no margin on it
+%block {
+    @extend .clearfix;
+    margin-top:1em;
+}
 
 .block--stacked {
    //only use this id we don't want a top margin on it
@@ -23,11 +28,7 @@
         }
     }
 
-// making sure the first element has no margin on it
-%block {
-    @extend .clearfix;
-    margin-top:1em;
-}
+
 
 @each $breakpoint in $fred-block-breakpoints {
     @include media($breakpoint) {
