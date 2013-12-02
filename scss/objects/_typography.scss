@@ -1,9 +1,8 @@
 /**
- * Antialias everything by default, and set the line-height.
+ * By default, and set the line-height.
  */
 html,
 body {
-    @extend %fix-webkit-font-rendering;
     font-size: 100%;
     line-height: $base-line-height;
 }
