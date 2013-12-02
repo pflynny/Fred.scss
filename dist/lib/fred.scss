@@ -104,27 +104,27 @@ $sizes:
 // Blocks
 // -----------------------------------------------------------------------------
 
-$block--xxxs:                   $bs-xxxs $bs-xxxs;        // 6px 6px
-$block--xxs:                    $bs-xxxs $bs-xxs;         // 6px 8px
-$block--xs:                     $bs-xxs $bs-xs;           // 8px 12px
-$block--s:                      $bs-xs $bs-s;             // 12px 16px
-$block--m:                      $bs-m $bs-m;              // 24px 24px
-$block--l:                      $bs-l $bs-l;              // 36px 36px
-$block--xl:                     $bs-l $bs-xl;             // 36px 48px
-$block--xxl:                    $bs-xl $bs-xxl;           // 48px 72px
-$block--xxxl:                   $bs-xxl $bs-xxxl;         // 72px 96px
+$block-xxxs:                   $bs-xxxs $bs-xxxs;        // 6px 6px
+$block-xxs:                    $bs-xxxs $bs-xxs;         // 6px 8px
+$block-xs:                     $bs-xxs $bs-xs;           // 8px 12px
+$block-s:                      $bs-xs $bs-s;             // 12px 16px
+$block-m:                      $bs-m $bs-m;              // 24px 24px
+$block-l:                      $bs-l $bs-l;              // 36px 36px
+$block-xl:                     $bs-l $bs-xl;             // 36px 48px
+$block-xxl:                    $bs-xl $bs-xxl;           // 48px 72px
+$block-xxxl:                   $bs-xxl $bs-xxxl;         // 72px 96px
 
 $blockSizes:
-    $block--xxxs,
-    $block--xxs,
-    $block--xs,
-    $block--s,
-    $block--m,
-    $block--l,
-    $block--xl,
-    $block--xxl,
-    $block--xxxl,
-    $block--xxxl;
+    $block-xxxs,
+    $block-xxs,
+    $block-xs,
+    $block-s,
+    $block-m,
+    $block-l,
+    $block-xl,
+    $block-xxl,
+    $block-xxxl,
+    $block-xxxl;
 
 
 // -----------------------------------------------------------------------------
@@ -233,7 +233,7 @@ $fred-block-breakpoints: default, small, medium, large;
 // ml   | margin-left
 
 $fred-margin-breakpoints: default, small, medium, large;
-$fred-margin-types: "mt", "mb";
+$fred-margin-types: "mt", "mb", "ml", "mr";
 
 // Generate padding classes for the given breakpoints
 // 
@@ -243,7 +243,7 @@ $fred-margin-types: "mt", "mb";
 // pl   | padding-left
 
 $fred-padding-breakpoints: default, small, medium, large;
-$fred-padding-types: "pt";
+$fred-padding-types: "pt", "pb", "pl", "pr";
 
 // -----------------------------------------------------------------------------
 // Colours
@@ -256,7 +256,7 @@ $hr-colour:                     #e5e5e5;
 // Links
 $base-link-color:               #2F72BA;
 $base-link-hover-color:         darken($base-link-color, 15%);
-$list-block-color:              #ccc;
+$lits-block-color:              #ccc;
 $sub-header:                    #999;
 
 // Text emphasis colours
@@ -1064,15 +1064,15 @@ table {
    margin-top:0!important;
 }
 
-    .block--xxxs, 
-    .block--xxs, 
-    .block--xs, 
-    .block--s,
-    .block--m,
-    .block--l, 
-    .block--xl, 
-    .block--xxl, 
-    .block--xxxl {
+    .block-xxxs, 
+    .block-xxs, 
+    .block-xs, 
+    .block-s,
+    .block-m,
+    .block-l, 
+    .block-xl, 
+    .block-xxl, 
+    .block-xxxl {
         @extend %block;
         > :first-child {
             margin-top:0;
@@ -1906,7 +1906,9 @@ textarea {
 
     .heading--keyline {
         padding-bottom: $bs-xxs;
-        border-bottom: solid 1px $hr-colour;
+        border-bottom-width:1px; 
+        border-bottom-style:solid;
+
     }
 
     .heading__subheading {
@@ -1952,6 +1954,31 @@ textarea {
 // Use a massive em value, good for circles up to 960px wide
 .img--round {
     @include vendor(border-radius, 30em);
+}
+/**
+ * State utilities
+ * ----------------------------------------------------------------------------
+ * Indicate that interaction will result in an (in)action.
+ */
+
+.is-disabled {
+    cursor: default;
+}
+
+.is-draggable {
+    cursor: move;
+}
+
+
+//Do we want text decoration as default and then add it with a class or do we do the other way 
+//link blocks - commonly used in vertical navigation lists
+.link--block,
+.link--block:focus,
+.link--block:hover,
+.link--block:active {
+    display:block;
+    //removes any text decoration on all link states
+    text-decoration: none!important;
 }
 /**
  * Lists
@@ -2267,8 +2294,6 @@ dl {
     padding-left: ($base-line-height * 0.166667) * 1em;
     /* =1.50em */
     text-align:center;
-    background-color: $pill-ui-color;
-    color:#fff; /* Override this color in your theme stylesheet */
 
     /**
      * Normally we’d use border-radius:100%; but instead here we just use an
@@ -2280,7 +2305,6 @@ dl {
 
 .lozenge {
     @extend .pill;
-    border-radius: $lozenge-radius;
 }
 // Border radii
 .radius--xs {
@@ -2365,33 +2389,6 @@ This box will be a square
 @include fred-breakpoint-sizer($fred-padding-breakpoints, $fred-padding-types);
 
 
-/**
- * State utilities
- * ----------------------------------------------------------------------------
- * Indicate that interaction will result in an (in)action.
- */
-
-.is-disabled {
-    cursor: default;
-}
-
-.is-draggable {
-    cursor: move;
-}
-
-
-//links for now it can sit in here may create a link oject 
-
-//do we want text decoration as default and then add it with a class or do we do the other way 
-//link blocks - commonly used in vertical navigation lists
-.link--block,
-.link--block:focus,
-.link--block:hover,
-.link--block:active {
-    display:block;
-    //removes any text decoration on all link states
-    text-decoration: none!important;
-}
 /**
  * Antialias everything by default, and set the line-height.
  */
@@ -2478,10 +2475,11 @@ h1, h2, h3, h4, h5, h6, p, .text, li, code {
 }
 
 h1, .h1 {
-
     @extend .font-size-xxxl;
     line-height: $line-height-xxxl;
     margin-top: pxem($base-spacing, $font-size-xxxl);
+
+
 }
 
 h2, .h2 {
@@ -2504,6 +2502,7 @@ h4, .h4 {
 
 h5, .h5 {
     @extend .font-size-s;
+
     line-height: $line-height-s;
     margin-top: px-to-em($base-spacing--xs, $font-size-s);
 }
