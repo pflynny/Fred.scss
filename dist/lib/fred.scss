@@ -884,18 +884,6 @@ table {
 }
 
 
-/**
- * Hide an element, but make it visible to screen readers
- * ----------------------------------------------------------------------------
- */
-.visually-hidden {
-    clip: rect(0 0 0 0);
-    height: 1px; width: 1px;
-    margin: -1px; padding: 0; border: 0;
-    overflow: hidden;
-    position: absolute;
-}
-
 %hide { display: none !important; }
 %show { display: block !important; }
 
@@ -2099,7 +2087,7 @@ dl {
       margin-left: 0; // Undo browser default
     }
 
-
+//TODO !
 /**
  * 13. Horizontal description lists
  * ----------------------------------------------------------------------------
@@ -2107,22 +2095,22 @@ dl {
  *
  */
 
-@include media('medium-down') {
-    .dl-horizontal {
-        > dt {
-            @extend %text-overflow;
-            clear: left;
-            float: left;
-            text-align: right;
-            width: 35%;
-        }
-        > dd {
-            @extend %clearfix; // Clear the floated `dt` if an empty `dd` is present
-            margin-left: 40%;
-
-       }
-    }
-}
+//@include media('medium-down') {
+//    .dl-horizontal {
+//        > dt {
+//            @extend .text-overflow;
+//            clear: left;
+//            float: left;
+ //           text-align: right;
+ //           width: 35%;
+ //       }
+ //       > dd {
+ //           @extend %clearfix; // Clear the floated `dt` if an empty `dd` is present
+ //           margin-left: 40%;
+//
+//       }
+ //   }
+//}
 
 /**
  * Float an image to the left, with a clearfixed block of content to the right.
@@ -2478,6 +2466,7 @@ body {
  * ----------------------------------------------------------------------------
  */
 h1, h2, h3, h4, h5, h6, p, .text, li, code {
+     @extend .mb-0;
     &:first-child {
         @extend .mt-0;
     }
@@ -2497,8 +2486,6 @@ h1, .h1 {
     @extend .font-size-xxxl;
     line-height: $line-height-xxxl;
     margin-top: pxem($base-spacing, $font-size-xxxl);
-
-
 }
 
 h2, .h2 {
@@ -2521,7 +2508,6 @@ h4, .h4 {
 
 h5, .h5 {
     @extend .font-size-s;
-
     line-height: $line-height-s;
     margin-top: px-to-em($base-spacing--xs, $font-size-s);
 }
@@ -2639,4 +2625,16 @@ hr {
                 display: none !important;
         }
     }
+}
+
+/**
+ * Hide an element, but make it visible to screen readers
+ * ----------------------------------------------------------------------------
+ */
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    height: 1px; width: 1px;
+    margin: -1px; padding: 0; border: 0;
+    overflow: hidden;
+    position: absolute;
 }
