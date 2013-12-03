@@ -15,8 +15,8 @@
     }
 
     .list--inline {
-        @extend .clearfix;
-        @extend .list-unstyled;
+        @extend .clearfix; /* This extend is found in core */
+        @extend .list-unstyled; 
     }
 
     .list--inline > li {
