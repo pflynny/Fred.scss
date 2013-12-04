@@ -101,8 +101,23 @@ $sizes:
 
 
 // -----------------------------------------------------------------------------
-// Blocks
+// Blocks 
 // -----------------------------------------------------------------------------
+/* 
+* The block prefixes need to match up with the $block sizes below otherwise the 
+* array will through an error
+*/
+
+$blockPrefixes:
+    "-xxxs",
+    "-xxs",
+    "-xs",
+    "-s",
+    "-m",
+    "-l",
+    "-xl",
+    "-xxl",
+    "-xxxl";
 
 $block-xxxs:                   $bs-xxxs $bs-xxxs;        // 6px 6px
 $block-xxs:                    $bs-xxxs $bs-xxs;         // 6px 8px
@@ -123,7 +138,6 @@ $blockSizes:
     $block-l,
     $block-xl,
     $block-xxl,
-    $block-xxxl,
     $block-xxxl;
 
 
@@ -211,7 +225,7 @@ $breakpoints:
 // Grid
 // -----------------------------------------------------------------------------
 
-$fred-grid-breakpoints:     default, small, medium, large;
+$fred-grid-breakpoints:     default, small, medium, large, xlarge;
 $grid-column-name:          "col";
 $grid-divisions:            3, 4, 5, 10;
 $grid-float-padding:        1em; // false to disable.
@@ -223,7 +237,7 @@ $grid-float-padding:        1em; // false to disable.
 // These instruct Fred on how to generate just the bits you want.
 
 // Make a range of blocks for the given breakpoints
-$fred-block-breakpoints: default, small, medium, large;
+$fred-block-breakpoints: default, small, medium, large, xlarge;
 
 // Generate margin classes for the given breakpoints
 // 
@@ -232,7 +246,7 @@ $fred-block-breakpoints: default, small, medium, large;
 // mr   | margin-right
 // ml   | margin-left
 
-$fred-margin-breakpoints: default, small, medium, large;
+$fred-margin-breakpoints: default, small, medium, large, xlarge;
 $fred-margin-types: "mt", "mb", "ml", "mr";
 
 // Generate padding classes for the given breakpoints
@@ -242,7 +256,7 @@ $fred-margin-types: "mt", "mb", "ml", "mr";
 // pr   | padding-right
 // pl   | padding-left
 
-$fred-padding-breakpoints: default, small, medium, large;
+$fred-padding-breakpoints: default, small, medium, large, xlarge;
 $fred-padding-types: "pt", "pb", "pl", "pr";
 
 // -----------------------------------------------------------------------------
@@ -463,6 +477,9 @@ $radius-circle:     35em;
         }
     }
 }
+
+
+
 @import "../_fred-theme.scss";
 
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
@@ -1075,7 +1092,7 @@ table {
 
 @each $breakpoint in $fred-block-breakpoints {
     @include media($breakpoint) {
-        @include fred-sizer("block", $sizePrefixes, $breakpoint, "padding", $blockSizes);
+        @include fred-sizer("block", $blockPrefixes, $breakpoint, "padding", $blockSizes);
     }
 }
 /**
@@ -2625,16 +2642,18 @@ hr {
 
 
 /**
- * Visibility
+ * Visibility -
  * -----------------------------------------------------------------------------
  */
+ //loop through every query in the breakpoints array found in fred defaults
 @each $query in $breakpoints {
+
     $queryName: nth($query, 1);
     @include media($queryName) {
-        .visible-#{$queryName} {
+        .visible#{$breakpoint-classname-prefix}#{$queryName} {
             display: block !important;
         }
-        .hidden-#{$queryName} {
+        .hidden#{$breakpoint-classname-prefix}#{$queryName} {
                 display: none !important;
         }
     }
