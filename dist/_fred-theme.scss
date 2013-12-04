@@ -105,7 +105,8 @@ $sizes:
 // -----------------------------------------------------------------------------
 /* 
 * The block prefixes need to match up with the $block sizes below otherwise the 
-* array will through an error
+* array will through an error or we could create an argument and pass in size 
+prefixes and minus the ones we dont need eg block-0 hmmm 
 */
 
 $blockPrefixes:

@@ -105,7 +105,8 @@ $sizes:
 // -----------------------------------------------------------------------------
 /* 
 * The block prefixes need to match up with the $block sizes below otherwise the 
-* array will through an error
+* array will through an error or we could create an argument and pass in size 
+prefixes and minus the ones we dont need eg block-0 hmmm 
 */
 
 $blockPrefixes:
@@ -185,25 +186,25 @@ $breakpoint-xxxlarge:   120em;  // Full HD
 
 $breakpoints:
         (
-            small "only screen"
+            small-up "only screen"
         ),
         (
-            small-only "only screen and (max-width: #{$breakpoint-small})"
+            small "only screen and (max-width: #{$breakpoint-small})"
         ),
         (
-            medium "only screen and (min-width: #{$breakpoint-medium})"
+            medium-up "only screen and (min-width: #{$breakpoint-medium})"
+        ),
+        (
+            medium "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-large - 0.01em})"
         ),
         (
             medium-down "only screen and (max-width: #{$breakpoint-medium})"
         ),
         (
-            medium-only "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-large - 0.01em})"
+            large-up "only screen and (min-width: #{$breakpoint-large})"
         ),
         (
-            large "only screen and (min-width: #{$breakpoint-large})"
-        ),
-        (
-            large-only "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-xlarge - 0.01em})"
+            large "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-xlarge - 0.01em})"
         ),
         (
             xlarge "only screen and (min-width: #{$breakpoint-xlarge})"

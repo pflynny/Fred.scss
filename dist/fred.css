@@ -1,10 +1,12 @@
 /* 
 * The block prefixes need to match up with the $block sizes below otherwise the 
-* array will through an error
+* array will through an error or we could create an argument and pass in size 
+prefixes and minus the ones we dont need eg block-0 hmmm 
 */
 /* 
 * The block prefixes need to match up with the $block sizes below otherwise the 
-* array will through an error
+* array will through an error or we could create an argument and pass in size 
+prefixes and minus the ones we dont need eg block-0 hmmm 
 */
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 /* ==========================================================================
@@ -238,17 +240,21 @@ table {
  * Vertical alignment utilities
  * 
  */
-.grid__item {
+.align--top, .grid__item {
   vertical-align: top; }
 
-.btn-group, .btn-group-vertical, .btn, .caret, .grid--middle > .grid__item, .i {
+.align--middle, .btn-group, .btn-group-vertical, .btn, .caret, .close:after, .grid--middle > .grid__item, .i {
   vertical-align: middle; }
 
-.badge {
+.align--baseline, .badge {
   vertical-align: baseline; }
 
-.grid--bottom > .grid__item {
+.align--bottom, .grid--bottom > .grid__item {
   vertical-align: bottom; }
+
+
+
+
 
 /**
  * Inline block
@@ -998,9 +1004,10 @@ table {
 
 .close:after {
   /* This extend is found in core */
+  /* This extend is found in core */
   content: "\00d7";
   font-size: 1.5em;
-  line-height: 1;
+  line-height: 0;
   opacity: 0.2; }
 
 .close:hover:after {
@@ -1477,7 +1484,7 @@ textarea {
 
 .list-unstyled > li {
   list-style: none;
-  margin-left: 0; }
+  margin: 0; }
 
 .list--inline {
   /* This extend is found in core */ }
