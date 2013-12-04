@@ -2264,8 +2264,8 @@ dl {
     }
 
         .pagination > li > a{
-            padding:$base-spacing-unit / 2;
-            margin:-$base-spacing-unit / 2;
+            padding:$base-spacing-unit / 2 $bs-0;
+            margin:-$base-spacing-unit / 2 $bs-0;
         }
 
     .pagination__current {
@@ -2278,7 +2278,7 @@ dl {
         display: inline-block;
     }
 
-    .pagination__last > a:before {
+    .pagination__last > a:after {
         content: "\203A";
     }
 
