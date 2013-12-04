@@ -1688,7 +1688,7 @@ dd {
   border-radius: 100px; }
 
 
-.radius--s {
+.radius-s {
   -webkit-border-radius: 2px 2px 2px 2px;
   -moz-border-radius: 2px 2px 2px 2px;
   -ms-border-radius: 2px 2px 2px 2px;
@@ -1702,7 +1702,7 @@ dd {
   -o-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px; }
 
-.radius--l {
+.radius-l {
   -webkit-border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -ms-border-radius: 10px 10px 10px 10px;
@@ -1752,7 +1752,7 @@ This box will be a square
   padding-top: 75%; }
 
 .ratio-3-4:before {
-  padding-top: 1.33333%; }
+  padding-top: 133.33333%; }
 
 .ratio-16-9:before {
   padding-top: 56.25%; }

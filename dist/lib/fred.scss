@@ -477,9 +477,6 @@ $radius-circle:     35em;
         }
     }
 }
-
-
-
 @import "../_fred-theme.scss";
 
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
@@ -2336,7 +2333,7 @@ dl {
 }
 // Border radii
 @if $radius-s {
-    .radius--s {
+    .radius-s {
         @include vendor(border-radius, 2px 2px 2px 2px);
     }
 }
@@ -2348,7 +2345,7 @@ dl {
 }
 
 @if $radius-l {
-    .radius--l {
+    .radius-l {
         @include vendor(border-radius, 10px 10px 10px 10px);
     }
 }
@@ -2403,7 +2400,7 @@ This box will be a square
 }
 
 .ratio-3-4:before {
-    padding-top: 1.333333333%;
+    padding-top: 133.3333333%;
 }
 
 .ratio-16-9:before {
