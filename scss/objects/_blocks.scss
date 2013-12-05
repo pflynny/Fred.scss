@@ -1,7 +1,13 @@
 /**
  * Generic blocks
  * ----------------------------------------------------------------------------
+ *
+ * <div class='block-xs'>
+ *        ...
+ * </div>
+ * 
  */
+ 
 // making sure the first element has no margin on it
 %block {
     @extend .clearfix; /* This extend is found in core */

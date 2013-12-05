@@ -448,6 +448,11 @@ table {
 /**
  * Generic blocks
  * ----------------------------------------------------------------------------
+ *
+ * <div class='block-xs'>
+ *        ...
+ * </div>
+ * 
  */
 .block-xxxs, .block-xxs, .block-xs, .block-s, .block-m, .block-l, .block-xl, .block-xxl, .block-xxxl {
   /* This extend is found in core */
@@ -486,7 +491,7 @@ table {
 .block-xxxl {
   padding: 4.5em 6em; }
 
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 47.99em) {
   .block-xxxs--q-small {
     padding: 0.375em 0.375em; }
   .block-xxs--q-small {
@@ -1177,11 +1182,6 @@ textarea {
   display: table;
   clear: both; }
 
-.grid-float > [class^=col] {
-  padding-left: 1em; }
-
-.grid-float > [class^=col]:first-of-type {
-  padding-left: 0; }
 
 .col {
   width: 100%; }
@@ -1240,7 +1240,7 @@ textarea {
 .col-9-10 {
   width: 90%; }
 
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 47.99em) {
   .col-1-3--q-small {
     width: 33.33333%; }
   .col-2-3--q-small {
@@ -1935,7 +1935,7 @@ This box will be a square
 .mr-xxxl {
   margin-right: 6em; }
 
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 47.99em) {
   .mt-0--q-small {
     margin-top: 0; }
   .mt-xxxs--q-small {
@@ -2383,7 +2383,7 @@ This box will be a square
 .pr-xxxl {
   padding-right: 6em; }
 
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 47.99em) {
   .pt-0--q-small {
     padding-top: 0; }
   .pt-xxxs--q-small {

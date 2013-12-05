@@ -192,7 +192,7 @@ $breakpoints:
             small-up "only screen"
         ),
         (
-            small "only screen and (max-width: #{$breakpoint-small})"
+            small "only screen and (max-width: #{$breakpoint-small-max})"
         ),
         (
             medium-up "only screen and (min-width: #{$breakpoint-medium})"
@@ -1078,7 +1078,13 @@ table {
 /**
  * Generic blocks
  * ----------------------------------------------------------------------------
+ *
+ * <div class='block-xs'>
+ *        ...
+ * </div>
+ * 
  */
+ 
 // making sure the first element has no margin on it
 %block {
     @extend .clearfix; /* This extend is found in core */
@@ -1874,15 +1880,9 @@ textarea {
     }
 
     .grid-float > [class^=#{quote($grid-column-name)}] {
-        @extend .left;
-        @if $grid-float-padding {
-            padding-left: $grid-float-padding;
-        }
+        @extend .left; //in core
     }
 
-    .grid-float > [class^=#{quote($grid-column-name)}]:first-of-type {
-        padding-left: 0;
-    }
 
 
 // Print grid classnames
