@@ -198,7 +198,7 @@ $breakpoints:
             medium-up "only screen and (min-width: #{$breakpoint-medium})"
         ),
         (
-            medium "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-large - 0.01em})"
+            medium "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-medium-max})"
         ),
         (
             medium-down "only screen and (max-width: #{$breakpoint-medium})"
@@ -207,7 +207,7 @@ $breakpoints:
             large-up "only screen and (min-width: #{$breakpoint-large})"
         ),
         (
-            large "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-xlarge - 0.01em})"
+            large "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-large-max})"
         ),
         (
             xlarge "only screen and (min-width: #{$breakpoint-xlarge})"
