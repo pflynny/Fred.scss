@@ -1571,7 +1571,16 @@ dd {
   height: 0;
   width: 100%; }
 
-/**/
+.dl-horizontal--dt-left > dt {
+  text-align: left; }
+.dl-horizontal--dt-left > dd {
+  text-align: left; }
+
+.dl-horizontal--split > dt {
+  text-align: left; }
+.dl-horizontal--split > dd {
+  text-align: right; }
+
 .dl-horizontal--1-4 > dt {
   width: 24%; }
 .dl-horizontal--1-4 > dd {
@@ -2710,6 +2719,22 @@ This box will be a square
     padding-right: 4.5em; }
   .pr-xxxl--q-xlarge {
     padding-right: 6em; } }
+
+/**
+ * Split
+ * ----------------------------------------------------------------------------
+ * Simple split item for creating two elements floated away from one another
+ *
+ */
+.split {
+  text-align: right;
+  list-style: none;
+  margin-left: 0; }
+
+.split__left {
+  text-align: left;
+  float: left;
+  clear: left; }
 
 /**
  * By default, and set the line-height.

@@ -178,11 +178,11 @@ $breakpoint-classname-prefix: "--q-";
 
 $breakpoint-xsmall:     25em;   // The mighty LG Android!
 $breakpoint-small:      30em;   // Portrait regular mobiles//480px
-$breakpoint-small-max:  47.99em;   // Portrait regular mobiles//480px
+$breakpoint-small-max:  47.99em;  
 $breakpoint-medium:     48em;   // Skinny 768px
-$breakpoint-medium-max: 59.99em;   // Skinny 768px
+$breakpoint-medium-max: 59.99em;   
 $breakpoint-large:      60em;   // Desktop 960px
-$breakpoint-large-max:  74.99em;   // Desktop 960px
+$breakpoint-large-max:  74.99em;   
 $breakpoint-xlarge:     75em;   // Wide 1200px
 $breakpoint-xxlarge:    90em;   // Wide 1440px
 $breakpoint-xxxlarge:   120em;  // Full HD
@@ -2164,6 +2164,7 @@ dl {
         @extend %align--top; /* This extend is found in core */
         font-size: medium;
     }
+    // think about breaking this up so its not always like this
     > dt { text-align: right; }
     > dd { text-align: left; }
 }
@@ -2174,22 +2175,32 @@ dl {
         height: 0;
         width:100%;
     }
+    
+    .dl-horizontal--dt-left {
+        > dt { text-align: left; }
+        > dd { text-align: left; }
+    }
 
-/**/
-.dl-horizontal--1-4 {
-    > dt { width:24%; }
-    > dd { width:74%; }
-}
+    .dl-horizontal--split {
+        > dt { text-align: left; }
+        > dd { text-align: right; }
+    }
 
-.dl-horizontal--1-3 {
-    > dt { width:32%; }
-    > dd { width:65%; }
-}
 
-.dl-horizontal--1-2 {
-    > dt { width:49%; }
-    > dd { width:49%; }
-}
+    .dl-horizontal--1-4 {
+        > dt { width:24%; }
+        > dd { width:74%; }
+    }
+
+    .dl-horizontal--1-3 {
+        > dt { width:32%; }
+        > dd { width:65%; }
+    }
+
+    .dl-horizontal--1-2 {
+        > dt { width:49%; }
+        > dd { width:49%; }
+    }
 
 
 /**
@@ -2478,6 +2489,23 @@ This box will be a square
 @include fred-breakpoint-sizer($fred-padding-breakpoints, $fred-padding-types);
 
 
+/**
+ * Split
+ * ----------------------------------------------------------------------------
+ * Simple split item for creating two elements floated away from one another
+ *
+ */
+ 
+.split {
+    text-align:right;
+    list-style:none;
+    margin-left:0;
+}
+    .split__left {
+        text-align:left;
+        float:left;
+        clear:left;
+    }
 /**
  * By default, and set the line-height.
  */

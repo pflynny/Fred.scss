@@ -1,0 +1,17 @@
+/**
+ * Split
+ * ----------------------------------------------------------------------------
+ * Simple split item for creating two elements floated away from one another
+ *
+ */
+ 
+.split {
+    text-align:right;
+    list-style:none;
+    margin-left:0;
+}
+    .split__left {
+        text-align:left;
+        float:left;
+        clear:left;
+    }
