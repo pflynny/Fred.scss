@@ -301,11 +301,36 @@ table {
     vertical-align: bottom;
 }
 
+<<<<<<< HEAD
 // -----------------------------------------------------------------------------
 // Inline block
 // -----------------------------------------------------------------------------
 // zoom fix for IE6/7 so they correctly display inline-block elements
 // (forces hasLayout)
+=======
+
+.align--top {
+   @extend %align--top;
+}
+
+.align--middle {
+    @extend %align--middle;
+}
+
+.align--baseline {
+    @extend %align--baseline;
+}
+
+.align--bottom {
+    @extend %align--bottom;
+}
+/**
+ * Inline block
+ * ----------------------------------------------------------------------------
+ * zoom fix for IE6/7 so they correctly display inline-block elements
+ * (forces hasLayout)
+ */
+>>>>>>> cfc6ae28d6227a9e589d9f8ad252d553ffde6f31
 
 %inline-block {
     display: inline-block;

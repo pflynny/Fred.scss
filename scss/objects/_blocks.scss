@@ -1,7 +1,13 @@
 /**
  * Generic blocks
  * ----------------------------------------------------------------------------
+ *
+ * <div class='block-xs'>
+ *        ...
+ * </div>
+ * 
  */
+ 
 // making sure the first element has no margin on it
 %block {
     @extend .clearfix; /* This extend is found in core */
@@ -32,6 +38,6 @@
 
 @each $breakpoint in $fred-block-breakpoints {
     @include media($breakpoint) {
-        @include fred-sizer("block", $sizePrefixes, $breakpoint, "padding", $blockSizes);
+        @include fred-sizer("block", $blockPrefixes, $breakpoint, "padding", $blockSizes);
     }
 }

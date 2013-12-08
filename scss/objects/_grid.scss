@@ -68,15 +68,9 @@
     }
 
     .grid-float > [class^=#{quote($grid-column-name)}] {
-        @extend .left;
-        @if $grid-float-padding {
-            padding-left: $grid-float-padding;
-        }
+        @extend .left; //in core
     }
 
-    .grid-float > [class^=#{quote($grid-column-name)}]:first-of-type {
-        padding-left: 0;
-    }
 
 
 // Print grid classnames
