@@ -1,17 +1,15 @@
-/**
- * Pills (eg, 'Some content [new!]'
- * ----------------------------------------------------------------------------
- * Create pill- and lozenge-like runs of text, e.g.:
- *
-   <p>This <span class=pill>here</span> is a pill!</p>
- *
-   <p>This <span class=loz>here</span> is also a lozenge!</p>
- *
- * Pills have fully rounded ends, lozenges have only their corners rounded.
- *
- * Demo: jsfiddle.net/inuitcss/N3pGm
- *
- */
+/*
+
+## Pills
+
+Pills have fully rounded ends, lozenges have only their corners rounded.
+
+```
+<p>This <span class="pill">here</span> is a pill!</p>
+<p>This <span class="lozenge">here</span> is a lozenge!</p>
+```
+
+*/
 
 .pill {
     @extend %inline-block; /* This extend is found in core */
@@ -26,6 +24,9 @@
     /* =1.50em */
     text-align:center;
 
+    color: $pill-font-color;
+    background-color: $pill-bg-color;
+
     /**
      * Normally we’d use border-radius:100%; but instead here we just use an
      * overly large number; `border-radius:100%;` would create an oval on
@@ -36,4 +37,5 @@
 
 .lozenge {
     @extend .pill;
+    border-radius: 0.25em;
 }

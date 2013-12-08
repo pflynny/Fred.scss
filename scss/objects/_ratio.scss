@@ -1,21 +1,24 @@
 /**
- * Ratio boxes
- * ----------------------------------------------------------------------------
+
+## Ratio boxes
 
 This box will be 16:9
 
- <div class='ratio-16-9'>
+```
+<div class='ratio-16-9'>
     <div class='ratio__content'></div>
- </div>
-
+</div>
+```
 
 This box will be a square
 
- <div class='ratio-square'>
+```
+<div class='ratio-square'>
     <div class='ratio__content'></div>
- </div>
+</div>
+```
 
- */
+*/
 
 %ratio {
     overflow: hidden;

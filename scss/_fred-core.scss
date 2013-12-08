@@ -1,14 +1,27 @@
+/**
+
+# Fred.scss
+
+##Meet Fred - Meet Fred, the friendly front-end framework.
+##Fred is not Bootstrap, or Foundation. <br/>He’s a handy collection of our favourite solutions to common front-end problems.
+
+*/
+
 @import "../_fred-theme.scss";
 
-/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
-
-/* ==========================================================================
-   HTML5 display definitions
-   ========================================================================== */
 
 /**
- * Correct `block` display not defined in IE 8/9.
- */
+## Core
+*/
+
+// ! normalize.css v2.1.3 | MIT License | git.io/normalize
+
+//   ==========================================================================
+//   HTML5 display definitions
+//   ==========================================================================
+
+
+// Correct `block` display not defined in IE 8/9.
 
 article,
 aside,
@@ -25,9 +38,7 @@ summary {
     display: block;
 }
 
-/**
- * Correct `inline-block` display not defined in IE 8/9.
- */
+// Correct `inline-block` display not defined in IE 8/9.
 
 audio,
 canvas,
@@ -35,120 +46,101 @@ video {
     display: inline-block;
 }
 
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
+//
+// Prevent modern browsers from displaying `audio` without controls.
+// Remove excess height in iOS 5 devices.
+//
 
 audio:not([controls]) {
     display: none;
     height: 0;
 }
 
-/**
- * Address `[hidden]` styling not present in IE 8/9.
- * Hide the `template` element in IE, Safari, and Firefox < 22.
- */
+//
+// Address `[hidden]` styling not present in IE 8/9.
+// Hide the `template` element in IE, Safari, and Firefox < 22.
+//
 
 [hidden],
 template {
     display: none;
 }
 
-/* ==========================================================================
-   Base
-   ========================================================================== */
+// -----------------------------------------------------------------------------
+// Base
+// -----------------------------------------------------------------------------
 
-/**
- * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
+
+// 1. Set default font family to sans-serif.
+// 2. Prevent iOS text size adjust after orientation change, without disabling
+//    user zoom.
 
 html {
     -ms-text-size-adjust: 100%; /* 2 */
     -webkit-text-size-adjust: 100%; /* 2 */
 }
 
-/**
- * Remove default margin.
- */
+// Remove default margin.
 
 body {
     margin: 0;
 }
 
-/* ==========================================================================
-   Links
-   ========================================================================== */
+// -----------------------------------------------------------------------------
+// Links
+// -----------------------------------------------------------------------------
 
-/**
- * Remove the gray background color from active links in IE 10.
- */
+// Remove the gray background color from active links in IE 10.
 
 a {
     background: transparent;
 }
 
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
+// Address `outline` inconsistency between Chrome and other browsers.
 
 a:focus {
     outline: thin dotted;
 }
 
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
+// Improve readability when focused and also mouse hovered in all browsers.
 
 a:active,
 a:hover {
     outline: 0;
 }
 
-/* ==========================================================================
-   Typography
-   ========================================================================== */
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
 
-/**
- * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari 5, and Chrome.
- */
+// Address variable `h1` font-size and margin within `section` and `article`
+// contexts in Firefox 4+, Safari 5, and Chrome.
 
 h1 {
     font-size: 2em;
     margin-bottom: 0;
 }
 
-/**
- * Address styling not present in IE 8/9, Safari 5, and Chrome.
- */
+// Address styling not present in IE 8/9, Safari 5, and Chrome.
 
 abbr[title] {
     border-bottom: 1px dotted;
 }
 
-/**
- * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
- */
+// Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
 
 b,
 strong {
     font-weight: bold;
 }
 
-/**
- * Address styling not present in Safari 5 and Chrome.
- */
+// Address styling not present in Safari 5 and Chrome.
 
 dfn {
     font-style: italic;
 }
 
-/**
- * Address differences between Firefox and other browsers.
- */
+// Address differences between Firefox and other browsers.
 
 hr {
     -moz-box-sizing: content-box;
@@ -156,18 +148,14 @@ hr {
     height: 0;
 }
 
-/**
- * Address styling not present in IE 8/9.
- */
+// Address styling not present in IE 8/9.
 
 mark {
     background: #ff0;
     color: #000;
 }
 
-/**
- * Correct font family set oddly in Safari 5 and Chrome.
- */
+// Correct font family set oddly in Safari 5 and Chrome.
 
 code,
 kbd,
@@ -177,33 +165,25 @@ samp {
     font-size: 1em;
 }
 
-/**
- * Improve readability of pre-formatted text in all browsers.
- */
+// Improve readability of pre-formatted text in all browsers.
 
 pre {
     white-space: pre-wrap;
 }
 
-/**
- * Set consistent quote types.
- */
+// Set consistent quote types.
 
 q {
     quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
-/**
- * Address inconsistent and variable font size in all browsers.
- */
+// Address inconsistent and variable font size in all browsers.
 
 small {
     font-size: 80%;
 }
 
-/**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
- */
+// Prevent `sub` and `sup` affecting `line-height` in all browsers.
 
 sub,
 sup {
@@ -221,55 +201,47 @@ sub {
     bottom: -0.25em;
 }
 
-/* ==========================================================================
-   Embedded content
-   ========================================================================== */
+// -----------------------------------------------------------------------------
+// Embedded content
+// -----------------------------------------------------------------------------
 
-/**
- * Remove border when inside `a` element in IE 8/9.
- */
+// Remove border when inside `a` element in IE 8/9.
 
 img {
     border: 0;
 }
 
-/**
- * Correct overflow displayed oddly in IE 9.
- */
+// Correct overflow displayed oddly in IE 9.
 
 svg:not(:root) {
     overflow: hidden;
 }
 
-/* ==========================================================================
-   Figures
-   ========================================================================== */
+// -----------------------------------------------------------------------------
+// Figures
+// -----------------------------------------------------------------------------
 
-/**
- * Address margin not present in IE 8/9 and Safari 5.
- */
+// Address margin not present in IE 8/9 and Safari 5.
 
 figure {
     margin: 0;
 }
 
-/* ==========================================================================
-   Tables
-   ========================================================================== */
+// -----------------------------------------------------------------------------
+// Tables
+// -----------------------------------------------------------------------------
 
-/**
- * Remove most spacing between table cells.
- */
+// Remove most spacing between table cells.
 
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
-/**
- * Positioning - Absolute, Floating and Clearfixing
- * ----------------------------------------------------------------------------
- */
+
+// -----------------------------------------------------------------------------
+// Positioning - Absolute, Floating and Clearfixing
+// -----------------------------------------------------------------------------
 
 %relative   { position: relative; }
 %absolute   { position: absolute; }
@@ -311,10 +283,7 @@ table {
 }
 
 
-/**
- * Vertical alignment utilities
- * 
- */
+// Vertical alignment utilities
 
 %align--top {
     vertical-align: top ;
@@ -332,12 +301,11 @@ table {
     vertical-align: bottom;
 }
 
-/**
- * Inline block
- * ----------------------------------------------------------------------------
- * zoom fix for IE6/7 so they correctly display inline-block elements
- * (forces hasLayout)
- */
+// -----------------------------------------------------------------------------
+// Inline block
+// -----------------------------------------------------------------------------
+// zoom fix for IE6/7 so they correctly display inline-block elements
+// (forces hasLayout)
 
 %inline-block {
     display: inline-block;
@@ -377,12 +345,14 @@ table {
 
 
 /**
- * Screen reader content
- * ----------------------------------------------------------------------------
 
+###Screen reader content
+
+```
  <a class="sr-only" href="#content">Skip to main content</a>
+```
 
- */
+*/
 
 .sr-only {
     position: absolute;
@@ -395,14 +365,12 @@ table {
     border: 0;
 }
 
-/**
- * Fix webkit bug
- * ----------------------------------------------------------------------------
- *
- * Since v22, Chrome makes fat sausage horrible web typography. Fix it with
- * these properties right here. Maybe consider scoping this to a class for
- * chrome/mac osx only at some point?
- */
+// -----------------------------------------------------------------------------
+// Fix webkit bug
+// -----------------------------------------------------------------------------
+// Since v22, Chrome makes fat sausage horrible web typography. Fix it with
+// these properties right here. Maybe consider scoping this to a class for
+// chrome/mac osx only at some point?
 
 %fix-webkit-font-rendering {
     -webkit-font-smoothing: antialiased;
@@ -431,13 +399,18 @@ table {
 
 
 /**
- * Append and Prepend
- * ----------------------------------------------------------------------------
- */
 
-/**
- * Place something before an element
- */
+### Append and Prepend
+
+Place something before or after an element
+
+```
+<p class="prepend" data-prepend="email:">&nbsp;email@gmail.com</p>
+<p class="append" data-append="is my email">email@gmail.com&nbsp;</p>
+```
+
+*/
+
 .prepend{
     &:before{
         content: attr(data-prepend);
@@ -445,9 +418,6 @@ table {
     }
 }
 
-/**
- * Place something after an element
- */
 .append{
     &:after{
         content: attr(data-append);

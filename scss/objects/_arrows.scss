@@ -1,17 +1,35 @@
-/**
- * Arrows
- * ----------------------------------------------------------------------------
- * $base-spacing-unit: 1.4em
- *
- *
- * Apply the modifier classes to the parent. For instance, this will put an
- * arrow in the top left corner of the containing div:
- *
- * <div class='arrow__left'>
- *        <i class='arrow arrow_top'></i>
- * </div>
- *
- */
+/*
+
+##Arrows
+------------------------------------------------------------------------
+
+Apply the modifier classes to the parent. For instance, this will put an
+arrow in the top left corner of the containing div:
+
+```
+<div class='arrow--left block-xs blue-block'>
+    <p> ... </p>
+    <i class='arrow arrow-top'></i>
+</div>
+
+<div class='arrow--right block-xs blue-block'>
+    <p> ... </p>
+    <i class='arrow arrow-top '></i>
+</div>
+
+<div class='arrow--center block-xs blue-block'>
+    <p> ... </p>
+    <i class='arrow arrow-bottom '></i>
+</div>
+
+<div class='arrow--side block-xs blue-block'>
+    <p> ... </p>
+    <i class='arrow arrow-left '></i>
+</div>
+```
+
+
+*/
 
 .arrow {/*i,span*/
     @extend %inline-block; /* This extend is found in core */

@@ -1,147 +1,80 @@
-/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
-/* ==========================================================================
-   HTML5 display definitions
-   ========================================================================== */
 /**
- * Correct `block` display not defined in IE 8/9.
- */
+
+# Fred.scss
+
+##Meet Fred - Meet Fred, the friendly front-end framework.
+##Fred is not Bootstrap, or Foundation. <br/>He’s a handy collection of our favourite solutions to common front-end problems.
+
+*/
+/**
+## Core
+*/
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
   display: block; }
 
-/**
- * Correct `inline-block` display not defined in IE 8/9.
- */
 audio, canvas, video {
   display: inline-block; }
 
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
 audio:not([controls]) {
   display: none;
   height: 0; }
 
-/**
- * Address `[hidden]` styling not present in IE 8/9.
- * Hide the `template` element in IE, Safari, and Firefox < 22.
- */
 [hidden], template {
   display: none; }
 
-/* ==========================================================================
-   Base
-   ========================================================================== */
-/**
- * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
 html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 2 */ }
 
-/**
- * Remove default margin.
- */
 body {
   margin: 0; }
 
-/* ==========================================================================
-   Links
-   ========================================================================== */
-/**
- * Remove the gray background color from active links in IE 10.
- */
 a {
   background: transparent; }
 
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
 a:focus {
   outline: thin dotted; }
 
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
 a:active, a:hover {
   outline: 0; }
 
-/* ==========================================================================
-   Typography
-   ========================================================================== */
-/**
- * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari 5, and Chrome.
- */
 h1 {
   font-size: 2em;
   margin-bottom: 0; }
 
-/**
- * Address styling not present in IE 8/9, Safari 5, and Chrome.
- */
 abbr[title] {
   border-bottom: 1px dotted; }
 
-/**
- * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
- */
 b, strong {
   font-weight: bold; }
 
-/**
- * Address styling not present in Safari 5 and Chrome.
- */
 dfn {
   font-style: italic; }
 
-/**
- * Address differences between Firefox and other browsers.
- */
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0; }
 
-/**
- * Address styling not present in IE 8/9.
- */
 mark {
   background: yellow;
   color: black; }
 
-/**
- * Correct font family set oddly in Safari 5 and Chrome.
- */
 code, kbd, pre, samp {
   font-family: monospace, serif;
   font-size: 1em; }
 
-/**
- * Improve readability of pre-formatted text in all browsers.
- */
 pre {
   white-space: pre-wrap; }
 
-/**
- * Set consistent quote types.
- */
 q {
   quotes: "\201C" "\201D" "\2018" "\2019"; }
 
-/**
- * Address inconsistent and variable font size in all browsers.
- */
 small {
   font-size: 80%; }
 
-/**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
- */
 sub, sup {
   font-size: 75%;
   line-height: 0;
@@ -154,44 +87,19 @@ sup {
 sub {
   bottom: -0.25em; }
 
-/* ==========================================================================
-   Embedded content
-   ========================================================================== */
-/**
- * Remove border when inside `a` element in IE 8/9.
- */
 img {
   border: 0; }
 
-/**
- * Correct overflow displayed oddly in IE 9.
- */
 svg:not(:root) {
   overflow: hidden; }
 
-/* ==========================================================================
-   Figures
-   ========================================================================== */
-/**
- * Address margin not present in IE 8/9 and Safari 5.
- */
 figure {
   margin: 0; }
 
-/* ==========================================================================
-   Tables
-   ========================================================================== */
-/**
- * Remove most spacing between table cells.
- */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/**
- * Positioning - Absolute, Floating and Clearfixing
- * ----------------------------------------------------------------------------
- */
 .relative, .arrow--left, .arrow--right, .arrow--side, .arrow--center, .badge, .btn-group, .btn-group-vertical, .btn-group > .btn, .btn-group-vertical > .btn {
   position: relative; }
 
@@ -226,10 +134,6 @@ table {
   margin-left: auto;
   margin-right: auto; }
 
-/**
- * Vertical alignment utilities
- * 
- */
 .grid__item {
   vertical-align: top; }
 
@@ -242,12 +146,6 @@ table {
 .grid--bottom > .grid__item {
   vertical-align: bottom; }
 
-/**
- * Inline block
- * ----------------------------------------------------------------------------
- * zoom fix for IE6/7 so they correctly display inline-block elements
- * (forces hasLayout)
- */
 .inline-block, .arrow, .badge, .breadcrumbs > li, .btn-group, .btn-group-vertical, .caret, .close:after, .icon-text, .icon-text--rev, .list--inline > li, .nav > li, .pill {
   display: inline-block;
   *display: inline;
@@ -280,12 +178,14 @@ table {
   overflow: hidden; }
 
 /**
- * Screen reader content
- * ----------------------------------------------------------------------------
 
+###Screen reader content
+
+```
  <a class="sr-only" href="#content">Skip to main content</a>
+```
 
- */
+*/
 .sr-only {
   position: absolute;
   width: 1px;
@@ -296,14 +196,6 @@ table {
   clip: rect(0, 0, 0, 0);
   border: 0; }
 
-/**
- * Fix webkit bug
- * ----------------------------------------------------------------------------
- *
- * Since v22, Chrome makes fat sausage horrible web typography. Fix it with
- * these properties right here. Maybe consider scoping this to a class for
- * chrome/mac osx only at some point?
- */
 .antialiased {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility; }
@@ -323,37 +215,57 @@ table {
 
 
 /**
- * Append and Prepend
- * ----------------------------------------------------------------------------
- */
-/**
- * Place something before an element
- */
+
+### Append and Prepend
+
+Place something before or after an element
+
+```
+<p class="prepend" data-prepend="email:">&nbsp;email@gmail.com</p>
+<p class="append" data-append="is my email">email@gmail.com&nbsp;</p>
+```
+
+*/
 .prepend:before {
   content: attr(data-prepend);
   display: inline-block; }
 
-/**
- * Place something after an element
- */
 .append:after {
   content: attr(data-append);
   display: inline-block; }
 
-/**
- * Arrows
- * ----------------------------------------------------------------------------
- * $base-spacing-unit: 1.4em
- *
- *
- * Apply the modifier classes to the parent. For instance, this will put an
- * arrow in the top left corner of the containing div:
- *
- * <div class='arrow__left'>
- *        <i class='arrow arrow_top'></i>
- * </div>
- *
- */
+/*
+
+##Arrows
+------------------------------------------------------------------------
+
+Apply the modifier classes to the parent. For instance, this will put an
+arrow in the top left corner of the containing div:
+
+```
+<div class='arrow--left block-xs blue-block'>
+    <p> ... </p>
+    <i class='arrow arrow-top'></i>
+</div>
+
+<div class='arrow--right block-xs blue-block'>
+    <p> ... </p>
+    <i class='arrow arrow-top '></i>
+</div>
+
+<div class='arrow--center block-xs blue-block'>
+    <p> ... </p>
+    <i class='arrow arrow-bottom '></i>
+</div>
+
+<div class='arrow--side block-xs blue-block'>
+    <p> ... </p>
+    <i class='arrow arrow-left '></i>
+</div>
+```
+
+
+*/
 .arrow {
   /*i,span*/
   /* This extend is found in core */
@@ -401,14 +313,16 @@ table {
   top: 1.5em; }
 
 /**
- * Badges
- * ----------------------------------------------------------------------------
- *
- * <span class='badge'>
- *      3
- * </span>
- *
- */
+
+## Badges
+
+```
+<a class="xm">Inbox
+    <span class="badge tiny">42</span>
+</a>
+```
+
+*/
 .badge {
   /* This extend is found in core */
   /* This extend is found in core */
@@ -419,7 +333,10 @@ table {
   padding: 0.1875em 0.4375em;
   top: -1px;
   text-align: center;
-  white-space: nowrap; }
+  white-space: nowrap;
+  color: white;
+  background-color: #333333;
+  border-radius: 100px; }
   .badge:empty {
     display: none; }
 
@@ -613,9 +530,10 @@ table {
     display: table-cell;
     width: 1%; }
 
-/**
- * Buttons
- * -----------------------------------------------------------------------------
+/*
+
+  Buttons
+  -----------------------------------------------------------------------------
  *
  * 1. Allow us to better style box model properties.
  * 2. Line different sized buttons up a little nicer.
@@ -1516,6 +1434,7 @@ dd {
  *
  */
 .nav, .pagination {
+  /* div */
   /* This extend is found in core */
   list-style: none;
   margin-bottom: 0;
@@ -1595,20 +1514,18 @@ dd {
 .pagination__more > a:before {
   content: "\2026"; }
 
-/**
- * Pills (eg, 'Some content [new!]'
- * ----------------------------------------------------------------------------
- * Create pill- and lozenge-like runs of text, e.g.:
- *
-   <p>This <span class=pill>here</span> is a pill!</p>
- *
-   <p>This <span class=loz>here</span> is also a lozenge!</p>
- *
- * Pills have fully rounded ends, lozenges have only their corners rounded.
- *
- * Demo: jsfiddle.net/inuitcss/N3pGm
- *
- */
+/*
+
+## Pills
+
+Pills have fully rounded ends, lozenges have only their corners rounded.
+
+```
+<p>This <span class="pill">here</span> is a pill!</p>
+<p>This <span class="lozenge">here</span> is a lozenge!</p>
+```
+
+*/
 .pill, .lozenge {
   /* This extend is found in core */
   /**
@@ -1621,6 +1538,8 @@ dd {
   padding-left: 0.2381em;
   /* =1.50em */
   text-align: center;
+  color: white;
+  background-color: #333333;
   /**
      * Normally we’d use border-radius:100%; but instead here we just use an
      * overly large number; `border-radius:100%;` would create an oval on
@@ -1628,6 +1547,8 @@ dd {
      */
   border-radius: 100px; }
 
+.lozenge {
+  border-radius: 0.25em; }
 
 .radius--s {
   -webkit-border-radius: 2px 2px 2px 2px;
@@ -1658,23 +1579,26 @@ dd {
   border-radius: 35em; }
 
 /**
- * Ratio boxes
- * ----------------------------------------------------------------------------
+
+## Ratio boxes
 
 This box will be 16:9
 
- <div class='ratio-16-9'>
+```
+<div class='ratio-16-9'>
     <div class='ratio__content'></div>
- </div>
-
+</div>
+```
 
 This box will be a square
 
- <div class='ratio-square'>
+```
+<div class='ratio-square'>
     <div class='ratio__content'></div>
- </div>
+</div>
+```
 
- */
+*/
 .ratio-square, .ratio-4-3, .ratio-16-9, .ratio-3-4, .ratio-2-1 {
   overflow: hidden;
   position: relative; }
@@ -1693,7 +1617,7 @@ This box will be a square
   padding-top: 75%; }
 
 .ratio-3-4:before {
-  padding-top: 1.33333%; }
+  padding-top: 133.33333%; }
 
 .ratio-16-9:before {
   padding-top: 56.25%; }

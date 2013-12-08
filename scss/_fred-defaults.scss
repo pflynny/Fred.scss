@@ -266,9 +266,12 @@ $text-danger:                   #b94a48;
 $text-muted:                    #999;
 
 
-
-$pill-ui-color:               #333;
-$lozenge-radius:       .25em;
+// Pills, lozenges and badges
+$pill-font-color:               #fff;
+$pill-bg-color:                 #333;
+$badge-font-color:              #fff;
+$badge-bg-color:                #333;
+$lozenge-radius:                .25em;
 
 
 // Radii (set to false to disable)
