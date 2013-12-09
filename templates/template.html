@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <!-- Made by Springload -->
+    <meta charset="UTF-8"/>
+    <meta name='description' content='Fred is not Bootstrap, or Foundation. He’s a handy collection of our favourite solutions to common front-end problems.'/>
+
+    <!-- features -->
+    <meta name='viewport' content="width=device-width, minimum-scale=1">
+    <!-- end:features -->
+
+    <title>Meet Fred, the friendly front-end framework</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="/assets/css/screen.css" />
+    <!-- end:styles -->
+
+</head>
+<body>
+
+    <div class="content grid">
+
+        <div class="sidebar grid__item col col-1-4--q-medium">
+            <h1>
+                <a href="#" class="clean-link">Fred<span>.scss</span></a>
+            </h1>
+            <ul id='nav' class='nav mt-m'>
+                <%=nav_items%>
+            </ul>
+
+        </div>
+
+        <div class="page mt-xxl grid__item col col-3-4--q-medium">
+            <%=content%>
+        </div>
+
+    </div>
+
+    <!-- scripts -->
+    <script src="/assets/js/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- end:scripts-->
+
+</body>
+</html>
