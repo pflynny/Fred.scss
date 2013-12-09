@@ -134,13 +134,16 @@
 ### Block buttons stretch to the full width of their parent (handy!)
 
 ```html
-<a class="btn tp-btn btn--block">
-    Button 1
-</a>
-
-<a class="btn tp-btn btn--block-mobile">
-    Responsinate!
-</a>
+<p>
+    <a class="btn tp-btn btn--block">
+        Button 1
+    </a>
+</p>
+<p>
+    <a class="btn tp-btn btn--block-mobile">
+        Responsinate!
+    </a>
+</p>
 ```
 
 */

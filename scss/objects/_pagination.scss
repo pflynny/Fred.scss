@@ -41,11 +41,13 @@
 .pagination {
     @extend .nav;
     // Remove whitespace caused by `inline-block`.
-    letter-spacing:-0.31em;
-    word-spacing:-0.43em;
+    letter-spacing: -0.31em;
+    word-spacing: -0.43em;
 }
 
     .pagination > li{
+        @extend %inline-block; /* This extend is found in core */
+        margin-top: 0;
         padding:$base-spacing-unit / 2;
         letter-spacing:normal;
         word-spacing:normal;
