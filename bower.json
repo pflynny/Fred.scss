@@ -1,6 +1,6 @@
 {
   "name": "Fred",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A friend front-end framework",
   "main": [
     "dist/lib/fred.scss",
