@@ -157,7 +157,7 @@ table {
 .grid--bottom > .grid__item {
   vertical-align: bottom; }
 
-.inline-block, .arrow, .badge, .breadcrumbs > li, .btn-group, .btn-group-vertical, .caret, .close:after, .icon-text, .icon-text--rev, .list--inline > li, .nav > li, .pill {
+.inline-block, .arrow, .badge, .breadcrumbs > li, .btn-group, .btn-group-vertical, .caret, .close:after, .grid__item, .grid:after, .grid__break, .icon-text, .icon-text--rev, .list--inline > li, .nav > li, .pill, .text--overflow {
   display: inline-block;
   *display: inline;
   *zoom: 1; }

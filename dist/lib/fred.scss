@@ -1819,7 +1819,7 @@ textarea {
 
     // Font-size medium reset the block to the context of body (ie, 16px)
     .grid__item {
-        @extend .inline-block; /* This extend is found in core */
+        @extend %inline-block; /* This extend is found in core */
         @extend %align--top; /* This extend is found in core */
         @extend .text-left; /* This extend is found in typography */
         font-size: medium;
@@ -1828,7 +1828,7 @@ textarea {
 
     .grid:after,
     .grid__break {
-        @extend .inline-block; /* This extend is found in core */
+        @extend %inline-block; /* This extend is found in core */
         content: '';
         height: 0;
         width:100%;
@@ -2698,7 +2698,7 @@ hr {
 .text-nowrap            { white-space: nowrap; }
 
 .text--overflow {
-    @extend .inline-block;
+    @extend %inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
