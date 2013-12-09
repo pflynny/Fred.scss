@@ -136,7 +136,7 @@ dl {
 }
 
     .dl-horizontal:after {
-        @extend .inline-block; /* This extend is found in core */
+        @extend %inline-block; /* This extend is found in core */
         content: '';
         height: 0;
         width:100%;

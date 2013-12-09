@@ -16,7 +16,7 @@
  * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
  */
 .btn {
-    @extend .inline-block;                          /* [1] */
+    @extend %inline-block;                          /* [1] */
     @extend %align--middle;                         /* [2] */
     //@extend .user-select-none;
     @include vendor(border-radius, $base-spacing-unit/4);
