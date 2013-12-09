@@ -1,23 +1,46 @@
 /**
- * Pagination
- * ----------------------------------------------------------------------------
 
- <ul class='pagination'>
-    <li class=pagination__first>First</li>
-    <li class='pagination__prev'><a href="#"></a></li>
-    <li class='pagination__current'><a href="#">1</a></li>
-    <li class='pagination__more'><a href="#"></a></li>
-    <li><a href="#">10</a></li>
-    <li class='pagination__next'><a href="#"></a></li>
-    <li class=pagination__last><a href=/page/last>Last</a></li>
+## Pagination
+
+```html
+<ul class='pagination'>
+    <li class='pagination__first'>
+         <a href='#'>
+            First
+        </a>
+    </li>
+    <li class='pagination__prev'>
+        <a href='#'></a>
+    </li>
+    <li class='pagination__current'>
+        <a href='#'>
+            1
+        </a>
+    </li>
+    <li class='pagination__more'>
+        <a href='#'></a>
+    </li>
+    <li>
+        <a href="#">
+            10
+        </a>
+    </li>
+    <li class='pagination__next'>
+        <a href='#'></a>
+    </li>
+    <li class='pagination__last'>
+        <a href='/page/last'>
+            Last
+        </a>
+    </li>
  </ul>
- */
+```
+
+*/
 
 .pagination {
     @extend .nav;
-    /**
-     * Remove whitespace caused by `inline-block`.
-     */
+    // Remove whitespace caused by `inline-block`.
     letter-spacing:-0.31em;
     word-spacing:-0.43em;
 }

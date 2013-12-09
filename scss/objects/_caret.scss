@@ -1,7 +1,18 @@
 /**
- * Drop-down caret
- * ----------------------------------------------------------------------------
- */
+
+## Drop-down caret
+
+```html
+<p>
+    Caret: <span class="caret"></span>
+</p>
+<p>
+    Reversed Caret: <span class="caret caret--rev"></span>
+</p>
+```
+
+
+*/
 
 .caret {
     @extend %inline-block; /* This extend is found in core */

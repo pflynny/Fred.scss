@@ -2,18 +2,25 @@
 
 ## Ratio boxes
 
+
+   * .ratio-4-3
+   * .ratio-16-9
+   * .ratio-3-4
+   * .ratio-2-1
+
+
 This box will be 16:9
 
-```
-<div class='ratio-16-9'>
+```html
+<div class='ratio-16-9 blue-block'>
     <div class='ratio__content'></div>
 </div>
 ```
 
 This box will be a square
 
-```
-<div class='ratio-square'>
+```html
+<div class='ratio-square blue-block'>
     <div class='ratio__content'></div>
 </div>
 ```

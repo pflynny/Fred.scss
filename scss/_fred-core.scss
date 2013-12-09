@@ -9,7 +9,7 @@
 
 To build a custom Fred package from the command line, run:
 
-```
+```bash
 > npm install
 > grunt
 ```
@@ -405,7 +405,7 @@ table {
 
 ###Screen reader content
 
-```
+```html
  <a class="sr-only" href="#content">Skip to main content</a>
 ```
 
@@ -461,7 +461,7 @@ table {
 
 Place something before or after an element
 
-```
+```html
 <p class="prepend" data-prepend="email:">&nbsp;email@gmail.com</p>
 <p class="append" data-append="is my email">email@gmail.com&nbsp;</p>
 ```

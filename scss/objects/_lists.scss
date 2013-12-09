@@ -1,7 +1,71 @@
 /**
- * Lists
- * ----------------------------------------------------------------------------
- */
+
+## Lists
+
+### Un styled list
+
+```html
+<ul class='list-unstyled mt-s'>
+    <li>
+        unstyled list item 1
+    </li>
+    <li>
+        unstyled list item 2
+    </li>
+</ul>
+```
+
+### Styled list
+
+```html
+<ul class='list-styled'>
+    <li>
+        Styled list item 1
+    </li>
+    <li>
+        Styled list item 2
+    </li>
+</ul>
+<hr />
+<ul class='list-styled--alpha'>
+    <li>
+        Styled list item 1
+    </li>
+    <li>
+        Styled list item 2
+    </li>
+</ul>
+<hr />
+<ul class='list-styled--dashed'>
+    <li>
+        Styled list item 1
+    </li>
+    <li>
+        Styled list item 2
+    </li>
+</ul>
+<hr />
+<ul class='list-styled--decimal'>
+    <li>
+        Styled list item 1
+    </li>
+    <li>
+        Styled list item 2
+    </li>
+</ul>
+```
+
+### Inline list
+
+```html
+<ul class='list--inline'>
+    <li> inline list item 1 </li>
+    <li> inline list item 2 </li>
+<ul>
+```
+
+
+*/
 
 .list-unstyled {
     list-style: none;
@@ -74,10 +138,13 @@
 
 
 /**
- * Block list
- * ----------------------------------------------------------------------------
- * Throws a list into a vertical stack. Handy for things like navigation.
- */
+
+### Block list
+
+Throws a list into a vertical stack. Handy for things like navigation.
+
+
+*/
 .block-list {
     @extend .list-unstyled;
     > li {
@@ -87,11 +154,21 @@
 
 
 /**
- * Definition lists
- * ----------------------------------------------------------------------------
- * Defaults to being stacked without any of the below styles applied, until the
- *
- */
+
+### Definition lists __Fred is stil working on this__
+
+Defaults to being stacked without any of the below styles applied
+
+```html
+<dl>
+    <dt>Description 1</dt>
+    <dd>Info</dd>
+    <dt>Description 2</dt>
+    <dd>Info</dd>
+</dl>
+```
+
+*/
 
 dl {
     @extend .mt-m;
@@ -107,13 +184,40 @@ dl {
       margin-left: 0; // Undo browser default
     }
 
-//TODO !
+// TODO !
 /**
- * 13. Horizontal description lists
- * ----------------------------------------------------------------------------
- * Defaults to being stacked without any of the below styles applied, until the
- *
- */
+
+### Horizontal descrption list
+
+To make the description list horizontal apply the class 'dl-horizontal' aswell the fraction ...
+
+```html
+<dl class='dl-horizontal dl-horizontal--1-4 '>
+    <dt>Description 1</dt>
+    <dd>Info</dd>
+    <dt>Description 2</dt>
+    <dd>Info</dd>
+</dl>
+
+<hr class='mt-m'/>
+
+<dl class='dl-horizontal dl-horizontal--1-3 '>
+    <dt>Description 1</dt>
+    <dd>Info</dd>
+    <dt>Description 2</dt>
+    <dd>Info</dd>
+</dl>
+
+<hr class='mt-m'/>
+
+<dl class='dl-horizontal dl-horizontal--1-2 '>
+    <dt>Description 1</dt>
+    <dd>Info</dd>
+    <dt>Description 2</dt>
+    <dd>Info</dd>
+</dl>
+```
+*/
 
 .dl-horizontal {
     margin:0;
@@ -126,8 +230,8 @@ dl {
     }
     > dt, 
     > dd {
-        @extend .inline-block;/* This extend is found in core */
-        @extend %align--top; /* This extend is found in core */
+        @extend .inline-block; // This extend is found in core
+        @extend %align--top; // This extend is found in core
         font-size: medium;
     }
     // think about breaking this up so its not always like this
@@ -136,7 +240,7 @@ dl {
 }
 
     .dl-horizontal:after {
-        @extend %inline-block; /* This extend is found in core */
+        @extend %inline-block; // This extend is found in core
         content: '';
         height: 0;
         width:100%;

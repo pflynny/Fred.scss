@@ -1,6 +1,12 @@
-/**
- * By default, and set the line-height.
- */
+/*
+
+## Typography
+
+*/
+
+
+// By default, and set the line-height.
+
 html,
 body {
     font-size: 100%;
@@ -8,19 +14,19 @@ body {
 }
 
 
-/**
- * onMediaQuery sets the font-family on HTML, so declare your font-family
- * on the body element instead.
- */
+// onMediaQuery sets the font-family on HTML, so declare your font-family
+// on the body element instead.
+
 body {
     @extend .font-primary;
 }
 
+/*
 
-/**
- * Font declarations
- * ----------------------------------------------------------------------------
- */
+### Font declarations
+
+*/
+
 .font-primary {
     @include font($font-primary, 400 , normal);
 }
@@ -61,10 +67,9 @@ body {
 .font-size-xxxs                 { font-size: px-to-em($font-size-xxxs);}
 
 
-/**
- * Headings
- * ----------------------------------------------------------------------------
- */
+// Headings
+// ----------------------------------------------------------------------------
+
 h1, h2, h3, h4, h5, h6, p, .text, li, code {
      @extend .mb-0;
     &:first-child {
@@ -72,11 +77,21 @@ h1, h2, h3, h4, h5, h6, p, .text, li, code {
     }
 }
 
-/** 2. Header styles
- * ----------------------------------------------------------------------------
- * NOTE: These can change per project depending on what font etc you use :)
- *
- */
+/*
+
+### Header styles
+
+NOTE: These can change per project depending on what font etc you use :)
+
+```html
+<h1> H1 Heading 1 </h1>
+<h1 class='h2'> H1 Heading with a class of H2 </h1>
+<h2> H2 Heading </h2>
+<h2 class='h4'> H2 Heading with a class of H4 </h2>
+<h4 class='h4'> H4 Heading  </h4>
+```
+
+*/
 
 .h0 {
     @extend .font-size-xxxxl;
@@ -138,10 +153,27 @@ em, i {
 }
 
 
-/**
- *  3. Paragraph styles
- * ----------------------------------------------------------------------------
- */
+/*
+
+### Paragraph styles
+
+```html
+<p class="intro">I am an intro paragraph</p>
+<p>I am a plain paragraph</p>
+<p class="small">I am a small paragraph</p>
+<p class="tiny">I am a tiny paragraph</p>
+<p class="caption">I am a caption</p>
+<p class="pullquote">I am a pullquote</p>
+
+```
+
+Also
+* .text-muted
+* .text-warning
+* .text-success
+* .text-danger
+
+*/
 
 .intro {
     @extend .font-size-s;
@@ -179,10 +211,8 @@ em, i {
 }
 
 
-/**
- * 5. hr
- * ----------------------------------------------------------------------------
- */
+// hr
+// ----------------------------------------------------------------------------
 
 hr {
     border: none;
@@ -190,10 +220,23 @@ hr {
 }
 
 
-/**
- * Text helpers
- * ----------------------------------------------------------------------------
- */
+/*
+### Text helpers
+
+```html
+<p class="uppercase">Uppercase</p>
+<p class="lowercase">Lowercase</p>
+<p class="text--overflow">These heading classes are helpful when you have a heading that is semantically correct but the default size is not what you are after.</p>
+
+```
+
+Also
+* .text-left
+* .text-right
+* .text-center
+* .text-nowrap
+
+*/
 .uppercase              { text-transform:uppercase; }
 .lowercase              { text-transform:lowercase; }
 

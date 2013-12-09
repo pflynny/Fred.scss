@@ -1,9 +1,18 @@
 /**
- * Breadcrumbs
- * ----------------------------------------------------------------------------
- */
 
-/* Unicode space added since inline-block means non-collapsing white-space */
+## Breadcrumbs
+
+```html
+<ol class='list-unstyled breadcrumbs pt-breadrumbs mt-s'>
+    <li><a href='#'>Home</a></li>
+    <li><a href='#'>Page</a></li>
+    <li class='#'>Sub page</li>
+</ol>
+```
+
+*/
+
+// Unicode space added since inline-block means non-collapsing white-space
 .breadcrumbs {
     > li {
         @extend %inline-block; /* This extend is found in core */

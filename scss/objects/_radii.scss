@@ -1,3 +1,25 @@
+/**
+
+## Radii
+
+```html
+<div class='blue-block block-xs radius-s'>
+    Check out my corners
+</div>
+<div class='blue-block block-xs radius'>
+    Check out my corners
+</div>
+<div class='blue-block block-xs radius-l'>
+    Check out my corners
+</div>
+<div class='blue-block block-xs circle'>
+    I'm nearly a circle, wohoo
+</div>
+```
+
+*/
+
+
 // Border radii
 @if $radius-s {
     .radius-s {

@@ -6,7 +6,7 @@
 Apply the modifier classes to the parent. For instance, this will put an
 arrow in the top left corner of the containing div:
 
-```
+```html
 <div class='arrow--left block-xs blue-block'>
     <p> ... </p>
     <i class='arrow arrow-top'></i>
@@ -28,12 +28,11 @@ arrow in the top left corner of the containing div:
 </div>
 ```
 
-
 */
 
 .arrow {/*i,span*/
-    @extend %inline-block; /* This extend is found in core */
-    @extend %absolute; /* This extend is found in core */
+    @extend %inline-block; // This extend is found in core
+    @extend %absolute; // This extend is found in core
     border-color: transparent;
     border-style: solid;
     border-width: .4em;

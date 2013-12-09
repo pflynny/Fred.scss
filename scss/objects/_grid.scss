@@ -1,16 +1,14 @@
-/**
- * Inline block grid
- * -----------------------------------------------------------------------------
- *
- * [1] Sets the child elements to take up full justified width of the parent
- * [2] Overcomes an issue where the :after element blows out the bottom.
- * [3] A fix for Internet Explorer 8/9
- *
- */
-.grid {
-    font-size: 0;                       /* [2] */
-    text-align: justify;                /* [1] */
-    // text-justify: distribute-all-lines; /* [3] */
+
+// Inline block grid
+// -----------------------------------------------------------------------------
+// [1] Sets the child elements to take up full justified width of the parent
+// [2] Overcomes an issue where the :after element blows out the bottom.
+// [3] A fix for Internet Explorer 8/9
+
+ .grid {
+    font-size: 0;                           /* [2] */
+    text-align: justify;                    /* [1] */
+    // text-justify: distribute-all-lines;  /* [3] */
 
     // Not sure if we need the last line as it stuffs up text align:center
     .ie8 & {
@@ -40,9 +38,8 @@
         width:100%;
     }
 
-    /**
-     * Vertical align these grid items in the middle!
-     */
+    // Vertical align these grid items in the middle!
+
     .grid--middle > .grid__item {
         @extend %align--middle; /* This extend is found in core */
     }

@@ -1,20 +1,40 @@
-/*
+/**
 
-  Buttons
-  -----------------------------------------------------------------------------
- *
- * 1. Allow us to better style box model properties.
- * 2. Line different sized buttons up a little nicer.
- * 3. Stop buttons wrapping and looking broken.
- * 4. Make buttons inherit font styles.
- * 5. Force all elements using buttons to appear clickable.
- * 6. Normalise box model styles.
- * 7. If the button’s text is 1em, and the button is (2.5 * font-size) tall, then
- *    there is 1em of space above and below that text. We therefore apply 1em
- *    of space to the left and right, as padding, to keep consistent spacing.
- * 8. Basic cosmetics for default buttons. Change or override at will.
- * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
- */
+## Buttons
+
+### Button variations
+
+```html
+<p>
+    <a class="btn tp-btn" data-btn-loading-indicator="Thinking...">
+        <span class="btn--label">
+            Button 1
+        </span>
+    </a>
+    <a class="btn ts-btn">
+        Button 2
+    </a>
+    <a class="btn tt-btn">
+        Button 3
+    </a>
+</p>
+```
+
+*/
+
+// -----------------------------------------------------------------------------
+// 1. Allow us to better style box model properties.
+// 2. Line different sized buttons up a little nicer.
+// 3. Stop buttons wrapping and looking broken.
+// 4. Make buttons inherit font styles.
+// 5. Force all elements using buttons to appear clickable.
+// 6. Normalise box model styles.
+// 7. If the button’s text is 1em, and the button is (2.5 * font-size) tall, then
+//    there is 1em of space above and below that text. We therefore apply 1em
+//    of space to the left and right, as padding, to keep consistent spacing.
+// 8. Basic cosmetics for default buttons. Change or override at will.
+// 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
+
 .btn {
     @extend %inline-block;                          /* [1] */
     @extend %align--middle;                         /* [2] */
@@ -45,17 +65,22 @@
 }
 
 /**
- * Button modifiers
- * ----------------------------------------------------------------------------
- * E.g:
-    <a class='btn btn--large'>
-        My big button
-    </a>
- * Or,
-    <a class='btn btn--small btn--soft'>
-        My small rounded button
-    </a>
- */
+
+### Button modifiers
+
+```html
+<h3 class="btn tp-btn btn--large btn--bounce">
+    Button 1
+</h3>
+<p>
+    <small class="btn tt-btn btn--small btn--bob">
+        Button 2
+    </small>
+</p>
+```
+
+*/
+
 .btn--large,
 .btn--icon-large,
 .btn--icon-large--rev,
@@ -81,9 +106,20 @@
 }
 
 /**
- * Pill type buttons with (rounded) ends
- * ----------------------------------------------------------------------------
- */
+
+### Pill type buttons with (rounded) ends
+
+```html
+<a class="btn tp-btn btn--soft">
+    Button 1
+</a>
+<a class="btn ts-btn btn--hard">
+    Button 2
+</a>
+```
+
+*/
+
 .btn--soft {
     @include vendor(border-radius, 200px);
 }
@@ -94,16 +130,27 @@
 
 
 /**
- * Block buttons stretch to the full width of their parent (handy!)
- */
+
+### Block buttons stretch to the full width of their parent (handy!)
+
+```html
+<a class="btn tp-btn btn--block">
+    Button 1
+</a>
+
+<a class="btn tp-btn btn--block-mobile">
+    Responsinate!
+</a>
+```
+
+*/
+
 .btn--block {
     display: block;
     text-align: center;
 }
 
-/**
- * Make a button behave like a block at mobile only (also handy)
- */
+// Make a button behave like a block at mobile only (also handy)
 @media only screen and (max-width:37.5em) {
     .btn--block-mobile {
         text-align: center;
@@ -112,11 +159,20 @@
 }
 
 /**
- * Submit buttons
- * ----------------------------------------------------------------------------
- * FireFox doesn't like line-heights on submit buttons. Stick a class on submit
- * buttons and make sure the padding's the same as your default button :)
- */
+
+### Submit buttons
+
+FireFox doesn't like line-heights on submit buttons. Stick a class on submit
+buttons and make sure the padding's the same as your default button :)
+
+```html
+<input type='submit' value='Button 3' class='btn btn--submit-small' />
+<input type='submit' value='Button' class='btn btn--submit' />
+<input type='submit' value='Button 2' class='btn btn--submit-large' />
+```
+
+*/
+
 .btn--submit {
     line-height: 1;
     padding-top: $base-spacing-unit / 2;
@@ -137,19 +193,85 @@
 
 
 /**
- * Buttons with icons
- * ----------------------------------------------------------------------------
- * E.g:
-    <a class='btn btn--icon'>
-        <i class='i sprite_icon_edit'></i>
-        My big button
+
+### Buttons with icons
+
+These assume there's an inline-block element with a class of .i inside the button
+
+```html
+<p>
+    <a class='btn tp-btn btn--icon btn--bounce-icon--left'>
+        <i class='i'>&#9834;</i>
+        A button with .btn--icon
     </a>
- * Or,
-    <a class='btn btn--icon-large--rev'>
-        My small rounded button
-        <i class='i sprite_icon_close'></i>
+</p>
+<p>
+    <a class='btn tp-btn btn--icon--rev btn--bounce-icon--bottom'>
+        A button with .btn--icon--rev
+        <i class='i'>&#9835;</i>
     </a>
- */
+</p>
+<p>
+    <a class='btn ts-btn btn--icon-large btn--bounce-icon--top'>
+        <i class='i'>&#9829;</i>
+        A button with .btn--icon-large
+    </a>
+</p>
+<p>
+    <a class='btn ts-btn btn--icon-large--rev btn--bounce-icon--right'>
+        A button with .btn--icon-large--rev
+        <i class='i'>&#9733;</i>
+    </a>
+</p>
+
+<p>
+    <a class='btn tt-btn btn--icon-small'>
+        <i class='i'>&#163;</i>
+        A button with .btn--icon-small
+    </a>
+</p>
+<p>
+    <small class='btn tt-btn btn--icon-small'>
+        <i class='i'>&#163;</i>
+        A small with .btn--icon-small
+    </small>
+</p>
+```
+
+Buttons can also be icons only:
+
+```html
+<p>
+    <a class='btn tp-btn btn--icon-only--large'>
+        <i class='i'>
+            &#9829;
+        </i>
+    </a>
+    <a class='btn ts-btn btn--icon-only'>
+        <i class='i'>
+            &#9829;
+        </i>
+    </a>
+    <a class='btn tt-btn btn--icon-only--small'>
+        <i class='i'>
+            &#9829;
+        </i>
+    </a>
+    <a class='btn ts-btn btn--icon-only--small btn--soft'>
+        <i class='i'>
+            &#9733;
+        </i>
+    </a>
+    <a class='btn tp-btn btn--icon-only--small btn--hard'>
+        <i class='i'>
+            &#9834;
+        </i>
+    </a>
+</p>
+```
+
+*/
+
 .btn--icon-only,
 .btn--icon-only--small,
 .btn--icon-only--large {
@@ -219,16 +341,14 @@
 }
 
 
-/**
- * ----------------------------------------------------------------------------
- * Button behaviors
- * ----------------------------------------------------------------------------
- */
+// ----------------------------------------------------------------------------
+// Button behaviors
+// ----------------------------------------------------------------------------
 
-/**
- * Simple bounces
- * ----------------------------------------------------------------------------
- */
+
+// Simple bounces
+// ----------------------------------------------------------------------------
+
 .btn--bounce,
 .btn--bob {
     position: relative;
@@ -243,9 +363,9 @@
         bottom: -1px;
     }
 
-/**
- * Bounce the icon to a side
- */
+
+// Bounce the icon to a side
+
 .btn--bounce-icon--right .i,
 .btn--bounce-icon--left .i,
 .btn--bounce-icon--bottom .i,
@@ -275,10 +395,10 @@
         bottom: .3125em;
     }
 
-/**
- * Inset buttons on block level elements
- * ----------------------------------------------------------------------------
- */
+
+// Inset buttons on block level elements
+// ----------------------------------------------------------------------------
+
 .btn--inset {
     position: relative;
 
@@ -314,10 +434,9 @@
         border-width: 1px;
     }
 
-/**
- * Buttons that show a loading indicator when clicked
- * ----------------------------------------------------------------------------
- */
+// Buttons that show a loading indicator when clicked
+// ----------------------------------------------------------------------------
+
 .btn--spinner {
     position: relative;
     cursor: default;

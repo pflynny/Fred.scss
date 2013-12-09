@@ -1,9 +1,41 @@
 /**
- * Links/Anchors
- * 
- */
 
-/* A link without any text-decoration at all. */
+## Links/Anchors
+
+```html
+<p>
+    <a href='' class='clean-link'>
+        I'm a clean link look at me
+    </a>
+</p>
+<p>
+    <a href='' class='is-disabled'>
+        I'm a disabled link
+    </a>
+</p>
+<p>
+    <a href='' class='is-draggable'>
+        I'm a draggable link
+    </a>
+</p>
+
+<ul class='list-styled clean-link-list'>
+    <li>
+        <a href=''>
+            Clean link in a list
+        </a>
+    </li>
+    <li>
+        <a href=''>
+            Clean link in a list
+        </a>
+    </li>
+</ul>
+```
+
+*/
+
+// A link without any text-decoration at all.
 %clean-link {
     &:hover,
     &:active,
@@ -14,19 +46,19 @@
 }
 
 
-/* A link with out any text decoration */
+// A link with out any text decoration
 .clean-link {
     @extend %clean-link;
 }
 
 
-/* A list without any text decoration commonly used in vertical navigation lists*/
+// A list without any text decoration commonly used in vertical navigation lists
 .clean-link-list a {
    @extend %clean-link;
 }
 
-/* Link states */
-/* http://www.thecssninja.com/javascript/pointer-events-60fps */
+// Link states
+// http://www.thecssninja.com/javascript/pointer-events-60fps
 .is-disabled,
 .is-disabled * {
     cursor: default;
@@ -41,4 +73,4 @@ a[rel~="external"]:before {
     //add an image so we can add in a external image icon
 }
 
-//add in a pdf link 
+//TODO: add in a pdf link
