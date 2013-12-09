@@ -1,27 +1,21 @@
-<<<<<<< HEAD
-=======
 /* 
 * The block prefixes need to match up with the $block sizes below otherwise the 
 * array will through an error or we could create an argument and pass in size 
 prefixes and minus the ones we dont need eg block-0 hmmm 
 */
-/* 
-* The block prefixes need to match up with the $block sizes below otherwise the 
-* array will through an error or we could create an argument and pass in size 
-prefixes and minus the ones we dont need eg block-0 hmmm 
-*/
-/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
-/* ==========================================================================
-   HTML5 display definitions
-   ========================================================================== */
->>>>>>> cfc6ae28d6227a9e589d9f8ad252d553ffde6f31
 /**
 
 # Fred.scss
 
 ##Meet Fred - Meet Fred, the friendly front-end framework.
+
 ##Fred is not Bootstrap, or Foundation. <br/>He’s a handy collection of our favourite solutions to common front-end problems.
 
+*/
+/* 
+* The block prefixes need to match up with the $block sizes below otherwise the 
+* array will through an error or we could create an argument and pass in size 
+prefixes and minus the ones we dont need eg block-0 hmmm 
 */
 /**
 ## Core
@@ -151,39 +145,18 @@ table {
   margin-left: auto;
   margin-right: auto; }
 
-<<<<<<< HEAD
-.grid__item {
-=======
-/**
- * Vertical alignment utilities
- * 
- */
-.align--top, .grid__item, .dl-horizontal > dt, .dl-horizontal > dd {
->>>>>>> cfc6ae28d6227a9e589d9f8ad252d553ffde6f31
+.grid__item, .dl-horizontal > dt, .dl-horizontal > dd {
   vertical-align: top; }
 
-.align--middle, .btn-group, .btn-group-vertical, .btn, .caret, .close:after, .grid--middle > .grid__item, .i {
+.btn-group, .btn-group-vertical, .btn, .caret, .close:after, .grid--middle > .grid__item, .i {
   vertical-align: middle; }
 
-.align--baseline, .badge {
+.badge {
   vertical-align: baseline; }
 
-.align--bottom, .grid--bottom > .grid__item {
+.grid--bottom > .grid__item {
   vertical-align: bottom; }
 
-<<<<<<< HEAD
-=======
-
-
-
-
-/**
- * Inline block
- * ----------------------------------------------------------------------------
- * zoom fix for IE6/7 so they correctly display inline-block elements
- * (forces hasLayout)
- */
->>>>>>> cfc6ae28d6227a9e589d9f8ad252d553ffde6f31
 .inline-block, .arrow, .badge, .breadcrumbs > li, .btn-group, .btn-group-vertical, .caret, .close:after, .icon-text, .icon-text--rev, .list--inline > li, .nav > li, .pill {
   display: inline-block;
   *display: inline;

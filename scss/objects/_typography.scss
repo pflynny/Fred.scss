@@ -203,7 +203,7 @@ hr {
 .text-nowrap            { white-space: nowrap; }
 
 .text--overflow {
-    @extend .inline-block;
+    @extend %inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
