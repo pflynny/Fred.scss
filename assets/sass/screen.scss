@@ -9,6 +9,33 @@ h1, h2, h3 {
 }
 
 
+h1 + blockquote {
+    font-family: $serif-stack;
+    font-size: 1.25em;
+    margin: 0;
+    margin-top: 1.25em;
+    margin-bottom: 3em;
+} 
+
+    h1 + blockquote > p {
+        font-size: 1em;
+        line-height: 1.8;
+    }
+
+
+h3 {
+    text-transform: uppercase;
+}
+
+    p + h3 {
+        margin-top: 3em;
+    }
+
+hr {
+    background: #ebefef;
+    margin-top: 2em;
+}
+
 .content {
     text-align: left;
 }
@@ -16,16 +43,17 @@ h1, h2, h3 {
 .sidebar {
     position: relative;
     @include media('medium') {
-        max-width: 17em;
+        max-width: 16em;
     }
 }
-.sidebar:after {
+
+.page:before {
     content: "";
     display:block;
     min-height: 100%;
     border-right: 1px solid #e6ebeb;
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
 }
 
@@ -46,6 +74,8 @@ h1, h2, h3 {
         color: #c5cec9;
     }
 
+
+
 .sidebar .nav {
     display: block;
 }
@@ -64,19 +94,23 @@ h1, h2, h3 {
         color:$base-link-color;
     }
 
-    .sidebar .nav > li.nav--h1 {
+    .nav--h1 {
         border-bottom: 1px solid #ebefef;
+        padding-bottom: .75em;
+        padding-top: .75em;
+    }
+    .nav--h1:first-child {
         border-top: 1px solid #ebefef;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-top:10px;
-        margin-bottom:5px;
+    }
+    
+    .nav--h1 + .nav--h2 {
+        margin-top: .75em;
     }
 
 
 
 .page {
-    max-width:750px;
+    max-width:46.875em;
     @include box-sizing(border-box);
 }
 
@@ -102,11 +136,20 @@ h1, h2, h3 {
 
 
 
+@media screen and (min-width: 48em) and (min-height: 50em) {
+    .sidebar {
+        position: fixed;
+    }
+    .page {
+        margin-left: 16em;
+    }
+}
+
+
 
 //dummy icon for this tut :)
 .icon-placeholder {
-
-    background-image:url("../images/icon-placeholder.png");
+    background-image:url("../images/fred-40px.png");
     width:40px;
     height:40px;
     display:inline-block;

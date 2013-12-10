@@ -4,10 +4,11 @@
 
 # Meet Fred, the friendly front-end framework.
 
-### Fred is not Bootstrap, or Foundation. <br/>He’s a handy collection of our favourite solutions to common front-end problems.
+> Fred is not Bootstrap, or Foundation. <br/>
+He’s a handy collection of our favourite solutions to common front-end problems.
 
 
-## Building Fred
+### Building Fred
 
 To build a custom Fred package from the command line, run:
 
@@ -21,7 +22,7 @@ To build a custom Fred package from the command line, run:
 Grunt will make a `dist/lib/fred.scss`, and compile `dist/fred.css` for your project
 
 
-## Working with your project
+### Working with your project
 
 You want to tweak all Fred's variables and make everything pretty for your project.
 
@@ -43,7 +44,7 @@ Now you can tweak away, while still being able to update Fred without nuking all
 
 
 
-
+---------------------------------------
 # Customising Fred
 
 ## Core

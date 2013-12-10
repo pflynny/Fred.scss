@@ -7,13 +7,13 @@ module.exports = function(grunt) {
             // copy sass to compile the acutal styles for our documentation
             sass: {
                 src: "../fred/dist/lib/fred.scss",
-                dest: "www/assets/sass/lib/fred.scss"
+                dest: "assets/sass/lib/fred.scss"
             }
         },
 
         shell: {
             docs: {
-                command: './mark.sh www/assets/sass/lib/fred.scss www/index.md'
+                command: './mark.sh assets/sass/lib/fred.scss index.md'
             }
         },
 
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        src: 'www/index.md',
+                        src: 'index.md',
                         dest: '',
                         ext: '.html'
                     }
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
                         $('#nav').html(navItems);
                     }
                 },
-                src: 'www/index.html'
+                src: 'index.html'
             }
         },
 
@@ -69,14 +69,14 @@ module.exports = function(grunt) {
                     outputStyle: 'nested'
                 },
                 files: {
-                    'www/assets/css/screen.css': 'www/assets/sass/screen.scss'
+                    'assets/css/screen.css': 'assets/sass/screen.scss'
                 }
             }
         },
 
         watch: {
             sass: {
-                files: ['www/assets/sass/**/*.scss'],
+                files: ['assets/sass/**/*.scss'],
                 tasks: ['build'],
                 options: {
                     spawn: false
@@ -100,6 +100,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'sass:dist'
     ]);
+
     grunt.registerTask('docs', [
         'copy:sass',
         'shell:docs',
@@ -107,7 +108,9 @@ module.exports = function(grunt) {
         'dom_munger'
     ]);
 
-
-
+    grunt.registerTask('default', [
+        'docs',
+        'build'
+    ]);
 
 };

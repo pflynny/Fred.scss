@@ -15,20 +15,20 @@
 
 @font-face {
     font-family: 'SourceCodePro-Medium';
-    src: url('/assets/fonts/SourceCodePro/EOT/SourceCodePro-Medium.eot'); /* IE9 Compat Modes */
-    src: url('/assets/fonts/SourceCodePro/EOT/SourceCodePro-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('/assets/fonts/SourceCodePro/WOFF/OTF/SourceCodePro-Medium.otf.woff') format('woff'), /* Modern Browsers */
-    url('/assets/fonts/SourceCodePro/WOFF/FTF/SourceCodePro-Medium.ttf.woff')  format('truetype'), /* Safari, Android, iOS */
-    url('/assets/fonts/SourceCodePro/SVG/SourceCodePro-Medium.svg#SourceCodePro-Medium') format('svg'); /* Legacy iOS */
+    src: url('../fonts/SourceCodePro/EOT/SourceCodePro-Medium.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/SourceCodePro/EOT/SourceCodePro-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/SourceCodePro/WOFF/OTF/SourceCodePro-Medium.otf.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/SourceCodePro/WOFF/FTF/SourceCodePro-Medium.ttf.woff')  format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/SourceCodePro/SVG/SourceCodePro-Medium.svg#SourceCodePro-Medium') format('svg'); /* Legacy iOS */
 }
 
 @font-face {
     font-family: 'SourceSansPro';
-    src: url('/assets/fonts/SourceSansPro/EOT/SourceSansPro-Regular.eot'); /* IE9 Compat Modes */
-    src: url('/assets/fonts/SourceSansPro/EOT/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('/assets/fonts/SourceSansPro/WOFF/OTF/SourceSansPro-Regular.otf.woff') format('woff'), /* Modern Browsers */
-    url('/assets/fonts/SourceSansPro/WOFF/FTF/SourceSansPro-Regular.ttf.woff')  format('truetype'), /* Safari, Android, iOS */
-    url('/assets/fonts/SourceSansPro/SVG/SourceSansPro-Regular.svg#SourceSansPro-Regular') format('svg'); /* Legacy iOS */
+    src: url('../fonts/SourceSansPro/EOT/SourceSansPro-Regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/SourceSansPro/EOT/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/SourceSansPro/WOFF/OTF/SourceSansPro-Regular.otf.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/SourceSansPro/WOFF/FTF/SourceSansPro-Regular.ttf.woff')  format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/SourceSansPro/SVG/SourceSansPro-Regular.svg#SourceSansPro-Regular') format('svg'); /* Legacy iOS */
 }
 
 
@@ -55,7 +55,7 @@ $font-size-xl:                  16;     //h3
 $font-size-l:                   16;     //h4
 $font-size-m:                   16;     //h5
 $font-size-s:                   16;     //h6 & .intro
-$font-size-xs:                  14;     //p
+$font-size-xs:                  15;     //p
 $font-size-xxs:                 12;     //.small
 $font-size-xxxs:                11;     //.tiny
 
@@ -313,10 +313,10 @@ $radius-circle:     35em;
 // --------------------------------------------------------
 
 $tp-white:  #fff;
-$tp-pink:  #F92672;
-$tp-yellow: #E6DB74;
+$tp-pink:  #0a954c;
+$tp-yellow: #0a954c;
 $tp-grey: #999;
-$tp-green: #33B233;
+$tp-green: #0d6f41;
 $tp-black: #2E2F2B;
 
 .tp-text-yellow         { color:$tp-yellow; }
@@ -434,7 +434,7 @@ $tp-pill-text-color:             #fff;
 // ----------------------------------------------------------------------------
 
 $tp-lozenge-radius:              .25em;
-$tp-lozenge-bg-color:            #F92672;
+$tp-lozenge-bg-color:            #0a954c;
 
 .tp-lozenge {
     background-color: $tp-lozenge-bg-color;
@@ -550,17 +550,17 @@ $quarternary-border-color:      $quarternary-bg-color;
 // Theme block --green, pink, blue
 
 //green theme box
-$green-bg-color:                #A6E22E;
-$green-txt-color:               $base-font-color;
+$green-bg-color:                #0d6f41;
+$green-txt-color:               #fff;
 $green-border-color:            $green-bg-color;
 
 //pink theme box
-$pink-bg-color:                 #F92672;
-$pink-txt-color:                $base-font-color ;
+$pink-bg-color:                 #0a954c;
+$pink-txt-color:                #fff;
 $pink-border-color:             $pink-bg-color;
 
 //blue theme box
-$blue-bg-color:                 #4AA1C5;
+$blue-bg-color:                 #0b4a4f;
 $blue-txt-color:                #fff;
 $blue-border-color:             $blue-bg-color;
 
