@@ -3504,12 +3504,15 @@ h1 + blockquote > p {
 h3 {
   text-transform: uppercase; }
 
-p + h3 {
+p + h3, .codedemo + h3, .codedemo + h2 {
   margin-top: 3em; }
 
 hr {
   background: #ebefef;
   margin-top: 2em; }
+
+pre {
+  margin-bottom: 0; }
 
 .content {
   text-align: left; }
