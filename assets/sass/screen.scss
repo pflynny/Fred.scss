@@ -145,16 +145,6 @@ pre {
 
 
 
-@media screen and (min-width: 48em) and (min-height: 50em) {
-    .sidebar {
-        position: fixed;
-    }
-    .page {
-        margin-left: 16em;
-    }
-}
-
-
 
 //dummy icon for this tut :)
 .icon-placeholder {
@@ -162,4 +152,13 @@ pre {
     width:40px;
     height:40px;
     display:inline-block;
+}
+
+@media screen and (min-width: 63.5em) and (min-height: 51em) {
+    .sidebar {
+        position: fixed;
+    }
+    .page {
+        margin-left: 16em;
+    }
 }
