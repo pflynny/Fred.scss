@@ -21,7 +21,7 @@ output=$2
 capture=0
 echo "" > "$output"
 
-while read p; do
+while IFS= read p; do
 	if [[ "$p" == \/\*\* ]]
 	then
 		echo -e "\n" >> "$output"
@@ -33,7 +33,7 @@ while read p; do
 		else
 			if [ $capture == 1 ]
 			then
-				echo "$p" >> "$output"
+				echo -e "$p" >> "$output"
 			fi
 
 		fi

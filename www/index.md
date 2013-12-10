@@ -50,15 +50,11 @@ Now you can tweak away, while still being able to update Fred without nuking all
 
 
 
-* For IE 6/7 only
-* Include this rule to trigger hasLayout and contain floats.
-
-
 
 ###Screen reader content
 
 ```html
-<a class="sr-only" href="#content">Skip to main content</a>
+ <a class="sr-only" href="#content">Skip to main content</a>
 ```
 
 
@@ -83,23 +79,23 @@ arrow in the top left corner of the containing div:
 
 ```html
 <div class='arrow--left block-xs blue-block'>
-<p> ... </p>
-<i class='arrow arrow-top'></i>
+    <p> ... </p>
+    <i class='arrow arrow-top'></i>
 </div>
 
 <div class='arrow--right block-xs blue-block'>
-<p> ... </p>
-<i class='arrow arrow-top '></i>
+    <p> ... </p>
+    <i class='arrow arrow-top '></i>
 </div>
 
 <div class='arrow--center block-xs blue-block'>
-<p> ... </p>
-<i class='arrow arrow-bottom '></i>
+    <p> ... </p>
+    <i class='arrow arrow-bottom '></i>
 </div>
 
 <div class='arrow--side block-xs blue-block'>
-<p> ... </p>
-<i class='arrow arrow-left '></i>
+    <p> ... </p>
+    <i class='arrow arrow-left '></i>
 </div>
 ```
 
@@ -110,7 +106,7 @@ arrow in the top left corner of the containing div:
 
 ```html
 <a class="xm">Inbox
-<span class="badge tiny">42</span>
+    <span class="badge tiny">42</span>
 </a>
 ```
 
@@ -121,7 +117,7 @@ arrow in the top left corner of the containing div:
 
 ```html
 <div class='block-xs'>
-...
+       ...
 </div>
 ```
 
@@ -132,9 +128,9 @@ arrow in the top left corner of the containing div:
 
 ```html
 <ol class='list-unstyled breadcrumbs pt-breadrumbs mt-s'>
-<li><a href='#'>Home</a></li>
-<li><a href='#'>Page</a></li>
-<li class='#'>Sub page</li>
+    <li><a href='#'>Home</a></li>
+    <li><a href='#'>Page</a></li>
+    <li class='#'>Sub page</li>
 </ol>
 ```
 
@@ -152,17 +148,17 @@ arrow in the top left corner of the containing div:
 
 ```html
 <p>
-<a class="btn tp-btn" data-btn-loading-indicator="Thinking...">
-<span class="btn--label">
-Button 1
-</span>
-</a>
-<a class="btn ts-btn">
-Button 2
-</a>
-<a class="btn tt-btn">
-Button 3
-</a>
+    <a class="btn tp-btn" data-btn-loading-indicator="Thinking...">
+        <span class="btn--label">
+            Button 1
+        </span>
+    </a>
+    <a class="btn ts-btn">
+        Button 2
+    </a>
+    <a class="btn tt-btn">
+        Button 3
+    </a>
 </p>
 ```
 
@@ -173,12 +169,12 @@ Button 3
 
 ```html
 <h3 class="btn tp-btn btn--large btn--bounce">
-Button 1
+    Button 1
 </h3>
 <p>
-<small class="btn tt-btn btn--small btn--bob">
-Button 2
-</small>
+    <small class="btn tt-btn btn--small btn--bob">
+        Button 2
+    </small>
 </p>
 ```
 
@@ -189,10 +185,10 @@ Button 2
 
 ```html
 <a class="btn tp-btn btn--soft">
-Button 1
+    Button 1
 </a>
 <a class="btn ts-btn btn--hard">
-Button 2
+    Button 2
 </a>
 ```
 
@@ -203,14 +199,14 @@ Button 2
 
 ```html
 <p>
-<a class="btn tp-btn btn--block">
-Button 1
-</a>
+    <a class="btn tp-btn btn--block">
+        Button 1
+    </a>
 </p>
 <p>
-<a class="btn tp-btn btn--block-mobile">
-Responsinate!
-</a>
+    <a class="btn tp-btn btn--block-mobile">
+        Responsinate!
+    </a>
 </p>
 ```
 
@@ -237,41 +233,41 @@ These assume there's an inline-block element with a class of .i inside the butto
 
 ```html
 <p>
-<a class='btn tp-btn btn--icon btn--bounce-icon--left'>
-<i class='i'>&#9834;</i>
-A button with .btn--icon
-</a>
+    <a class='btn tp-btn btn--icon btn--bounce-icon--left'>
+        <i class='i'>&#9834;</i>
+        A button with .btn--icon
+    </a>
 </p>
 <p>
-<a class='btn tp-btn btn--icon--rev btn--bounce-icon--bottom'>
-A button with .btn--icon--rev
-<i class='i'>&#9835;</i>
-</a>
+    <a class='btn tp-btn btn--icon--rev btn--bounce-icon--bottom'>
+        A button with .btn--icon--rev
+        <i class='i'>&#9835;</i>
+    </a>
 </p>
 <p>
-<a class='btn ts-btn btn--icon-large btn--bounce-icon--top'>
-<i class='i'>&#9829;</i>
-A button with .btn--icon-large
-</a>
+    <a class='btn ts-btn btn--icon-large btn--bounce-icon--top'>
+        <i class='i'>&#9829;</i>
+        A button with .btn--icon-large
+    </a>
 </p>
 <p>
-<a class='btn ts-btn btn--icon-large--rev btn--bounce-icon--right'>
-A button with .btn--icon-large--rev
-<i class='i'>&#9733;</i>
-</a>
+    <a class='btn ts-btn btn--icon-large--rev btn--bounce-icon--right'>
+        A button with .btn--icon-large--rev
+        <i class='i'>&#9733;</i>
+    </a>
 </p>
 
 <p>
-<a class='btn tt-btn btn--icon-small'>
-<i class='i'>&#163;</i>
-A button with .btn--icon-small
-</a>
+    <a class='btn tt-btn btn--icon-small'>
+        <i class='i'>&#163;</i>
+        A button with .btn--icon-small
+    </a>
 </p>
 <p>
-<small class='btn tt-btn btn--icon-small'>
-<i class='i'>&#163;</i>
-A small with .btn--icon-small
-</small>
+    <small class='btn tt-btn btn--icon-small'>
+        <i class='i'>&#163;</i>
+        A small with .btn--icon-small
+    </small>
 </p>
 ```
 
@@ -279,31 +275,31 @@ Buttons can also be icons only:
 
 ```html
 <p>
-<a class='btn tp-btn btn--icon-only--large'>
-<i class='i'>
-&#9829;
-</i>
-</a>
-<a class='btn ts-btn btn--icon-only'>
-<i class='i'>
-&#9829;
-</i>
-</a>
-<a class='btn tt-btn btn--icon-only--small'>
-<i class='i'>
-&#9829;
-</i>
-</a>
-<a class='btn ts-btn btn--icon-only--small btn--soft'>
-<i class='i'>
-&#9733;
-</i>
-</a>
-<a class='btn tp-btn btn--icon-only--small btn--hard'>
-<i class='i'>
-&#9834;
-</i>
-</a>
+    <a class='btn tp-btn btn--icon-only--large'>
+        <i class='i'>
+            &#9829;
+        </i>
+    </a>
+    <a class='btn ts-btn btn--icon-only'>
+        <i class='i'>
+            &#9829;
+        </i>
+    </a>
+    <a class='btn tt-btn btn--icon-only--small'>
+        <i class='i'>
+            &#9829;
+        </i>
+    </a>
+    <a class='btn ts-btn btn--icon-only--small btn--soft'>
+        <i class='i'>
+            &#9733;
+        </i>
+    </a>
+    <a class='btn tp-btn btn--icon-only--small btn--hard'>
+        <i class='i'>
+            &#9834;
+        </i>
+    </a>
 </p>
 ```
 
@@ -314,10 +310,10 @@ Buttons can also be icons only:
 
 ```html
 <p>
-Caret: <span class="caret"></span>
+    Caret: <span class="caret"></span>
 </p>
 <p>
-Reversed Caret: <span class="caret caret--rev"></span>
+    Reversed Caret: <span class="caret caret--rev"></span>
 </p>
 ```
 
@@ -342,129 +338,129 @@ The prefix class is 'col' (although you can change this in the variables file) a
 
 ```html
 <div class='grid'>
-<div class='grid__item col'>
-<div class='pink-block block-s'>
-<p>
-full width
-</p>
-</div>
-</div>
+    <div class='grid__item col'>
+       <div class='pink-block block-s'>
+            <p>
+                full width
+            </p>
+        </div>
+    </div>
 </div>
 <p>Example two:</p>
 <div class='grid'>
-<div class='grid__item col-2-4' >
-<div class='blue-block block-s'>
-<p>
-50%
-</p>
-</div>
-</div>
-<div class='grid__item col-2-4'>
-<div class='blue-block block-s'>
-<p>
-50%
-</p>
-</div>
-</div>
+    <div class='grid__item col-2-4' >
+        <div class='blue-block block-s'>
+            <p>
+                50%
+            </p>
+        </div>
+    </div>
+    <div class='grid__item col-2-4'>
+        <div class='blue-block block-s'>
+            <p>
+                50%
+            </p>
+        </div>
+    </div>
 </div>
 <p>Example three:</p>
 <div class='grid'>
-<div class='grid__item col-1-4'>
-<div class='green-block block-s'>
-<p>
-25%
-</p>
-</div>
-</div>
-<div class='grid__item col-1-4'>
-<div class='green-block block-s'>
-<p>
-25%
-</p>
-</div>
-</div>
-<div class='grid__item col-1-4 '>
-<div class='green-block block-s'>
-<p>
-25%
-</p>
-</div>
-</div>
-<div class='grid__item col-1-4 '>
-<div class='green-block block-s'>
-<p>
-25%
-</p>
-</div>
-</div>
+    <div class='grid__item col-1-4'>
+        <div class='green-block block-s'>
+            <p>
+                25%
+            </p>
+        </div>
+    </div>
+    <div class='grid__item col-1-4'>
+        <div class='green-block block-s'>
+            <p>
+                25%
+            </p>
+        </div>
+    </div>
+    <div class='grid__item col-1-4 '>
+        <div class='green-block block-s'>
+            <p>
+                25%
+            </p>
+        </div>
+    </div>
+    <div class='grid__item col-1-4 '>
+        <div class='green-block block-s'>
+            <p>
+                25%
+            </p>
+        </div>
+    </div>
 </div>
 <p>Example four:</p>
 <div class='grid'>
-<div class='grid__item col-6-10'>
-<div class='ts-block block-s'>
-<p>
-60%
-</p>
-</div>
-</div>
-<div class='grid__item col-4-10'>
-<div class='ts-block block-s'>
-<p>
-40%
-</p>
-</div>
-</div>
+    <div class='grid__item col-6-10'>
+        <div class='ts-block block-s'>
+            <p>
+                60%
+            </p>
+        </div>
+    </div>
+    <div class='grid__item col-4-10'>
+        <div class='ts-block block-s'>
+            <p>
+                40%
+            </p>
+        </div>
+    </div>
 </div>
 <p>Example five:</p>
 <div class='grid'>
-<div class='grid__item col-8-10'>
-<div class='tt-block block-s'>
+    <div class='grid__item col-8-10'>
+        <div class='tt-block block-s'>
+            <p>
+                80%
+            </p>
+        </div>
+    </div>
+    <div class='grid__item col-2-10'>
+        <div class='tt-block block-s'>
+            <p>
+                20%
+            </p>
+        </div>
+    </div>
+</div>
 <p>
-80%
-</p>
-</div>
-</div>
-<div class='grid__item col-2-10'>
-<div class='tt-block block-s'>
-<p>
-20%
-</p>
-</div>
-</div>
-</div>
-<p>
-Vertical align these grid items in the middle!
+    Vertical align these grid items in the middle!
 </p>
 
 <div class='grid grid--middle'>
-<div class='col-1-4'>
-<div class='green-block block-s'>
-<p>
-1/4
-</p>
-</div>
-</div>
-<div class='col-1-4'>
-<div class='green-block block-s'>
-<p>
-1/4
-</p>
-</div>
-</div>
-<div class='col-1-4'>
-<div class='green-block block-s'>
-<p>
-1/4
-</p>
-</div>
-</div>
-<div class='col-1-4'>
-<div class='green-block block-s'>
-<p>
-1/4
-</p>
-</div>
-</div>
+    <div class='col-1-4'>
+        <div class='green-block block-s'>
+            <p>
+                1/4
+            </p>
+        </div>
+    </div>
+    <div class='col-1-4'>
+        <div class='green-block block-s'>
+            <p>
+                1/4
+            </p>
+        </div>
+    </div>
+    <div class='col-1-4'>
+        <div class='green-block block-s'>
+            <p>
+                1/4
+            </p>
+        </div>
+    </div>
+    <div class='col-1-4'>
+       <div class='green-block block-s'>
+            <p>
+                1/4
+            </p>
+        </div>
+    </div>
 </div>
 ```
 
@@ -477,37 +473,37 @@ You just need to add an extra suffix onto the classes which relates to the break
 
 ```html
 <div class='grid'>
-<div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-4-10--q-xlarge'>
-<div class='pink-block block-s'>
-<p>
-1<!--<strong>Desktop:</strong> 1/4 <br />
-<strong>Skinny:</strong> 1/2 <br />
-<strong>mobile:</strong> full width<br />
-<strong>wide:</strong> 60/40-->
-</p>
-</div>
-</div>
-<div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-6-10--q-xlarge'>
-<div class='pink-block block-s'>
-<p>
-1
-</p>
-</div>
-</div>
-<div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-4-10--q-xlarge'>
-<div class='pink-block block-s'>
-<p>
-1
-</p>
-</div>
-</div>
-<div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-6-10--q-xlarge'>
-<div class='pink-block block-s'>
-<p>
-1
-</p>
-</div>
-</div>
+    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-4-10--q-xlarge'>
+       <div class='pink-block block-s'>
+            <p>
+                1<!--<strong>Desktop:</strong> 1/4 <br />
+                <strong>Skinny:</strong> 1/2 <br />
+               <strong>mobile:</strong> full width<br />
+               <strong>wide:</strong> 60/40-->
+           </p>
+        </div>
+    </div>
+    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-6-10--q-xlarge'>
+       <div class='pink-block block-s'>
+            <p>
+                1
+            </p>
+        </div>
+    </div>
+    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-4-10--q-xlarge'>
+       <div class='pink-block block-s'>
+            <p>
+                1
+            </p>
+        </div>
+    </div>
+    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-6-10--q-xlarge'>
+       <div class='pink-block block-s'>
+            <p>
+                1
+            </p>
+        </div>
+    </div>
 </div>
 ```
 
@@ -521,21 +517,21 @@ Fred doesn't mind what grid you use :).
 
 ```html
 <div class='grid-float'>
-<div class='col-1-3 '>
-<div class='ts-block'>
-...
-</div>
-</div>
-<div class='col-1-3 '>
-<div class='ts-block'>
-...
-</div>
-</div>
-<div class='col-1-3 '>
-<div class='ts-block'>
-...
-</div>
-</div>
+    <div class='col-1-3 '>
+        <div class='ts-block'>
+            ...
+        </div>
+    </div>
+    <div class='col-1-3 '>
+        <div class='ts-block'>
+            ...
+        </div>
+    </div>
+    <div class='col-1-3 '>
+        <div class='ts-block'>
+            ...
+        </div>
+    </div>
 </div>
 ```
 
@@ -546,15 +542,15 @@ Fred doesn't mind what grid you use :).
 
 ```html
 <p>
-<a class='icon-text ' href='#'>
-<i class='i icon-placeholder'></i>
-A link with an icon
-</a>
+    <a class='icon-text ' href='#'>
+        <i class='i icon-placeholder'></i>
+        A link with an icon
+    </a>
 </p>
 
 <p class='icon-text--rev' href=''>
-A paragraph with an icon on the other side
-<i class='i icon-placeholder '></i>
+    A paragraph with an icon on the other side
+    <i class='i icon-placeholder '></i>
 </p>
 ```
 
@@ -567,15 +563,15 @@ This applies max-width: 100%; and height: auto; to the image so that it scales n
 
 ```html
 <div class='grid'>
-<div class='grid__item col-1-4' >
-<img src='assets/images/fred-logo.png' alt='' class='img--responsive' />
-</div>
-<div class='grid__item col-2-3'>
-<div class='arrow--side blue-block block-m'>
-<p>Resize the browser so you can see me shrink </p>
-<i class='arrow arrow-left'></i>
-</div>
-</div>
+    <div class='grid__item col-1-4' >
+        <img src='assets/images/fred-logo.png' alt='' class='img--responsive' />
+    </div>
+    <div class='grid__item col-2-3'>
+        <div class='arrow--side blue-block block-m'>
+            <p>Resize the browser so you can see me shrink </p>
+            <i class='arrow arrow-left'></i>
+        </div>
+    </div>
 </div>
 ```
 
@@ -586,32 +582,32 @@ This applies max-width: 100%; and height: auto; to the image so that it scales n
 
 ```html
 <p>
-<a href='' class='clean-link'>
-I'm a clean link look at me
-</a>
+    <a href='' class='clean-link'>
+        I'm a clean link look at me
+    </a>
 </p>
 <p>
-<a href='' class='is-disabled'>
-I'm a disabled link
-</a>
+    <a href='' class='is-disabled'>
+        I'm a disabled link
+    </a>
 </p>
 <p>
-<a href='' class='is-draggable'>
-I'm a draggable link
-</a>
+    <a href='' class='is-draggable'>
+        I'm a draggable link
+    </a>
 </p>
 
 <ul class='list-styled clean-link-list'>
-<li>
-<a href=''>
-Clean link in a list
-</a>
-</li>
-<li>
-<a href=''>
-Clean link in a list
-</a>
-</li>
+    <li>
+        <a href=''>
+            Clean link in a list
+        </a>
+    </li>
+    <li>
+        <a href=''>
+            Clean link in a list
+        </a>
+    </li>
 </ul>
 ```
 
@@ -624,12 +620,12 @@ Clean link in a list
 
 ```html
 <ul class='list-unstyled mt-s'>
-<li>
-unstyled list item 1
-</li>
-<li>
-unstyled list item 2
-</li>
+    <li>
+        unstyled list item 1
+    </li>
+    <li>
+        unstyled list item 2
+    </li>
 </ul>
 ```
 
@@ -637,39 +633,39 @@ unstyled list item 2
 
 ```html
 <ul class='list-styled'>
-<li>
-Styled list item 1
-</li>
-<li>
-Styled list item 2
-</li>
+    <li>
+        Styled list item 1
+    </li>
+    <li>
+        Styled list item 2
+    </li>
 </ul>
 <hr />
 <ul class='list-styled--alpha'>
-<li>
-Styled list item 1
-</li>
-<li>
-Styled list item 2
-</li>
+    <li>
+        Styled list item 1
+    </li>
+    <li>
+        Styled list item 2
+    </li>
 </ul>
 <hr />
 <ul class='list-styled--dashed'>
-<li>
-Styled list item 1
-</li>
-<li>
-Styled list item 2
-</li>
+    <li>
+        Styled list item 1
+    </li>
+    <li>
+        Styled list item 2
+    </li>
 </ul>
 <hr />
 <ul class='list-styled--decimal'>
-<li>
-Styled list item 1
-</li>
-<li>
-Styled list item 2
-</li>
+    <li>
+        Styled list item 1
+    </li>
+    <li>
+        Styled list item 2
+    </li>
 </ul>
 ```
 
@@ -677,8 +673,8 @@ Styled list item 2
 
 ```html
 <ul class='list--inline'>
-<li> inline list item 1 </li>
-<li> inline list item 2 </li>
+    <li> inline list item 1 </li>
+    <li> inline list item 2 </li>
 <ul>
 ```
 
@@ -700,10 +696,10 @@ Defaults to being stacked without any of the below styles applied
 
 ```html
 <dl>
-<dt>Description 1</dt>
-<dd>Info</dd>
-<dt>Description 2</dt>
-<dd>Info</dd>
+    <dt>Description 1</dt>
+    <dd>Info</dd>
+    <dt>Description 2</dt>
+    <dd>Info</dd>
 </dl>
 ```
 
@@ -716,28 +712,28 @@ To make the description list horizontal apply the class 'dl-horizontal' aswell t
 
 ```html
 <dl class='dl-horizontal dl-horizontal--1-4 '>
-<dt>Description 1</dt>
-<dd>Info</dd>
-<dt>Description 2</dt>
-<dd>Info</dd>
+    <dt>Description 1</dt>
+    <dd>Info</dd>
+    <dt>Description 2</dt>
+    <dd>Info</dd>
 </dl>
 
 <hr class='mt-m'/>
 
 <dl class='dl-horizontal dl-horizontal--1-3 '>
-<dt>Description 1</dt>
-<dd>Info</dd>
-<dt>Description 2</dt>
-<dd>Info</dd>
+    <dt>Description 1</dt>
+    <dd>Info</dd>
+    <dt>Description 2</dt>
+    <dd>Info</dd>
 </dl>
 
 <hr class='mt-m'/>
 
 <dl class='dl-horizontal dl-horizontal--1-2 '>
-<dt>Description 1</dt>
-<dd>Info</dd>
-<dt>Description 2</dt>
-<dd>Info</dd>
+    <dt>Description 1</dt>
+    <dd>Info</dd>
+    <dt>Description 2</dt>
+    <dd>Info</dd>
 </dl>
 ```
 
@@ -749,21 +745,21 @@ Float an image to the left, with a clearfixed block of content to the right.
 
 ```html
 <div class='media'>
-<img src='assets/images/green-bird.jpg' class='media__image'>
-<div class='media__body'>
-<p class='mt-0'>
-Uncle Bully was pashing when the pearler packing a sad event occured. Oh no! I'm beached as, this carked it seabed is as stoked as a flat stick kumara. Mean while, in a waka, Rhys Darby and Cardigan Bay were up to no good with a bunch of random milks.
-</p>
-</div>
+    <img src='assets/images/green-bird.jpg' class='media__image'>
+    <div class='media__body'>
+        <p class='mt-0'>
+            Uncle Bully was pashing when the pearler packing a sad event occured. Oh no! I'm beached as, this carked it seabed is as stoked as a flat stick kumara. Mean while, in a waka, Rhys Darby and Cardigan Bay were up to no good with a bunch of random milks.
+        </p>
+    </div>
 </div>
 <hr class='mt-m' />
 <div class='media--rev'>
-<img src='assets/images/green-bird.jpg' class='media__image'>
-<div class='media__body'>
-<p class=''>
-I'd slam that clam, good afterble constanoon. The snarky force of his burning my Vogel's was on par with Hercules Morse, as big as a horse's good as mate.
-</p>
-</div>
+    <img src='assets/images/green-bird.jpg' class='media__image'>
+    <div class='media__body'>
+       <p class=''>
+        I'd slam that clam, good afterble constanoon. The snarky force of his burning my Vogel's was on par with Hercules Morse, as big as a horse's good as mate.
+        </p>
+    </div>
 </div>
 ```
 
@@ -776,26 +772,26 @@ Turns a list into a horizontal block of inline-blocks;
 
 ```html
 <ul class='nav'>
-<li class='active'>
-<a href='#'>
-active list item
-</a>
-</li>
-<li class=''>
-<a href='#'>
-list item
-</a>
-</li>
-<li class=''>
-<a href='#'>
-list item
-</a>
-</li>
-<li class=''>
-<a href='#'>
-list item
-</a>
-</li>
+    <li class='active'>
+        <a href='#'>
+            active list item
+        </a>
+    </li>
+    <li class=''>
+        <a href='#'>
+            list item
+        </a>
+    </li>
+    <li class=''>
+        <a href='#'>
+            list item
+        </a>
+    </li>
+    <li class=''>
+        <a href='#'>
+            list item
+        </a>
+    </li>
 </ul>
 ```
 
@@ -806,11 +802,11 @@ list item
 
 ```html
 <dl class='sub-nav'>
-<dt>Filter:</dt>
-<dd class='active'><a href='#'>All</a></dd>
-<dd><a href='#'>Active</a></dd>
-<dd><a href='#'>Pending</a></dd>
-<dd><a href='#'>Suspended</a></dd>
+    <dt>Filter:</dt>
+    <dd class='active'><a href='#'>All</a></dd>
+    <dd><a href='#'>Active</a></dd>
+    <dd><a href='#'>Pending</a></dd>
+    <dd><a href='#'>Suspended</a></dd>
 </dl>
 ```
 
@@ -821,36 +817,36 @@ list item
 
 ```html
 <ul class='pagination'>
-<li class='pagination__first'>
-<a href='#'>
-First
-</a>
-</li>
-<li class='pagination__prev'>
-<a href='#'></a>
-</li>
-<li class='pagination__current'>
-<a href='#'>
-1
-</a>
-</li>
-<li class='pagination__more'>
-<a href='#'></a>
-</li>
-<li>
-<a href="#">
-10
-</a>
-</li>
-<li class='pagination__next'>
-<a href='#'></a>
-</li>
-<li class='pagination__last'>
-<a href='/page/last'>
-Last
-</a>
-</li>
-</ul>
+    <li class='pagination__first'>
+         <a href='#'>
+            First
+        </a>
+    </li>
+    <li class='pagination__prev'>
+        <a href='#'></a>
+    </li>
+    <li class='pagination__current'>
+        <a href='#'>
+            1
+        </a>
+    </li>
+    <li class='pagination__more'>
+        <a href='#'></a>
+    </li>
+    <li>
+        <a href="#">
+            10
+        </a>
+    </li>
+    <li class='pagination__next'>
+        <a href='#'></a>
+    </li>
+    <li class='pagination__last'>
+        <a href='/page/last'>
+            Last
+        </a>
+    </li>
+ </ul>
 ```
 
 
@@ -860,16 +856,16 @@ Last
 
 ```html
 <div class='blue-block block-xs radius-s'>
-Check out my corners
+    Check out my corners
 </div>
 <div class='blue-block block-xs radius'>
-Check out my corners
+    Check out my corners
 </div>
 <div class='blue-block block-xs radius-l'>
-Check out my corners
+    Check out my corners
 </div>
 <div class='blue-block block-xs circle'>
-I'm nearly a circle, wohoo
+    I'm nearly a circle, wohoo
 </div>
 ```
 
@@ -879,17 +875,17 @@ I'm nearly a circle, wohoo
 ## Ratio boxes
 
 
-* .ratio-4-3
-* .ratio-16-9
-* .ratio-3-4
-* .ratio-2-1
+   * .ratio-4-3
+   * .ratio-16-9
+   * .ratio-3-4
+   * .ratio-2-1
 
 
 This box will be 16:9
 
 ```html
 <div class='ratio-16-9 blue-block'>
-<div class='ratio__content'></div>
+    <div class='ratio__content'></div>
 </div>
 ```
 
@@ -897,7 +893,7 @@ This box will be a square
 
 ```html
 <div class='ratio-square blue-block'>
-<div class='ratio__content'></div>
+    <div class='ratio__content'></div>
 </div>
 ```
 
@@ -912,25 +908,25 @@ Try to use these on a limited basis and avoid creating entirely different versio
 
 ```html
 <div class='block-s pink-block hidden--q-small'>
-hide this block on mobile
+    hide this block on mobile
 </div>
 <div class='block-s green-block hidden--q-medium'>
-hide this block on skinny
+    hide this block on skinny
 </div>
 <div class='block-s tp-block hidden--q-medium-down'>
-hide this block skinny down
+    hide this block skinny down
 </div>
 <div class='block-s blue-block hidden--q-medium-up'>
-hide this block on a medium screen, large screen and xlarge screen
+    hide this block on a medium screen, large screen and xlarge screen
 </div>
 <div class='block-s pink-block hidden--q-large'>
-hide this block on desktop
+    hide this block on desktop
 </div>
 <div class='block-s ts-block hidden--q-large-up'>
-hide this block desktop up
+    hide this block desktop up
 </div>
 <div class='block-s tt-block hidden--q-xlarge'>
-hide this block on wide
+    hide this block on wide
 </div>
 ```
 
@@ -940,25 +936,25 @@ Try to use these on a limited basis and avoid creating entirely different versio
 
 ```html
 <div class='block-s pink-block visible--q-small'>
-show this block on small screen
+    show this block on small screen
 </div>
 <div class='block-s blue-block visible--q-medium'>
-show this block on a medium screen
+    show this block on a medium screen
 </div>
 <div class='block-s blue-block visible--q-medium-down'>
-Show this block on a medium screen and small screen
+    Show this block on a medium screen and small screen
 </div>
 <div class='block-s pink-block visible--q-medium-up'>
-Show this block on a medium screen, large screen and xlarge screen
+    Show this block on a medium screen, large screen and xlarge screen
 </div>
 <div class='block-s tt-block visible--q-large'>
-Show this block on a large screen
+    Show this block on a large screen
 </div>
 <div class='block-s blue-block visible--q-large-up'>
-Show this block on a large and xlarge screen
+    Show this block on a large and xlarge screen
 </div>
 <div class='block-s green-block visible--q-xlarge'>
-show this block on a xlarge screen
+    show this block on a xlarge screen
 </div>
 ```
 

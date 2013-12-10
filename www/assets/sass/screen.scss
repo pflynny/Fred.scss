@@ -14,8 +14,10 @@ h1, h2, h3 {
 }
 
 .sidebar {
-    padding-top: 2.5em;
     position: relative;
+    @include media('medium') {
+        max-width: 17em;
+    }
 }
 .sidebar:after {
     content: "";
@@ -46,7 +48,6 @@ h1, h2, h3 {
 
 .sidebar .nav {
     display: block;
-    padding: 0 2em;
 }
     .sidebar .nav > li {
         display: block;
@@ -77,7 +78,6 @@ h1, h2, h3 {
 .page {
     max-width:750px;
     @include box-sizing(border-box);
-    padding: 0 2em 0 3.5em;
 }
 
 

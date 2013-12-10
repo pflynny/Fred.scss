@@ -32,8 +32,11 @@ module.exports = function(grunt) {
                     gfm: true,
                     highlight: 'manual',
                     preCompile: function(src, context) {
-                        src = src.replace(/```html([^`]*)```/g, '```html $1```\n<div class="block codedemo">\n$1\n</div>');
+                        src = src.replace(/```html([^`]*)```/g, '```html$1```\n<div class="block codedemo">\n$1\n</div>');
                         return src;
+                    },
+                    postCompile: function(src, context) {
+//                        src = src.replace('<p><pre><code></p>', '<pre><code class="html">');
                     }
                 }
             }
