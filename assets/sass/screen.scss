@@ -53,7 +53,6 @@ p {
 }
 
 .sidebar {
-    position: relative;
     @include media('medium') {
         max-width: 16em;
     }
@@ -87,7 +86,6 @@ p {
     }
 
 
-
 .sidebar .nav {
     display: block;
 }
@@ -99,6 +97,7 @@ p {
         font-family: $serif-stack;
         text-decoration: none;
         color:$base-font-color;
+        display: block;
     }
     .sidebar .nav > li > a.current,
     .sidebar .nav > li > a:hover,
@@ -134,7 +133,6 @@ p {
     padding: 45px 20px 25px;
     background-color: #e8ebeb;
 }
-
     .codedemo:after{
         content: "Example:";
         position: absolute;
@@ -148,7 +146,6 @@ p {
 
 
 
-
 //dummy icon for this tut :)
 .icon-placeholder {
     background-image:url("../images/fred-40px.png");
@@ -156,6 +153,7 @@ p {
     height:40px;
     display:inline-block;
 }
+
 
 @media screen and (min-width: 63.5em) and (min-height: 51em) {
     .sidebar {
@@ -165,3 +163,4 @@ p {
         margin-left: 16em;
     }
 }
+

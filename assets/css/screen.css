@@ -3520,11 +3520,9 @@ p {
 .content {
   text-align: left; }
 
-.sidebar {
-  position: relative; }
-  @media only screen and (min-width: 48em) {
-    .sidebar {
-      max-width: 16em; } }
+@media only screen and (min-width: 48em) {
+  .sidebar {
+    max-width: 16em; } }
 
 .page:before {
   content: "";
@@ -3561,7 +3559,8 @@ p {
 .sidebar .nav > li > a {
   font-family: 'SourceCodePro-Medium', 'georgia', serif;
   text-decoration: none;
-  color: #333333; }
+  color: #333333;
+  display: block; }
 
 .sidebar .nav > li > a.current, .sidebar .nav > li > a:hover, .sidebar .nav > li > a:hover {
   color: #009245; }
