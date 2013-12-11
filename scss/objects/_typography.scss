@@ -52,21 +52,21 @@ body {
     }
 
     .font-primary--italic {
-        @include font($font-primary, $primary-font-weight , italic);
+        @include font($font-primary-italic, $primary-font-weight , italic);
         .ie8 & {
             font-family:$font-primary-italic;
         }
     }
 
     .font-primary--bold {
-        @include font($font-primary, $primary-font-weight--bold , normal);
+        @include font($font-primary-bold, $primary-font-weight--bold , normal);
         .ie8 & {
             font-family:$font-primary-bold;
         }
     }
 
     .font-primary--bold-italic {
-        @include font($font-primary, $primary-font-weight--bold , italic);
+        @include font($font-primary-bold-italic, $primary-font-weight--bold , italic);
         .ie8 & {
             font-family:$font-primary-bold-italic;
         }
@@ -201,10 +201,12 @@ Also
 
 .small {
     @extend .font-size-xxs;
+    line-height:$line-height-xxs;
 }
 
 .tiny {
     @extend .font-size-xxxs;
+    line-height:$line-height-xxxs;
 }
 
 .caption {
