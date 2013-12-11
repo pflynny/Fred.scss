@@ -3225,14 +3225,14 @@ body {
     @include font($font-primary, $primary-font-weight , normal);
 }
     .font-primary--light {
-      @include font($font-primary, $primary-font-weight--light , normal);
+      @include font($font-primary-light, $primary-font-weight--light , normal);
       .ie8 & {
         font-family:$font-primary-light;
       }
     }
 
     .font-primary--light-italic {
-      @include font($font-primary, $primary-font-weight--light , italic);
+      @include font($font-primary-light-italic, $primary-font-weight--light , italic);
       .ie8 & {
         font-family:$font-primary-light-italic;
       }
