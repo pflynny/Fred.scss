@@ -21,26 +21,40 @@ body {
  * Font declarations
  * ----------------------------------------------------------------------------
  */
+
 .font-primary {
-    @include font($font-primary, 400 , normal);
+    @include font($font-primary, $font-weight , normal);
 }
+    .font-primary--light {
+      @include font($font-primary $primary-font-weight--light , normal);
+      .ie8 & {
+        font-family:$font-primary-light;
+      }
+    }
+
+    .font-primary--light-italic {
+      @include font($font-primary, $primary-font-weight--light , italic);
+      .ie8 & {
+        font-family:$font-primary-light-italic;
+      }
+    }
 
     .font-primary--italic {
-        @include font($font-primary, 400 , italic);
+        @include font($font-primary, $primary-font-weight , italic);
         .ie8 & {
             font-family:$font-primary-italic;
         }
     }
 
     .font-primary--bold {
-        @include font($font-primary, 700 , normal);
+        @include font($font-primary, $primary-font-weight--bold , normal);
         .ie8 & {
             font-family:$font-primary-bold;
         }
     }
 
     .font-primary--bold-italic {
-        @include font($font-primary, 700 , italic);
+        @include font($font-primary, $primary-font-weight--bold , italic);
         .ie8 & {
             font-family:$font-primary-bold-italic;
         }
