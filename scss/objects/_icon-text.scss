@@ -1,7 +1,22 @@
 /**
- * Icon block
- * ----------------------------------------------------------------------------
- */
+
+## Icons with text
+
+```html
+<p>
+    <a class='icon-text ' href='#'>
+        <i class='i icon-placeholder'></i>
+        A link with an icon
+    </a>
+</p>
+
+<p class='icon-text--rev' href=''>
+    A paragraph with an icon on the other side
+    <i class='i icon-placeholder '></i>
+</p>
+```
+
+*/
 
 .icon-text,
 .icon-text--rev{/* a, div, etc */

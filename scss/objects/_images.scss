@@ -1,8 +1,24 @@
 /**
- * Responsive images
- * ----------------------------------------------------------------------------
- * <img src="..." class="img--responsive" alt="Responsive image">
- */
+
+## Responsive images
+
+This applies max-width: 100%; and height: auto; to the image so that it scales nicely to the parent element.
+
+```html
+<div class='grid'>
+    <div class='grid__item col-1-4' >
+        <img src='assets/images/fred-logo.png' alt='' class='img--responsive' />
+    </div>
+    <div class='grid__item col-2-3'>
+        <div class='arrow--side blue-block block-m'>
+            <p>Resize the browser so you can see me shrink </p>
+            <i class='arrow arrow-left'></i>
+        </div>
+    </div>
+</div>
+```
+
+*/
 
 .img--responsive {
     height: auto;

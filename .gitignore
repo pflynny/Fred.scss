@@ -1,10 +1,12 @@
 node_modules
 bower_components
 build
+www
 .idea
 .DS_Store
 .AppleDouble
 .LSOverride
+.sass-cache
 
 # Icon must ends with two \r.
 Icon

@@ -21,10 +21,16 @@ $font-primary:                   $sans-serif-stack;
 // These variables are used to describe the font-family you want to serve
 // to IE8 and other detestable browers that don't entirely support
 // fonts with more than four variations. 
-      
+$font-primary-light:             $sans-serif-stack;
+$font-primary-light-italic:      $sans-serif-stack;    
 $font-primary-italic:            $sans-serif-stack;
 $font-primary-bold:              $sans-serif-stack;
 $font-primary-bold-italic:       $sans-serif-stack;
+
+//font-weights
+$primary-font-weight:                      400;
+$primary-font-weight--light:               300;
+$primary-font-weight--bold:                600;
 
 // Specify some font sizes to get your project rolling. These are predominantly
 // used by _typography.scss and _forms.scss
