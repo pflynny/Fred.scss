@@ -1,4 +1,4 @@
-/*
+/**
 
 ## Typography
 
@@ -21,17 +21,18 @@ body {
     @extend .font-primary;
 }
 
-/*
+/**
 
 ### Font declarations
 
+```html
+<p class="font-primary">This is the primary font</p>
+<p class="font-primary--light">This is the primary font in light</p>
+<p class="font-primary--bold">This is the primary font in bold</p>
+<p class="font-size-xxxxl">Some huge text</p>
+<p class="font-size-xxxs">Some tiny text</p>
+```
 */
-
-
-/**
- * Font declarations
- * ----------------------------------------------------------------------------
- */
 
 
 .font-primary {
@@ -97,7 +98,7 @@ h1, h2, h3, h4, h5, h6, p, .text, li, code {
     }
 }
 
-/*
+/**
 
 ### Header styles
 
@@ -136,21 +137,21 @@ h3, .h3 {
 }
 
 h4, .h4 {
+    @extend .font-size-l;
+    line-height: $line-height-l;
+    margin-top: px-to-em($base-spacing, $font-size-l);
+}
+
+h5, .h5 {
     @extend .font-size-m;
     line-height: $line-height-m;
     margin-top: px-to-em($base-spacing, $font-size-m);
 }
 
-h5, .h5 {
+h6, .h6 {
     @extend .font-size-s;
     line-height: $line-height-s;
-    margin-top: px-to-em($base-spacing--xs, $font-size-s);
-}
-
-h6, .h6 {
-    @extend .font-size-xs;
-    line-height: $line-height-xs;
-    margin-top: px-to-em($base-spacing--xs, $font-size-xs);
+    margin-top: px-to-em($base-spacing, $font-size-s);
 }
 
 
@@ -173,7 +174,7 @@ em, i {
 }
 
 
-/*
+/**
 
 ### Paragraph styles
 
@@ -242,7 +243,8 @@ hr {
 }
 
 
-/*
+/**
+
 ### Text helpers
 
 ```html
