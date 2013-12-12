@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         copy: {
             // copy sass to compile the acutal styles for our documentation
             sass: {
-                src: "../fred/dist/lib/fred.scss",
+                src: "../Fred.scss/dist/lib/fred.scss",
                 dest: "assets/sass/lib/fred.scss"
             }
         },
@@ -34,9 +34,6 @@ module.exports = function(grunt) {
                     preCompile: function(src, context) {
                         src = src.replace(/```html([^`]*)```/g, '```html$1```\n<div class="block codedemo">\n$1\n</div>');
                         return src;
-                    },
-                    postCompile: function(src, context) {
-//                        src = src.replace('<p><pre><code></p>', '<pre><code class="html">');
                     }
                 }
             }

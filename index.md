@@ -79,22 +79,22 @@ Apply the modifier classes to the parent. For instance, this will put an
 arrow in the top left corner of the containing div:
 
 ```html
-<div class='arrow--left block-xs blue-block'>
+<div class='arrow--left block-xs block--color-3'>
     <p> ... </p>
     <i class='arrow arrow-top'></i>
 </div>
 
-<div class='arrow--right block-xs blue-block'>
+<div class='arrow--right block-xs block--color-3'>
     <p> ... </p>
     <i class='arrow arrow-top '></i>
 </div>
 
-<div class='arrow--center block-xs blue-block'>
+<div class='arrow--center block-xs block--color-3'>
     <p> ... </p>
     <i class='arrow arrow-bottom '></i>
 </div>
 
-<div class='arrow--side block-xs blue-block'>
+<div class='arrow--side block-xs block--color-3'>
     <p> ... </p>
     <i class='arrow arrow-left '></i>
 </div>
@@ -113,11 +113,10 @@ arrow in the top left corner of the containing div:
 
 
 
-
 ## Generic blocks
 
 ```html
-<div class='block-xs'>
+<div class='block-xs block--green'>
        ...
 </div>
 ```
@@ -340,62 +339,65 @@ The prefix class is 'col' (although you can change this in the variables file) a
 ```html
 <div class='grid'>
     <div class='grid__item col'>
-       <div class='pink-block block-s'>
+       <div class='block--color-2 block-s'>
             <p>
                 full width
             </p>
         </div>
     </div>
 </div>
-<p>Example two:</p>
+
+Example two
 <div class='grid'>
     <div class='grid__item col-2-4' >
-        <div class='blue-block block-s'>
+        <div class='block--color-3 block-s'>
             <p>
                 50%
             </p>
         </div>
     </div>
     <div class='grid__item col-2-4'>
-        <div class='blue-block block-s'>
+        <div class='block--color-3 block-s'>
             <p>
                 50%
             </p>
         </div>
     </div>
 </div>
-<p>Example three:</p>
+
+Example three
 <div class='grid'>
     <div class='grid__item col-1-4'>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4'>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4 '>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4 '>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
 </div>
-<p>Example four:</p>
+
+Example four
 <div class='grid'>
     <div class='grid__item col-6-10'>
         <div class='ts-block block-s'>
@@ -412,7 +414,8 @@ The prefix class is 'col' (although you can change this in the variables file) a
         </div>
     </div>
 </div>
-<p>Example five:</p>
+
+Example five
 <div class='grid'>
     <div class='grid__item col-8-10'>
         <div class='tt-block block-s'>
@@ -429,34 +432,32 @@ The prefix class is 'col' (although you can change this in the variables file) a
         </div>
     </div>
 </div>
-<p>
-    Vertical align these grid items in the middle!
-</p>
 
+Vertical align these grid items in the middle
 <div class='grid grid--middle'>
-    <div class='col-1-4'>
-        <div class='green-block block-s'>
+    <div class='grid__item col-1-4'>
+        <div class='block-xxxl block--color-1 pl-s'>
             <p>
                 1/4
             </p>
         </div>
     </div>
-    <div class='col-1-4'>
-        <div class='green-block block-s'>
+    <div class='grid__item col-1-4'>
+        <div class='block-xl block--color-1 pl-s'>
             <p>
                 1/4
             </p>
         </div>
     </div>
-    <div class='col-1-4'>
-        <div class='green-block block-s'>
+    <div class='grid__item col-1-4'>
+        <div class='block-m block--color-1 pl-s'>
             <p>
                 1/4
             </p>
         </div>
     </div>
-    <div class='col-1-4'>
-       <div class='green-block block-s'>
+    <div class='grid__item col-1-4'>
+       <div class='block-xs block--color-1 pl-s'>
             <p>
                 1/4
             </p>
@@ -471,37 +472,37 @@ The prefix class is 'col' (although you can change this in the variables file) a
 This works exactly the same as what's mentioned above.
 You just need to add an extra suffix onto the classes which relates to the breakpoint you want to target.
 
-
 ```html
 <div class='grid'>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-4-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-4-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1<!--<strong>Desktop:</strong> 1/4 <br />
+                1<br />
+                <strong>Mobile:</strong> full width<br />
                 <strong>Skinny:</strong> 1/2 <br />
-               <strong>mobile:</strong> full width<br />
-               <strong>wide:</strong> 60/40-->
+                <strong>Desktop:</strong> 1/4 <br />
+                <strong>Wide:</strong> 40/60
            </p>
         </div>
     </div>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-6-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-6-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1
+                2
             </p>
         </div>
     </div>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-4-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-4-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1
+                3
             </p>
         </div>
     </div>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-6-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-6-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1
+                4
             </p>
         </div>
     </div>
@@ -568,7 +569,7 @@ This applies max-width: 100%; and height: auto; to the image so that it scales n
         <img src='assets/images/fred-logo.png' alt='' class='img--responsive' />
     </div>
     <div class='grid__item col-2-3'>
-        <div class='arrow--side blue-block block-m'>
+        <div class='arrow--side block--color-3 block-m'>
             <p>Resize the browser so you can see me shrink </p>
             <i class='arrow arrow-left'></i>
         </div>
@@ -856,16 +857,16 @@ Turns a list into a horizontal block of inline-blocks;
 ## Radii
 
 ```html
-<div class='blue-block block-xs radius-s'>
+<div class='block--color-3 block-xs radius-s'>
     Check out my corners
 </div>
-<div class='blue-block block-xs radius'>
+<div class='block--color-3 block-xs radius'>
     Check out my corners
 </div>
-<div class='blue-block block-xs radius-l'>
+<div class='block--color-3 block-xs radius-l'>
     Check out my corners
 </div>
-<div class='blue-block block-xs circle'>
+<div class='block--color-3 block-xs circle'>
     I'm nearly a circle, wohoo
 </div>
 ```
@@ -885,7 +886,7 @@ Turns a list into a horizontal block of inline-blocks;
 This box will be 16:9
 
 ```html
-<div class='ratio-16-9 blue-block'>
+<div class='ratio-16-9 block--color-3'>
     <div class='ratio__content'></div>
 </div>
 ```
@@ -893,10 +894,81 @@ This box will be 16:9
 This box will be a square
 
 ```html
-<div class='ratio-square blue-block'>
+<div class='ratio-square block--color-3'>
     <div class='ratio__content'></div>
 </div>
 ```
+
+
+
+
+## Typography
+
+
+
+
+### Font declarations
+
+```html
+<p class="font-primary">This is the primary font</p>
+<p class="font-primary--light">This is the primary font in light</p>
+<p class="font-primary--bold">This is the primary font in bold</p>
+<p class="font-size-xxxxl">Some huge text</p>
+<p class="font-size-xxxs">Some tiny text</p>
+```
+
+
+
+### Header styles
+
+NOTE: These can change per project depending on what font etc you use :)
+
+```html
+<h1> H1 Heading 1 </h1>
+<h1 class='h2'> H1 Heading with a class of H2 </h1>
+<h2> H2 Heading </h2>
+<h2 class='h4'> H2 Heading with a class of H4 </h2>
+<h4 class='h4'> H4 Heading  </h4>
+```
+
+
+
+
+### Paragraph styles
+
+```html
+<p class="intro">I am an intro paragraph</p>
+<p>I am a plain paragraph</p>
+<p class="small">I am a small paragraph</p>
+<p class="tiny">I am a tiny paragraph</p>
+<p class="caption">I am a caption</p>
+<p class="pullquote">I am a pullquote</p>
+
+```
+
+Also
+* .text-muted
+* .text-warning
+* .text-success
+* .text-danger
+
+
+
+
+### Text helpers
+
+```html
+<p class="uppercase">Uppercase</p>
+<p class="lowercase">Lowercase</p>
+<p class="text--overflow">These heading classes are helpful when you have a heading that is semantically correct but the default size is not what you are after.</p>
+
+```
+
+Also
+* .text-left
+* .text-right
+* .text-center
+* .text-nowrap
 
 
 
@@ -908,19 +980,19 @@ This box will be a square
 Try to use these on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device's presentation.
 
 ```html
-<div class='block-s pink-block hidden--q-small'>
+<div class='block-s block--color-2 hidden--q-small'>
     hide this block on mobile
 </div>
-<div class='block-s green-block hidden--q-medium'>
+<div class='block-s block--color-1 hidden--q-medium'>
     hide this block on skinny
 </div>
 <div class='block-s tp-block hidden--q-medium-down'>
     hide this block skinny down
 </div>
-<div class='block-s blue-block hidden--q-medium-up'>
+<div class='block-s block--color-3 hidden--q-medium-up'>
     hide this block on a medium screen, large screen and xlarge screen
 </div>
-<div class='block-s pink-block hidden--q-large'>
+<div class='block-s block--color-2 hidden--q-large'>
     hide this block on desktop
 </div>
 <div class='block-s ts-block hidden--q-large-up'>
@@ -936,25 +1008,25 @@ Try to use these on a limited basis and avoid creating entirely different versio
 Try to use these on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device's presentation.
 
 ```html
-<div class='block-s pink-block visible--q-small'>
+<div class='block-s block--color-2 visible--q-small'>
     show this block on small screen
 </div>
-<div class='block-s blue-block visible--q-medium'>
+<div class='block-s block--color-3 visible--q-medium'>
     show this block on a medium screen
 </div>
-<div class='block-s blue-block visible--q-medium-down'>
+<div class='block-s block--color-3 visible--q-medium-down'>
     Show this block on a medium screen and small screen
 </div>
-<div class='block-s pink-block visible--q-medium-up'>
+<div class='block-s block--color-2 visible--q-medium-up'>
     Show this block on a medium screen, large screen and xlarge screen
 </div>
 <div class='block-s tt-block visible--q-large'>
     Show this block on a large screen
 </div>
-<div class='block-s blue-block visible--q-large-up'>
+<div class='block-s block--color-3 visible--q-large-up'>
     Show this block on a large and xlarge screen
 </div>
-<div class='block-s green-block visible--q-xlarge'>
+<div class='block-s block--color-1 visible--q-xlarge'>
     show this block on a xlarge screen
 </div>
 ```

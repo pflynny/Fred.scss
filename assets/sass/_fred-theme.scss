@@ -1,11 +1,11 @@
 // ============================================================================
 // FRED
 // ============================================================================
-// 
+//
 // Friendly front-end framework.
-// 
+//
 // Made by Springload
-// 
+//
 // With guest appearances from Inuit.css, Twitter Bootstrap and Foundation
 
 
@@ -39,11 +39,16 @@ $font-primary:                   $sans-serif-stack;
 
 // These variables are used to describe the font-family you want to serve
 // to IE8 and other detestable browers that don't entirely support
-// fonts with more than four variations. 
-      
+// fonts with more than four variations.
+
 $font-primary-italic:            $sans-serif-stack;
 $font-primary-bold:              $sans-serif-stack;
 $font-primary-bold-italic:       $sans-serif-stack;
+
+//font-weights
+$primary-font-weight:                      400;
+$primary-font-weight--light:               300;
+$primary-font-weight--bold:                600;
 
 // Specify some font sizes to get your project rolling. These are predominantly
 // used by _typography.scss and _forms.scss
@@ -77,7 +82,7 @@ $line-height-xxxs:                1.4;              //.tiny
 // Spacing
 // ----------------------------------------------------------------------------
 
-// Everything inherits from the base spacing unit. Pick this number wisely. 
+// Everything inherits from the base spacing unit. Pick this number wisely.
 // It should probably relate somehow to your line-height;
 
 $base-spacing:                  24;
@@ -99,7 +104,7 @@ $bs-xxxl:                      $base-spacing-unit * 4;     // 96px
 
 $base-spacing--xs:  $base-spacing / 2;
 
-// Build some SaSS lists of our spacing classes, and map them to 
+// Build some SaSS lists of our spacing classes, and map them to
 // a consistent set of class modifiers so that anything we size
 // has a consistent naming convention:
 
@@ -122,6 +127,22 @@ $sizes:
 // -----------------------------------------------------------------------------
 // Blocks
 // -----------------------------------------------------------------------------
+/*
+* The block prefixes need to match up with the $block sizes below otherwise the
+* array will through an error or we could create an argument and pass in size
+prefixes and minus the ones we dont need eg block-0 hmmm
+*/
+
+$blockPrefixes:
+    "-xxxs",
+    "-xxs",
+    "-xs",
+    "-s",
+    "-m",
+    "-l",
+    "-xl",
+    "-xxl",
+    "-xxxl";
 
 $block-xxxs:                   $bs-xxxs $bs-xxxs;        // 6px 6px
 $block-xxs:                    $bs-xxxs $bs-xxs;         // 6px 8px
@@ -142,7 +163,6 @@ $blockSizes:
     $block-l,
     $block-xl,
     $block-xxl,
-    $block-xxxl,
     $block-xxxl;
 
 
@@ -153,17 +173,17 @@ $blockSizes:
 // General approach to media queries:
 // - Assume `no media` as the first query.
 // - The `small` breakpoint just gets @media only screen { @content }
-// - `small-only` applies a max-width to prevent an upward cascade. 
+// - `small-only` applies a max-width to prevent an upward cascade.
 //
 // Sizing guide:
-// 
+//
 // xsmall       | small mobiles, fridges, watches etc
 // small        | mobiles, some internet-of-things displays
 // medium       | tablet devices, netbooks, mobiles in landscape
 // large        | screens > 960px
 // xlarge       | wide screen devices > 1200px
 // xxlarge      | in our experience, things need adjusting > 1440px
-// xxxlarge     | Full HD 
+// xxxlarge     | Full HD
 
 $breakpoint-none:"";
 $breakpoint-xxlarge-name: "xxlarge";
@@ -182,33 +202,36 @@ $breakpoint-classname-prefix: "--q-";
 
 $breakpoint-xsmall:     25em;   // The mighty LG Android!
 $breakpoint-small:      30em;   // Portrait regular mobiles//480px
+$breakpoint-small-max:  47.99em;
 $breakpoint-medium:     48em;   // Skinny 768px
+$breakpoint-medium-max: 59.99em;
 $breakpoint-large:      60em;   // Desktop 960px
+$breakpoint-large-max:  74.99em;
 $breakpoint-xlarge:     75em;   // Wide 1200px
 $breakpoint-xxlarge:    90em;   // Wide 1440px
 $breakpoint-xxxlarge:   120em;  // Full HD
 
 $breakpoints:
         (
-            small "only screen"
+            small-up "only screen"
         ),
         (
-            small-only "only screen and (max-width: #{$breakpoint-small})"
+            small "only screen and (max-width: #{$breakpoint-small-max})"
         ),
         (
             medium "only screen and (min-width: #{$breakpoint-medium})"
         ),
         (
-            medium-down "only screen and (max-width: #{$breakpoint-medium})"
+            medium-only "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-medium-max})"
         ),
         (
-            medium-only "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-large - 0.01em})"
+            medium-down "only screen and (max-width: #{$breakpoint-medium})"
         ),
         (
             large "only screen and (min-width: #{$breakpoint-large})"
         ),
         (
-            large-only "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-xlarge - 0.01em})"
+            large-only "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-large-max})"
         ),
         (
             xlarge "only screen and (min-width: #{$breakpoint-xlarge})"
@@ -224,13 +247,13 @@ $breakpoints:
         )
 ;
 
-
+$testing: "";
 
 // -----------------------------------------------------------------------------
 // Grid
 // -----------------------------------------------------------------------------
 
-$fred-grid-breakpoints:     default, small, medium, large;
+$fred-grid-breakpoints:     default, small, medium, large, xlarge;
 $grid-column-name:          "col";
 $grid-divisions:            3, 4, 5, 10;
 $grid-float-padding:        1em; // false to disable.
@@ -242,26 +265,26 @@ $grid-float-padding:        1em; // false to disable.
 // These instruct Fred on how to generate just the bits you want.
 
 // Make a range of blocks for the given breakpoints
-$fred-block-breakpoints: default, small, medium, large;
+$fred-block-breakpoints: default, small, medium, large, xlarge;
 
 // Generate margin classes for the given breakpoints
-// 
+//
 // mt   | margin-top
 // mb   | margin-bottom
 // mr   | margin-right
 // ml   | margin-left
 
-$fred-margin-breakpoints: default, small, medium, large;
+$fred-margin-breakpoints: default, small, medium, large, xlarge;
 $fred-margin-types: "mt", "mb", "ml", "mr";
 
 // Generate padding classes for the given breakpoints
-// 
+//
 // pt   | padding-top
 // pb   | padding-bottom
 // pr   | padding-right
 // pl   | padding-left
 
-$fred-padding-breakpoints: default, small, medium, large;
+$fred-padding-breakpoints: default, small, medium, large, xlarge;
 $fred-padding-types: "pt", "pb", "pl", "pr";
 
 // -----------------------------------------------------------------------------
@@ -547,7 +570,7 @@ $quarternary-border-color:      $quarternary-bg-color;
 }
 
 
-// Theme block --green, pink, blue
+// Theme blocks
 
 //green theme box
 $green-bg-color:                #0d6f41;
@@ -565,17 +588,17 @@ $blue-txt-color:                #fff;
 $blue-border-color:             $blue-bg-color;
 
 
-.green-block {
+.block--color-1 {
     @extend %border;
     @include theme-block( $green-bg-color, $green-txt-color, $green-border-color );
 }
 
-.pink-block {
+.block--color-2 {
     @extend %border;
     @include theme-block( $pink-bg-color, $pink-txt-color, $pink-border-color );
 }
 
-.blue-block {
+.block--color-3 {
     @extend %border;
     @include theme-block( $blue-bg-color, $blue-txt-color, $blue-border-color );
 }
