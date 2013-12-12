@@ -1,11 +1,11 @@
 // ============================================================================
 // FRED
 // ============================================================================
-// 
+//
 // Friendly front-end framework.
-// 
+//
 // Made by Springload
-// 
+//
 // With guest appearances from Inuit.css, Twitter Bootstrap and Foundation
 
 
@@ -21,10 +21,16 @@ $font-primary:                   $sans-serif-stack;
 // These variables are used to describe the font-family you want to serve
 // to IE8 and other detestable browers that don't entirely support
 // fonts with more than four variations. 
-      
+$font-primary-light:             $sans-serif-stack;
+$font-primary-light-italic:      $sans-serif-stack;    
 $font-primary-italic:            $sans-serif-stack;
 $font-primary-bold:              $sans-serif-stack;
 $font-primary-bold-italic:       $sans-serif-stack;
+
+//font-weights
+$primary-font-weight:                      400;
+$primary-font-weight--light:               300;
+$primary-font-weight--bold:                600;
 
 // Specify some font sizes to get your project rolling. These are predominantly
 // used by _typography.scss and _forms.scss
@@ -101,7 +107,7 @@ $sizes:
 
 
 // -----------------------------------------------------------------------------
-// Blocks 
+// Blocks
 // -----------------------------------------------------------------------------
 /* 
 * The block prefixes need to match up with the $block sizes below otherwise the 
@@ -149,17 +155,17 @@ $blockSizes:
 // General approach to media queries:
 // - Assume `no media` as the first query.
 // - The `small` breakpoint just gets @media only screen { @content }
-// - `small-only` applies a max-width to prevent an upward cascade. 
+// - `small-only` applies a max-width to prevent an upward cascade.
 //
 // Sizing guide:
-// 
+//
 // xsmall       | small mobiles, fridges, watches etc
 // small        | mobiles, some internet-of-things displays
 // medium       | tablet devices, netbooks, mobiles in landscape
 // large        | screens > 960px
 // xlarge       | wide screen devices > 1200px
 // xxlarge      | in our experience, things need adjusting > 1440px
-// xxxlarge     | Full HD 
+// xxxlarge     | Full HD
 
 $breakpoint-none:"";
 $breakpoint-xxlarge-name: "xxlarge";
@@ -178,11 +184,11 @@ $breakpoint-classname-prefix: "--q-";
 
 $breakpoint-xsmall:     25em;   // The mighty LG Android!
 $breakpoint-small:      30em;   // Portrait regular mobiles//480px
-$breakpoint-small-max:  47.99em;  
+$breakpoint-small-max:  47.99em;
 $breakpoint-medium:     48em;   // Skinny 768px
-$breakpoint-medium-max: 59.99em;   
+$breakpoint-medium-max: 59.99em;
 $breakpoint-large:      60em;   // Desktop 960px
-$breakpoint-large-max:  74.99em;   
+$breakpoint-large-max:  74.99em;
 $breakpoint-xlarge:     75em;   // Wide 1200px
 $breakpoint-xxlarge:    90em;   // Wide 1440px
 $breakpoint-xxxlarge:   120em;  // Full HD
@@ -244,7 +250,7 @@ $grid-float-padding:        1em; // false to disable.
 $fred-block-breakpoints: default, small, medium, large, xlarge;
 
 // Generate margin classes for the given breakpoints
-// 
+//
 // mt   | margin-top
 // mb   | margin-bottom
 // mr   | margin-right
@@ -254,7 +260,7 @@ $fred-margin-breakpoints: default, small, medium, large, xlarge;
 $fred-margin-types: "mt", "mb", "ml", "mr";
 
 // Generate padding classes for the given breakpoints
-// 
+//
 // pt   | padding-top
 // pb   | padding-bottom
 // pr   | padding-right

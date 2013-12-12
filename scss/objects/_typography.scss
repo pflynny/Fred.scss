@@ -1,4 +1,4 @@
-/*
+/**
 
 ## Typography
 
@@ -21,32 +21,53 @@ body {
     @extend .font-primary;
 }
 
-/*
+/**
 
 ### Font declarations
 
+```html
+<p class="font-primary">This is the primary font</p>
+<p class="font-primary--light">This is the primary font in light</p>
+<p class="font-primary--bold">This is the primary font in bold</p>
+<p class="font-size-xxxxl">Some huge text</p>
+<p class="font-size-xxxs">Some tiny text</p>
+```
 */
 
+
 .font-primary {
-    @include font($font-primary, 400 , normal);
+    @include font($font-primary, $primary-font-weight , normal);
 }
+    .font-primary--light {
+      @include font($font-primary-light, $primary-font-weight--light , normal);
+      .ie8 & {
+        font-family:$font-primary-light;
+      }
+    }
+
+    .font-primary--light-italic {
+      @include font($font-primary-light-italic, $primary-font-weight--light , italic);
+      .ie8 & {
+        font-family:$font-primary-light-italic;
+      }
+    }
 
     .font-primary--italic {
-        @include font($font-primary, 400 , italic);
+        @include font($font-primary-italic, $primary-font-weight , italic);
         .ie8 & {
             font-family:$font-primary-italic;
         }
     }
 
     .font-primary--bold {
-        @include font($font-primary, 700 , normal);
+        @include font($font-primary-bold, $primary-font-weight--bold , normal);
         .ie8 & {
             font-family:$font-primary-bold;
         }
     }
 
     .font-primary--bold-italic {
-        @include font($font-primary, 700 , italic);
+        @include font($font-primary-bold-italic, $primary-font-weight--bold , italic);
         .ie8 & {
             font-family:$font-primary-bold-italic;
         }
@@ -77,7 +98,7 @@ h1, h2, h3, h4, h5, h6, p, .text, li, code {
     }
 }
 
-/*
+/**
 
 ### Header styles
 
@@ -153,7 +174,7 @@ em, i {
 }
 
 
-/*
+/**
 
 ### Paragraph styles
 
@@ -181,10 +202,12 @@ Also
 
 .small {
     @extend .font-size-xxs;
+    line-height:$line-height-xxs;
 }
 
 .tiny {
     @extend .font-size-xxxs;
+    line-height:$line-height-xxxs;
 }
 
 .caption {
@@ -220,7 +243,8 @@ hr {
 }
 
 
-/*
+/**
+
 ### Text helpers
 
 ```html

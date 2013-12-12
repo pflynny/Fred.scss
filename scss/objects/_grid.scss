@@ -9,62 +9,65 @@ The prefix class is 'col' (although you can change this in the variables file) a
 ```html
 <div class='grid'>
     <div class='grid__item col'>
-       <div class='pink-block block-s'>
+       <div class='block--color-2 block-s'>
             <p>
                 full width
             </p>
         </div>
     </div>
 </div>
-<p>Example two:</p>
+
+Example two
 <div class='grid'>
     <div class='grid__item col-2-4' >
-        <div class='blue-block block-s'>
+        <div class='block--color-3 block-s'>
             <p>
                 50%
             </p>
         </div>
     </div>
     <div class='grid__item col-2-4'>
-        <div class='blue-block block-s'>
+        <div class='block--color-3 block-s'>
             <p>
                 50%
             </p>
         </div>
     </div>
 </div>
-<p>Example three:</p>
+
+Example three
 <div class='grid'>
     <div class='grid__item col-1-4'>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4'>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4 '>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4 '>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
 </div>
-<p>Example four:</p>
+
+Example four
 <div class='grid'>
     <div class='grid__item col-6-10'>
         <div class='ts-block block-s'>
@@ -81,7 +84,8 @@ The prefix class is 'col' (although you can change this in the variables file) a
         </div>
     </div>
 </div>
-<p>Example five:</p>
+
+Example five
 <div class='grid'>
     <div class='grid__item col-8-10'>
         <div class='tt-block block-s'>
@@ -98,34 +102,32 @@ The prefix class is 'col' (although you can change this in the variables file) a
         </div>
     </div>
 </div>
-<p>
-    Vertical align these grid items in the middle!
-</p>
 
+Vertical align these grid items in the middle
 <div class='grid grid--middle'>
     <div class='grid__item col-1-4'>
-        <div class='green-block block-s'>
+        <div class='block-xxxl block--color-1 pl-s'>
             <p>
                 1/4
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4'>
-        <div class='green-block block-s'>
+        <div class='block-xl block--color-1 pl-s'>
             <p>
                 1/4
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4'>
-        <div class='green-block block-s'>
+        <div class='block-m block--color-1 pl-s'>
             <p>
                 1/4
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4'>
-       <div class='green-block block-s'>
+       <div class='block-xs block--color-1 pl-s'>
             <p>
                 1/4
             </p>
@@ -140,37 +142,37 @@ The prefix class is 'col' (although you can change this in the variables file) a
 This works exactly the same as what's mentioned above.
 You just need to add an extra suffix onto the classes which relates to the breakpoint you want to target.
 
-
 ```html
 <div class='grid'>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-4-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-4-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1<!--<strong>Desktop:</strong> 1/4 <br />
+                1<br />
+                <strong>Mobile:</strong> full width<br />
                 <strong>Skinny:</strong> 1/2 <br />
-               <strong>mobile:</strong> full width<br />
-               <strong>wide:</strong> 60/40-->
+                <strong>Desktop:</strong> 1/4 <br />
+                <strong>Wide:</strong> 40/60
            </p>
         </div>
     </div>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-6-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-6-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1
+                2
             </p>
         </div>
     </div>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-4-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-4-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1
+                3
             </p>
         </div>
     </div>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-6-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-6-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1
+                4
             </p>
         </div>
     </div>
