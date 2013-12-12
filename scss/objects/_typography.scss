@@ -1,4 +1,4 @@
-/*
+/**
 
 ## Typography
 
@@ -21,17 +21,18 @@ body {
     @extend .font-primary;
 }
 
-/*
+/**
 
 ### Font declarations
 
+```html
+<p class="font-primary">This is the primary font</p>
+<p class="font-primary--light">This is the primary font in light</p>
+<p class="font-primary--bold">This is the primary font in bold</p>
+<p class="font-size-xxxxl">Some huge text</p>
+<p class="font-size-xxxs">Some tiny text</p>
+```
 */
-
-
-/**
- * Font declarations
- * ----------------------------------------------------------------------------
- */
 
 
 .font-primary {
@@ -97,7 +98,7 @@ h1, h2, h3, h4, h5, h6, p, .text, li, code {
     }
 }
 
-/*
+/**
 
 ### Header styles
 
@@ -173,7 +174,7 @@ em, i {
 }
 
 
-/*
+/**
 
 ### Paragraph styles
 
@@ -242,7 +243,8 @@ hr {
 }
 
 
-/*
+/**
+
 ### Text helpers
 
 ```html
