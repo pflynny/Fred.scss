@@ -60,6 +60,11 @@ Now you can tweak away, while still being able to update Fred without nuking all
   src: url('../fonts/SourceSansPro/EOT/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/SourceSansPro/WOFF/OTF/SourceSansPro-Regular.otf.woff') format('woff'), url('../fonts/SourceSansPro/WOFF/FTF/SourceSansPro-Regular.ttf.woff') format('truetype'), url('../fonts/SourceSansPro/SVG/SourceSansPro-Regular.svg#SourceSansPro-Regular') format('svg');
   /* Legacy iOS */ }
 
+/*
+* The block prefixes need to match up with the $block sizes below otherwise the
+* array will through an error or we could create an argument and pass in size
+prefixes and minus the ones we dont need eg block-0 hmmm
+*/
 .tp-text-yellow {
   color: #0a954c; }
 
@@ -156,17 +161,17 @@ Now you can tweak away, while still being able to update Fred without nuking all
   color: white;
   border-color: #4d4d4d; }
 
-.green-block {
+.block--color-1 {
   background-color: #0d6f41;
   color: white;
   border-color: #0d6f41; }
 
-.pink-block {
+.block--color-2 {
   background-color: #0a954c;
   color: white;
   border-color: #0a954c; }
 
-.blue-block {
+.block--color-3 {
   background-color: #0b4a4f;
   color: white;
   border-color: #0b4a4f; }
@@ -325,7 +330,7 @@ table {
   *zoom: 1; }
 
 
-.tp-block, .ts-block, .tt-block, .tq-block, .green-block, .pink-block, .blue-block {
+.tp-block, .ts-block, .tt-block, .tq-block, .block--color-1, .block--color-2, .block--color-3 {
   border-width: 1px;
   border-style: solid; }
 
@@ -418,22 +423,22 @@ Apply the modifier classes to the parent. For instance, this will put an
 arrow in the top left corner of the containing div:
 
 ```html
-<div class='arrow--left block-xs blue-block'>
+<div class='arrow--left block-xs block--color-3'>
     <p> ... </p>
     <i class='arrow arrow-top'></i>
 </div>
 
-<div class='arrow--right block-xs blue-block'>
+<div class='arrow--right block-xs block--color-3'>
     <p> ... </p>
     <i class='arrow arrow-top '></i>
 </div>
 
-<div class='arrow--center block-xs blue-block'>
+<div class='arrow--center block-xs block--color-3'>
     <p> ... </p>
     <i class='arrow arrow-bottom '></i>
 </div>
 
-<div class='arrow--side block-xs blue-block'>
+<div class='arrow--side block-xs block--color-3'>
     <p> ... </p>
     <i class='arrow arrow-left '></i>
 </div>
@@ -493,7 +498,6 @@ arrow in the top left corner of the containing div:
     <span class="badge tiny">42</span>
 </a>
 ```
-
 */
 .badge {
   /* This extend is found in core */
@@ -520,7 +524,7 @@ arrow in the top left corner of the containing div:
 ## Generic blocks
 
 ```html
-<div class='block-xs'>
+<div class='block-xs block--green'>
        ...
 </div>
 ```
@@ -563,7 +567,7 @@ arrow in the top left corner of the containing div:
 .block-xxxl {
   padding: 4.5em 6em; }
 
-@media only screen {
+@media only screen and (max-width: 47.99em) {
   .block-xxxs--q-small {
     padding: 0.375em 0.375em; }
   .block-xxs--q-small {
@@ -621,6 +625,26 @@ arrow in the top left corner of the containing div:
   .block-xxl--q-large {
     padding: 3em 4.5em; }
   .block-xxxl--q-large {
+    padding: 4.5em 6em; } }
+
+@media only screen and (min-width: 75em) {
+  .block-xxxs--q-xlarge {
+    padding: 0.375em 0.375em; }
+  .block-xxs--q-xlarge {
+    padding: 0.375em 0.5em; }
+  .block-xs--q-xlarge {
+    padding: 0.5em 0.75em; }
+  .block-s--q-xlarge {
+    padding: 0.75em 1em; }
+  .block-m--q-xlarge {
+    padding: 1.5em 1.5em; }
+  .block-l--q-xlarge {
+    padding: 2.25em 2.25em; }
+  .block-xl--q-xlarge {
+    padding: 2.25em 3em; }
+  .block-xxl--q-xlarge {
+    padding: 3em 4.5em; }
+  .block-xxxl--q-xlarge {
     padding: 4.5em 6em; } }
 
 /**
@@ -1251,62 +1275,65 @@ The prefix class is 'col' (although you can change this in the variables file) a
 ```html
 <div class='grid'>
     <div class='grid__item col'>
-       <div class='pink-block block-s'>
+       <div class='block--color-2 block-s'>
             <p>
                 full width
             </p>
         </div>
     </div>
 </div>
-<p>Example two:</p>
+
+Example two
 <div class='grid'>
     <div class='grid__item col-2-4' >
-        <div class='blue-block block-s'>
+        <div class='block--color-3 block-s'>
             <p>
                 50%
             </p>
         </div>
     </div>
     <div class='grid__item col-2-4'>
-        <div class='blue-block block-s'>
+        <div class='block--color-3 block-s'>
             <p>
                 50%
             </p>
         </div>
     </div>
 </div>
-<p>Example three:</p>
+
+Example three
 <div class='grid'>
     <div class='grid__item col-1-4'>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4'>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4 '>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
     <div class='grid__item col-1-4 '>
-        <div class='green-block block-s'>
+        <div class='block--color-1 block-s'>
             <p>
                 25%
             </p>
         </div>
     </div>
 </div>
-<p>Example four:</p>
+
+Example four
 <div class='grid'>
     <div class='grid__item col-6-10'>
         <div class='ts-block block-s'>
@@ -1323,7 +1350,8 @@ The prefix class is 'col' (although you can change this in the variables file) a
         </div>
     </div>
 </div>
-<p>Example five:</p>
+
+Example five
 <div class='grid'>
     <div class='grid__item col-8-10'>
         <div class='tt-block block-s'>
@@ -1340,34 +1368,32 @@ The prefix class is 'col' (although you can change this in the variables file) a
         </div>
     </div>
 </div>
-<p>
-    Vertical align these grid items in the middle!
-</p>
 
+Vertical align these grid items in the middle
 <div class='grid grid--middle'>
-    <div class='col-1-4'>
-        <div class='green-block block-s'>
+    <div class='grid__item col-1-4'>
+        <div class='block-xxxl block--color-1 pl-s'>
             <p>
                 1/4
             </p>
         </div>
     </div>
-    <div class='col-1-4'>
-        <div class='green-block block-s'>
+    <div class='grid__item col-1-4'>
+        <div class='block-xl block--color-1 pl-s'>
             <p>
                 1/4
             </p>
         </div>
     </div>
-    <div class='col-1-4'>
-        <div class='green-block block-s'>
+    <div class='grid__item col-1-4'>
+        <div class='block-m block--color-1 pl-s'>
             <p>
                 1/4
             </p>
         </div>
     </div>
-    <div class='col-1-4'>
-       <div class='green-block block-s'>
+    <div class='grid__item col-1-4'>
+       <div class='block-xs block--color-1 pl-s'>
             <p>
                 1/4
             </p>
@@ -1382,37 +1408,37 @@ The prefix class is 'col' (although you can change this in the variables file) a
 This works exactly the same as what's mentioned above.
 You just need to add an extra suffix onto the classes which relates to the breakpoint you want to target.
 
-
 ```html
 <div class='grid'>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-4-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-4-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1<!--<strong>Desktop:</strong> 1/4 <br />
+                1<br />
+                <strong>Mobile:</strong> full width<br />
                 <strong>Skinny:</strong> 1/2 <br />
-               <strong>mobile:</strong> full width<br />
-               <strong>wide:</strong> 60/40-->
+                <strong>Desktop:</strong> 1/4 <br />
+                <strong>Wide:</strong> 40/60
            </p>
         </div>
     </div>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-6-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-6-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1
+                2
             </p>
         </div>
     </div>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-4-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-4-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1
+                3
             </p>
         </div>
     </div>
-    <div class='grid__item col-1-4 col--q-small col-2-4--q-medium col-6-10--q-xlarge'>
-       <div class='pink-block block-s'>
+    <div class='grid__item col col-2-4--q-medium col-1-4--q-large col-6-10--q-xlarge'>
+       <div class='block--color-2 block-s'>
             <p>
-                1
+                4
             </p>
         </div>
     </div>
@@ -1541,7 +1567,7 @@ Fred doesn't mind what grid you use :).
 .col-9-10 {
   width: 90%; }
 
-@media only screen {
+@media only screen and (max-width: 47.99em) {
   .col-1-3--q-small {
     width: 33.33333%; }
   .col-2-3--q-small {
@@ -1661,6 +1687,46 @@ Fred doesn't mind what grid you use :).
   .col--q-large {
     width: 100%; } }
 
+@media only screen and (min-width: 75em) {
+  .col-1-3--q-xlarge {
+    width: 33.33333%; }
+  .col-2-3--q-xlarge {
+    width: 66.66667%; }
+  .col-1-4--q-xlarge {
+    width: 25%; }
+  .col-2-4--q-xlarge {
+    width: 50%; }
+  .col-3-4--q-xlarge {
+    width: 75%; }
+  .col-1-5--q-xlarge {
+    width: 20%; }
+  .col-2-5--q-xlarge {
+    width: 40%; }
+  .col-3-5--q-xlarge {
+    width: 60%; }
+  .col-4-5--q-xlarge {
+    width: 80%; }
+  .col-1-10--q-xlarge {
+    width: 10%; }
+  .col-2-10--q-xlarge {
+    width: 20%; }
+  .col-3-10--q-xlarge {
+    width: 30%; }
+  .col-4-10--q-xlarge {
+    width: 40%; }
+  .col-5-10--q-xlarge {
+    width: 50%; }
+  .col-6-10--q-xlarge {
+    width: 60%; }
+  .col-7-10--q-xlarge {
+    width: 70%; }
+  .col-8-10--q-xlarge {
+    width: 80%; }
+  .col-9-10--q-xlarge {
+    width: 90%; }
+  .col--q-xlarge {
+    width: 100%; } }
+
 /*
 
 ## Headings
@@ -1751,7 +1817,7 @@ This applies max-width: 100%; and height: auto; to the image so that it scales n
         <img src='assets/images/fred-logo.png' alt='' class='img--responsive' />
     </div>
     <div class='grid__item col-2-3'>
-        <div class='arrow--side blue-block block-m'>
+        <div class='arrow--side block--color-3 block-m'>
             <p>Resize the browser so you can see me shrink </p>
             <i class='arrow arrow-left'></i>
         </div>
@@ -2260,16 +2326,16 @@ Pills have fully rounded ends, lozenges have only their corners rounded.
 ## Radii
 
 ```html
-<div class='blue-block block-xs radius-s'>
+<div class='block--color-3 block-xs radius-s'>
     Check out my corners
 </div>
-<div class='blue-block block-xs radius'>
+<div class='block--color-3 block-xs radius'>
     Check out my corners
 </div>
-<div class='blue-block block-xs radius-l'>
+<div class='block--color-3 block-xs radius-l'>
     Check out my corners
 </div>
-<div class='blue-block block-xs circle'>
+<div class='block--color-3 block-xs circle'>
     I'm nearly a circle, wohoo
 </div>
 ```
@@ -2317,7 +2383,7 @@ Pills have fully rounded ends, lozenges have only their corners rounded.
 This box will be 16:9
 
 ```html
-<div class='ratio-16-9 blue-block'>
+<div class='ratio-16-9 block--color-3'>
     <div class='ratio__content'></div>
 </div>
 ```
@@ -2325,7 +2391,7 @@ This box will be 16:9
 This box will be a square
 
 ```html
-<div class='ratio-square blue-block'>
+<div class='ratio-square block--color-3'>
     <div class='ratio__content'></div>
 </div>
 ```
@@ -2481,7 +2547,7 @@ This box will be a square
 .mr-xxxl {
   margin-right: 6em; }
 
-@media only screen {
+@media only screen and (max-width: 47.99em) {
   .mt-0--q-small {
     margin-top: 0; }
   .mt-xxxs--q-small {
@@ -2727,6 +2793,88 @@ This box will be a square
   .mr-xxxl--q-large {
     margin-right: 6em; } }
 
+@media only screen and (min-width: 75em) {
+  .mt-0--q-xlarge {
+    margin-top: 0; }
+  .mt-xxxs--q-xlarge {
+    margin-top: 0.375em; }
+  .mt-xxs--q-xlarge {
+    margin-top: 0.5em; }
+  .mt-xs--q-xlarge {
+    margin-top: 0.75em; }
+  .mt-s--q-xlarge {
+    margin-top: 1em; }
+  .mt-m--q-xlarge {
+    margin-top: 1.5em; }
+  .mt-l--q-xlarge {
+    margin-top: 2.25em; }
+  .mt-xl--q-xlarge {
+    margin-top: 3em; }
+  .mt-xxl--q-xlarge {
+    margin-top: 4.5em; }
+  .mt-xxxl--q-xlarge {
+    margin-top: 6em; }
+  .mb-0--q-xlarge {
+    margin-bottom: 0; }
+  .mb-xxxs--q-xlarge {
+    margin-bottom: 0.375em; }
+  .mb-xxs--q-xlarge {
+    margin-bottom: 0.5em; }
+  .mb-xs--q-xlarge {
+    margin-bottom: 0.75em; }
+  .mb-s--q-xlarge {
+    margin-bottom: 1em; }
+  .mb-m--q-xlarge {
+    margin-bottom: 1.5em; }
+  .mb-l--q-xlarge {
+    margin-bottom: 2.25em; }
+  .mb-xl--q-xlarge {
+    margin-bottom: 3em; }
+  .mb-xxl--q-xlarge {
+    margin-bottom: 4.5em; }
+  .mb-xxxl--q-xlarge {
+    margin-bottom: 6em; }
+  .ml-0--q-xlarge {
+    margin-left: 0; }
+  .ml-xxxs--q-xlarge {
+    margin-left: 0.375em; }
+  .ml-xxs--q-xlarge {
+    margin-left: 0.5em; }
+  .ml-xs--q-xlarge {
+    margin-left: 0.75em; }
+  .ml-s--q-xlarge {
+    margin-left: 1em; }
+  .ml-m--q-xlarge {
+    margin-left: 1.5em; }
+  .ml-l--q-xlarge {
+    margin-left: 2.25em; }
+  .ml-xl--q-xlarge {
+    margin-left: 3em; }
+  .ml-xxl--q-xlarge {
+    margin-left: 4.5em; }
+  .ml-xxxl--q-xlarge {
+    margin-left: 6em; }
+  .mr-0--q-xlarge {
+    margin-right: 0; }
+  .mr-xxxs--q-xlarge {
+    margin-right: 0.375em; }
+  .mr-xxs--q-xlarge {
+    margin-right: 0.5em; }
+  .mr-xs--q-xlarge {
+    margin-right: 0.75em; }
+  .mr-s--q-xlarge {
+    margin-right: 1em; }
+  .mr-m--q-xlarge {
+    margin-right: 1.5em; }
+  .mr-l--q-xlarge {
+    margin-right: 2.25em; }
+  .mr-xl--q-xlarge {
+    margin-right: 3em; }
+  .mr-xxl--q-xlarge {
+    margin-right: 4.5em; }
+  .mr-xxxl--q-xlarge {
+    margin-right: 6em; } }
+
 .pt-0 {
   padding-top: 0; }
 
@@ -2847,7 +2995,7 @@ This box will be a square
 .pr-xxxl {
   padding-right: 6em; }
 
-@media only screen {
+@media only screen and (max-width: 47.99em) {
   .pt-0--q-small {
     padding-top: 0; }
   .pt-xxxs--q-small {
@@ -3093,6 +3241,88 @@ This box will be a square
   .pr-xxxl--q-large {
     padding-right: 6em; } }
 
+@media only screen and (min-width: 75em) {
+  .pt-0--q-xlarge {
+    padding-top: 0; }
+  .pt-xxxs--q-xlarge {
+    padding-top: 0.375em; }
+  .pt-xxs--q-xlarge {
+    padding-top: 0.5em; }
+  .pt-xs--q-xlarge {
+    padding-top: 0.75em; }
+  .pt-s--q-xlarge {
+    padding-top: 1em; }
+  .pt-m--q-xlarge {
+    padding-top: 1.5em; }
+  .pt-l--q-xlarge {
+    padding-top: 2.25em; }
+  .pt-xl--q-xlarge {
+    padding-top: 3em; }
+  .pt-xxl--q-xlarge {
+    padding-top: 4.5em; }
+  .pt-xxxl--q-xlarge {
+    padding-top: 6em; }
+  .pb-0--q-xlarge {
+    padding-bottom: 0; }
+  .pb-xxxs--q-xlarge {
+    padding-bottom: 0.375em; }
+  .pb-xxs--q-xlarge {
+    padding-bottom: 0.5em; }
+  .pb-xs--q-xlarge {
+    padding-bottom: 0.75em; }
+  .pb-s--q-xlarge {
+    padding-bottom: 1em; }
+  .pb-m--q-xlarge {
+    padding-bottom: 1.5em; }
+  .pb-l--q-xlarge {
+    padding-bottom: 2.25em; }
+  .pb-xl--q-xlarge {
+    padding-bottom: 3em; }
+  .pb-xxl--q-xlarge {
+    padding-bottom: 4.5em; }
+  .pb-xxxl--q-xlarge {
+    padding-bottom: 6em; }
+  .pl-0--q-xlarge {
+    padding-left: 0; }
+  .pl-xxxs--q-xlarge {
+    padding-left: 0.375em; }
+  .pl-xxs--q-xlarge {
+    padding-left: 0.5em; }
+  .pl-xs--q-xlarge {
+    padding-left: 0.75em; }
+  .pl-s--q-xlarge {
+    padding-left: 1em; }
+  .pl-m--q-xlarge {
+    padding-left: 1.5em; }
+  .pl-l--q-xlarge {
+    padding-left: 2.25em; }
+  .pl-xl--q-xlarge {
+    padding-left: 3em; }
+  .pl-xxl--q-xlarge {
+    padding-left: 4.5em; }
+  .pl-xxxl--q-xlarge {
+    padding-left: 6em; }
+  .pr-0--q-xlarge {
+    padding-right: 0; }
+  .pr-xxxs--q-xlarge {
+    padding-right: 0.375em; }
+  .pr-xxs--q-xlarge {
+    padding-right: 0.5em; }
+  .pr-xs--q-xlarge {
+    padding-right: 0.75em; }
+  .pr-s--q-xlarge {
+    padding-right: 1em; }
+  .pr-m--q-xlarge {
+    padding-right: 1.5em; }
+  .pr-l--q-xlarge {
+    padding-right: 2.25em; }
+  .pr-xl--q-xlarge {
+    padding-right: 3em; }
+  .pr-xxl--q-xlarge {
+    padding-right: 4.5em; }
+  .pr-xxxl--q-xlarge {
+    padding-right: 6em; } }
+
 .split {
   text-align: right;
   list-style: none;
@@ -3103,7 +3333,7 @@ This box will be a square
   float: left;
   clear: left; }
 
-/*
+/**
 
 ## Typography
 
@@ -3113,15 +3343,36 @@ html, body {
   line-height: 1.42857; }
 
 
-/*
+/**
 
 ### Font declarations
 
+```html
+<p class="font-primary">This is the primary font</p>
+<p class="font-primary--light">This is the primary font in light</p>
+<p class="font-primary--bold">This is the primary font in bold</p>
+<p class="font-size-xxxxl">Some huge text</p>
+<p class="font-size-xxxs">Some tiny text</p>
+```
 */
 .font-primary, body {
   font-family: 'SourceSansPro', 'Open Sans', sans-serif;
   font-weight: 400;
   font-style: normal; }
+
+.font-primary--light {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-style: normal; }
+  .ie8 .font-primary--light {
+    font-family: 'Open Sans', sans-serif; }
+
+.font-primary--light-italic {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-style: italic; }
+  .ie8 .font-primary--light-italic {
+    font-family: 'Open Sans', sans-serif; }
 
 .font-primary--italic, .ie8 em, .ie8 i {
   font-family: 'SourceSansPro', 'Open Sans', sans-serif;
@@ -3132,14 +3383,14 @@ html, body {
 
 .font-primary--bold, .ie8 strong, .ie8 b {
   font-family: 'SourceSansPro', 'Open Sans', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal; }
   .ie8 .font-primary--bold, .ie8 .ie8 strong, .ie8 .ie8 strong, .ie8 .ie8 b, .ie8 .ie8 b {
     font-family: 'SourceSansPro', 'Open Sans', sans-serif; }
 
 .font-primary--bold-italic {
   font-family: 'SourceSansPro', 'Open Sans', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-style: italic; }
   .ie8 .font-primary--bold-italic {
     font-family: 'SourceSansPro', 'Open Sans', sans-serif; }
@@ -3181,7 +3432,7 @@ html, body {
   font-size: 0.6875em; }
 
 
-/*
+/**
 
 ### Header styles
 
@@ -3227,7 +3478,7 @@ p, .text, li, code, dt, dd {
 
 
 
-/*
+/**
 
 ### Paragraph styles
 
@@ -3249,7 +3500,11 @@ Also
 
 */
 
+.small {
+  line-height: 1.4; }
 
+.tiny {
+  line-height: 1.4; }
 
 
 
@@ -3269,7 +3524,8 @@ hr {
   border: none;
   height: 1px; }
 
-/*
+/**
+
 ### Text helpers
 
 ```html
@@ -3319,19 +3575,19 @@ Also
 Try to use these on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device's presentation.
 
 ```html
-<div class='block-s pink-block hidden--q-small'>
+<div class='block-s block--color-2 hidden--q-small'>
     hide this block on mobile
 </div>
-<div class='block-s green-block hidden--q-medium'>
+<div class='block-s block--color-1 hidden--q-medium'>
     hide this block on skinny
 </div>
 <div class='block-s tp-block hidden--q-medium-down'>
     hide this block skinny down
 </div>
-<div class='block-s blue-block hidden--q-medium-up'>
+<div class='block-s block--color-3 hidden--q-medium-up'>
     hide this block on a medium screen, large screen and xlarge screen
 </div>
-<div class='block-s pink-block hidden--q-large'>
+<div class='block-s block--color-2 hidden--q-large'>
     hide this block on desktop
 </div>
 <div class='block-s ts-block hidden--q-large-up'>
@@ -3347,25 +3603,25 @@ Try to use these on a limited basis and avoid creating entirely different versio
 Try to use these on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device's presentation.
 
 ```html
-<div class='block-s pink-block visible--q-small'>
+<div class='block-s block--color-2 visible--q-small'>
     show this block on small screen
 </div>
-<div class='block-s blue-block visible--q-medium'>
+<div class='block-s block--color-3 visible--q-medium'>
     show this block on a medium screen
 </div>
-<div class='block-s blue-block visible--q-medium-down'>
+<div class='block-s block--color-3 visible--q-medium-down'>
     Show this block on a medium screen and small screen
 </div>
-<div class='block-s pink-block visible--q-medium-up'>
+<div class='block-s block--color-2 visible--q-medium-up'>
     Show this block on a medium screen, large screen and xlarge screen
 </div>
 <div class='block-s tt-block visible--q-large'>
     Show this block on a large screen
 </div>
-<div class='block-s blue-block visible--q-large-up'>
+<div class='block-s block--color-3 visible--q-large-up'>
     Show this block on a large and xlarge screen
 </div>
-<div class='block-s green-block visible--q-xlarge'>
+<div class='block-s block--color-1 visible--q-xlarge'>
     show this block on a xlarge screen
 </div>
 ```
@@ -3486,6 +3742,12 @@ pre .shebang, pre .diff .addition, pre .comment, pre .java .annotation, pre .tem
 pre .coffeescript .javascript, pre .javascript .xml, pre .tex .formula, pre .xml .javascript, pre .xml .vbscript, pre .xml .css, pre .xml .cdata {
   opacity: 0.5; }
 
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
 h1, h2, h3 {
   font-family: 'SourceCodePro-Medium', 'georgia', serif;
   font-weight: normal; }
@@ -3513,9 +3775,6 @@ hr {
 
 pre {
   margin-bottom: 0; }
-
-p {
-  color: #333333; }
 
 .content {
   text-align: left; }
@@ -3603,7 +3862,7 @@ p {
   height: 40px;
   display: inline-block; }
 
-@media screen and (min-width: 63.5em) and (min-height: 51em) {
+@media screen and (min-width: 48em) and (min-height: 51em) {
   .sidebar {
     position: fixed; }
   .page {
