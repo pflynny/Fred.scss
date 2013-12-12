@@ -8,7 +8,6 @@ h1, h2, h3 {
     font-weight: normal;
 }
 
-
 h1 + blockquote {
     font-family: $serif-stack;
     font-size: 1.25em;
@@ -47,7 +46,6 @@ p {
 }
 
 
-
 .content {
     text-align: left;
 }
@@ -56,16 +54,6 @@ p {
     @include media('medium') {
         max-width: 16em;
     }
-}
-
-.page:before {
-    content: "";
-    display:block;
-    min-height: 100%;
-    border-right: 1px solid #e6ebeb;
-    position: absolute;
-    left: 0;
-    top: 0;
 }
 
     .sidebar > h1 {
@@ -125,20 +113,32 @@ p {
     @include box-sizing(border-box);
 }
 
+    .page:before {
+        content: "";
+        display:block;
+        min-height: 100%;
+        border-right: 1px solid #e6ebeb;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
 
-// code demos
+// code and demos
+
+pre code {
+    padding: .75em 1em;
+}
 
 .codedemo {
     position: relative;
-    padding: 45px 20px 25px;
+    padding: 2.5em 1.25em 1.5em;
     background-color: #e8ebeb;
 }
     .codedemo:after{
         content: "Example:";
         position: absolute;
-        top: 10px;
-        left: 10px;
-        padding: 3px 7px;
+        top: .75em;
+        left: .75em;
         text-transform: uppercase;
         color: #666;
         font-size: .75em;

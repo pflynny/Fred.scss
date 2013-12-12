@@ -2,7 +2,7 @@
 
 
 
-# Meet Fred, the friendly front-end framework.
+# Meet Fred, the friendly front-end framework
 
 > Fred is not Bootstrap, or Foundation. <br/>
 He’s a handy collection of our favourite solutions to common front-end problems.

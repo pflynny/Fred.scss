@@ -5,7 +5,7 @@ prefixes and minus the ones we dont need eg block-0 hmmm
 */
 /**
 
-# Meet Fred, the friendly front-end framework.
+# Meet Fred, the friendly front-end framework
 
 > Fred is not Bootstrap, or Foundation. <br/>
 He’s a handy collection of our favourite solutions to common front-end problems.
@@ -3524,15 +3524,6 @@ p {
   .sidebar {
     max-width: 16em; } }
 
-.page:before {
-  content: "";
-  display: block;
-  min-height: 100%;
-  border-right: 1px solid #e6ebeb;
-  position: absolute;
-  left: 0;
-  top: 0; }
-
 .sidebar > h1 {
   background-image: url("../images/fred-logo.png");
   background-position: 50% 0;
@@ -3582,17 +3573,28 @@ p {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+.page:before {
+  content: "";
+  display: block;
+  min-height: 100%;
+  border-right: 1px solid #e6ebeb;
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+pre code {
+  padding: 0.75em 1em; }
+
 .codedemo {
   position: relative;
-  padding: 45px 20px 25px;
+  padding: 2.5em 1.25em 1.5em;
   background-color: #e8ebeb; }
 
 .codedemo:after {
   content: "Example:";
   position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 3px 7px;
+  top: 0.75em;
+  left: 0.75em;
   text-transform: uppercase;
   color: #666666;
   font-size: 0.75em; }
