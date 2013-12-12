@@ -275,3 +275,35 @@ Also
     width: 100%;
 }
 
+/*
+### Blockquotes
+
+```html
+<div class="blockquote">
+    <p class="lowercase">
+        I'm a quote
+    </p>
+    <cite class='text-right block-element mt-s'>- Fred</cite>
+</div>
+
+```
+
+.blockquote, 
+blockquote {
+  
+  text-indent:$block-quote-indent;
+
+  p:before {
+    content:"";
+  }
+  p:after{
+    content:"";
+  }
+  p:first-of-type:before{
+    content:"#{$open-quote}";
+  }
+  p:last-of-type:after{
+    content:"#{$close-quote}";
+  }
+
+}
