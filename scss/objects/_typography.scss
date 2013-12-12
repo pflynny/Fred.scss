@@ -116,21 +116,21 @@ h3, .h3 {
 }
 
 h4, .h4 {
+    @extend .font-size-l;
+    line-height: $line-height-l;
+    margin-top: px-to-em($base-spacing, $font-size-l);
+}
+
+h5, .h5 {
     @extend .font-size-m;
     line-height: $line-height-m;
     margin-top: px-to-em($base-spacing, $font-size-m);
 }
 
-h5, .h5 {
+h6, .h6 {
     @extend .font-size-s;
     line-height: $line-height-s;
-    margin-top: px-to-em($base-spacing--xs, $font-size-s);
-}
-
-h6, .h6 {
-    @extend .font-size-xs;
-    line-height: $line-height-xs;
-    margin-top: px-to-em($base-spacing--xs, $font-size-xs);
+    margin-top: px-to-em($base-spacing, $font-size-s);
 }
 
 

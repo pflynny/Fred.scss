@@ -22,7 +22,7 @@ This applies max-width: 100%; and height: auto; to the image so that it scales n
 
 .img--responsive {
     height: auto;
-    max-width: 100%;
+    width: 100%;
 }
 
 // Use a massive em value, good for circles up to 960px wide

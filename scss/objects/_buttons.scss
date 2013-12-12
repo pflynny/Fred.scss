@@ -154,7 +154,7 @@
 }
 
 // Make a button behave like a block at mobile only (also handy)
-@media only screen and (max-width:37.5em) {
+@media only screen and ($breakpoint-small-max) {
     .btn--block-mobile {
         text-align: center;
         display: block;
