@@ -1318,10 +1318,10 @@ You just need to add an extra suffix onto the classes which relates to the break
 ```
 
 
-#### Responsive Grid with pre-defined number of columns
+#### Responsive Grid with pre-defined number of equally sized columns
 
 ```html
-<div class='grid grid--2-col grid--4-col--q-medium grid--6-col--q-large'>
+<div class='grid text-left grid--2-col grid--4-col--q-medium grid--6-col--q-large'>
     <div class='grid__item'>
        <div class='block--color-2 block-s'>
             <p>
@@ -1667,6 +1667,9 @@ Fred doesn't mind what grid you use :).
 .grid--6-col > * {
   width: 16.66667%; }
 
+.grid--8-col > * {
+  width: 12.5%; }
+
 @media only screen {
   .grid--1-col--q-small > * {
     width: 100%; }
@@ -1679,7 +1682,9 @@ Fred doesn't mind what grid you use :).
   .grid--5-col--q-small > * {
     width: 20%; }
   .grid--6-col--q-small > * {
-    width: 16.66667%; } }
+    width: 16.66667%; }
+  .grid--8-col--q-small > * {
+    width: 12.5%; } }
 
 @media only screen and (min-width: 48em) {
   .grid--1-col--q-medium > * {
@@ -1693,7 +1698,9 @@ Fred doesn't mind what grid you use :).
   .grid--5-col--q-medium > * {
     width: 20%; }
   .grid--6-col--q-medium > * {
-    width: 16.66667%; } }
+    width: 16.66667%; }
+  .grid--8-col--q-medium > * {
+    width: 12.5%; } }
 
 @media only screen and (min-width: 60em) {
   .grid--1-col--q-large > * {
@@ -1707,7 +1714,9 @@ Fred doesn't mind what grid you use :).
   .grid--5-col--q-large > * {
     width: 20%; }
   .grid--6-col--q-large > * {
-    width: 16.66667%; } }
+    width: 16.66667%; }
+  .grid--8-col--q-large > * {
+    width: 12.5%; } }
 
 @media only screen and (min-width: 75em) {
   .grid--1-col--q-xlarge > * {
@@ -1721,7 +1730,9 @@ Fred doesn't mind what grid you use :).
   .grid--5-col--q-xlarge > * {
     width: 20%; }
   .grid--6-col--q-xlarge > * {
-    width: 16.66667%; } }
+    width: 16.66667%; }
+  .grid--8-col--q-xlarge > * {
+    width: 12.5%; } }
 
 /*
 
@@ -3574,26 +3585,18 @@ Also
 </div>
 
 ```
+*/
+.blockquote, blockquote {
+  text-indent: -0.6em; }
+  .blockquote p:before, blockquote p:before {
+    content: ""; }
+  .blockquote p:after, blockquote p:after {
+    content: ""; }
+  .blockquote p:first-of-type:before, blockquote p:first-of-type:before {
+    content: "\201C"; }
+  .blockquote p:last-of-type:after, blockquote p:last-of-type:after {
+    content: "\201D"; }
 
-.blockquote, 
-blockquote {
-  
-  text-indent:$block-quote-indent;
-
-  p:before {
-    content:"";
-  }
-  p:after{
-    content:"";
-  }
-  p:first-of-type:before{
-    content:"#{$open-quote}";
-  }
-  p:last-of-type:after{
-    content:"#{$close-quote}";
-  }
-
-}
 /**
 
 ## Visibility

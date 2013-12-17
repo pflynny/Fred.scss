@@ -183,7 +183,7 @@ You just need to add an extra suffix onto the classes which relates to the break
 #### Responsive Grid with pre-defined number of equally sized columns
 
 ```html
-<div class='grid grid--2-col grid--4-col--q-medium grid--6-col--q-large'>
+<div class='grid text-left grid--2-col grid--4-col--q-medium grid--6-col--q-large'>
     <div class='grid__item'>
        <div class='block--color-2 block-s'>
             <p>
@@ -398,7 +398,7 @@ Fred doesn't mind what grid you use :).
     } @else {
         @include media($breakpoint) {
             $suffix: $breakpoint-classname-prefix + $breakpoint;
-            @each $division in $grid-list-columns {
+            @each $division in $grid-number-columns {
                 @include grid-list-columns($columns: $division, $breakpointSuffix: $suffix);
             }
         }
