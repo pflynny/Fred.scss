@@ -195,25 +195,25 @@ $breakpoint-xxxlarge:   120em;  // Full HD
 
 $breakpoints:
         (
-            small-up "only screen"
+            small "only screen"
         ),
         (
-            small "only screen and (max-width: #{$breakpoint-small-max})"
+            small-only "only screen and (max-width: #{$breakpoint-small-max})"
         ),
         (
-            medium-up "only screen and (min-width: #{$breakpoint-medium})"
+            medium "only screen and (min-width: #{$breakpoint-medium})"
         ),
         (
-            medium "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-medium-max})"
+            medium-only "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-medium-max})"
         ),
         (
             medium-down "only screen and (max-width: #{$breakpoint-medium})"
         ),
         (
-            large-up "only screen and (min-width: #{$breakpoint-large})"
+            large "only screen and (min-width: #{$breakpoint-large})"
         ),
         (
-            large "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-large-max})"
+            large-only "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-large-max})"
         ),
         (
             xlarge "only screen and (min-width: #{$breakpoint-xlarge})"
@@ -239,6 +239,7 @@ $fred-grid-breakpoints:     default, small, medium, large, xlarge;
 $grid-column-name:          "col";
 $grid-divisions:            3, 4, 5, 10;
 $grid-float-padding:        1em; // false to disable.
+$grid-number-columns:       1, 2, 3, 4, 5, 6, 8;
 
 // -----------------------------------------------------------------------------
 // Fred module config
@@ -303,6 +304,12 @@ $radius:            .3125em;
 $radius-s:          .125em;
 $radius-l:          .625em;
 $radius-circle:     35em;
+
+//blockquotes
+$open-quote:    \201C;
+$close-quote:   \201D;
+$block-quote-indent:-0.6em;
+
 // Breakpoints
 
 @mixin media($breakpoint) {
@@ -1526,7 +1533,7 @@ arrow in the top left corner of the containing div:
 }
 
 // Make a button behave like a block at mobile only (also handy)
-@media only screen and (max-width:37.5em) {
+@media only screen and ($breakpoint-small-max) {
     .btn--block-mobile {
         text-align: center;
         display: block;
@@ -2208,6 +2215,56 @@ You just need to add an extra suffix onto the classes which relates to the break
 </div>
 ```
 
+
+#### Responsive Grid with pre-defined number of equally sized columns
+
+```html
+<div class='grid grid--2-col grid--4-col--q-medium grid--6-col--q-large'>
+    <div class='grid__item'>
+       <div class='block--color-2 block-s'>
+            <p>
+                1
+           </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-1 block-s'>
+            <p>
+                2
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-3 block-s'>
+            <p>
+                3
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-2 block-s'>
+            <p>
+                4
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-1 block-s'>
+            <p>
+                5
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-3 block-s'>
+            <p>
+                6
+            </p>
+        </div>
+    </div>
+</div>
+```
+
 */
 
 // Inline block grid
@@ -2228,35 +2285,36 @@ You just need to add an extra suffix onto the classes which relates to the break
     }
 }
 
-    .grid > * {
+    .grid > *  {
         @extend .grid__item;
     }
 
     // Font-size medium reset the block to the context of body (ie, 16px)
     .grid__item {
-        @extend %inline-block; /* This extend is found in core */
-        @extend %align--top; /* This extend is found in core */
-        @extend .text-left; /* This extend is found in typography */
+        @extend %inline-block; // This extend is found in core
+        @extend %align--top; // This extend is found in core
+        @extend .text-left; // This extend is found in core
         font-size: medium;
 
     }
 
     .grid:after,
     .grid__break {
-        @extend %inline-block; /* This extend is found in core */
+        @extend %inline-block; // This extend is found in core
         content: '';
         height: 0;
         width:100%;
     }
 
+
     // Vertical align these grid items in the middle!
 
     .grid--middle > .grid__item {
-        @extend %align--middle; /* This extend is found in core */
+        @extend %align--middle; // This extend is found in core
     }
 
     .grid--bottom > .grid__item {
-        @extend %align--bottom; /* This extend is found in core */
+        @extend %align--bottom; // This extend is found in core
     }
 
 
@@ -2343,8 +2401,41 @@ Fred doesn't mind what grid you use :).
             @each $division in $grid-divisions {
                 @include grid-columns($name: $grid-column-name, $stops: $division, $fractional: true, $breakpointSuffix: $suffix);
             }
+            .#{$grid-column-name + "-auto" + $suffix} {
+                width: auto;
+            }
             .#{$grid-column-name + $suffix} {
                 width: 100%;
+            }
+        }
+    }
+}
+
+
+// Responsive grid lists
+
+@mixin grid-list-columns($columns: 4, $breakpointSuffix: false) {
+    $prefix: grid;
+    $colName: #{"-"+$columns+"-"+$grid-column-name};
+    $width: 1 / $columns * 100;
+    @if $breakpointSuffix {
+        $colName: #{$colName + $breakpointSuffix};
+    }
+    .#{$prefix}-#{$colName} > * {
+        width: #{$width + "%"};
+    }
+}
+
+@each $breakpoint in $fred-grid-breakpoints {
+    @if $breakpoint == "default" {
+        @each $division in $grid-number-columns {
+            @include grid-list-columns($columns: $division);
+        }
+    } @else {
+        @include media($breakpoint) {
+            $suffix: $breakpoint-classname-prefix + $breakpoint;
+            @each $division in $grid-list-columns {
+                @include grid-list-columns($columns: $division, $breakpointSuffix: $suffix);
             }
         }
     }
@@ -2466,7 +2557,7 @@ This applies max-width: 100%; and height: auto; to the image so that it scales n
 
 .img--responsive {
     height: auto;
-    max-width: 100%;
+    width: 100%;
 }
 
 // Use a massive em value, good for circles up to 960px wide
@@ -3367,21 +3458,21 @@ h3, .h3 {
 }
 
 h4, .h4 {
+    @extend .font-size-l;
+    line-height: $line-height-l;
+    margin-top: px-to-em($base-spacing, $font-size-l);
+}
+
+h5, .h5 {
     @extend .font-size-m;
     line-height: $line-height-m;
     margin-top: px-to-em($base-spacing, $font-size-m);
 }
 
-h5, .h5 {
+h6, .h6 {
     @extend .font-size-s;
     line-height: $line-height-s;
-    margin-top: px-to-em($base-spacing--xs, $font-size-s);
-}
-
-h6, .h6 {
-    @extend .font-size-xs;
-    line-height: $line-height-xs;
-    margin-top: px-to-em($base-spacing--xs, $font-size-xs);
+    margin-top: px-to-em($base-spacing, $font-size-s);
 }
 
 
@@ -3507,7 +3598,38 @@ Also
     width: 100%;
 }
 
+/*
+### Blockquotes
 
+```html
+<div class="blockquote">
+    <p class="lowercase">
+        I'm a quote
+    </p>
+    <cite class='text-right block-element mt-s'>- Fred</cite>
+</div>
+
+```
+*/
+.blockquote, 
+blockquote {
+  
+  text-indent:$block-quote-indent;
+
+  p:before {
+    content:"";
+  }
+  p:after{
+    content:"";
+  }
+  p:first-of-type:before{
+    content:"#{$open-quote}";
+  }
+  p:last-of-type:after{
+    content:"#{$close-quote}";
+  }
+
+}
 /**
 
 ## Visibility

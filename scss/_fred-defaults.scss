@@ -195,25 +195,25 @@ $breakpoint-xxxlarge:   120em;  // Full HD
 
 $breakpoints:
         (
-            small-up "only screen"
+            small "only screen"
         ),
         (
-            small "only screen and (max-width: #{$breakpoint-small-max})"
+            small-only "only screen and (max-width: #{$breakpoint-small-max})"
         ),
         (
-            medium-up "only screen and (min-width: #{$breakpoint-medium})"
+            medium "only screen and (min-width: #{$breakpoint-medium})"
         ),
         (
-            medium "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-medium-max})"
+            medium-only "only screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-medium-max})"
         ),
         (
             medium-down "only screen and (max-width: #{$breakpoint-medium})"
         ),
         (
-            large-up "only screen and (min-width: #{$breakpoint-large})"
+            large "only screen and (min-width: #{$breakpoint-large})"
         ),
         (
-            large "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-large-max})"
+            large-only "only screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-large-max})"
         ),
         (
             xlarge "only screen and (min-width: #{$breakpoint-xlarge})"
@@ -239,6 +239,7 @@ $fred-grid-breakpoints:     default, small, medium, large, xlarge;
 $grid-column-name:          "col";
 $grid-divisions:            3, 4, 5, 10;
 $grid-float-padding:        1em; // false to disable.
+$grid-number-columns:       1, 2, 3, 4, 5, 6, 8;
 
 // -----------------------------------------------------------------------------
 // Fred module config

@@ -179,6 +179,56 @@ You just need to add an extra suffix onto the classes which relates to the break
 </div>
 ```
 
+
+#### Responsive Grid with pre-defined number of equally sized columns
+
+```html
+<div class='grid grid--2-col grid--4-col--q-medium grid--6-col--q-large'>
+    <div class='grid__item'>
+       <div class='block--color-2 block-s'>
+            <p>
+                1
+           </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-1 block-s'>
+            <p>
+                2
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-3 block-s'>
+            <p>
+                3
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-2 block-s'>
+            <p>
+                4
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-1 block-s'>
+            <p>
+                5
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-3 block-s'>
+            <p>
+                6
+            </p>
+        </div>
+    </div>
+</div>
+```
+
 */
 
 // Inline block grid
@@ -199,35 +249,36 @@ You just need to add an extra suffix onto the classes which relates to the break
     }
 }
 
-    .grid > * {
+    .grid > *  {
         @extend .grid__item;
     }
 
     // Font-size medium reset the block to the context of body (ie, 16px)
     .grid__item {
-        @extend %inline-block; /* This extend is found in core */
-        @extend %align--top; /* This extend is found in core */
-        @extend .text-left; /* This extend is found in typography */
+        @extend %inline-block; // This extend is found in core
+        @extend %align--top; // This extend is found in core
+        @extend .text-left; // This extend is found in core
         font-size: medium;
 
     }
 
     .grid:after,
     .grid__break {
-        @extend %inline-block; /* This extend is found in core */
+        @extend %inline-block; // This extend is found in core
         content: '';
         height: 0;
         width:100%;
     }
 
+
     // Vertical align these grid items in the middle!
 
     .grid--middle > .grid__item {
-        @extend %align--middle; /* This extend is found in core */
+        @extend %align--middle; // This extend is found in core
     }
 
     .grid--bottom > .grid__item {
-        @extend %align--bottom; /* This extend is found in core */
+        @extend %align--bottom; // This extend is found in core
     }
 
 
@@ -314,8 +365,41 @@ Fred doesn't mind what grid you use :).
             @each $division in $grid-divisions {
                 @include grid-columns($name: $grid-column-name, $stops: $division, $fractional: true, $breakpointSuffix: $suffix);
             }
+            .#{$grid-column-name + "-auto" + $suffix} {
+                width: auto;
+            }
             .#{$grid-column-name + $suffix} {
                 width: 100%;
+            }
+        }
+    }
+}
+
+
+// Responsive grid lists
+
+@mixin grid-list-columns($columns: 4, $breakpointSuffix: false) {
+    $prefix: grid;
+    $colName: #{"-"+$columns+"-"+$grid-column-name};
+    $width: 1 / $columns * 100;
+    @if $breakpointSuffix {
+        $colName: #{$colName + $breakpointSuffix};
+    }
+    .#{$prefix}-#{$colName} > * {
+        width: #{$width + "%"};
+    }
+}
+
+@each $breakpoint in $fred-grid-breakpoints {
+    @if $breakpoint == "default" {
+        @each $division in $grid-number-columns {
+            @include grid-list-columns($columns: $division);
+        }
+    } @else {
+        @include media($breakpoint) {
+            $suffix: $breakpoint-classname-prefix + $breakpoint;
+            @each $division in $grid-list-columns {
+                @include grid-list-columns($columns: $division, $breakpointSuffix: $suffix);
             }
         }
     }
