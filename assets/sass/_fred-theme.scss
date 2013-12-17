@@ -213,10 +213,10 @@ $breakpoint-xxxlarge:   120em;  // Full HD
 
 $breakpoints:
         (
-            small-up "only screen"
+            small "only screen"
         ),
         (
-            small "only screen and (max-width: #{$breakpoint-small-max})"
+            small-only "only screen and (max-width: #{$breakpoint-small-max})"
         ),
         (
             medium "only screen and (min-width: #{$breakpoint-medium})"
@@ -257,6 +257,7 @@ $fred-grid-breakpoints:     default, small, medium, large, xlarge;
 $grid-column-name:          "col";
 $grid-divisions:            3, 4, 5, 10;
 $grid-float-padding:        1em; // false to disable.
+$grid-list-columns:         1, 2, 3, 4, 5, 6;
 
 // -----------------------------------------------------------------------------
 // Fred module config
@@ -322,6 +323,11 @@ $radius-s:          .125em;
 $radius-l:          .625em;
 $radius-circle:     35em;
 
+
+//blockquotes
+$open-quote:    \201C;
+$close-quote:   \201D;
+$block-quote-indent:-0.6em;
 
 
 

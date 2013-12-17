@@ -510,6 +510,56 @@ You just need to add an extra suffix onto the classes which relates to the break
 ```
 
 
+#### Responsive Grid with pre-defined number of equally sized columns
+
+```html
+<div class='grid text-left grid--2-col grid--4-col--q-medium grid--6-col--q-large'>
+    <div class='grid__item'>
+       <div class='block--color-2 block-s'>
+            <p>
+                1
+           </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-1 block-s'>
+            <p>
+                2
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-3 block-s'>
+            <p>
+                3
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-2 block-s'>
+            <p>
+                4
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-1 block-s'>
+            <p>
+                5
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-3 block-s'>
+            <p>
+                6
+            </p>
+        </div>
+    </div>
+</div>
+```
+
+
 
 
 ### Float Grid

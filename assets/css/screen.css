@@ -567,7 +567,7 @@ arrow in the top left corner of the containing div:
 .block-xxxl {
   padding: 4.5em 6em; }
 
-@media only screen and (max-width: 47.99em) {
+@media only screen {
   .block-xxxs--q-small {
     padding: 0.375em 0.375em; }
   .block-xxs--q-small {
@@ -865,7 +865,7 @@ arrow in the top left corner of the containing div:
   display: block;
   text-align: center; }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (47.99em) {
   .btn--block-mobile {
     text-align: center;
     display: block; } }
@@ -1445,6 +1445,56 @@ You just need to add an extra suffix onto the classes which relates to the break
 </div>
 ```
 
+
+#### Responsive Grid with pre-defined number of equally sized columns
+
+```html
+<div class='grid text-left grid--2-col grid--4-col--q-medium grid--6-col--q-large'>
+    <div class='grid__item'>
+       <div class='block--color-2 block-s'>
+            <p>
+                1
+           </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-1 block-s'>
+            <p>
+                2
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-3 block-s'>
+            <p>
+                3
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-2 block-s'>
+            <p>
+                4
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-1 block-s'>
+            <p>
+                5
+            </p>
+        </div>
+    </div>
+    <div class='grid__item'>
+       <div class='block--color-3 block-s'>
+            <p>
+                6
+            </p>
+        </div>
+    </div>
+</div>
+```
+
 */
 .grid {
   font-size: 0;
@@ -1456,22 +1506,14 @@ You just need to add an extra suffix onto the classes which relates to the break
 
 
 .grid__item, .grid > * {
-  /* This extend is found in core */
-  /* This extend is found in core */
-  /* This extend is found in typography */
   font-size: medium; }
 
 .grid:after, .grid__break {
-  /* This extend is found in core */
   content: '';
   height: 0;
   width: 100%; }
 
-.grid--middle > .grid__item, .grid--middle > .grid > *, .grid > .grid--middle > * {
-  /* This extend is found in core */ }
 
-.grid--bottom > .grid__item, .grid--bottom > .grid > *, .grid > .grid--bottom > * {
-  /* This extend is found in core */ }
 
 /**
 
@@ -1567,7 +1609,7 @@ Fred doesn't mind what grid you use :).
 .col-9-10 {
   width: 90%; }
 
-@media only screen and (max-width: 47.99em) {
+@media only screen {
   .col-1-3--q-small {
     width: 33.33333%; }
   .col-2-3--q-small {
@@ -1604,6 +1646,8 @@ Fred doesn't mind what grid you use :).
     width: 80%; }
   .col-9-10--q-small {
     width: 90%; }
+  .col-auto--q-small {
+    width: auto; }
   .col--q-small {
     width: 100%; } }
 
@@ -1644,6 +1688,8 @@ Fred doesn't mind what grid you use :).
     width: 80%; }
   .col-9-10--q-medium {
     width: 90%; }
+  .col-auto--q-medium {
+    width: auto; }
   .col--q-medium {
     width: 100%; } }
 
@@ -1684,6 +1730,8 @@ Fred doesn't mind what grid you use :).
     width: 80%; }
   .col-9-10--q-large {
     width: 90%; }
+  .col-auto--q-large {
+    width: auto; }
   .col--q-large {
     width: 100%; } }
 
@@ -1724,8 +1772,95 @@ Fred doesn't mind what grid you use :).
     width: 80%; }
   .col-9-10--q-xlarge {
     width: 90%; }
+  .col-auto--q-xlarge {
+    width: auto; }
   .col--q-xlarge {
     width: 100%; } }
+
+.grid--1-col > * {
+  width: 100%; }
+
+.grid--2-col > * {
+  width: 50%; }
+
+.grid--3-col > * {
+  width: 33.33333%; }
+
+.grid--4-col > * {
+  width: 25%; }
+
+.grid--5-col > * {
+  width: 20%; }
+
+.grid--6-col > * {
+  width: 16.66667%; }
+
+.grid--8-col > * {
+  width: 12.5%; }
+
+@media only screen {
+  .grid--1-col--q-small > * {
+    width: 100%; }
+  .grid--2-col--q-small > * {
+    width: 50%; }
+  .grid--3-col--q-small > * {
+    width: 33.33333%; }
+  .grid--4-col--q-small > * {
+    width: 25%; }
+  .grid--5-col--q-small > * {
+    width: 20%; }
+  .grid--6-col--q-small > * {
+    width: 16.66667%; }
+  .grid--8-col--q-small > * {
+    width: 12.5%; } }
+
+@media only screen and (min-width: 48em) {
+  .grid--1-col--q-medium > * {
+    width: 100%; }
+  .grid--2-col--q-medium > * {
+    width: 50%; }
+  .grid--3-col--q-medium > * {
+    width: 33.33333%; }
+  .grid--4-col--q-medium > * {
+    width: 25%; }
+  .grid--5-col--q-medium > * {
+    width: 20%; }
+  .grid--6-col--q-medium > * {
+    width: 16.66667%; }
+  .grid--8-col--q-medium > * {
+    width: 12.5%; } }
+
+@media only screen and (min-width: 60em) {
+  .grid--1-col--q-large > * {
+    width: 100%; }
+  .grid--2-col--q-large > * {
+    width: 50%; }
+  .grid--3-col--q-large > * {
+    width: 33.33333%; }
+  .grid--4-col--q-large > * {
+    width: 25%; }
+  .grid--5-col--q-large > * {
+    width: 20%; }
+  .grid--6-col--q-large > * {
+    width: 16.66667%; }
+  .grid--8-col--q-large > * {
+    width: 12.5%; } }
+
+@media only screen and (min-width: 75em) {
+  .grid--1-col--q-xlarge > * {
+    width: 100%; }
+  .grid--2-col--q-xlarge > * {
+    width: 50%; }
+  .grid--3-col--q-xlarge > * {
+    width: 33.33333%; }
+  .grid--4-col--q-xlarge > * {
+    width: 25%; }
+  .grid--5-col--q-xlarge > * {
+    width: 20%; }
+  .grid--6-col--q-xlarge > * {
+    width: 16.66667%; }
+  .grid--8-col--q-xlarge > * {
+    width: 12.5%; } }
 
 /*
 
@@ -1828,7 +1963,7 @@ This applies max-width: 100%; and height: auto; to the image so that it scales n
 */
 .img--responsive {
   height: auto;
-  max-width: 100%; }
+  width: 100%; }
 
 .img--round {
   -webkit-border-radius: 30em;
@@ -2547,7 +2682,7 @@ This box will be a square
 .mr-xxxl {
   margin-right: 6em; }
 
-@media only screen and (max-width: 47.99em) {
+@media only screen {
   .mt-0--q-small {
     margin-top: 0; }
   .mt-xxxs--q-small {
@@ -2995,7 +3130,7 @@ This box will be a square
 .pr-xxxl {
   padding-right: 6em; }
 
-@media only screen and (max-width: 47.99em) {
+@media only screen {
   .pt-0--q-small {
     padding-top: 0; }
   .pt-xxxs--q-small {
@@ -3413,16 +3548,16 @@ html, body {
 .font-size-xl, h3, .h3 {
   font-size: 1em; }
 
-.font-size-l {
+.font-size-l, h4, .h4 {
   font-size: 1em; }
 
-.font-size-m, h4, .h4, .pullquote {
+.font-size-m, h5, .h5, .pullquote {
   font-size: 1em; }
 
-.font-size-s, h5, .h5, .intro {
+.font-size-s, h6, .h6, .intro {
   font-size: 1em; }
 
-.font-size-xs, h6, .h6, p, .text, li, code, dt, dd {
+.font-size-xs, p, .text, li, code, dt, dd {
   font-size: 0.9375em; }
 
 .font-size-xxs, .small, .caption {
@@ -3461,16 +3596,16 @@ h3, .h3 {
   margin-top: 1.5em; }
 
 h4, .h4 {
-  line-height: 1.2;
+  line-height: 1.33333;
   margin-top: 1.5em; }
 
 h5, .h5 {
   line-height: 1.2;
-  margin-top: 0.75em; }
+  margin-top: 1.5em; }
 
 h6, .h6 {
-  line-height: 1.5;
-  margin-top: 0.8em; }
+  line-height: 1.2;
+  margin-top: 1.5em; }
 
 p, .text, li, code, dt, dd {
   line-height: 1.5;
@@ -3565,6 +3700,30 @@ Also
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%; }
+
+/*
+### Blockquotes
+
+```html
+<div class="blockquote">
+    <p class="lowercase">
+        I'm a quote
+    </p>
+    <cite class='text-right block-element mt-s'>- Fred</cite>
+</div>
+
+```
+*/
+.blockquote, blockquote {
+  text-indent: -0.6em; }
+  .blockquote p:before, blockquote p:before {
+    content: ""; }
+  .blockquote p:after, blockquote p:after {
+    content: ""; }
+  .blockquote p:first-of-type:before, blockquote p:first-of-type:before {
+    content: "\201C"; }
+  .blockquote p:last-of-type:after, blockquote p:last-of-type:after {
+    content: "\201D"; }
 
 /**
 

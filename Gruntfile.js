@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         copy: {
             // copy sass to compile the acutal styles for our documentation
             sass: {
-                src: "../Fred.scss/dist/lib/fred.scss",
+                src: "../fred/dist/lib/fred.scss",
                 dest: "assets/sass/lib/fred.scss"
             }
         },
