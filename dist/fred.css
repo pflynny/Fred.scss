@@ -199,7 +199,7 @@ table {
 
 
 
-.inline-block, .arrow, .badge, %breadcrumbs > li, .btn-group, .btn-group-vertical, .btn, .caret, .close:after, .grid__item, .grid:after, .grid__break, .icon-text, .icon-text--rev, .list--inline > li, .dl-horizontal:after, .nav > li, .pagination > li, .pill, .text--overflow {
+.inline-block, .arrow, .badge, .breadcrumbs > li, .breadcrumbs--arrow > li, .btn-group, .btn-group-vertical, .btn, .caret, .close:after, .grid__item, .grid:after, .grid__break, .icon-text, .icon-text--rev, .list--inline > li, .dl-horizontal:after, .nav > li, .pagination > li, .pill, .text--overflow {
   display: inline-block;
   *display: inline;
   *zoom: 1; }
@@ -535,14 +535,17 @@ arrow in the top left corner of the containing div:
 ```
 
 */
+.breadcrumbs > li {
+  /* This extend is found in core */ }
+  .breadcrumbs > li + li:before {
+    content: "/\00a0";
+    padding: 0 0.375em; }
 
-.breadcrumbs > li + li:before {
-  content: "/\00a0";
-  padding: 0 0.375em; }
-
-.breadcrumbs--arrow > li + li:before {
-  content: "» ";
-  padding: 0 0.375em; }
+.breadcrumbs--arrow > li {
+  /* This extend is found in core */ }
+  .breadcrumbs--arrow > li + li:before {
+    content: "» ";
+    padding: 0 0.375em; }
 
 /**
 
