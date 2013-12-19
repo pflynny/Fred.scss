@@ -907,7 +907,13 @@ table {
     *zoom: 1;
 }
 
-.inline-block { @extend %inline-block; }
+.inline-block { @extend %inline-block;}
+
+%block-element {
+    display: block;
+}
+
+.block-element { @extend %block-element;}
 
 %border {
     border-width: 1px;
@@ -1219,9 +1225,15 @@ arrow in the top left corner of the containing div:
 */
 
 // Unicode space added since inline-block means non-collapsing white-space
-.breadcrumbs {
+%breadcrumbs {
     > li {
-        @extend %inline-block; /* This extend is found in core */
+        @extend %inline-block;
+    }
+}
+
+.breadcrumbs {
+    @extend %breadcrumbs;
+    > li {
         &+li:before {
             content: "/\00a0";
             padding: 0 $bs-xxxs;
@@ -1229,6 +1241,15 @@ arrow in the top left corner of the containing div:
     }
 }
 
+.breadcrumbs--arrow {
+    @extend %breadcrumbs;
+    > li {
+        &+li:before {
+            content: "» ";
+            padding: 0 $bs-xxxs;
+        }
+    }
+}
 /**
 
 ## Button group
@@ -2737,6 +2758,7 @@ a[rel~="external"]:before {
     padding-left: $bs-m;
 }
 
+
 .list-styled {
     @extend %list-styled;
     list-style: circle;
@@ -2778,6 +2800,12 @@ a[rel~="external"]:before {
     }
 }
 
+.list-plain {
+    margin-top: $bs-xs;
+    list-style: none;
+    margin-bottom:0;
+    padding-left:0;
+}
 
 
 /**

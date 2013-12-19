@@ -13,11 +13,27 @@
 */
 
 // Unicode space added since inline-block means non-collapsing white-space
-.breadcrumbs {
+%breadcrumbs {
     > li {
-        @extend %inline-block; /* This extend is found in core */
+        @extend %inline-block;
+    }
+}
+
+.breadcrumbs {
+    @extend %breadcrumbs;
+    > li {
         &+li:before {
             content: "/\00a0";
+            padding: 0 $bs-xxxs;
+        }
+    }
+}
+
+.breadcrumbs--arrow {
+    @extend %breadcrumbs;
+    > li {
+        &+li:before {
+            content: "» ";
             padding: 0 $bs-xxxs;
         }
     }

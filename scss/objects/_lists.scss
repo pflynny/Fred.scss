@@ -94,6 +94,7 @@
     padding-left: $bs-m;
 }
 
+
 .list-styled {
     @extend %list-styled;
     list-style: circle;
@@ -135,6 +136,12 @@
     }
 }
 
+.list-plain {
+    margin-top: $bs-xs;
+    list-style: none;
+    margin-bottom:0;
+    padding-left:0;
+}
 
 
 /**

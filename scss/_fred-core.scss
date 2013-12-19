@@ -371,7 +371,13 @@ table {
     *zoom: 1;
 }
 
-.inline-block { @extend %inline-block; }
+.inline-block { @extend %inline-block;}
+
+%block-element {
+    display: block;
+}
+
+.block-element { @extend %block-element;}
 
 %border {
     border-width: 1px;
