@@ -2295,11 +2295,8 @@ You just need to add an extra suffix onto the classes which relates to the break
     }
 }
 
-    .grid > *  {
-        @extend .grid__item;
-    }
-
     // Font-size medium reset the block to the context of body (ie, 16px)
+    .grid > *,
     .grid__item {
         @extend %inline-block; // This extend is found in core
         @extend %align--top; // This extend is found in core
@@ -2307,6 +2304,7 @@ You just need to add an extra suffix onto the classes which relates to the break
         font-size: medium;
 
     }
+
 
     .grid:after,
     .grid__break {
@@ -2717,18 +2715,17 @@ a[rel~="external"]:before {
 <ul>
 ```
 
-
 */
 
 .list-unstyled {
     list-style: none;
-    margin: 0 0 0 0;
+    margin-bottom: 0;
     padding-left: 0;
 }
 
     .list-unstyled > li {
         list-style: none;
-        margin: 0;
+//        margin: 0;    // There isn't usually a margin set on li's...
     }
 
     .list--inline {
@@ -2770,12 +2767,12 @@ a[rel~="external"]:before {
 
 
 .list-dashed {
-    margin-left:1em;
-    margin-top:0;
+    margin-left: 1em;
+    margin-top: 0;
     @extend %list-styled;
 
     & > li {
-        text-indent:-0.5em;
+        text-indent: -0.5em;
 
         & > * {
             text-indent: 0;
@@ -2792,8 +2789,8 @@ a[rel~="external"]:before {
 .list-plain {
     margin-top: $bs-xs;
     list-style: none;
-    margin-bottom:0;
-    padding-left:0;
+    margin-bottom: 0;
+    padding-left: 0;
 }
 
 

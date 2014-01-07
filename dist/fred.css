@@ -183,7 +183,7 @@ table {
   margin-left: auto;
   margin-right: auto; }
 
-.align--top, .grid__item, .dl-horizontal > dt, .dl-horizontal > dd {
+.align--top, .grid > *, .grid__item, .dl-horizontal > dt, .dl-horizontal > dd {
   vertical-align: top; }
 
 .align--middle, .btn-group, .btn-group-vertical, .btn, .caret, .close:after, .grid--middle > .grid__item, .i {
@@ -199,7 +199,7 @@ table {
 
 
 
-.inline-block, .arrow, .badge, .breadcrumbs > li, .breadcrumbs--arrow > li, .btn-group, .btn-group-vertical, .btn, .caret, .close:after, .grid__item, .grid:after, .grid__break, .icon-text, .icon-text--rev, .list--inline > li, .dl-horizontal:after, .nav > li, .pagination > li, .pill, .text--overflow {
+.inline-block, .arrow, .badge, .breadcrumbs > li, .breadcrumbs--arrow > li, .btn-group, .btn-group-vertical, .btn, .caret, .close:after, .grid > *, .grid__item, .grid:after, .grid__break, .icon-text, .icon-text--rev, .list--inline > li, .dl-horizontal:after, .nav > li, .pagination > li, .pill, .text--overflow {
   display: inline-block;
   *display: inline;
   *zoom: 1; }
@@ -1385,8 +1385,7 @@ You just need to add an extra suffix onto the classes which relates to the break
   .ie8 .grid {
     text-justify: normal; }
 
-
-.grid__item, .grid > * {
+.grid > *, .grid__item {
   font-size: medium; }
 
 .grid:after, .grid__break {
@@ -1970,16 +1969,14 @@ This applies max-width: 100%; and height: auto; to the image so that it scales n
 <ul>
 ```
 
-
 */
 .list-unstyled, .list--inline, .block-list {
   list-style: none;
-  margin: 0 0 0 0;
+  margin-bottom: 0;
   padding-left: 0; }
 
 .list-unstyled > li {
-  list-style: none;
-  margin: 0; }
+  list-style: none; }
 
 .list--inline {
   /* This extend is found in core */ }
@@ -3585,7 +3582,7 @@ Also
 .lowercase {
   text-transform: lowercase; }
 
-.text-left, .grid__item {
+.text-left, .grid > *, .grid__item {
   text-align: left; }
 
 .text-right {

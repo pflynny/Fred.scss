@@ -64,18 +64,17 @@
 <ul>
 ```
 
-
 */
 
 .list-unstyled {
     list-style: none;
-    margin: 0 0 0 0;
+    margin-bottom: 0;
     padding-left: 0;
 }
 
     .list-unstyled > li {
         list-style: none;
-        margin: 0;
+//        margin: 0;    // There isn't usually a margin set on li's...
     }
 
     .list--inline {
@@ -117,12 +116,12 @@
 
 
 .list-dashed {
-    margin-left:1em;
-    margin-top:0;
+    margin-left: 1em;
+    margin-top: 0;
     @extend %list-styled;
 
     & > li {
-        text-indent:-0.5em;
+        text-indent: -0.5em;
 
         & > * {
             text-indent: 0;
@@ -139,8 +138,8 @@
 .list-plain {
     margin-top: $bs-xs;
     list-style: none;
-    margin-bottom:0;
-    padding-left:0;
+    margin-bottom: 0;
+    padding-left: 0;
 }
 
 
