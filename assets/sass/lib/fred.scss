@@ -908,6 +908,7 @@ table {
 }
 
 .inline-block { @extend %inline-block; }
+.block-element { display: block; }
 
 %border {
     border-width: 1px;
@@ -1229,15 +1230,25 @@ arrow in the top left corner of the containing div:
     }
 }
 
+.breadcrumbs--arrow {
+    > li {
+        @extend %inline-block; /* This extend is found in core */
+        &+li:before {
+            content: "» ";
+            padding: 0 $bs-xxxs;
+        }
+    }
+}
 /**
 
 ## Button group
 
+Contain buttons in a horizontal group.
+----------------------------------------------------------------------------
+Borrowed from Twitter Bootstrap and put on a border-radius diet.
+
 */
 
-// Contain buttons in a horizontal group.
-// ----------------------------------------------------------------------------
-// Borrowed from Twitter Bootstrap and put on a border-radius diet.
 
 // Make the div behave like a button
 .btn-group,
@@ -2285,11 +2296,8 @@ You just need to add an extra suffix onto the classes which relates to the break
     }
 }
 
-    .grid > *  {
-        @extend .grid__item;
-    }
-
     // Font-size medium reset the block to the context of body (ie, 16px)
+    .grid > *,
     .grid__item {
         @extend %inline-block; // This extend is found in core
         @extend %align--top; // This extend is found in core
@@ -2297,6 +2305,7 @@ You just need to add an extra suffix onto the classes which relates to the break
         font-size: medium;
 
     }
+
 
     .grid:after,
     .grid__break {
@@ -2707,18 +2716,17 @@ a[rel~="external"]:before {
 <ul>
 ```
 
-
 */
 
 .list-unstyled {
     list-style: none;
-    margin: 0 0 0 0;
+    margin-bottom: 0;
     padding-left: 0;
 }
 
     .list-unstyled > li {
         list-style: none;
-        margin: 0;
+//        margin: 0;    // There isn't usually a margin set on li's...
     }
 
     .list--inline {
@@ -2736,6 +2744,7 @@ a[rel~="external"]:before {
     margin-top: $bs-xs; //same as the margin top on p tags
     padding-left: $bs-m;
 }
+
 
 .list-styled {
     @extend %list-styled;
@@ -2759,12 +2768,12 @@ a[rel~="external"]:before {
 
 
 .list-dashed {
-    margin-left:1em;
-    margin-top:0;
+    margin-left: 1em;
+    margin-top: 0;
     @extend %list-styled;
 
     & > li {
-        text-indent:-0.5em;
+        text-indent: -0.5em;
 
         & > * {
             text-indent: 0;
@@ -2778,6 +2787,12 @@ a[rel~="external"]:before {
     }
 }
 
+.list-plain {
+    margin-top: $bs-xs;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
 
 
 /**
@@ -3305,18 +3320,31 @@ This box will be a square
 @include fred-breakpoint-sizer($fred-padding-breakpoints, $fred-padding-types);
 
 
-// Split
-// ----------------------------------------------------------------------------
-// Simple split item for creating two elements floated away from one another
+
+/**
+
+## Split
+
+Simple split item for creating two elements floated away from one another
+
+```html
+<p class='split'>
+    Item
+    <span class='split__right'>
+        $value
+    </span>
+</p>
+```
+*/
 
 .split {
-    text-align:right;
+    text-align:left;
     list-style:none;
     margin-left:0;
 }
-    .split__left {
-        text-align:left;
-        float:left;
+    .split__right {
+        text-align:right;
+        float:right;
         clear:left;
     }
 /**
@@ -3598,7 +3626,8 @@ Also
     width: 100%;
 }
 
-/*
+/**
+
 ### Blockquotes
 
 ```html
@@ -3610,6 +3639,7 @@ Also
 </div>
 
 ```
+
 */
 .blockquote, 
 blockquote {
@@ -3630,6 +3660,31 @@ blockquote {
   }
 
 }
+
+
+
+/**
+
+### Hiding texts
+
+Handy for hiding texts, that are replaced by images
+
+```html
+<div class="block-s block--color-2">
+    <a class="block-element text--hidden">
+        I'm a hidden text
+    </p>
+</div>
+```
+
+*/
+
+.text--hidden {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 /**
 
 ## Visibility
@@ -3710,10 +3765,7 @@ Try to use these on a limited basis and avoid creating entirely different versio
 
 //Show / Hide this element on a small screen
 @media only screen and (max-width: $breakpoint-small-max) {
-    .visible--q-small,
-    .hidden--q-medium,
-    .hidden--q-large,
-    .hidden--q-xlarge {
+    .visible--q-small {
         display:block;
     }
     .visible--q-medium,
@@ -3727,10 +3779,7 @@ Try to use these on a limited basis and avoid creating entirely different versio
 
 //Show / Hide this element on a medium screen
 @media only screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-medium-max) {
-    .visible--q-medium,
-    .hidden--q-small,
-    .hidden--q-large,
-    .hidden--q-xlarge
+    .visible--q-medium
      {
         display:block
     }
@@ -3744,9 +3793,7 @@ Try to use these on a limited basis and avoid creating entirely different versio
 
 //Show / Hide this element on a large screen
 @media only screen and (min-width:$breakpoint-large) and (max-width: $breakpoint-large-max){
-    .hidden--q-small,
-    .hidden--q-medium,
-    .hidden--q-xlarge,
+
     .visible--q-large {
         display:block
     }
@@ -3761,9 +3808,6 @@ Try to use these on a limited basis and avoid creating entirely different versio
 //Show / Hide this element on a xlarge screen
 @media only screen and (min-width: $breakpoint-xlarge) {
 
-    .hidden--q-small,
-    .hidden--q-medium,
-    .hidden--q-large,
     .visible--q-xlarge {
         display:block
     }
@@ -3780,19 +3824,19 @@ Try to use these on a limited basis and avoid creating entirely different versio
 //Show / Hide this element on a medium and small screen
 @media only screen and (max-width: $breakpoint-medium-max) {
     .visible--q-medium-down {
-        display:block;
+        display: block;
     }
     .hidden--q-medium-down {
-        display:none;
+        display: none;
     }
 }
 
 @media only screen and (min-width: $breakpoint-large ) {
-    .visible--q-medium-down {
-        display:none;
+    .visible--q-large-down {
+        display: block;
     }
-    .hidden--q-medium-down {
-        display:block;
+    .hidden--q-large-down {
+        display: none;
     }
 }
 
@@ -3807,23 +3851,16 @@ Try to use these on a limited basis and avoid creating entirely different versio
 }
 
 @media only screen and (max-width: $breakpoint-small-max) {
-    .visible--q-medium-up {
-        display:none;
+    .hidden--q-small-down {
+        display: none;
     }
-    .hidden--q-medium-up {
-        display:block;
+    .visible--q-small-down {
+        display: block;
     }
 }
 
 //Show / Hide this element on a large and xlarge screen
-@media only screen and (max-width: $breakpoint-medium-max) {
-    .visible--q-large-up {
-        display:none;
-    }
-    .hidden--q-large-up {
-        display:block;
-    }
-}
+
 
 @media only screen and (min-width: $breakpoint-large ) {
     .visible--q-large-up {

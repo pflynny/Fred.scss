@@ -139,6 +139,10 @@ arrow in the top left corner of the containing div:
 
 ## Button group
 
+Contain buttons in a horizontal group.
+----------------------------------------------------------------------------
+Borrowed from Twitter Bootstrap and put on a border-radius diet.
+
 
 
 
@@ -733,7 +737,6 @@ This applies max-width: 100%; and height: auto; to the image so that it scales n
 
 
 
-
 ### Block list
 
 Throws a list into a vertical stack. Handy for things like navigation.
@@ -952,6 +955,21 @@ This box will be a square
 
 
 
+## Split
+
+Simple split item for creating two elements floated away from one another
+
+```html
+<p class='split'>
+    Item
+    <span class='split__right'>
+        $value
+    </span>
+</p>
+```
+
+
+
 ## Typography
 
 
@@ -1019,6 +1037,36 @@ Also
 * .text-right
 * .text-center
 * .text-nowrap
+
+
+
+
+### Blockquotes
+
+```html
+<div class="blockquote">
+    <p class="lowercase">
+        I'm a quote
+    </p>
+    <cite class='text-right block-element mt-s'>- Fred</cite>
+</div>
+
+```
+
+
+
+
+### Hiding texts
+
+Handy for hiding texts, that are replaced by images
+
+```html
+<div class="block-s block--color-2">
+    <a class="block-element text--hidden">
+        I'm a hidden text
+    </p>
+</div>
+```
 
 
 
