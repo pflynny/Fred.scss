@@ -35,3 +35,9 @@ The `_fred-theme.scss` is copied into your sass directory and included by `lib/f
 ```
 
 Now you can tweak away, while still being able to update Fred without nuking all your hard work.
+
+## Documentation
+
+
+
+Please also read [Fred's documentation](http://springload.github.io/Fred.scss/).
