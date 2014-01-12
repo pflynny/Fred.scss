@@ -551,6 +551,10 @@ arrow in the top left corner of the containing div:
 
 ## Button group
 
+Contain buttons in a horizontal group.
+----------------------------------------------------------------------------
+Borrowed from Twitter Bootstrap and put on a border-radius diet.
+
 */
 .btn-group > .btn:hover, .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active, .btn-group-vertical > .btn:hover, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn.active {
   z-index: 2; }
@@ -3600,7 +3604,8 @@ Also
   white-space: nowrap;
   width: 100%; }
 
-/*
+/**
+
 ### Blockquotes
 
 ```html
@@ -3612,6 +3617,7 @@ Also
 </div>
 
 ```
+
 */
 .blockquote, blockquote {
   text-indent: -0.6em; }
@@ -3623,6 +3629,26 @@ Also
     content: "\201C"; }
   .blockquote p:last-of-type:after, blockquote p:last-of-type:after {
     content: "\201D"; }
+
+/**
+
+### Hiding texts
+
+Handy for hiding texts, that are replaced by images
+
+```html
+<div class="block-s block--color-2">
+    <a class="block-element text--hidden">
+        I'm a hidden text
+    </p>
+</div>
+```
+
+*/
+.text--hidden {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden; }
 
 /**
 
@@ -3696,25 +3722,25 @@ Try to use these on a limited basis and avoid creating entirely different versio
   position: absolute; }
 
 @media only screen and (max-width: 47.99em) {
-  .visible--q-small, .hidden--q-medium, .hidden--q-large, .hidden--q-xlarge {
+  .visible--q-small {
     display: block; }
   .visible--q-medium, .visible--q-large, .visible--q-xlarge, .hidden--q-small {
     display: none; } }
 
 @media only screen and (min-width: 48em) and (max-width: 59.99em) {
-  .visible--q-medium, .hidden--q-small, .hidden--q-large, .hidden--q-xlarge {
+  .visible--q-medium {
     display: block; }
   .hidden--q-medium, .visible--q-small, .visible--q-large, .visible--q-xlarge {
     display: none; } }
 
 @media only screen and (min-width: 60em) and (max-width: 74.99em) {
-  .hidden--q-small, .hidden--q-medium, .hidden--q-xlarge, .visible--q-large {
+  .visible--q-large {
     display: block; }
   .hidden--q-large, .visible--q-small, .visible--q-medium, .visible--q-xlarge {
     display: none; } }
 
 @media only screen and (min-width: 75em) {
-  .hidden--q-small, .hidden--q-medium, .hidden--q-large, .visible--q-xlarge {
+  .visible--q-xlarge {
     display: block; }
   .hidden--q-xlarge, .visible--q-small, .visible--q-medium, .visible--q-large {
     display: none; } }
@@ -3726,10 +3752,10 @@ Try to use these on a limited basis and avoid creating entirely different versio
     display: none; } }
 
 @media only screen and (min-width: 60em) {
-  .visible--q-medium-down {
-    display: none; }
-  .hidden--q-medium-down {
-    display: block; } }
+  .visible--q-large-down {
+    display: block; }
+  .hidden--q-large-down {
+    display: none; } }
 
 @media only screen and (min-width: 48em) {
   .visible--q-medium-up {
@@ -3738,15 +3764,9 @@ Try to use these on a limited basis and avoid creating entirely different versio
     display: none; } }
 
 @media only screen and (max-width: 47.99em) {
-  .visible--q-medium-up {
+  .hidden--q-small-down {
     display: none; }
-  .hidden--q-medium-up {
-    display: block; } }
-
-@media only screen and (max-width: 59.99em) {
-  .visible--q-large-up {
-    display: none; }
-  .hidden--q-large-up {
+  .visible--q-small-down {
     display: block; } }
 
 @media only screen and (min-width: 60em) {

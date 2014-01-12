@@ -277,7 +277,8 @@ Also
     width: 100%;
 }
 
-/*
+/**
+
 ### Blockquotes
 
 ```html
@@ -289,6 +290,7 @@ Also
 </div>
 
 ```
+
 */
 .blockquote, 
 blockquote {
@@ -308,4 +310,28 @@ blockquote {
     content:"#{$close-quote}";
   }
 
+}
+
+
+
+/**
+
+### Hiding texts
+
+Handy for hiding texts, that are replaced by images
+
+```html
+<div class="block-s block--color-2">
+    <a class="block-element text--hidden">
+        I'm a hidden text
+    </p>
+</div>
+```
+
+*/
+
+.text--hidden {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
 }
