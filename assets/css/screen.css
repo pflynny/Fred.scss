@@ -324,7 +324,7 @@ table {
 
 
 
-.inline-block, .arrow, .badge, .breadcrumbs > li, .breadcrumbs--arrow > li, .btn-group, .btn-group-vertical, .btn, .caret, .close:after, .grid > *, .grid__item, .grid:after, .grid__break, .icon-text, .icon-text--rev, .list--inline > li, .dl-horizontal:after, .nav > li, .pagination > li, .pill, .text--overflow {
+.inline-block, .arrow, .badge, .breadcrumbs > li, .breadcrumbs--arrow > li, .btn-group, .btn-group-vertical, .btn, .caret, .close:after, .grid > *, .grid__item, .grid:after, .grid__break, .icon-text .i, .btn--icon .i, .icon-text--rev .i, .btn--icon-rev .i, .list--inline > li, .dl-horizontal:after, .nav > li, .pagination > li, .pill, .text--overflow {
   display: inline-block;
   *display: inline;
   *zoom: 1; }
@@ -1939,18 +1939,15 @@ Fred doesn't mind what grid you use :).
 ```
 
 */
-.icon-text, .icon-text--rev {
-  /* a, div, etc */
-  /* This extend is found in core */ }
-
 .i {
   overflow: hidden;
-  /* for IE6 */
-  /* SMACSS line-height: 0; ? */ }
+  /* for IE6 */ }
   .icon-text .i, .btn--icon .i {
-    margin-right: 0.5em; }
+    margin-right: 0.5em;
+    /* This extend is found in core */ }
   .icon-text--rev .i, .btn--icon-rev .i {
-    margin-left: 0.5em; }
+    margin-left: 0.5em;
+    /* This extend is found in core */ }
 
 /**
 
@@ -3568,34 +3565,44 @@ html, body {
   font-family: 'SourceCodePro-Medium', 'georgia', serif; }
 
 .font-size-xxxxl, .h0 {
-  font-size: 4.5em; }
+  font-size: 72px;
+  font-size: 4.5rem; }
 
 .font-size-xxxl, h1, .h1 {
-  font-size: 1.25em; }
+  font-size: 20px;
+  font-size: 1.25rem; }
 
 .font-size-xxl, h2, .h2 {
-  font-size: 1.25em; }
+  font-size: 20px;
+  font-size: 1.25rem; }
 
 .font-size-xl, h3, .h3 {
-  font-size: 1em; }
+  font-size: 16px;
+  font-size: 1rem; }
 
 .font-size-l, h4, .h4 {
-  font-size: 1em; }
+  font-size: 16px;
+  font-size: 1rem; }
 
 .font-size-m, h5, .h5, .pullquote {
-  font-size: 1em; }
+  font-size: 16px;
+  font-size: 1rem; }
 
 .font-size-s, h6, .h6, .intro {
-  font-size: 1em; }
+  font-size: 16px;
+  font-size: 1rem; }
 
 .font-size-xs, p, .text, li, code, dt, dd {
-  font-size: 0.9375em; }
+  font-size: 15px;
+  font-size: 0.9375rem; }
 
 .font-size-xxs, .small, .caption {
-  font-size: 0.75em; }
+  font-size: 12px;
+  font-size: 0.75rem; }
 
 .font-size-xxxs, .tiny {
-  font-size: 0.6875em; }
+  font-size: 11px;
+  font-size: 0.6875rem; }
 
 
 /**
@@ -3760,26 +3767,6 @@ Also
 
 /**
 
-### Hiding texts
-
-Handy for hiding texts, that are replaced by images
-
-```html
-<div class="block-s block--color-2">
-    <a class="block-element text--hidden">
-        I'm a hidden text
-    </p>
-</div>
-```
-
-*/
-.text--hidden {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden; }
-
-/**
-
 ## Visibility
 
 ### Hidden
@@ -3839,6 +3826,26 @@ Try to use these on a limited basis and avoid creating entirely different versio
 ```
 
 */
+/**
+
+### Hiding texts
+
+Hide a text that is replaced by an image
+
+```html
+<div class="block-s block--color-2">
+    <a class="block-element text--hidden">
+        I'm a hidden text
+    </p>
+</div>
+```
+
+*/
+.text--visually-hidden {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden; }
+
 .visually-hidden {
   clip: rect(0 0 0 0);
   height: 1px;
@@ -3852,55 +3859,93 @@ Try to use these on a limited basis and avoid creating entirely different versio
 @media only screen and (max-width: 47.99em) {
   .visible--q-small {
     display: block; }
-  .visible--q-medium, .visible--q-large, .visible--q-xlarge, .hidden--q-small {
-    display: none; } }
+    .visible--q-small.inline {
+      display: inline; }
+  .visible--q-medium, .visible--q-large, .visible--q-xlarge {
+    display: none; }
+  .hidden--q-small {
+    display: none !important; } }
 
 @media only screen and (min-width: 48em) and (max-width: 59.99em) {
   .visible--q-medium {
     display: block; }
-  .hidden--q-medium, .visible--q-small, .visible--q-large, .visible--q-xlarge {
-    display: none; } }
+    .visible--q-medium.inline {
+      display: inline; }
+  .visible--q-small, .visible--q-large, .visible--q-xlarge {
+    display: none; }
+  .hidden--q-medium {
+    display: none !important; } }
 
 @media only screen and (min-width: 60em) and (max-width: 74.99em) {
   .visible--q-large {
     display: block; }
-  .hidden--q-large, .visible--q-small, .visible--q-medium, .visible--q-xlarge {
-    display: none; } }
+    .visible--q-large.inline {
+      display: inline; }
+  .visible--q-small, .visible--q-medium, .visible--q-xlarge {
+    display: none; }
+  .hidden--q-large {
+    display: none !important; } }
 
 @media only screen and (min-width: 75em) {
   .visible--q-xlarge {
     display: block; }
-  .hidden--q-xlarge, .visible--q-small, .visible--q-medium, .visible--q-large {
-    display: none; } }
+    .visible--q-xlarge.inline {
+      display: inline; }
+  .visible--q-small, .visible--q-medium, .visible--q-large {
+    display: none; }
+  .hidden--q-xlarge {
+    display: none !important; } }
+
+@media only screen and (max-width: 47.99em) {
+  .visible--q-small-down {
+    display: block; }
+    .visible--q-small-down.inline {
+      display: inline; }
+  .visible--q-medium-up {
+    display: none; }
+  .hidden--q-small-down {
+    display: none !important; } }
 
 @media only screen and (max-width: 59.99em) {
   .visible--q-medium-down {
     display: block; }
+    .visible--q-medium-down.inline {
+      display: inline; }
+  .visible--q-large-up {
+    display: none; }
   .hidden--q-medium-down {
-    display: none; } }
-
-@media only screen and (min-width: 60em) {
-  .visible--q-large-down {
-    display: block; }
-  .hidden--q-large-down {
-    display: none; } }
+    display: none !important; } }
 
 @media only screen and (min-width: 48em) {
   .visible--q-medium-up {
     display: block; }
-  .hidden--q-medium-up {
-    display: none; } }
-
-@media only screen and (max-width: 47.99em) {
-  .hidden--q-small-down {
-    display: none; }
+    .visible--q-medium-up.inline {
+      display: inline; }
   .visible--q-small-down {
-    display: block; } }
+    display: none; }
+  .hidden--q-medium-up {
+    display: none !important; } }
+
+@media only screen and (max-width: 74.99em) {
+  .visible--q-large-down {
+    display: block; }
+    .visible--q-large-down.inline {
+      display: inline; }
+  .hidden--q-large-down {
+    display: none !important; } }
 
 @media only screen and (min-width: 60em) {
   .visible--q-large-up {
     display: block; }
+    .visible--q-large-up.inline {
+      display: inline; }
+  .visible--q-medium-down {
+    display: none; }
   .hidden--q-large-up {
+    display: none !important; } }
+
+@media only screen and (min-width: 75em) {
+  .visible--q-large-down {
     display: none; } }
 
 /*

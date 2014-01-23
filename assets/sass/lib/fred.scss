@@ -416,8 +416,13 @@ $block-quote-indent:-0.6em;
   font-style: $font-style;
 }
 
+// font-size in px and rem units
+@mixin font-size($size-in-px) {
+    font-size: #{$size-in-px}px; font-size: pxrem($size-in-px);
+}
 
-// Translate pixels to ems, given a base size.
+
+// Translate pixels to (r)ems, given a base size.
 // By default, assume the base size is 16px (body font size)
 @function px-to-em($size, $context: 16) {
     @return #{($size / $context)}em;
@@ -425,6 +430,10 @@ $block-quote-indent:-0.6em;
 
 @function pxem($size, $context: 16) {
     @return #{($size / $context)}em;
+}
+
+@function pxrem($size, $context: 16) {
+    @return #{($size / $context)}rem;
 }
 
 
@@ -2522,23 +2531,25 @@ Fred doesn't mind what grid you use :).
 
 */
 
-.icon-text,
-.icon-text--rev{/* a, div, etc */
-    @extend %inline-block; /* This extend is found in core */
-}
+//.icon-text,
+//.icon-text--rev{/* a, div, etc */
+//    @extend %inline-block; /* This extend is found in core */
+//}
 
 .i{
     @extend %align--middle; //in core 
     overflow: hidden; /* for IE6 */
-    /* SMACSS line-height: 0; ? */
+    // SMACSS line-height: 0; ?
     .icon-text &,
-    .btn--icon &{
+    .btn--icon & {
         margin-right: $base-spacing-unit/3;
+        @extend %inline-block; /* This extend is found in core */
     }
 
     .icon-text--rev &,
     .btn--icon-rev &{
         margin-left: $base-spacing-unit/3;
+        @extend %inline-block; /* This extend is found in core */
     }
 }
 
@@ -3425,16 +3436,16 @@ body {
 .sans       { font-family:$sans-serif-stack; }
 .serif      { font-family:$serif-stack; }
 
-.font-size-xxxxl                { font-size: px-to-em($font-size-xxxxl);}
-.font-size-xxxl                 { font-size: px-to-em($font-size-xxxl);}
-.font-size-xxl                  { font-size: px-to-em($font-size-xxl);}
-.font-size-xl                   { font-size: px-to-em($font-size-xl);}
-.font-size-l                    { font-size: px-to-em($font-size-l);}
-.font-size-m                    { font-size: px-to-em($font-size-m);}
-.font-size-s                    { font-size: px-to-em($font-size-s);}
-.font-size-xs                   { font-size: px-to-em($font-size-xs);}
-.font-size-xxs                  { font-size: px-to-em($font-size-xxs);}
-.font-size-xxxs                 { font-size: px-to-em($font-size-xxxs);}
+.font-size-xxxxl                { @include font-size($font-size-xxxxl); }
+.font-size-xxxl                 { @include font-size($font-size-xxxl); }
+.font-size-xxl                  { @include font-size($font-size-xxl); }
+.font-size-xl                   { @include font-size($font-size-xl); }
+.font-size-l                    { @include font-size($font-size-l); }
+.font-size-m                    { @include font-size($font-size-m); }
+.font-size-s                    { @include font-size($font-size-s); }
+.font-size-xs                   { @include font-size($font-size-xs); }
+.font-size-xxs                  { @include font-size($font-size-xxs); }
+.font-size-xxxs                 { @include font-size($font-size-xxxs); }
 
 
 // Headings
@@ -3663,27 +3674,6 @@ blockquote {
 
 
 
-/**
-
-### Hiding texts
-
-Handy for hiding texts, that are replaced by images
-
-```html
-<div class="block-s block--color-2">
-    <a class="block-element text--hidden">
-        I'm a hidden text
-    </p>
-</div>
-```
-
-*/
-
-.text--hidden {
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-}
 
 /**
 
@@ -3747,6 +3737,29 @@ Try to use these on a limited basis and avoid creating entirely different versio
 
 */
 
+/**
+
+### Hiding texts
+
+Hide a text that is replaced by an image
+
+```html
+<div class="block-s block--color-2">
+    <a class="block-element text--hidden">
+        I'm a hidden text
+    </p>
+</div>
+```
+
+*/
+
+.text--visually-hidden {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
 
 // Hide an element, but make it visible to screen readers
 // ----------------------------------------------------------------------------
@@ -3760,6 +3773,7 @@ Try to use these on a limited basis and avoid creating entirely different versio
 }
 
 
+
 // Common visible and hidden classes
 // ----------------------------------------------------------------------------
 
@@ -3767,27 +3781,36 @@ Try to use these on a limited basis and avoid creating entirely different versio
 @media only screen and (max-width: $breakpoint-small-max) {
     .visible--q-small {
         display:block;
+        &.inline {
+            display: inline;
+        }
     }
     .visible--q-medium,
     .visible--q-large,
-    .visible--q-xlarge,
-    .hidden--q-small {
+    .visible--q-xlarge {
         display: none;
+    }
+    .hidden--q-small {
+        display: none !important;
     }
 
 }
 
 //Show / Hide this element on a medium screen
 @media only screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-medium-max) {
-    .visible--q-medium
-     {
-        display:block
+    .visible--q-medium {
+        display:block;
+        &.inline {
+            display: inline;
+        }
     }
-    .hidden--q-medium,
     .visible--q-small,
     .visible--q-large,
     .visible--q-xlarge {
         display: none;
+    }
+    .hidden--q-medium {
+        display: none !important;
     }
 }
 
@@ -3795,13 +3818,18 @@ Try to use these on a limited basis and avoid creating entirely different versio
 @media only screen and (min-width:$breakpoint-large) and (max-width: $breakpoint-large-max){
 
     .visible--q-large {
-        display:block
+        display:block;
+        &.inline {
+            display: inline;
+        }
     }
-    .hidden--q-large,
     .visible--q-small,
     .visible--q-medium,
     .visible--q-xlarge {
         display: none;
+    }
+    .hidden--q-large {
+        display: none !important;
     }
 }
 
@@ -3809,64 +3837,108 @@ Try to use these on a limited basis and avoid creating entirely different versio
 @media only screen and (min-width: $breakpoint-xlarge) {
 
     .visible--q-xlarge {
-        display:block
+        display:block;
+        &.inline {
+            display: inline;
+        }
     }
 
-    .hidden--q-xlarge,
     .visible--q-small,
     .visible--q-medium,
     .visible--q-large {
         display: none;
     }
+    .hidden--q-xlarge {
+        display: none !important;
+    }
 }
 
 // or do you just include skinny and mobile classes class='visible--q-small visible--q-medium'
-//Show / Hide this element on a medium and small screen
+
+//Show / Hide this element on a small screen and down
+@media only screen and (max-width: $breakpoint-small-max) {
+    .visible--q-small-down {
+        display: block;
+        &.inline {
+            display: inline;
+        }
+    }
+    .visible--q-medium-up {
+        display: none;
+    }
+    .hidden--q-small-down {
+        display: none !important;
+    }
+}
+
+
+//Show / Hide this element on a medium screen and down
 @media only screen and (max-width: $breakpoint-medium-max) {
     .visible--q-medium-down {
         display: block;
+        &.inline {
+            display: inline;
+        }
+    }
+    .visible--q-large-up {
+        display: none;
     }
     .hidden--q-medium-down {
-        display: none;
+        display: none !important;
     }
 }
-
-@media only screen and (min-width: $breakpoint-large ) {
-    .visible--q-large-down {
-        display: block;
-    }
-    .hidden--q-large-down {
-        display: none;
-    }
-}
-
-//Show / Hide this element on a medium, large and xlarge screen
+//Show / Hide this element on a medium screen and up
 @media only screen and (min-width: $breakpoint-medium) {
     .visible--q-medium-up {
-        display:block;
-    }
-    .hidden--q-medium-up {
-        display:none;
-    }
-}
-
-@media only screen and (max-width: $breakpoint-small-max) {
-    .hidden--q-small-down {
-        display: none;
+        display: block;
+        &.inline {
+            display: inline;
+        }
     }
     .visible--q-small-down {
-        display: block;
+        display: none;
+    }
+    .hidden--q-medium-up {
+        display: none !important;
     }
 }
 
-//Show / Hide this element on a large and xlarge screen
 
+//Show / Hide this element on a large screen and down
+@media only screen and (max-width: $breakpoint-large-max ) {
+    .visible--q-large-down {
+        display: block;
+        &.inline {
+            display: inline;
+        }
+    }
+    .hidden--q-large-down {
+        display: none !important;
+    }
+}
 
+//Show / Hide this element on a large screen and up
 @media only screen and (min-width: $breakpoint-large ) {
     .visible--q-large-up {
-        display:block;
+        display: block;
+        &.inline {
+            display: inline;
+        }
+    }
+    .visible--q-medium-down {
+        display: none;
     }
     .hidden--q-large-up {
-        display:none;
+        display: none !important;
     }
 }
+
+
+//Show / Hide this element on a xlarge screen and up
+@media only screen and (min-width: $breakpoint-xlarge ) {
+    .visible--q-large-down {
+        display: none;
+    }
+}
+
+

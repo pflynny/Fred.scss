@@ -1056,21 +1056,6 @@ Also
 
 
 
-### Hiding texts
-
-Handy for hiding texts, that are replaced by images
-
-```html
-<div class="block-s block--color-2">
-    <a class="block-element text--hidden">
-        I'm a hidden text
-    </p>
-</div>
-```
-
-
-
-
 ## Visibility
 
 ### Hidden
@@ -1126,6 +1111,21 @@ Try to use these on a limited basis and avoid creating entirely different versio
 </div>
 <div class='block-s block--color-1 visible--q-xlarge'>
     show this block on a xlarge screen
+</div>
+```
+
+
+
+
+### Hiding texts
+
+Hide a text that is replaced by an image
+
+```html
+<div class="block-s block--color-2">
+    <a class="block-element text--hidden">
+        I'm a hidden text
+    </p>
 </div>
 ```
 
