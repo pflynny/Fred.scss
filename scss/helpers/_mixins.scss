@@ -89,8 +89,13 @@
   font-style: $font-style;
 }
 
+// font-size in px and rem units
+@mixin font-size($size-in-px) {
+    font-size: #{$size-in-px}px; font-size: pxrem($size-in-px);
+}
 
-// Translate pixels to ems, given a base size.
+
+// Translate pixels to (r)ems, given a base size.
 // By default, assume the base size is 16px (body font size)
 @function px-to-em($size, $context: 16) {
     @return #{($size / $context)}em;
@@ -98,6 +103,10 @@
 
 @function pxem($size, $context: 16) {
     @return #{($size / $context)}em;
+}
+
+@function pxrem($size, $context: 16) {
+    @return #{($size / $context)}rem;
 }
 
 

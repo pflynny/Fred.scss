@@ -76,16 +76,16 @@ body {
 .sans       { font-family:$sans-serif-stack; }
 .serif      { font-family:$serif-stack; }
 
-.font-size-xxxxl                { font-size: px-to-em($font-size-xxxxl);}
-.font-size-xxxl                 { font-size: px-to-em($font-size-xxxl);}
-.font-size-xxl                  { font-size: px-to-em($font-size-xxl);}
-.font-size-xl                   { font-size: px-to-em($font-size-xl);}
-.font-size-l                    { font-size: px-to-em($font-size-l);}
-.font-size-m                    { font-size: px-to-em($font-size-m);}
-.font-size-s                    { font-size: px-to-em($font-size-s);}
-.font-size-xs                   { font-size: px-to-em($font-size-xs);}
-.font-size-xxs                  { font-size: px-to-em($font-size-xxs);}
-.font-size-xxxs                 { font-size: px-to-em($font-size-xxxs);}
+.font-size-xxxxl                { @include font-size($font-size-xxxxl); }
+.font-size-xxxl                 { @include font-size($font-size-xxxl); }
+.font-size-xxl                  { @include font-size($font-size-xxl); }
+.font-size-xl                   { @include font-size($font-size-xl); }
+.font-size-l                    { @include font-size($font-size-l); }
+.font-size-m                    { @include font-size($font-size-m); }
+.font-size-s                    { @include font-size($font-size-s); }
+.font-size-xs                   { @include font-size($font-size-xs); }
+.font-size-xxs                  { @include font-size($font-size-xxs); }
+.font-size-xxxs                 { @include font-size($font-size-xxxs); }
 
 
 // Headings
@@ -314,24 +314,3 @@ blockquote {
 
 
 
-/**
-
-### Hiding texts
-
-Handy for hiding texts, that are replaced by images
-
-```html
-<div class="block-s block--color-2">
-    <a class="block-element text--hidden">
-        I'm a hidden text
-    </p>
-</div>
-```
-
-*/
-
-.text--hidden {
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-}
