@@ -1662,89 +1662,201 @@ Fred doesn't mind what grid you use :).
     width: 100%; } }
 
 .grid--1-col > * {
+  padding-right: 2em;
   width: 100%; }
 
+.grid--1-col > *:nth-child(1n) {
+  padding-right: 0; }
+
 .grid--2-col > * {
+  padding-right: 2em;
   width: 50%; }
 
+.grid--2-col > *:nth-child(2n) {
+  padding-right: 0; }
+
 .grid--3-col > * {
+  padding-right: 2em;
   width: 33.33333%; }
 
+.grid--3-col > *:nth-child(3n) {
+  padding-right: 0; }
+
 .grid--4-col > * {
+  padding-right: 2em;
   width: 25%; }
 
+.grid--4-col > *:nth-child(4n) {
+  padding-right: 0; }
+
 .grid--5-col > * {
+  padding-right: 2em;
   width: 20%; }
 
+.grid--5-col > *:nth-child(5n) {
+  padding-right: 0; }
+
 .grid--6-col > * {
+  padding-right: 2em;
   width: 16.66667%; }
 
+.grid--6-col > *:nth-child(6n) {
+  padding-right: 0; }
+
 .grid--8-col > * {
+  padding-right: 2em;
   width: 12.5%; }
+
+.grid--8-col > *:nth-child(8n) {
+  padding-right: 0; }
 
 @media only screen {
   .grid--1-col--q-small > * {
+    padding-right: 2em;
     width: 100%; }
+  .grid--1-col--q-small > *:nth-child(1n) {
+    padding-right: 0; }
   .grid--2-col--q-small > * {
+    padding-right: 2em;
     width: 50%; }
+  .grid--2-col--q-small > *:nth-child(2n) {
+    padding-right: 0; }
   .grid--3-col--q-small > * {
+    padding-right: 2em;
     width: 33.33333%; }
+  .grid--3-col--q-small > *:nth-child(3n) {
+    padding-right: 0; }
   .grid--4-col--q-small > * {
+    padding-right: 2em;
     width: 25%; }
+  .grid--4-col--q-small > *:nth-child(4n) {
+    padding-right: 0; }
   .grid--5-col--q-small > * {
+    padding-right: 2em;
     width: 20%; }
+  .grid--5-col--q-small > *:nth-child(5n) {
+    padding-right: 0; }
   .grid--6-col--q-small > * {
+    padding-right: 2em;
     width: 16.66667%; }
+  .grid--6-col--q-small > *:nth-child(6n) {
+    padding-right: 0; }
   .grid--8-col--q-small > * {
-    width: 12.5%; } }
+    padding-right: 2em;
+    width: 12.5%; }
+  .grid--8-col--q-small > *:nth-child(8n) {
+    padding-right: 0; } }
 
 @media only screen and (min-width: 48em) {
   .grid--1-col--q-medium > * {
+    padding-right: 2em;
     width: 100%; }
+  .grid--1-col--q-medium > *:nth-child(1n) {
+    padding-right: 0; }
   .grid--2-col--q-medium > * {
+    padding-right: 2em;
     width: 50%; }
+  .grid--2-col--q-medium > *:nth-child(2n) {
+    padding-right: 0; }
   .grid--3-col--q-medium > * {
+    padding-right: 2em;
     width: 33.33333%; }
+  .grid--3-col--q-medium > *:nth-child(3n) {
+    padding-right: 0; }
   .grid--4-col--q-medium > * {
+    padding-right: 2em;
     width: 25%; }
+  .grid--4-col--q-medium > *:nth-child(4n) {
+    padding-right: 0; }
   .grid--5-col--q-medium > * {
+    padding-right: 2em;
     width: 20%; }
+  .grid--5-col--q-medium > *:nth-child(5n) {
+    padding-right: 0; }
   .grid--6-col--q-medium > * {
+    padding-right: 2em;
     width: 16.66667%; }
+  .grid--6-col--q-medium > *:nth-child(6n) {
+    padding-right: 0; }
   .grid--8-col--q-medium > * {
-    width: 12.5%; } }
+    padding-right: 2em;
+    width: 12.5%; }
+  .grid--8-col--q-medium > *:nth-child(8n) {
+    padding-right: 0; } }
 
 @media only screen and (min-width: 60em) {
   .grid--1-col--q-large > * {
+    padding-right: 2em;
     width: 100%; }
+  .grid--1-col--q-large > *:nth-child(1n) {
+    padding-right: 0; }
   .grid--2-col--q-large > * {
+    padding-right: 2em;
     width: 50%; }
+  .grid--2-col--q-large > *:nth-child(2n) {
+    padding-right: 0; }
   .grid--3-col--q-large > * {
+    padding-right: 2em;
     width: 33.33333%; }
+  .grid--3-col--q-large > *:nth-child(3n) {
+    padding-right: 0; }
   .grid--4-col--q-large > * {
+    padding-right: 2em;
     width: 25%; }
+  .grid--4-col--q-large > *:nth-child(4n) {
+    padding-right: 0; }
   .grid--5-col--q-large > * {
+    padding-right: 2em;
     width: 20%; }
+  .grid--5-col--q-large > *:nth-child(5n) {
+    padding-right: 0; }
   .grid--6-col--q-large > * {
+    padding-right: 2em;
     width: 16.66667%; }
+  .grid--6-col--q-large > *:nth-child(6n) {
+    padding-right: 0; }
   .grid--8-col--q-large > * {
-    width: 12.5%; } }
+    padding-right: 2em;
+    width: 12.5%; }
+  .grid--8-col--q-large > *:nth-child(8n) {
+    padding-right: 0; } }
 
 @media only screen and (min-width: 75em) {
   .grid--1-col--q-xlarge > * {
+    padding-right: 2em;
     width: 100%; }
+  .grid--1-col--q-xlarge > *:nth-child(1n) {
+    padding-right: 0; }
   .grid--2-col--q-xlarge > * {
+    padding-right: 2em;
     width: 50%; }
+  .grid--2-col--q-xlarge > *:nth-child(2n) {
+    padding-right: 0; }
   .grid--3-col--q-xlarge > * {
+    padding-right: 2em;
     width: 33.33333%; }
+  .grid--3-col--q-xlarge > *:nth-child(3n) {
+    padding-right: 0; }
   .grid--4-col--q-xlarge > * {
+    padding-right: 2em;
     width: 25%; }
+  .grid--4-col--q-xlarge > *:nth-child(4n) {
+    padding-right: 0; }
   .grid--5-col--q-xlarge > * {
+    padding-right: 2em;
     width: 20%; }
+  .grid--5-col--q-xlarge > *:nth-child(5n) {
+    padding-right: 0; }
   .grid--6-col--q-xlarge > * {
+    padding-right: 2em;
     width: 16.66667%; }
+  .grid--6-col--q-xlarge > *:nth-child(6n) {
+    padding-right: 0; }
   .grid--8-col--q-xlarge > * {
-    width: 12.5%; } }
+    padding-right: 2em;
+    width: 12.5%; }
+  .grid--8-col--q-xlarge > *:nth-child(8n) {
+    padding-right: 0; } }
 
 /*
 

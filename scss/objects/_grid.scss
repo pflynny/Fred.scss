@@ -384,7 +384,11 @@ Fred doesn't mind what grid you use :).
         $colName: #{$colName + $breakpointSuffix};
     }
     .#{$prefix}-#{$colName} > * {
+        padding-right: 2em;
         width: #{$width + "%"};
+    }
+    .#{$prefix}-#{$colName} > *:nth-child(#{$columns}n) {
+        padding-right: 0;
     }
 }
 
