@@ -3,7 +3,7 @@
 <head>
     <!-- Made by Springload -->
     <meta charset="UTF-8">
-    <meta name="description" content="Fred is not Bootstrap, or Foundation. He’s a handy collection of our favourite solutions to common front-end problems.">
+    <meta name="description" content="Fred is not Bootstrap, or Foundation. He&#x2019;s a handy collection of our favourite solutions to common front-end problems.">
 
     <!-- features -->
     <meta name="viewport" content="width=device-width, minimum-scale=1">
@@ -25,8 +25,10 @@
                 <a href="#" class="clean-link">Fred<span>.scss</span></a>
             </h1>
             <ul id="nav" class="nav mt-m pl-m pr-m"><li class="nav--h1"><a href="#meet-fred-the-friendly-front-end-framework">Meet Fred, the friendly front-end framework</a></li>
+<li class="font-size-xxs nav--h2"><a href="#getting-started">Getting started</a></li>
 <li class="nav--h1"><a href="#customising-fred">Customising Fred</a></li>
 <li class="font-size-xxs nav--h2"><a href="#core">Core</a></li>
+<li class="font-size-xxs nav--h2"><a href="#modules">Modules</a></li>
 <li class="font-size-xxs nav--h2"><a href="#arrows">Arrows</a></li>
 <li class="font-size-xxs nav--h2"><a href="#badges">Badges</a></li>
 <li class="font-size-xxs nav--h2"><a href="#generic-blocks">Generic blocks</a></li>
@@ -55,30 +57,117 @@
 
         <div class="page relative pt-xxl pl-m pr-m pl-xl--q-medium pr-m--q-medium grid__item col col-3-4--q-medium">
             <h1 id="meet-fred-the-friendly-front-end-framework">Meet Fred, the friendly front-end framework</h1>
-<blockquote>
-<p>Fred is not Bootstrap, or Foundation. <br>
-He’s a handy collection of our favourite solutions to common front-end problems.</p>
-</blockquote>
-<h3 id="building-fred">Building Fred</h3>
-<p>To build a custom Fred package from the command line, run:</p>
-<pre><code class="lang-bash">&gt; npm install
-&gt; grunt</code></pre>
-<p>...and follow the directions of your cabin crew.</p>
-<p>Grunt will make a <code>dist/lib/fred.scss</code>, and compile <code>dist/fred.css</code> for your project</p>
-<h3 id="working-with-your-project">Working with your project</h3>
-<p>You want to tweak all Fred&#39;s variables and make everything pretty for your project.</p>
-<p>You also want to keep Fred under some kind of package management, like bower.</p>
-<p>The <code>_fred-theme.scss</code> is copied into your sass directory and included by <code>lib/fred.scss</code>.</p>
-<pre><code class="lang-sass">// style.scss
+<p>Fred helps jump-start your front-end projects. He&#39;s a super flexible little guy with a 
+nice grunt-powered CLI.</p>
+<h3 id="how-fred-works">How Fred Works</h3>
+<p>Fred aims to solve a classic front-end problem: sharing and re-using common components between
+projects, while allowing each project to retain custom variables and configuration.</p>
+<p>You include &#39;_fred.scss&#39; in your project, and customise its behavior in &#39;_fred-theme.scss&#39;. 
+When there&#39;s an update to Fred, you can update it with a &#39;bower update&#39; and get all the new
+Fred goodness in your project right away, without losing your settings. </p>
+<h2 id="getting-started">Getting started</h2>
+<p>One liner:</p>
+<pre><code class="lang-bash">bower install fred &amp;&amp; cp bower_components/Fred.scss/dist/lib/fred.scss path-to-sass-folder/lib/_fred.scss &amp;&amp; cp bower_components/Fred.scss/dist/_fred-theme.scss path-to-sass-folder/_fred-theme.scss</code></pre>
+<p>This should give you the following structure in your sass dir:</p>
+<pre><code>path-to-sass-folder/
+    |--lib/
+    |----_fred.scss
+    |--_fred-theme.scss
+    |--screen.scss (or whatever your main sass file is)</code></pre>
+<p>Now you can include Fred in your <code>screen.scss</code>:</p>
+<pre><code class="lang-scss">// screen.scss
+@include &quot;lib/fred&quot;
 
-@import &quot;path/to/fred&quot;;
+// Your stylesheet can now use Fred! 
 
-// Rest of your styles here!</code></pre>
-<p>Now you can tweak away, while still being able to update Fred without nuking all your hard work.</p>
+.my-selector {
+  @extend %antialiased;
+}
+
+.my-other-selector {
+  @extend .mt-m--q-large;
+}</code></pre>
 <hr>
 <h1 id="customising-fred">Customising Fred</h1>
+<p>Fred has a very small core, and a number of optional modules. By default, it includes all of them.</p>
+<p>To change what&#39;s included, you can run <code>grunt</code> inside the Fred package that bower downloads for you.</p>
+<p>Follow the instructions of your cabin crew and you&#39;ll be rocking your custom-built Fred in
+no time.</p>
+<pre><code>&gt; cd Fred.scss/
+&gt; grunt 
+[?] Do you want to customise Fred&#39;s modules? (y/N)
+[?] Which modules would you like to include? (Press &lt;space&gt; to select)
+ ❯⬡ scss/objects/_arrows.scss
+  ⬡ scss/objects/_badge.scss
+  ⬡ scss/objects/_block-grid.scss
+  ⬡ scss/objects/_blocks.scss
+  ⬡ scss/objects/_breadcrumbs.scss
+  ⬡ scss/objects/_button-group.scss
+  ⬡ scss/objects/_buttons.scss
+  ⬡ scss/objects/_caret.scss
+  ⬡ scss/objects/_close.scss
+  ⬡ scss/objects/_forms.scss
+  ⬡ scss/objects/_grid.scss
+  ⬡ scss/objects/_headings.scss
+  ⬡ scss/objects/_icon-text.scss
+  ⬡ scss/objects/_images.scss
+  ⬡ scss/objects/_links.scss
+  ⬡ scss/objects/_lists.scss
+  ⬡ scss/objects/_media.scss
+  ⬡ scss/objects/_nav.scss
+  ⬡ scss/objects/_pagination.scss
+  ⬡ scss/objects/_pills.scss
+  ⬡ scss/objects/_radii.scss
+  ⬡ scss/objects/_ratio.scss
+  ⬡ scss/objects/_spacing.scss
+  ⬡ scss/objects/_split.scss
+  ⬡ scss/objects/_typography.scss
+  ⬡ scss/objects/_visibility.scss</code></pre>
+<p>That&#39;s about all for how to work with Fred. Next, let&#39;s look at what it actually gives you.</p>
+<hr>
 <h2 id="core">Core</h2>
+<h3 id="making-browsers-behave">Making browsers behave</h3>
+<p>Fred includes most of <a href="https://github.com/necolas/normalize.css">normalize.css</a> v2.1.3. </p>
+<p>You can read the documentation on the normalize site. </p>
+<hr>
+<h3 id="inline-blocks">Inline blocks</h3>
+<p>Inline blocks are handy for everything. We don&#39;t often support projects in IE7 and
+below, but since it&#39;s trivial to hack it in, we&#39;ve included it here. </p>
+<p>To cut down on rules in your stylesheet, you can extend this placeholder in your code.</p>
+<pre><code>%inline-block {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+
+.my-icon {
+    @extend %inline-block;
+}</code></pre>
+<h3 id="clearfixing">Clearfixing</h3>
+<p>Table-pseudo element clearfix. It is good.</p>
+<pre><code class="lang-scss">.my-floater {
+    @extend %clearfix;
+}</code></pre>
+<p>Or, heaven forbid, in your markup:</p>
+<pre><code class="lang-html">&lt;div class=&#39;clearfix&#39;&gt;
+    &lt;div class=&#39;left&#39;&gt;
+        Hey i&#39;m floating!
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<div class="block codedemo">
+
+<div class="clearfix">
+    <div class="left">
+        Hey i&#39;m floating!
+    </div>
+</div>
+
+<p></p></div><p></p>
 <h3 id="screen-reader-content">Screen reader content</h3>
+<p>We&#39;ve found some odd bugs with the -999px textindent hack. 
+Clipping is much better since it doesn&#39;t require a 999 x [your-line-height]px region to be drawn.</p>
+<p>This is borrowed from Bootstrap.</p>
 <pre><code class="lang-html"> &lt;a class=&quot;sr-only&quot; href=&quot;#content&quot;&gt;Skip to main content&lt;/a&gt;</code></pre>
 <div class="block codedemo">
 
@@ -89,6 +178,58 @@ He’s a handy collection of our favourite solutions to common front-end problem
 
 
 
+<h3 id="fixing-chrome-webkit-type-rendering">Fixing Chrome/WebKit type rendering</h3>
+<p>Since v22, Chrome makes fat sausage horrible web typography. Fix it with
+these properties right here:</p>
+<pre><code class="lang-html">&lt;div class=&#39;my-black-box antialiased&#39;&gt;
+    &lt;h1&gt;Knocked out white text!&lt;/h1&gt;  
+&lt;/div&gt;</code></pre>
+<div class="block codedemo">
+
+<div class="my-black-box antialiased">
+    <h1>Knocked out white text!</h1><br></div>
+
+<p></p></div><p></p>
+<p>But wait! That screws with everything on Windows Vista Chrome... right?</p>
+<p>Yeah, it does. If you&#39;re using our <a href="http://springload.github.io/Browser.js">Browser.js</a>,
+it&#39;ll automatically add <code>isWindowsChrome</code> to the documentElement, and we set
+the antialiasing back to classic sub-pixel mode:</p>
+<pre><code class="lang-scss">.isWindowsChrome %fix-webkit-font-rendering  {
+    -webkit-font-smoothing: subpixel-antialiased;
+}</code></pre>
+<p>In your markup:</p>
+<pre><code class="lang-html">&lt;html class=&#39;isWindowsChrome&#39;&gt;
+
+&lt;!-- some time later --&gt;
+
+&lt;div class=&#39;my-black-box antialiased&#39;&gt;
+    &lt;h1&gt;Hey i&#39;ll look good on Vista!&lt;/h1&gt;  
+&lt;/div&gt;</code></pre>
+<div class="block codedemo">
+
+<html class="isWindowsChrome">
+
+<!-- some time later -->
+
+<div class="my-black-box antialiased">
+    <h1>Hey i&#39;ll look good on Vista!</h1><br></div>
+
+
+<p></p></html></div><p></p>
+<h3 id="magic-tricks">Magic tricks</h3>
+<p>Showing and hiding things with a pre-emptive <code>important</code>  </p>
+<pre><code class="lang-html">&lt;div class=&#39;hide&#39;&gt;Shorthand display: none !important;&lt;/div&gt;
+&lt;div class=&#39;show&#39;&gt;Shorthand display: block !important;&lt;/div&gt;
+&lt;div class=&#39;hidden&#39;&gt;Shorthand visibility: hidden !important;&lt;/div&gt;
+&lt;div class=&#39;visible&#39;&gt;Shorthand visibility: visible !important;&lt;/div&gt;</code></pre>
+<div class="block codedemo">
+
+<div class="hide">Shorthand display: none !important;</div>
+<div class="show">Shorthand display: block !important;</div>
+<div class="hidden">Shorthand visibility: hidden !important;</div>
+<div class="visible">Shorthand visibility: visible !important;</div>
+
+<p></p></div><p></p>
 <h3 id="append-and-prepend">Append and Prepend</h3>
 <p>Place something before or after an element</p>
 <pre><code class="lang-html">&lt;p class=&quot;prepend&quot; data-prepend=&quot;email:&quot;&gt;&amp;nbsp;email@gmail.com&lt;/p&gt;
@@ -103,6 +244,13 @@ He’s a handy collection of our favourite solutions to common front-end problem
 
 
 
+<p>That wraps up the core of Fred. Some simple resets, helpers, and alignment classes. </p>
+<h2 id="modules">Modules</h2>
+<p>The real power of Fred is in modules. Fred&#39;s <code>grunt</code> task will let you build out
+just the modules you want. Fred generally uses BEM syntax for its modules, with
+the aim of keeping specificity low and making things easy to re-use. </p>
+<p>After you&#39;ve run &#39;npm install&#39;, calling <code>grunt</code> will let you roll your own Fred. </p>
+<p>By default, Fred will build and include all the following modules. </p>
 <h2 id="arrows">Arrows</h2>
 <p>Apply the modifier classes to the parent. For instance, this will put an
 arrow in the top left corner of the containing div:</p>
@@ -1757,22 +1905,6 @@ Fred doesn&#39;t mind what grid you use :).</p>
 <div class="block-s block--color-1 visible--q-xlarge">
     show this block on a xlarge screen
 </div>
-
-<p></p></div><p></p>
-<h3 id="hiding-texts">Hiding texts</h3>
-<p>Hide a text that is replaced by an image</p>
-<pre><code class="lang-html">&lt;div class=&quot;block-s block--color-2&quot;&gt;
-    &lt;a class=&quot;block-element text--hidden&quot;&gt;
-        I&#39;m a hidden text
-    &lt;/p&gt;
-&lt;/div&gt;</code></pre>
-<div class="block codedemo">
-
-<div class="block-s block--color-2">
-    <a class="block-element text--hidden">
-        I&#39;m a hidden text
-    <p></p>
-</a></div>
 
 <p></p></div><p></p>
 
