@@ -4,6 +4,39 @@
 
 # Meet Fred, the friendly front-end framework
 
+<<<<<<< HEAD
+Fred is a handy collection of our favourite solutions to common front-end problems. 
+He's a super flexible little guy with a nice grunt-powered CLI.
+
+
+### Getting started
+
+To get started right away, install Fred with Bower and copy the theme and lib components into your sass
+directory.
+
+```bash
+> bower install fred
+> cp bower_components/fred/dist/lib/_fred.scss  sass/lib/_fred.scss
+> cp bower_components/fred/dist/_fred-theme.scss  sass/_fred-theme.scss
+```
+
+Then, in your SASS project, just import `lib/fred`:
+
+```scss
+// screen.scss
+// My awesome web project
+
+@import "lib/fred";
+
+.my-selector {}
+
+.my-other-selector {}
+
+```
+
+Fred will automatically look for it's theme file one directory up from where `_fred.scss` is installed.
+
+=======
 Fred helps jump-start your front-end projects. He's a super flexible little guy with a 
 nice grunt-powered CLI.
 
@@ -34,12 +67,22 @@ path-to-sass-folder/
     |--_fred-theme.scss
     |--screen.scss (or whatever your main sass file is)
 ```
+>>>>>>> 3eeef84c834d57cc9ec92cfea678893c97543ad6
 
 Now you can include Fred in your `screen.scss`:
 ```scss
 // screen.scss
 @include "lib/fred"
 
+<<<<<<< HEAD
+### Customising the installation
+
+The real power of Fred is in modules. Fred's `grunt` task will let you build out
+just the modules you want. Fred generally uses BEM syntax for its modules, with
+the aim of keeping specificity low and making things easy to re-use. 
+
+By default, Fred installs a whole host of CSS components: buttons, lists, link styles, typography, etc.
+=======
 // Your stylesheet can now use Fred! 
 
 .my-selector {
@@ -49,14 +92,74 @@ Now you can include Fred in your `screen.scss`:
 .my-other-selector {
   @extend .mt-m--q-large;
 }
+>>>>>>> 3eeef84c834d57cc9ec92cfea678893c97543ad6
 
+You can customise your installation from within the fred directory. Here's a one-liner:
+
+```bash
+> cd bower_components/fred && npm install && grunt
 ```
 
+...and follow the directions of your trained cabin crew:
+
+```bash
+> cd Fred.scss/
+> grunt 
+[?] Do you want to customise Fred's modules? (y/N)
+[?] Which modules would you like to include? (Press <space> to select)
+ ❯⬡ scss/objects/_arrows.scss
+  ⬡ scss/objects/_badge.scss
+  ⬡ scss/objects/_block-grid.scss
+  ⬡ scss/objects/_blocks.scss
+  ⬡ scss/objects/_breadcrumbs.scss
+  ⬡ scss/objects/_button-group.scss
+  ⬡ scss/objects/_buttons.scss
+  ⬡ scss/objects/_caret.scss
+  ⬡ scss/objects/_close.scss
+  ⬡ scss/objects/_forms.scss
+  ⬡ scss/objects/_grid.scss
+  ⬡ scss/objects/_headings.scss
+  ⬡ scss/objects/_icon-text.scss
+  ⬡ scss/objects/_images.scss
+  ⬡ scss/objects/_links.scss
+  ⬡ scss/objects/_lists.scss
+  ⬡ scss/objects/_media.scss
+  ⬡ scss/objects/_nav.scss
+  ⬡ scss/objects/_pagination.scss
+  ⬡ scss/objects/_pills.scss
+  ⬡ scss/objects/_radii.scss
+  ⬡ scss/objects/_ratio.scss
+  ⬡ scss/objects/_spacing.scss
+  ⬡ scss/objects/_split.scss
+  ⬡ scss/objects/_typography.scss
+  ⬡ scss/objects/_visibility.scss
+```
+
+<<<<<<< HEAD
+Grunt will make a `dist/lib/fred.scss`, and compile `dist/fred.css` for your project.
+
+You can then choose to copy your freshly minted fred files over into your project directory,
+if that's your thing.
+
+
+### Working with your project
+
+No doubt, you'll want to tweak all Fred's variables and make everything pretty for your project.
+
+We've made a design decision with Fred: don't edit `_fred.scss` directly, but edit `_fred-theme.scss`
+to your heart's content. This lets you update/maintain the core library without losing all your custom
+project-specific configuration. 
+
+=======
+>>>>>>> 3eeef84c834d57cc9ec92cfea678893c97543ad6
 
 
 ---------------------------------------
 # Customising Fred
 
+<<<<<<< HEAD
+Fred is split into two parts: core and modules. The core is really simple. Here's its docs:
+=======
 Fred has a very small core, and a number of optional modules. By default, it includes all of them.
 
 To change what's included, you can run `grunt` inside the Fred package that bower downloads for you.
@@ -102,12 +205,17 @@ That's about all for how to work with Fred. Next, let's look at what it actually
 ----
 
 ## Core
+>>>>>>> 3eeef84c834d57cc9ec92cfea678893c97543ad6
 
 
 ### Making browsers behave
+<<<<<<< HEAD
+Fred includes most of [normalize.css](http://necolas.github.io/normalize.css/) v2.1.3. You can read the documentation over there. 
+=======
 Fred includes most of [normalize.css](https://github.com/necolas/normalize.css) v2.1.3. 
 
 You can read the documentation on the normalize site. 
+>>>>>>> 3eeef84c834d57cc9ec92cfea678893c97543ad6
 
 ----
 
@@ -237,15 +345,19 @@ Place something before or after an element
 
 That wraps up the core of Fred. Some simple resets, helpers, and alignment classes. 
 
-## Modules
+---
 
-The real power of Fred is in modules. Fred's `grunt` task will let you build out
-just the modules you want. Fred generally uses BEM syntax for its modules, with
-the aim of keeping specificity low and making things easy to re-use. 
+# Modules
 
-After you've run 'npm install', calling `grunt` will let you roll your own Fred. 
+Modules are intended as stand-alone functional blocks that you can optionally include
+in your build. We usually include all modules for development, then re-build the 
+library with only components we've used in production.
 
+<<<<<<< HEAD
+---
+=======
 By default, Fred will build and include all the following modules. 
+>>>>>>> 3eeef84c834d57cc9ec92cfea678893c97543ad6
 
 
 
