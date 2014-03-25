@@ -48,6 +48,7 @@ Float an image to the left, with a clearfixed block of content to the right.
 
     .media--rev > .media__image{
         @extend .right;
+        margin-right:0;
         margin-left:$base-spacing-unit;
     }
 

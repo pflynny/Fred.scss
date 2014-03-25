@@ -7,43 +7,94 @@ prefixes and minus the ones we dont need eg block-0 hmmm
 
 # Meet Fred, the friendly front-end framework
 
-> Fred is not Bootstrap, or Foundation. <br/>
-He’s a handy collection of our favourite solutions to common front-end problems.
+
+Fred helps jump-start your front-end projects. He's a super flexible little guy with a 
+nice grunt-powered CLI.
+
+### How Fred Works
+
+Fred aims to solve a classic front-end problem: sharing and re-using common components between
+projects, while allowing each project to retain custom variables and configuration.
+
+You include '_fred.scss' in your project, and customise its behavior in '_fred-theme.scss'. 
+When there's an update to Fred, you can update it with a 'bower update' and get all the new
+Fred goodness in your project right away, without losing your settings. 
 
 
-### Building Fred
+## Getting started
 
-To build a custom Fred package from the command line, run:
+One liner:
 
 ```bash
-> npm install
-> grunt
+bower install fred && cp bower_components/Fred.scss/dist/lib/fred.scss path-to-sass-folder/lib/_fred.scss && cp bower_components/Fred.scss/dist/_fred-theme.scss path-to-sass-folder/_fred-theme.scss 
 ```
 
-...and follow the directions of your cabin crew.
-
-Grunt will make a `dist/lib/fred.scss`, and compile `dist/fred.css` for your project
-
-
-### Working with your project
-
-You want to tweak all Fred's variables and make everything pretty for your project.
-
-You also want to keep Fred under some kind of package management, like bower.
-
-The `_fred-theme.scss` is copied into your sass directory and included by `lib/fred.scss`.
-
-
-```sass
-// style.scss
-
-@import "path/to/fred";
-
-// Rest of your styles here!
+This should give you the following structure in your sass dir:
 
 ```
+path-to-sass-folder/
+    |--lib/
+    |----_fred.scss
+    |--_fred-theme.scss
+    |--screen.scss (or whatever your main sass file is)
+```
 
-Now you can tweak away, while still being able to update Fred without nuking all your hard work.
+Now you can include Fred in your `screen.scss`:
+```scss
+// screen.scss
+@include "lib/fred"
+
+
+// Your stylesheet can now use Fred! 
+
+.my-selector {
+  @extend %antialiased;
+}
+
+.my-other-selector {
+  @extend .mt-m--q-large;
+}
+
+You can customise your installation from within the fred directory. Here's a one-liner:
+
+```bash
+> cd bower_components/fred && npm install && grunt
+```
+
+...and follow the directions of your trained cabin crew:
+
+```bash
+> cd Fred.scss/
+> grunt 
+[?] Do you want to customise Fred's modules? (y/N)
+[?] Which modules would you like to include? (Press <space> to select)
+ ❯⬡ scss/objects/_arrows.scss
+  ⬡ scss/objects/_badge.scss
+  ⬡ scss/objects/_block-grid.scss
+  ⬡ scss/objects/_blocks.scss
+  ⬡ scss/objects/_breadcrumbs.scss
+  ⬡ scss/objects/_button-group.scss
+  ⬡ scss/objects/_buttons.scss
+  ⬡ scss/objects/_caret.scss
+  ⬡ scss/objects/_close.scss
+  ⬡ scss/objects/_forms.scss
+  ⬡ scss/objects/_grid.scss
+  ⬡ scss/objects/_headings.scss
+  ⬡ scss/objects/_icon-text.scss
+  ⬡ scss/objects/_images.scss
+  ⬡ scss/objects/_links.scss
+  ⬡ scss/objects/_lists.scss
+  ⬡ scss/objects/_media.scss
+  ⬡ scss/objects/_nav.scss
+  ⬡ scss/objects/_pagination.scss
+  ⬡ scss/objects/_pills.scss
+  ⬡ scss/objects/_radii.scss
+  ⬡ scss/objects/_ratio.scss
+  ⬡ scss/objects/_spacing.scss
+  ⬡ scss/objects/_split.scss
+  ⬡ scss/objects/_typography.scss
+  ⬡ scss/objects/_visibility.scss
+```
 
 */
 /* 
@@ -55,7 +106,59 @@ prefixes and minus the ones we dont need eg block-0 hmmm
 ---------------------------------------
 # Customising Fred
 
+Fred has a very small core, and a number of optional modules. By default, it includes all of them.
+
+To change what's included, you can run `grunt` inside the Fred package that bower downloads for you.
+
+Follow the instructions of your cabin crew and you'll be rocking your custom-built Fred in
+no time.
+
+```
+> cd Fred.scss/
+> grunt 
+[?] Do you want to customise Fred's modules? (y/N)
+[?] Which modules would you like to include? (Press <space> to select)
+ ❯⬡ scss/objects/_arrows.scss
+  ⬡ scss/objects/_badge.scss
+  ⬡ scss/objects/_block-grid.scss
+  ⬡ scss/objects/_blocks.scss
+  ⬡ scss/objects/_breadcrumbs.scss
+  ⬡ scss/objects/_button-group.scss
+  ⬡ scss/objects/_buttons.scss
+  ⬡ scss/objects/_caret.scss
+  ⬡ scss/objects/_close.scss
+  ⬡ scss/objects/_forms.scss
+  ⬡ scss/objects/_grid.scss
+  ⬡ scss/objects/_headings.scss
+  ⬡ scss/objects/_icon-text.scss
+  ⬡ scss/objects/_images.scss
+  ⬡ scss/objects/_links.scss
+  ⬡ scss/objects/_lists.scss
+  ⬡ scss/objects/_media.scss
+  ⬡ scss/objects/_nav.scss
+  ⬡ scss/objects/_pagination.scss
+  ⬡ scss/objects/_pills.scss
+  ⬡ scss/objects/_radii.scss
+  ⬡ scss/objects/_ratio.scss
+  ⬡ scss/objects/_spacing.scss
+  ⬡ scss/objects/_split.scss
+  ⬡ scss/objects/_typography.scss
+  ⬡ scss/objects/_visibility.scss
+```
+
+That's about all for how to work with Fred. Next, let's look at what it actually gives you.
+
+----
+
 ## Core
+
+
+### Making browsers behave
+Fred includes most of [normalize.css](https://github.com/necolas/normalize.css) v2.1.3. 
+
+You can read the documentation on the normalize site. 
+
+----
 
 */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
@@ -199,6 +302,29 @@ table {
 
 
 
+/**
+### Inline blocks
+
+Inline blocks are handy for everything. We don't often support projects in IE7 and
+below, but since it's trivial to hack it in, we've included it here. 
+
+To cut down on rules in your stylesheet, you can extend this placeholder in your code.
+
+```
+%inline-block {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+
+.my-icon {
+    @extend %inline-block;
+}
+
+```
+
+*/
 .inline-block, .arrow, .badge, .breadcrumbs > li, .breadcrumbs--arrow > li, .btn-group, .btn-group-vertical, .btn, .caret, .close:after, .grid > *, .grid__item, .grid:after, .grid__break, .icon-text .i, .btn--icon .i, .icon-text--rev .i, .btn--icon-rev .i, .list--inline > li, .dl-horizontal:after, .nav > li, .pagination > li, .pill, .text--overflow {
   display: inline-block;
   *display: inline;
@@ -209,6 +335,28 @@ table {
   display: block; }
 
 
+/**
+### Clearfixing
+
+Table-pseudo element clearfix. It is good.
+
+```scss
+.my-floater {
+    @extend %clearfix;
+}
+```
+
+Or, heaven forbid, in your markup:
+
+```html
+<div class='clearfix'>
+    <div class='left'>
+        Hey i'm floating!
+    </div>
+</div>
+```
+
+*/
 .clearfix, .btn-toolbar, .btn-group-vertical > .btn-group, .media, .media--rev {
   /**
      * For IE 6/7 only
@@ -237,6 +385,11 @@ table {
 
 ###Screen reader content
 
+We've found some odd bugs with the -999px textindent hack. 
+Clipping is much better since it doesn't require a 999 x [your-line-height]px region to be drawn.
+
+This is borrowed from Bootstrap.
+
 ```html
  <a class="sr-only" href="#content">Skip to main content</a>
 ```
@@ -252,6 +405,43 @@ table {
   clip: rect(0, 0, 0, 0);
   border: 0; }
 
+/**
+
+### Fixing Chrome/WebKit type rendering
+
+Since v22, Chrome makes fat sausage horrible web typography. Fix it with
+these properties right here:
+
+```html
+<div class='my-black-box antialiased'>
+    <h1>Knocked out white text!</h1>  
+</div>
+```
+
+But wait! That screws with everything on Windows Vista Chrome... right?
+
+Yeah, it does. If you're using our [Browser.js](http://springload.github.io/Browser.js),
+it'll automatically add `isWindowsChrome` to the documentElement, and we set
+the antialiasing back to classic sub-pixel mode:
+
+```scss
+.isWindowsChrome %fix-webkit-font-rendering  {
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+```
+
+In your markup:
+```html
+<html class='isWindowsChrome'>
+
+<!-- some time later -->
+
+<div class='my-black-box antialiased'>
+    <h1>Hey i'll look good on Vista!</h1>  
+</div>
+
+```
+*/
 .antialiased {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility; }
@@ -260,6 +450,19 @@ table {
   -webkit-font-smoothing: subpixel-antialiased; }
 
 
+/**
+### Magic tricks
+
+Showing and hiding things with a pre-emptive `important`  
+
+```html
+<div class='hide'>Shorthand display: none !important;</div>
+<div class='show'>Shorthand display: block !important;</div>
+<div class='hidden'>Shorthand visibility: hidden !important;</div>
+<div class='visible'>Shorthand visibility: visible !important;</div>
+```
+
+*/
 .hide {
   display: none !important; }
 
@@ -267,6 +470,12 @@ table {
   display: block !important; }
 
 
+
+.visible {
+  visibility: visible !important; }
+
+.hidden {
+  visibility: hidden !important; }
 
 
 
@@ -290,6 +499,22 @@ Place something before or after an element
   content: attr(data-append);
   display: inline-block; }
 
+/**
+
+That wraps up the core of Fred. Some simple resets, helpers, and alignment classes. 
+
+---
+
+# Modules
+
+Modules are intended as stand-alone functional blocks that you can optionally include
+in your build. We usually include all modules for development, then re-build the 
+library with only components we've used in production.
+
+
+By default, Fred will build and include all the following modules. 
+
+*/
 /**
 
 ## Arrows
@@ -324,7 +549,7 @@ arrow in the top left corner of the containing div:
   /*i,span*/
   border-color: transparent;
   border-style: solid;
-  border-width: 0.4em;
+  border-width: 0.5em;
   height: 0;
   width: 0; }
 
@@ -1662,201 +1887,243 @@ Fred doesn't mind what grid you use :).
     width: 100%; } }
 
 .grid--1-col > * {
-  padding-right: 2em;
   width: 100%; }
 
+.grid--1-col > * {
+  margin-right: 4%; }
+
 .grid--1-col > *:nth-child(1n) {
-  padding-right: 0; }
+  margin-right: 0; }
 
 .grid--2-col > * {
-  padding-right: 2em;
-  width: 50%; }
+  width: 48%; }
+
+.grid--2-col > * {
+  margin-right: 4%; }
 
 .grid--2-col > *:nth-child(2n) {
-  padding-right: 0; }
+  margin-right: 0; }
 
 .grid--3-col > * {
-  padding-right: 2em;
-  width: 33.33333%; }
+  width: 30.66667%; }
+
+.grid--3-col > * {
+  margin-right: 4%; }
 
 .grid--3-col > *:nth-child(3n) {
-  padding-right: 0; }
+  margin-right: 0; }
 
 .grid--4-col > * {
-  padding-right: 2em;
-  width: 25%; }
+  width: 22%; }
+
+.grid--4-col > * {
+  margin-right: 4%; }
 
 .grid--4-col > *:nth-child(4n) {
-  padding-right: 0; }
+  margin-right: 0; }
 
 .grid--5-col > * {
-  padding-right: 2em;
-  width: 20%; }
+  width: 16.8%; }
+
+.grid--5-col > * {
+  margin-right: 4%; }
 
 .grid--5-col > *:nth-child(5n) {
-  padding-right: 0; }
+  margin-right: 0; }
 
 .grid--6-col > * {
-  padding-right: 2em;
-  width: 16.66667%; }
+  width: 13.33333%; }
+
+.grid--6-col > * {
+  margin-right: 4%; }
 
 .grid--6-col > *:nth-child(6n) {
-  padding-right: 0; }
+  margin-right: 0; }
 
 .grid--8-col > * {
-  padding-right: 2em;
-  width: 12.5%; }
+  width: 9%; }
+
+.grid--8-col > * {
+  margin-right: 4%; }
 
 .grid--8-col > *:nth-child(8n) {
-  padding-right: 0; }
+  margin-right: 0; }
 
 @media only screen {
   .grid--1-col--q-small > * {
-    padding-right: 2em;
     width: 100%; }
+  .grid--1-col--q-small > * {
+    margin-right: 4%; }
   .grid--1-col--q-small > *:nth-child(1n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--2-col--q-small > * {
-    padding-right: 2em;
-    width: 50%; }
+    width: 48%; }
+  .grid--2-col--q-small > * {
+    margin-right: 4%; }
   .grid--2-col--q-small > *:nth-child(2n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--3-col--q-small > * {
-    padding-right: 2em;
-    width: 33.33333%; }
+    width: 30.66667%; }
+  .grid--3-col--q-small > * {
+    margin-right: 4%; }
   .grid--3-col--q-small > *:nth-child(3n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--4-col--q-small > * {
-    padding-right: 2em;
-    width: 25%; }
+    width: 22%; }
+  .grid--4-col--q-small > * {
+    margin-right: 4%; }
   .grid--4-col--q-small > *:nth-child(4n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--5-col--q-small > * {
-    padding-right: 2em;
-    width: 20%; }
+    width: 16.8%; }
+  .grid--5-col--q-small > * {
+    margin-right: 4%; }
   .grid--5-col--q-small > *:nth-child(5n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--6-col--q-small > * {
-    padding-right: 2em;
-    width: 16.66667%; }
+    width: 13.33333%; }
+  .grid--6-col--q-small > * {
+    margin-right: 4%; }
   .grid--6-col--q-small > *:nth-child(6n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--8-col--q-small > * {
-    padding-right: 2em;
-    width: 12.5%; }
+    width: 9%; }
+  .grid--8-col--q-small > * {
+    margin-right: 4%; }
   .grid--8-col--q-small > *:nth-child(8n) {
-    padding-right: 0; } }
+    margin-right: 0; } }
 
 @media only screen and (min-width: 48em) {
   .grid--1-col--q-medium > * {
-    padding-right: 2em;
     width: 100%; }
+  .grid--1-col--q-medium > * {
+    margin-right: 4%; }
   .grid--1-col--q-medium > *:nth-child(1n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--2-col--q-medium > * {
-    padding-right: 2em;
-    width: 50%; }
+    width: 48%; }
+  .grid--2-col--q-medium > * {
+    margin-right: 4%; }
   .grid--2-col--q-medium > *:nth-child(2n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--3-col--q-medium > * {
-    padding-right: 2em;
-    width: 33.33333%; }
+    width: 30.66667%; }
+  .grid--3-col--q-medium > * {
+    margin-right: 4%; }
   .grid--3-col--q-medium > *:nth-child(3n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--4-col--q-medium > * {
-    padding-right: 2em;
-    width: 25%; }
+    width: 22%; }
+  .grid--4-col--q-medium > * {
+    margin-right: 4%; }
   .grid--4-col--q-medium > *:nth-child(4n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--5-col--q-medium > * {
-    padding-right: 2em;
-    width: 20%; }
+    width: 16.8%; }
+  .grid--5-col--q-medium > * {
+    margin-right: 4%; }
   .grid--5-col--q-medium > *:nth-child(5n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--6-col--q-medium > * {
-    padding-right: 2em;
-    width: 16.66667%; }
+    width: 13.33333%; }
+  .grid--6-col--q-medium > * {
+    margin-right: 4%; }
   .grid--6-col--q-medium > *:nth-child(6n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--8-col--q-medium > * {
-    padding-right: 2em;
-    width: 12.5%; }
+    width: 9%; }
+  .grid--8-col--q-medium > * {
+    margin-right: 4%; }
   .grid--8-col--q-medium > *:nth-child(8n) {
-    padding-right: 0; } }
+    margin-right: 0; } }
 
 @media only screen and (min-width: 60em) {
   .grid--1-col--q-large > * {
-    padding-right: 2em;
     width: 100%; }
+  .grid--1-col--q-large > * {
+    margin-right: 4%; }
   .grid--1-col--q-large > *:nth-child(1n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--2-col--q-large > * {
-    padding-right: 2em;
-    width: 50%; }
+    width: 48%; }
+  .grid--2-col--q-large > * {
+    margin-right: 4%; }
   .grid--2-col--q-large > *:nth-child(2n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--3-col--q-large > * {
-    padding-right: 2em;
-    width: 33.33333%; }
+    width: 30.66667%; }
+  .grid--3-col--q-large > * {
+    margin-right: 4%; }
   .grid--3-col--q-large > *:nth-child(3n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--4-col--q-large > * {
-    padding-right: 2em;
-    width: 25%; }
+    width: 22%; }
+  .grid--4-col--q-large > * {
+    margin-right: 4%; }
   .grid--4-col--q-large > *:nth-child(4n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--5-col--q-large > * {
-    padding-right: 2em;
-    width: 20%; }
+    width: 16.8%; }
+  .grid--5-col--q-large > * {
+    margin-right: 4%; }
   .grid--5-col--q-large > *:nth-child(5n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--6-col--q-large > * {
-    padding-right: 2em;
-    width: 16.66667%; }
+    width: 13.33333%; }
+  .grid--6-col--q-large > * {
+    margin-right: 4%; }
   .grid--6-col--q-large > *:nth-child(6n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--8-col--q-large > * {
-    padding-right: 2em;
-    width: 12.5%; }
+    width: 9%; }
+  .grid--8-col--q-large > * {
+    margin-right: 4%; }
   .grid--8-col--q-large > *:nth-child(8n) {
-    padding-right: 0; } }
+    margin-right: 0; } }
 
 @media only screen and (min-width: 75em) {
   .grid--1-col--q-xlarge > * {
-    padding-right: 2em;
     width: 100%; }
+  .grid--1-col--q-xlarge > * {
+    margin-right: 4%; }
   .grid--1-col--q-xlarge > *:nth-child(1n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--2-col--q-xlarge > * {
-    padding-right: 2em;
-    width: 50%; }
+    width: 48%; }
+  .grid--2-col--q-xlarge > * {
+    margin-right: 4%; }
   .grid--2-col--q-xlarge > *:nth-child(2n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--3-col--q-xlarge > * {
-    padding-right: 2em;
-    width: 33.33333%; }
+    width: 30.66667%; }
+  .grid--3-col--q-xlarge > * {
+    margin-right: 4%; }
   .grid--3-col--q-xlarge > *:nth-child(3n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--4-col--q-xlarge > * {
-    padding-right: 2em;
-    width: 25%; }
+    width: 22%; }
+  .grid--4-col--q-xlarge > * {
+    margin-right: 4%; }
   .grid--4-col--q-xlarge > *:nth-child(4n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--5-col--q-xlarge > * {
-    padding-right: 2em;
-    width: 20%; }
+    width: 16.8%; }
+  .grid--5-col--q-xlarge > * {
+    margin-right: 4%; }
   .grid--5-col--q-xlarge > *:nth-child(5n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--6-col--q-xlarge > * {
-    padding-right: 2em;
-    width: 16.66667%; }
+    width: 13.33333%; }
+  .grid--6-col--q-xlarge > * {
+    margin-right: 4%; }
   .grid--6-col--q-xlarge > *:nth-child(6n) {
-    padding-right: 0; }
+    margin-right: 0; }
   .grid--8-col--q-xlarge > * {
-    padding-right: 2em;
-    width: 12.5%; }
+    width: 9%; }
+  .grid--8-col--q-xlarge > * {
+    margin-right: 4%; }
   .grid--8-col--q-xlarge > *:nth-child(8n) {
-    padding-right: 0; } }
+    margin-right: 0; } }
 
 /*
 
@@ -2284,6 +2551,7 @@ Float an image to the left, with a clearfixed block of content to the right.
   margin-top: 1.5em; }
 
 .media--rev > .media__image {
+  margin-right: 0;
   margin-left: 1.5em; }
 
 
@@ -3810,26 +4078,6 @@ Try to use these on a limited basis and avoid creating entirely different versio
 ```
 
 */
-/**
-
-### Hiding texts
-
-Hide a text that is replaced by an image
-
-```html
-<div class="block-s block--color-2">
-    <a class="block-element text--hidden">
-        I'm a hidden text
-    </p>
-</div>
-```
-
-*/
-.text--visually-hidden {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden; }
-
 .visually-hidden {
   clip: rect(0 0 0 0);
   height: 1px;
@@ -3839,6 +4087,9 @@ Hide a text that is replaced by an image
   border: 0;
   overflow: hidden;
   position: absolute; }
+
+.hidden, .hide {
+  display: none; }
 
 @media only screen and (max-width: 47.99em) {
   .visible--q-small {

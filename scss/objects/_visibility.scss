@@ -60,27 +60,7 @@ Try to use these on a limited basis and avoid creating entirely different versio
 
 */
 
-/**
 
-### Hiding texts
-
-Hide a text that is replaced by an image
-
-```html
-<div class="block-s block--color-2">
-    <a class="block-element text--hidden">
-        I'm a hidden text
-    </p>
-</div>
-```
-
-*/
-
-.text--visually-hidden {
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-}
 
 
 
@@ -95,6 +75,13 @@ Hide a text that is replaced by an image
     position: absolute;
 }
 
+
+// Hide an element
+// ----------------------------------------------------------------------------
+
+.hidden, .hide {
+    display: none;
+}
 
 
 // Common visible and hidden classes
@@ -263,5 +250,3 @@ Hide a text that is replaced by an image
         display: none;
     }
 }
-
-

@@ -379,16 +379,20 @@ Fred doesn't mind what grid you use :).
 @mixin grid-list-columns($columns: 4, $breakpointSuffix: false) {
     $prefix: grid;
     $colName: #{"-"+$columns+"-"+$grid-column-name};
-    $width: 1 / $columns * 100;
+    // subtract column margins from total available width
+    $colMargin: .04;
+    $width: ( 1 - ( ($columns - 1) * $colMargin ) ) / $columns * 100;
     @if $breakpointSuffix {
         $colName: #{$colName + $breakpointSuffix};
     }
     .#{$prefix}-#{$colName} > * {
-        padding-right: 2em;
         width: #{$width + "%"};
     }
+    .#{$prefix}-#{$colName} > *  {
+        margin-right: #{ ($colMargin * 100) + "%"};
+    }
     .#{$prefix}-#{$colName} > *:nth-child(#{$columns}n) {
-        padding-right: 0;
+        margin-right: 0;
     }
 }
 
